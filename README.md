@@ -1,6 +1,8 @@
-# Getting Started with Create React App
+# Lily's Beauty Clinic
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a website and appointment manager for Lily's beauty clinic.
+
+- [Facebook](https://www.facebook.com/clinicadebellezaenmorelia)
 
 ## Available Scripts
 
