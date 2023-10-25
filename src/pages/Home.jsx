@@ -1,31 +1,21 @@
 import React from 'react'
 import Header from '../components/layout/Header'
 import Footer from '../components/layout/Footer'
+import Heading from '../components/atoms/Heading'
 
 const Home = () => {
-    return (
-        <div>
-            <Header></Header>
+	return (
+		<div>
+			<Header></Header>
 
-            {/* Hero */}
-            <section></section>
+			<section></section>
 
-            {/* Features */}
-            <section></section>
+			<Heading title="Reserva ahora mismo, es hora de sentirse bella"></Heading>
+			<Heading title="Contamos con diferentes tipos de tratamiento"></Heading>
 
-            {/* Services */}
-            <section></section>
-
-            {/* Types of services */}
-            <section></section>
-
-            {/* customers */}
-            <section></section>
-
-            {/* Footer */}
-            <Footer></Footer>
-        </div>
-    )
+			<Footer></Footer>
+		</div>
+	)
 }
 
 export default Home
