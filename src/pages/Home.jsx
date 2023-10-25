@@ -12,6 +12,7 @@ const Home = () => {
 
 			<Heading title="Reserva ahora mismo, es hora de sentirse bella"></Heading>
 			<Heading title="Contamos con diferentes tipos de tratamiento"></Heading>
+            <Heading title="Hola"></Heading>
 
 			<Footer></Footer>
 		</div>
