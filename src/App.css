@@ -5,7 +5,7 @@
 
 :root {
 	--color-primary: #2ebbcd;
-	--color-secondary: #ec3434;
+	--color-secondary: #FF993C;
 	--color-white: #ffffff;
 	--color-black: #272727;
 	--color-yellow: #ffcc00;
@@ -63,5 +63,110 @@ body {
 	background-color: var(--color-primary);
 	padding: 20px;
 	font-size: 1.5em;
-	margin: 0px;
+	margin-bottom: 30px;
+	margin-top: 30px;
 }
+
+/* 3 cuadros de la pagina principal*/
+
+.contenedorespagprin{
+ display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.icono {
+	max-width: 100px; /* Ajusta el ancho máximo de la imagen según tus necesidades */
+	margin-right: 1px; /* Ajusta el margen entre la imagen y la línea vertical */
+	text-align: center;
+  }
+  
+  .linea-vertical {
+	border-left: 2px solid #000; /* Ancho y color de la línea vertical */
+	height: 90px; /* Altura de la línea vertical */
+	margin: 0 20px; /* Ajusta el margen entre la línea vertical y el párrafo */
+	border-color: var(--color-secondary);
+  }
+  
+  .parrafo {
+	text-align: center;
+	color: var(--color-black);
+	width: 20em;
+	font-size: 16px; /* Tamaño de fuente para el párrafo */
+  }
+
+
+  /* Cuadro grande */
+  .parrafotit {
+	text-align: center;
+	color: var(--color-black);
+	width: 20em;
+	font-size: 22px; /* Tamaño de fuente para el párrafo */
+  }
+
+  .contenedor-cuadros {
+	display: flex;
+	flex-wrap: wrap;
+	/* justify-content: c; */
+	width: 1000px; /* Ancho del contenedor */
+	align-items: center ;
+	margin: 0 auto; /* Centra el contenedor horizontalmente */
+  
+  }
+  
+  .cuadro {
+	width: 250px; /* Ancho de cada cuadro */
+	height: 250px;
+	border: 0.5px solid var(--color-white); /* Borde de los cuadros */
+	padding: 10px;
+	/* margin-bottom: 20px; */
+	background-color: var(--color-secondary);
+	text-align: center;
+	justify-content: center;
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+
+  }
+  
+  .linea-horizontal {
+	border-top: 2px solid var(--color-black); /* Línea horizontal */
+	margin-bottom: 25px;
+	margin-top: 50px;
+	width: 150px;
+	align-items: center;
+	justify-content: center;
+  }
+
+  .imgcontenedor{
+	width: 200px;
+	height: auto;
+  }
+
+
+  /* Targets Tipos */
+
+  .contenedor-tartip {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	padding: 20px;
+  }
+  
+  .imgtarget {
+	max-width: 100%; /* Asegura que la imagen no sea más ancha que el contenedor */
+  }
+
+  .parrafotarget {
+	text-align: center;
+	color: var(--color-black);
+	width: 20em;
+	font-size: 16px; /* Tamaño de fuente para el párrafo */
+  }
+  
+  .tittarget{
+		text-align: center;
+		color: var(--color-secondary);
+		font-size: 16px; /* Tamaño de fuente para el párrafo */
+  }
