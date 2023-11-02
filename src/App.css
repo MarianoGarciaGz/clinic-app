@@ -62,7 +62,7 @@ body {
 	color: var(--color-white);
 	background-color: var(--color-primary);
 	padding: 20px;
-	font-size: 1.5em;
+	font-size: 1.2em;
 	margin-bottom: 30px;
 	margin-top: 30px;
 }
@@ -73,11 +73,11 @@ body {
 .carrusel-container {
 	max-width: 600px; /* Establece el ancho máximo del carrusel */
 	margin: 0 auto; /* Centra el carrusel horizontalmente en su contenedor */
-  
+
 	.slick-dots {
 	  bottom: 20px; /* Ajusta la posición de los puntos de navegación */
 	}
-  
+
 	.slick-prev,
 	.slick-next {
 	  background-color: #007bff; /* Cambia el color de fondo de los botones de navegación */
@@ -85,19 +85,19 @@ body {
 	  border-radius: 50%; /* Hace que los botones de navegación sean circulares */
 	  padding: 8px; /* Añade espacio interno a los botones de navegación */
 	}
-  
+
 	.slick-prev {
 	  left: 10px; /* Ajusta la posición del botón "anterior" */
 	}
-  
+
 	.slick-next {
 	  right: 10px; /* Ajusta la posición del botón "siguiente" */
 	}
-  
+
 	.slick-slide {
 	  padding: 10px; /* Añade espacio interno entre los elementos del carrusel */
 	}
-  
+
 	.slick-slide img {
 	  width: 100%; /* Ajusta el tamaño de las imágenes dentro del carrusel */
 	  border: 1px solid #ddd; /* Agrega un borde a las imágenes si es necesario */
@@ -111,7 +111,7 @@ body {
  display: flex;
   align-items: center;
   justify-content: flex-start;
-  
+
 }
 
 .icono {
@@ -119,14 +119,14 @@ body {
 	margin-right: 1px; /* Ajusta el margen entre la imagen y la línea vertical */
 	text-align: center;
   }
-  
+
   .linea-vertical {
 	border-left: 2px solid #000; /* Ancho y color de la línea vertical */
 	height: 90px; /* Altura de la línea vertical */
 	margin: 0 20px; /* Ajusta el margen entre la línea vertical y el párrafo */
 	border-color: var(--color-secondary);
   }
-  
+
   .parrafo {
 	text-align: center;
 	color: var(--color-black);
@@ -143,7 +143,7 @@ body {
 	align-items: center; /* Centra verticalmente los elementos */
 	/* width: 80rem; */
   }
-  
+
   /* Estilos para cada componente individual */
   .image-component {
 	max-width: 100px; /* Ajusta el ancho máximo de la imagen según tus necesidades */
@@ -151,14 +151,14 @@ body {
 	text-align: center;
 	margin-left: 1rem;
   }
-  
+
   .vertical-line {
 	border-left: 2px solid #000; /* Ancho y color de la línea vertical */
 	height: 90px; /* Altura de la línea vertical */
 	margin: 0 20px; /* Ajusta el margen entre la línea vertical y el párrafo */
 	border-color: var(--color-secondary);
   }
-  
+
   .text-component {
 	text-align: center;
 	color: var(--color-black);
@@ -166,8 +166,8 @@ body {
 	font-size: 16px; /* Tamaño de fuente para el párrafo */
 	margin-right: 5rem;
   }
-  
-  
+
+
 
 
   /* --------------------------------------------------CUADRO GRANDE-------------------------------- */
@@ -185,9 +185,9 @@ body {
 	width: 1000px; /* Ancho del contenedor */
 	align-items: center ;
 	margin: 0 auto; /* Centra el contenedor horizontalmente */
-  
+
   }
-  
+
   .cuadro {
 	width: 250px; /* Ancho de cada cuadro */
 	height: 250px;
@@ -202,7 +202,7 @@ body {
     align-items: center;
 
   }
-  
+
   .linea-horizontal {
 	border-top: 2px solid var(--color-black); /* Línea horizontal */
 	margin-bottom: 25px;
@@ -227,7 +227,7 @@ body {
   align-items: center; /* Centra verticalmente los componentes */
   gap: 20px; /* Espacio entre los componentes */
   }
-  
+
   /* Estilos para los contenedores de contenido */
   .tipos-container {
 	display: flex;
@@ -267,3 +267,64 @@ body {
   }
 
 }
+
+/* -------------------------------PAGINA DE AGENDAR CITA-------------------------------- */
+.app-container-elegir {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	/* height: 100vh; */
+  }
+
+  .container-elegir {
+	display: flex;
+	align-items: center; 
+	/* justify-content: center; */
+	margin-bottom: 30px;
+	margin-top: 30px;
+	margin-right: 40px;
+  }
+
+  .image-elegir {
+	width: 5%;
+	height: auto;
+	margin-right: 1px;
+	margin-left: 80px;
+  }
+
+  .vertical-line-elegir {
+	border-left: 1px solid var(--color-secondary);
+	height: 80px;
+	margin: 0 20px;
+  }
+
+  .content-elegir {
+	display: flex;
+	flex-direction: column;
+	/* align-items: center; */
+  }
+
+  .text-elegir {
+	color: var(--color-black);
+	text-align: left; /* Alinea el texto hacia la izquierda */
+	padding-left: 3px;
+  }
+
+  .horizontal-line-elegir {
+	border-top: 3px solid var(--color-primary);
+	width: 70%;
+	margin: 20px 0;
+	align-items: center;
+	justify-content: center;
+	justify-items: center;
+  }
+
+  .rounded-box-elegir {
+	border: 1px solid var(--color-secondary);
+	border-radius: 10px;
+	padding: 10px;
+	height: 2rem;
+	width: 10rem;
+  }
+
