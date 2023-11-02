@@ -1,6 +1,6 @@
 import React from 'react';
 
-function TextComponent({ text }) {
+function TextClinic({ text }) {
   return (
     <div className="text-component">
       {text}
@@ -8,4 +8,4 @@ function TextComponent({ text }) {
   );
 }
 
-export default TextComponent;
+export default TextClinic;

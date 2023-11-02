@@ -1,6 +1,6 @@
 import React from 'react';
 
-function ImageComponent({ imageUrl }) {
+function IconoComClinic({ imageUrl }) {
   return (
     <div className="image-component">
       <img src={imageUrl} alt="Imagen" />
@@ -8,4 +8,4 @@ function ImageComponent({ imageUrl }) {
   );
 }
 
-export default ImageComponent;
+export default IconoComClinic;

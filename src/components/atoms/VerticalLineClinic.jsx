@@ -1,7 +1,7 @@
 import React from 'react';
 
-function VerticalLineComponent() {
+function VerticalLineClinic() {
   return <div className="vertical-line"></div>;
 }
 
-export default VerticalLineComponent;
+export default VerticalLineClinic;

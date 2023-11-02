@@ -67,7 +67,45 @@ body {
 	margin-top: 30px;
 }
 
-/* 3 cuadros de la pagina principal*/
+/*----------------------------------PAGINA PRINCIPAL---------------------------------------*/
+
+/* -------------------------------------CARRUSEL-------------------------------------------*/
+.carrusel-container {
+	max-width: 600px; /* Establece el ancho máximo del carrusel */
+	margin: 0 auto; /* Centra el carrusel horizontalmente en su contenedor */
+  
+	.slick-dots {
+	  bottom: 20px; /* Ajusta la posición de los puntos de navegación */
+	}
+  
+	.slick-prev,
+	.slick-next {
+	  background-color: #007bff; /* Cambia el color de fondo de los botones de navegación */
+	  color: #fff; /* Cambia el color del texto de los botones de navegación */
+	  border-radius: 50%; /* Hace que los botones de navegación sean circulares */
+	  padding: 8px; /* Añade espacio interno a los botones de navegación */
+	}
+  
+	.slick-prev {
+	  left: 10px; /* Ajusta la posición del botón "anterior" */
+	}
+  
+	.slick-next {
+	  right: 10px; /* Ajusta la posición del botón "siguiente" */
+	}
+  
+	.slick-slide {
+	  padding: 10px; /* Añade espacio interno entre los elementos del carrusel */
+	}
+  
+	.slick-slide img {
+	  width: 100%; /* Ajusta el tamaño de las imágenes dentro del carrusel */
+	  border: 1px solid #ddd; /* Agrega un borde a las imágenes si es necesario */
+	}
+  }
+
+
+/*-------------------------------------------3 CUADROS-----------------------------------*/
 
 .contenedorespagprin{
  display: flex;
@@ -96,7 +134,7 @@ body {
 	font-size: 16px; /* Tamaño de fuente para el párrafo */
   }
 
-  /* Estilos para el componente principal */
+  /*Estilos para el componente principal */
 .horizontal-layout {
 	margin-top: 5rem;
 	display: flex; /* Usa flexbox para organizar horizontalmente */
@@ -132,7 +170,7 @@ body {
   
 
 
-  /* Cuadro grande */
+  /* --------------------------------------------------CUADRO GRANDE-------------------------------- */
   .parrafotit {
 	text-align: center;
 	color: var(--color-black);
@@ -180,102 +218,52 @@ body {
   }
 
 
-  /* Targets Tipos */
+  /* --------------------------------------------CUADROS DE TIPOS DE TRATAMIENTOS---------------------- */
 
-  .contenedor-tartip {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	text-align: center;
-	padding: 20px;
-  }
-  
-  .imgtarget {
-	max-width: 100%; /* Asegura que la imagen no sea más ancha que el contenedor */
-  }
-
-  .parrafotarget {
-	text-align: center;
-	color: var(--color-black);
-	width: 20em;
-	font-size: 16px; /* Tamaño de fuente para el párrafo */
-  }
-  
-  .tittarget{
-		text-align: center;
-		color: var(--color-secondary);
-		font-size: 16px; /* Tamaño de fuente para el párrafo */
-  }
-
-  /* Estilos del carrusel */
-.carrusel-container {
-	max-width: 600px; /* Establece el ancho máximo del carrusel */
-	margin: 0 auto; /* Centra el carrusel horizontalmente en su contenedor */
-  
-	.slick-dots {
-	  bottom: 20px; /* Ajusta la posición de los puntos de navegación */
-	}
-  
-	.slick-prev,
-	.slick-next {
-	  background-color: #007bff; /* Cambia el color de fondo de los botones de navegación */
-	  color: #fff; /* Cambia el color del texto de los botones de navegación */
-	  border-radius: 50%; /* Hace que los botones de navegación sean circulares */
-	  padding: 8px; /* Añade espacio interno a los botones de navegación */
-	}
-  
-	.slick-prev {
-	  left: 10px; /* Ajusta la posición del botón "anterior" */
-	}
-  
-	.slick-next {
-	  right: 10px; /* Ajusta la posición del botón "siguiente" */
-	}
-  
-	.slick-slide {
-	  padding: 10px; /* Añade espacio interno entre los elementos del carrusel */
-	}
-  
-	.slick-slide img {
-	  width: 100%; /* Ajusta el tamaño de las imágenes dentro del carrusel */
-	  border: 1px solid #ddd; /* Agrega un borde a las imágenes si es necesario */
-	}
-  }
-
- /* Estilos para el componente de tipos */
-.horizontaltipos-layout {
-	display: flex; /* Usa flexbox para organizar horizontalmente */
-	justify-content: space-between; /* Separar y centrar los elementos */
-	align-items: center; /* Centra verticalmente los elementos */
+/* Estilos para el componente principal */
+.tipos-layout {
+	display: flex; /* Usa flexbox para centrar los componentes */
+  justify-content: center; /* Centra horizontalmente los componentes */
+  align-items: center; /* Centra verticalmente los componentes */
+  gap: 20px; /* Espacio entre los componentes */
   }
   
   /* Estilos para los contenedores de contenido */
-  .contenttipos-container {
-	display: flex; /* Usa flexbox para organizar horizontalmente */
-	align-items: center; /* Centra verticalmente los elementos dentro de los contenedores */
-  
-	/* Establece el ancho y orden de los elementos dentro de los contenedores */
-	.title-component {
-	  order: 1; /* Coloca el título primero */
-	}
-  
-	.texttipos-component {
-	  order: 2; /* Coloca el texto en segundo lugar */
-	}
-  
-	.icono-component {
-	  order: 3; /* Coloca la imagen en tercer lugar */
-	}
+  .tipos-container {
+	display: flex;
+	flex-direction: column; /* Acomoda los elementos en forma vertical */
+	padding: 40px; /* Agrega espacio interno en los contenedores */
+	align-items: center;
+
+	/* Ajusta el ancho de las imágenes y los títulos */
+	.image-component-tipos,
+  .title-component-tipos,
+  .text-component-tipos {
+    width: 100%;
   }
-  
+
   /* Estilos para cada componente individual */
-  .icono-component {
-	margin-right: 10px; /* Agrega espacio entre las imágenes y los títulos o textos */
-	width: 100px; /* Ancho de las imágenes */
-	height: auto; /* Altura automática para mantener la relación de aspecto */
+  .image-component-tipos {
+    display: flex;
+    align-items: center; /* Centra la imagen verticalmente */
+    img {
+      max-width: 100%;
+      height: auto;
+    }
   }
-  
-  /* Estilos para el título y el texto */
-  .title-component, .texttipos-component {
-	font-size: 18px; /* Tamaño del texto */
+
+  .title-component-tipos,
+  .text-component-tipos {
+    font-size: 16px;
+    text-align: center; /* Centra el texto horizontalmente */
   }
+
+  .title-component-tipos{
+	color: var(--color-secondary);
+  }
+
+  .text-component-tipos{
+	color: var(--color-black);
+  }
+
+}
