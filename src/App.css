@@ -15,6 +15,7 @@
 	--color-shadow: rgba(0, 0, 0, 0.5);
 	--shadow: 0 2px 5px 0 var(--color-shadow);
 	--shadow-hover: 0 2px 7px 1px var(--color-shadow);
+	--transition: 0.5s;
 }
 
 :root {
@@ -54,12 +55,48 @@ body {
 .btn:hover {
 	transition: 1s;
 	color: #fff;
-	padding: 0 2em none 2em;
 	background-color: var(--color-blue-hover);
 	box-shadow: var(--shadow-hover);
 }
 
 /* HEADER & NAV */
+
+/* nav-btn + animations */
+
+.Nav-btn {
+	background-color: var(--color-blue);
+	transition: all 0.5s;
+	cursor: pointer;
+	width: 10em;
+	transition: width 0.5s ease-in-out;
+}
+
+.Nav-btn {
+	cursor: pointer;
+	display: inline-block;
+	position: relative;
+	transition: 0.5s;
+}
+
+.Nav-btn:after {
+	content: '»';
+	position: absolute;
+	opacity: 0;
+	right: -10px;
+	transition: 0.5s;
+}
+
+.Nav-btn:hover {
+	width: 11rem;
+	transition: width 1s; /* Transición de 1 segundo para la propiedad width */
+}
+
+.Nav-btn:hover:after {
+	opacity: 1;
+	right: 10px;
+}
+
+/* burger */
 
 .Nav-btntoggler {
 	box-shadow: none;
@@ -88,4 +125,21 @@ body {
 	padding: 20px;
 	font-size: 1.5em;
 	margin: 0px;
+}
+
+/* media query */
+
+/* md - menor a este valor toma estos valores */
+@media screen and (max-width: 767px) {
+	.Nav-btn {
+		background-color: var(--color-blue);
+		transition: all 0.5s;
+		cursor: pointer;
+		width: 100%;
+		transition: width 0.5s ease-in-out;
+	}
+
+	.Nav-btn:hover {
+		width: auto;
+	}
 }

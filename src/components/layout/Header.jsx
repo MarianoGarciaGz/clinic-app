@@ -9,7 +9,7 @@ const Header = () => {
 					logo
 				</a>
 				<button
-					className="Nav-btn navbar-toggler"
+					className="navbar-toggler"
 					type="button"
 					data-bs-toggle="collapse"
 					data-bs-target="#navbarNav"
@@ -24,7 +24,7 @@ const Header = () => {
 						<Navlink title="Servicio"></Navlink>
 						<Navlink title="Nosotros"></Navlink>
 						<Navlink title="Contacto"></Navlink>
-						<a className="btn px-3 ms-md-3 ms-xs-auto">Solicitar cita</a>
+						<a className="Nav-btn btn px-3 ms-md-3 ms-xs-auto">Solicitar cita</a>
 					</ul>
 				</div>
 			</nav>
