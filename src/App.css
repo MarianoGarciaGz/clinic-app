@@ -16,21 +16,29 @@
 	--shadow: 0 2px 5px 0 var(--color-shadow);
 	--shadow-hover: 0 2px 7px 1px var(--color-shadow);
 	--transition: 0.5s;
+	--background: var(--color-white);
 }
 
 :root {
 	--scroll-behavior: smooth;
 }
 
-:root {
-	--background: var(--color-white);
-	--text-color: var(--color-black);
-}
-
+/* Dark mode */
 @media (prefers-color-scheme: dark) {
 	:root {
-		--background: var(--color-black);
 		--text-color: var(--color-white);
+		--dark: #2e2e2e;
+		--color-primary: color-mix(in oklab, var(--dark) 00%, #2ebbcd);
+		--color-secondary: color-mix(in oklab, var(--dark) 00%, #ff993c);
+		--color-white: #ffffff;
+		--color-black: #e0e0e0;
+		--color-yellow: #ffcc00;
+		--color-red: #dd3030;
+		--color-blue: #2ebbcd;
+		--color-blue-hover: #209faf;
+		--background: var(--color-white);
+		--text-color: var(--color-black);
+		--background: #264249;
 	}
 }
 
@@ -38,10 +46,8 @@
 
 body {
 	font-family: var(--font-default);
-	color: var(--color-primary);
 	overflow-x: hidden;
 	background: var(--background);
-	color: var(--color-primary);
 }
 
 .btn {
@@ -60,6 +66,17 @@ body {
 }
 
 /* HEADER & NAV */
+
+/* header */
+
+.Header {
+	background: var(--color-black);
+	background: linear-gradient(
+		180deg,
+		color-mix(in srgb, var(--color-black), rgba(0, 0, 0, 0) 50%) 0%,
+		rgba(0, 0, 0, 0) 100%
+	);
+}
 
 /* nav-btn + animations */
 
@@ -136,66 +153,64 @@ body {
 	margin: 0 auto; /* Centra el carrusel horizontalmente en su contenedor */
 
 	.slick-dots {
-	  bottom: 20px; /* Ajusta la posición de los puntos de navegación */
+		bottom: 20px; /* Ajusta la posición de los puntos de navegación */
 	}
 
 	.slick-prev,
 	.slick-next {
-	  background-color: #007bff; /* Cambia el color de fondo de los botones de navegación */
-	  color: #fff; /* Cambia el color del texto de los botones de navegación */
-	  border-radius: 50%; /* Hace que los botones de navegación sean circulares */
-	  padding: 8px; /* Añade espacio interno a los botones de navegación */
+		background-color: #007bff; /* Cambia el color de fondo de los botones de navegación */
+		color: #fff; /* Cambia el color del texto de los botones de navegación */
+		border-radius: 50%; /* Hace que los botones de navegación sean circulares */
+		padding: 8px; /* Añade espacio interno a los botones de navegación */
 	}
 
 	.slick-prev {
-	  left: 10px; /* Ajusta la posición del botón "anterior" */
+		left: 10px; /* Ajusta la posición del botón "anterior" */
 	}
 
 	.slick-next {
-	  right: 10px; /* Ajusta la posición del botón "siguiente" */
+		right: 10px; /* Ajusta la posición del botón "siguiente" */
 	}
 
 	.slick-slide {
-	  padding: 10px; /* Añade espacio interno entre los elementos del carrusel */
+		padding: 10px; /* Añade espacio interno entre los elementos del carrusel */
 	}
 
 	.slick-slide img {
-	  width: 100%; /* Ajusta el tamaño de las imágenes dentro del carrusel */
-	  border: 1px solid #ddd; /* Agrega un borde a las imágenes si es necesario */
+		width: 100%; /* Ajusta el tamaño de las imágenes dentro del carrusel */
+		border: 1px solid #ddd; /* Agrega un borde a las imágenes si es necesario */
 	}
-  }
-
+}
 
 /*-------------------------------------------3 CUADROS-----------------------------------*/
 
-.contenedorespagprin{
- display: flex;
-  align-items: center;
-  justify-content: flex-start;
-
+.contenedorespagprin {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
 }
 
 .icono {
 	max-width: 100px; /* Ajusta el ancho máximo de la imagen según tus necesidades */
 	margin-right: 1px; /* Ajusta el margen entre la imagen y la línea vertical */
 	text-align: center;
-  }
+}
 
-  .linea-vertical {
+.linea-vertical {
 	border-left: 2px solid #000; /* Ancho y color de la línea vertical */
 	height: 90px; /* Altura de la línea vertical */
 	margin: 0 20px; /* Ajusta el margen entre la línea vertical y el párrafo */
 	border-color: var(--color-secondary);
-  }
+}
 
-  .parrafo {
+.parrafo {
 	text-align: center;
 	color: var(--color-black);
 	width: 20em;
 	font-size: 16px; /* Tamaño de fuente para el párrafo */
 }
 
-  /*Estilos para el componente principal */
+/*Estilos para el componente principal */
 .horizontal-layout {
 	margin-top: 5rem;
 	display: flex; /* Usa flexbox para organizar horizontalmente */
@@ -203,36 +218,33 @@ body {
 	justify-content: center;
 	align-items: center; /* Centra verticalmente los elementos */
 	/* width: 80rem; */
-  }
+}
 
-  /* Estilos para cada componente individual */
-  .image-component {
+/* Estilos para cada componente individual */
+.image-component {
 	max-width: 100px; /* Ajusta el ancho máximo de la imagen según tus necesidades */
 	margin-right: 1px; /* Ajusta el margen entre la imagen y la línea vertical */
 	text-align: center;
 	margin-left: 1rem;
-  }
+}
 
-  .vertical-line {
+.vertical-line {
 	border-left: 2px solid #000; /* Ancho y color de la línea vertical */
 	height: 90px; /* Altura de la línea vertical */
 	margin: 0 20px; /* Ajusta el margen entre la línea vertical y el párrafo */
 	border-color: var(--color-secondary);
-  }
+}
 
-  .text-component {
+.text-component {
 	text-align: center;
 	color: var(--color-black);
 	width: 20em;
 	font-size: 16px; /* Tamaño de fuente para el párrafo */
 	margin-right: 5rem;
-  }
+}
 
-
-
-
-  /* --------------------------------------------------CUADRO GRANDE-------------------------------- */
-  .parrafotit {
+/* --------------------------------------------------CUADRO GRANDE-------------------------------- */
+.parrafotit {
 	text-align: center;
 	color: var(--color-black);
 	width: 20em;
@@ -246,10 +258,9 @@ body {
 	width: 1000px; /* Ancho del contenedor */
 	align-items: center;
 	margin: 0 auto; /* Centra el contenedor horizontalmente */
+}
 
-  }
-
-  .cuadro {
+.cuadro {
 	width: 250px; /* Ancho de cada cuadro */
 	height: 250px;
 	border: 0.5px solid var(--color-white); /* Borde de los cuadros */
@@ -263,9 +274,7 @@ body {
 	align-items: center;
 }
 
-  }
-
-  .linea-horizontal {
+.linea-horizontal {
 	border-top: 2px solid var(--color-black); /* Línea horizontal */
 	margin-bottom: 25px;
 	margin-top: 50px;
@@ -281,18 +290,18 @@ body {
 
 /* Targets Tipos */
 
-  /* --------------------------------------------CUADROS DE TIPOS DE TRATAMIENTOS---------------------- */
+/* --------------------------------------------CUADROS DE TIPOS DE TRATAMIENTOS---------------------- */
 
 /* Estilos para el componente principal */
 .tipos-layout {
 	display: flex; /* Usa flexbox para centrar los componentes */
-  justify-content: center; /* Centra horizontalmente los componentes */
-  align-items: center; /* Centra verticalmente los componentes */
-  gap: 20px; /* Espacio entre los componentes */
-  }
+	justify-content: center; /* Centra horizontalmente los componentes */
+	align-items: center; /* Centra verticalmente los componentes */
+	gap: 20px; /* Espacio entre los componentes */
+}
 
-  /* Estilos para los contenedores de contenido */
-  .tipos-container {
+/* Estilos para los contenedores de contenido */
+.tipos-container {
 	display: flex;
 	flex-direction: column; /* Acomoda los elementos en forma vertical */
 	padding: 40px; /* Agrega espacio interno en los contenedores */
@@ -300,35 +309,34 @@ body {
 
 	/* Ajusta el ancho de las imágenes y los títulos */
 	.image-component-tipos,
-  .title-component-tipos,
-  .text-component-tipos {
-    width: 100%;
-  }
+	.title-component-tipos,
+	.text-component-tipos {
+		width: 100%;
+	}
 
-  /* Estilos para cada componente individual */
-  .image-component-tipos {
-    display: flex;
-    align-items: center; /* Centra la imagen verticalmente */
-    img {
-      max-width: 100%;
-      height: auto;
-    }
-  }
+	/* Estilos para cada componente individual */
+	.image-component-tipos {
+		display: flex;
+		align-items: center; /* Centra la imagen verticalmente */
+		img {
+			max-width: 100%;
+			height: auto;
+		}
+	}
 
-  .title-component-tipos,
-  .text-component-tipos {
-    font-size: 16px;
-    text-align: center; /* Centra el texto horizontalmente */
-  }
+	.title-component-tipos,
+	.text-component-tipos {
+		font-size: 16px;
+		text-align: center; /* Centra el texto horizontalmente */
+	}
 
-  .title-component-tipos{
-	color: var(--color-secondary);
-  }
+	.title-component-tipos {
+		color: var(--color-secondary);
+	}
 
-  .text-component-tipos{
-	color: var(--color-black);
-  }
-
+	.text-component-tipos {
+		color: var(--color-black);
+	}
 }
 
 /* -------------------------------PAGINA DE AGENDAR CITA-------------------------------- */
@@ -338,58 +346,58 @@ body {
 	align-items: center;
 	justify-content: center;
 	/* height: 100vh; */
-  }
+}
 
-  .container-elegir {
+.container-elegir {
 	display: flex;
-	align-items: center; 
+	align-items: center;
 	/* justify-content: center; */
 	margin-bottom: 30px;
 	margin-top: 30px;
 	margin-right: 40px;
-  }
+}
 
-  .image-elegir {
+.image-elegir {
 	width: 5%;
 	height: auto;
 	margin-right: 1px;
 	margin-left: 80px;
-  }
+}
 
-  .vertical-line-elegir {
+.vertical-line-elegir {
 	border-left: 1px solid var(--color-secondary);
 	height: 80px;
 	margin: 0 20px;
-  }
+}
 
-  .content-elegir {
+.content-elegir {
 	display: flex;
 	flex-direction: column;
 	/* align-items: center; */
-  }
+}
 
-  .text-elegir {
+.text-elegir {
 	color: var(--color-black);
 	text-align: left; /* Alinea el texto hacia la izquierda */
 	padding-left: 3px;
-  }
+}
 
-  .horizontal-line-elegir {
+.horizontal-line-elegir {
 	border-top: 3px solid var(--color-primary);
 	width: 70%;
 	margin: 20px 0;
 	align-items: center;
 	justify-content: center;
 	justify-items: center;
-  }
+}
 
-  .rounded-box-elegir {
+.rounded-box-elegir {
 	border: 1px solid var(--color-secondary);
 	border-radius: 10px;
 	padding: 10px;
 	height: 2rem;
 	width: 10rem;
-  }
+}
 
 /* media query */
 

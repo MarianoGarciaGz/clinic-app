@@ -6,7 +6,7 @@ import Agendar from './pages/Agendar'
 function App() {
     return (
         <div className="App">
-            <Agendar />
+            <Home />
         </div>
     )
 }
