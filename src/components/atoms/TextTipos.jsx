@@ -2,7 +2,7 @@ import React from 'react';
 
 function TextTipos({ text }) {
   return (
-    <div className="texttipos-component">
+    <div className="text-component-tipos">
       {text}
     </div>
   );
