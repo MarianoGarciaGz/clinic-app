@@ -24,12 +24,12 @@
 }
 
 /* Dark mode */
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
 	:root {
 		--text-color: var(--color-white);
 		--dark: #2e2e2e;
 		--color-primary: color-mix(in oklab, var(--dark) 00%, #2ebbcd);
-		--color-secondary: color-mix(in oklab, var(--dark) 00%, #ff993c);
+		--color-secondary: color-mix(in oklab, var(--dark) 00%, rgb(98, 0, 107));
 		--color-white: #ffffff;
 		--color-black: #e0e0e0;
 		--color-yellow: #ffcc00;
@@ -40,7 +40,7 @@
 		--text-color: var(--color-black);
 		--background: #264249;
 	}
-}
+} */
 
 /* reset */
 
@@ -70,12 +70,13 @@ body {
 /* header */
 
 .Header {
-	background: var(--color-black);
-	background: linear-gradient(
-		180deg,
-		color-mix(in srgb, var(--color-black), rgba(0, 0, 0, 0) 50%) 0%,
-		rgba(0, 0, 0, 0) 100%
-	);
+	transition: 0.5s;
+	background: var(--background);
+}
+
+.Header--transparent {
+	background: var(--color-white);
+	background: linear-gradient(180deg, rgba(255, 255, 255) 0%, rgba(0, 0, 0, 0) 100%);
 }
 
 /* nav-btn + animations */
@@ -401,8 +402,16 @@ body {
 
 /* media query */
 
-/* md - menor a este valor toma estos valores */
+/* md - menor a este valor modifica estos valores */
 @media screen and (max-width: 767px) {
+	.Header {
+		background: var(--background);
+	}
+
+	.Header--transparent {
+		background: var(--background);
+	}
+
 	.Nav-btn {
 		background-color: var(--color-blue);
 		transition: all 0.5s;

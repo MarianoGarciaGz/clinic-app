@@ -1,9 +1,31 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Navlink from '../atoms/Navlink'
 
 const Header = () => {
+	const [isScrolled, setIsScrolled] = useState(false)
+
+	useEffect(() => {
+		const handleScroll = () => {
+			const position = window.scrollY
+			if (position > 0) {
+				setIsScrolled(true) // Change state when scrolled
+			} else {
+				setIsScrolled(false) // Reset state when not scrolled
+			}
+		}
+
+		window.addEventListener('scroll', handleScroll)
+
+		return () => {
+			window.removeEventListener('scroll', handleScroll)
+		}
+	}, [])
+
+	// Dynamically set the class based on scrolling
+	const headerClasses = `header ${isScrolled ? 'fixed-top Header' : 'fixed-top Header--transparent'}`
+
 	return (
-		<header className="Header sticky-top">
+		<header className={headerClasses}>
 			<nav className="Header-nav Nav navbar navbar-expand-md px-5">
 				<a className="Nav-logo navbar-brand" href="#">
 					logo
