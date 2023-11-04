@@ -5,7 +5,7 @@
 
 :root {
 	--color-primary: #2ebbcd;
-	--color-secondary: #ec3434;
+	--color-secondary: #ff993c;
 	--color-white: #ffffff;
 	--color-black: #272727;
 	--color-yellow: #ffcc00;
@@ -124,7 +124,215 @@ body {
 	background-color: var(--color-primary);
 	padding: 20px;
 	font-size: 1.5em;
-	margin: 0px;
+	margin-bottom: 30px;
+	margin-top: 30px;
+}
+
+/* 3 cuadros de la pagina principal*/
+
+.contenedorespagprin {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+}
+
+.icono {
+	max-width: 100px; /* Ajusta el ancho máximo de la imagen según tus necesidades */
+	margin-right: 1px; /* Ajusta el margen entre la imagen y la línea vertical */
+	text-align: center;
+}
+
+.linea-vertical {
+	border-left: 2px solid #000; /* Ancho y color de la línea vertical */
+	height: 90px; /* Altura de la línea vertical */
+	margin: 0 20px; /* Ajusta el margen entre la línea vertical y el párrafo */
+	border-color: var(--color-secondary);
+}
+
+.parrafo {
+	text-align: center;
+	color: var(--color-black);
+	width: 20em;
+	font-size: 16px; /* Tamaño de fuente para el párrafo */
+}
+
+/* Estilos para el componente principal */
+.horizontal-layout {
+	margin-top: 5rem;
+	display: flex; /* Usa flexbox para organizar horizontalmente */
+	/* justify-content: space-between;  */
+	justify-content: center;
+	align-items: center; /* Centra verticalmente los elementos */
+	/* width: 80rem; */
+}
+
+/* Estilos para cada componente individual */
+.image-component {
+	max-width: 100px; /* Ajusta el ancho máximo de la imagen según tus necesidades */
+	margin-right: 1px; /* Ajusta el margen entre la imagen y la línea vertical */
+	text-align: center;
+	margin-left: 1rem;
+}
+
+.vertical-line {
+	border-left: 2px solid #000; /* Ancho y color de la línea vertical */
+	height: 90px; /* Altura de la línea vertical */
+	margin: 0 20px; /* Ajusta el margen entre la línea vertical y el párrafo */
+	border-color: var(--color-secondary);
+}
+
+.text-component {
+	text-align: center;
+	color: var(--color-black);
+	width: 20em;
+	font-size: 16px; /* Tamaño de fuente para el párrafo */
+	margin-right: 5rem;
+}
+
+/* Cuadro grande */
+.parrafotit {
+	text-align: center;
+	color: var(--color-black);
+	width: 20em;
+	font-size: 22px; /* Tamaño de fuente para el párrafo */
+}
+
+.contenedor-cuadros {
+	display: flex;
+	flex-wrap: wrap;
+	/* justify-content: c; */
+	width: 1000px; /* Ancho del contenedor */
+	align-items: center;
+	margin: 0 auto; /* Centra el contenedor horizontalmente */
+}
+
+.cuadro {
+	width: 250px; /* Ancho de cada cuadro */
+	height: 250px;
+	border: 0.5px solid var(--color-white); /* Borde de los cuadros */
+	padding: 10px;
+	/* margin-bottom: 20px; */
+	background-color: var(--color-secondary);
+	text-align: center;
+	justify-content: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.linea-horizontal {
+	border-top: 2px solid var(--color-black); /* Línea horizontal */
+	margin-bottom: 25px;
+	margin-top: 50px;
+	width: 150px;
+	align-items: center;
+	justify-content: center;
+}
+
+.imgcontenedor {
+	width: 200px;
+	height: auto;
+}
+
+/* Targets Tipos */
+
+.contenedor-tartip {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	padding: 20px;
+}
+
+.imgtarget {
+	max-width: 100%; /* Asegura que la imagen no sea más ancha que el contenedor */
+}
+
+.parrafotarget {
+	text-align: center;
+	color: var(--color-black);
+	width: 20em;
+	font-size: 16px; /* Tamaño de fuente para el párrafo */
+}
+
+.tittarget {
+	text-align: center;
+	color: var(--color-secondary);
+	font-size: 16px; /* Tamaño de fuente para el párrafo */
+}
+
+/* Estilos del carrusel */
+.carrusel-container {
+	max-width: 600px; /* Establece el ancho máximo del carrusel */
+	margin: 0 auto; /* Centra el carrusel horizontalmente en su contenedor */
+}
+
+.slick-dots {
+	bottom: 20px; /* Ajusta la posición de los puntos de navegación */
+}
+
+.slick-prev,
+.slick-next {
+	background-color: #007bff; /* Cambia el color de fondo de los botones de navegación */
+	color: #fff; /* Cambia el color del texto de los botones de navegación */
+	border-radius: 50%; /* Hace que los botones de navegación sean circulares */
+	padding: 8px; /* Añade espacio interno a los botones de navegación */
+}
+
+.slick-prev {
+	left: 10px; /* Ajusta la posición del botón "anterior" */
+}
+
+.slick-next {
+	right: 10px; /* Ajusta la posición del botón "siguiente" */
+}
+
+.slick-slide {
+	padding: 10px; /* Añade espacio interno entre los elementos del carrusel */
+}
+
+.slick-slide img {
+	width: 100%; /* Ajusta el tamaño de las imágenes dentro del carrusel */
+	border: 1px solid #ddd; /* Agrega un borde a las imágenes si es necesario */
+}
+
+/* Estilos para el componente de tipos */
+.horizontaltipos-layout {
+	display: flex; /* Usa flexbox para organizar horizontalmente */
+	justify-content: space-between; /* Separar y centrar los elementos */
+	align-items: center; /* Centra verticalmente los elementos */
+}
+
+/* Estilos para los contenedores de contenido */
+.contenttipos-container {
+	display: flex; /* Usa flexbox para organizar horizontalmente */
+	align-items: center; /* Centra verticalmente los elementos dentro de los contenedores */
+
+	/* Establece el ancho y orden de los elementos dentro de los contenedores */
+	.title-component {
+		order: 1; /* Coloca el título primero */
+	}
+
+	.texttipos-component {
+		order: 2; /* Coloca el texto en segundo lugar */
+	}
+
+	.icono-component {
+		order: 3; /* Coloca la imagen en tercer lugar */
+	}
+}
+
+/* Estilos para cada componente individual */
+.icono-component {
+	margin-right: 10px; /* Agrega espacio entre las imágenes y los títulos o textos */
+	width: 100px; /* Ancho de las imágenes */
+	height: auto; /* Altura automática para mantener la relación de aspecto */
+}
+
+/* Estilos para el título y el texto */
+.title-component,
+.texttipos-component {
+	font-size: 18px; /* Tamaño del texto */
 }
 
 /* media query */
