@@ -4,6 +4,7 @@ import VerticalLineElegir from './VerticalLineElegir';
 import ContentElegir from './ContentElegir';
 import HorizontalLineElegir from './HorizontalLineElegir';
 import Heading from './Heading';
+import ContentSeleccionar from './ContentSeleccionar';
 
 function ElegirTratamiento() {
   return (
@@ -11,40 +12,41 @@ function ElegirTratamiento() {
         <div className="container-elegir">
             <ImgElegir imageUrl="hola.png"></ImgElegir>
             <VerticalLineElegir></VerticalLineElegir>
-            <ContentElegir tratamiento="Tratamiento"></ContentElegir>
-            <VerticalLineElegir></VerticalLineElegir>
+            {/* <ContentElegir concepto="Tratamiento"></ContentElegir> */}
+            <ContentSeleccionar concepto="Tratamiento"></ContentSeleccionar>
+            <VerticalLineElegir ></VerticalLineElegir>
         </div>
-        <HorizontalLineElegir></HorizontalLineElegir>
+            <HorizontalLineElegir></HorizontalLineElegir>
         <div className="container-elegir">
             <ImgElegir imageUrl="hola.png"></ImgElegir>
             <VerticalLineElegir></VerticalLineElegir>
-            <ContentElegir tratamiento="Fecha"></ContentElegir>
+            <ContentElegir concepto="Fecha"></ContentElegir>
 
             <ImgElegir imageUrl="hola.png"></ImgElegir>
             <VerticalLineElegir></VerticalLineElegir>
-            <ContentElegir tratamiento="Hora"></ContentElegir>
+            <ContentElegir concepto="Hora"></ContentElegir>
             
         </div>
-        <HorizontalLineElegir></HorizontalLineElegir>
+            <HorizontalLineElegir></HorizontalLineElegir>
         <div className="container-elegir">
             <ImgElegir imageUrl="hola.png"></ImgElegir>
             <VerticalLineElegir></VerticalLineElegir>
-            <ContentElegir tratamiento="Nombre"></ContentElegir>
+            <ContentElegir concepto="Nombre"></ContentElegir>
 
             <ImgElegir imageUrl="hola.png"></ImgElegir>
             <VerticalLineElegir></VerticalLineElegir>
-            <ContentElegir tratamiento="Apellido"></ContentElegir>
+            <ContentElegir concepto="Apellido"></ContentElegir>
 
             <ImgElegir imageUrl="hola.png"></ImgElegir>
             <VerticalLineElegir></VerticalLineElegir>
-            <ContentElegir tratamiento="Teléfono"></ContentElegir>
+            <ContentElegir concepto="Teléfono"></ContentElegir>
             
         </div>
-       <HorizontalLineElegir></HorizontalLineElegir>
+            <HorizontalLineElegir></HorizontalLineElegir>
         <div className="container-elegir">
             <ImgElegir imageUrl="hola.png"></ImgElegir>
             <VerticalLineElegir></VerticalLineElegir>
-            <ContentElegir tratamiento="Comentarios"></ContentElegir>
+            <ContentElegir concepto="Comentarios"></ContentElegir>
         </div>
        
     </div>

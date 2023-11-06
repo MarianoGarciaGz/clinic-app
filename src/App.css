@@ -294,7 +294,7 @@ body {
   }
 
   .vertical-line-elegir {
-	border-left: 1px solid var(--color-secondary);
+	border-left: 2px solid var(--color-secondary);
 	height: 80px;
 	margin: 0 20px;
   }
@@ -312,7 +312,7 @@ body {
   }
 
   .horizontal-line-elegir {
-	border-top: 3px solid var(--color-primary);
+	border-top: 2px solid var(--color-primary);
 	width: 70%;
 	margin: 20px 0;
 	align-items: center;
@@ -321,10 +321,54 @@ body {
   }
 
   .rounded-box-elegir {
-	border: 1px solid var(--color-secondary);
-	border-radius: 10px;
+	border: 2px solid var(--color-secondary);
+	border-radius: 7px;
 	padding: 10px;
 	height: 2rem;
 	width: 10rem;
+	margin-right: 10px;
   }
 
+  .labelcitas{
+	color: var(--color-black);
+	text-align: left;
+  }
+
+  .input-container {
+	display: flex; /* Establece una disposición en línea horizontal. */
+	align-items: center; /* Centra verticalmente los elementos en el contenedor. */
+  }
+
+  .input-container-2 {
+	display: flex;
+	flex-direction: column; /* Establece una disposición en columna para apilar elementos verticalmente. */
+	align-items: center; /* Centra horizontalmente. */
+  }
+  
+  /*  */
+  
+  .select-container {
+	/* Estilos para el elemento select, si es necesario. */
+	border: 2px solid var(--color-secondary);
+	border-radius: 7px;
+	color: var(--color-black);
+  }
+  
+
+  
+.submit-button {
+	border: 2px solid var(--color-secondary);
+	border-radius: 7px;
+	/* padding: 10px; */
+	height: 2rem;
+	width: 3rem;
+	align-items: end;
+    margin-bottom: -20px;
+	margin-left: -0.5rem;
+
+	display: flex;
+ 	justify-content: center; /* Centra horizontalmente. */
+  	align-items: center; /* Centra verticalmente. */
+  	text-align: center; /* Centra el texto horizontalmente si es necesario. */
+  	font-size: 8px; /* Establece el tamaño de fuente. */
+  }
