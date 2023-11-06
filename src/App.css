@@ -135,6 +135,13 @@ body {
 	width: 2rem;
 }
 
+/* Footer */
+
+.Footer {
+	background-color: var(--color-primary);
+	color: var(--color-white);
+}
+
 /* headings */
 
 .h2 {
