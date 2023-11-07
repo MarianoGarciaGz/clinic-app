@@ -6,6 +6,7 @@
 :root {
 	--color-primary: #2ebbcd;
 	--color-secondary: #FF993C;
+	--color-terciary:#FFC28A;
 	--color-white: #ffffff;
 	--color-black: #272727;
 	--color-yellow: #ffcc00;
@@ -138,20 +139,19 @@ body {
 .horizontal-layout {
 	margin-top: 5rem;
 	display: flex; /* Usa flexbox para organizar horizontalmente */
-	/* justify-content: space-between;  */
 	justify-content: center;
 	align-items: center; /* Centra verticalmente los elementos */
-	/* width: 80rem; */
   }
 
   /* Estilos para cada componente individual */
   .image-component {
-	max-width: 100px; /* Ajusta el ancho máximo de la imagen según tus necesidades */
+	max-width: 70px; /* Ajusta el ancho máximo de la imagen según tus necesidades */
 	margin-right: 1px; /* Ajusta el margen entre la imagen y la línea vertical */
 	text-align: center;
 	margin-left: 1rem;
   }
 
+  
   .vertical-line {
 	border-left: 2px solid #000; /* Ancho y color de la línea vertical */
 	height: 90px; /* Altura de la línea vertical */
@@ -193,8 +193,33 @@ body {
 	height: 250px;
 	border: 0.5px solid var(--color-white); /* Borde de los cuadros */
 	padding: 10px;
-	/* margin-bottom: 20px; */
 	background-color: var(--color-secondary);
+	text-align: center;
+	justify-content: center;
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cuadro-claro {
+	width: 250px; /* Ancho de cada cuadro */
+	height: 250px;
+	border: 0.5px solid var(--color-white); /* Borde de los cuadros */
+	padding: 10px;
+	background-color: var(--color-terciary);
+	text-align: center;
+	justify-content: center;
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cuadro-img {
+	width: 250px; /* Ancho de cada cuadro */
+	height: 250px;
+	border: 0.5px solid var(--color-white); /* Borde de los cuadros */
+	/* padding: 10px; */
+	background-color: var(--color-terciary);
 	text-align: center;
 	justify-content: center;
 	display: flex;
@@ -202,6 +227,15 @@ body {
     align-items: center;
 
   }
+
+  .imagen-cuadro {
+	width: 110%;
+	height: 110%;
+	object-fit: cover;
+	margin: 0;
+	padding: 0;
+  }
+
 
   .linea-horizontal {
 	border-top: 2px solid var(--color-black); /* Línea horizontal */
@@ -246,16 +280,18 @@ body {
   .image-component-tipos {
     display: flex;
     align-items: center; /* Centra la imagen verticalmente */
-    img {
-      max-width: 100%;
-      height: auto;
-    }
+    width: 70%;
+  }
+
+  .tam-img{
+	height: 10rem;
   }
 
   .title-component-tipos,
   .text-component-tipos {
     font-size: 16px;
     text-align: center; /* Centra el texto horizontalmente */
+	width: 20rem;
   }
 
   .title-component-tipos{
@@ -272,26 +308,37 @@ body {
 .app-container-elegir {
 	display: flex;
 	flex-direction: column;
-	align-items: center;
+	align-items: center; /* Centra horizontalmente */
 	justify-content: center;
-	/* height: 100vh; */
   }
-
+  
   .container-elegir {
 	display: flex;
-	align-items: center; 
-	/* justify-content: center; */
-	margin-bottom: 30px;
-	margin-top: 30px;
-	margin-right: 40px;
+	justify-content: center; /* Centra horizontalmente */
+	align-items: center; /* Centra verticalmente */
+	margin: 10px; /* Añade margen entre los contenedores */
   }
 
+  
+  
+  /* Otros estilos según sea necesario */
+  
+
   .image-elegir {
-	width: 5%;
+	width: 100%;
 	height: auto;
 	margin-right: 1px;
 	margin-left: 80px;
   }
+
+  .image-elegir-img {
+	width: 3rem; /* Establece el ancho deseado */
+	height: 3rem; /* Establece la altura deseada */
+	object-fit: cover; /* Ajusta la imagen al tamaño sin distorsionar */
+  }
+  
+  /* Ajusta el ancho y la altura según tus necesidades */
+  
 
   .vertical-line-elegir {
 	border-left: 2px solid var(--color-secondary);
@@ -352,6 +399,7 @@ body {
 	border: 2px solid var(--color-secondary);
 	border-radius: 7px;
 	color: var(--color-black);
+	
   }
   
 
@@ -365,7 +413,7 @@ body {
 	align-items: end;
     margin-bottom: -20px;
 	margin-left: -0.5rem;
-
+	color: var(--color-black);
 	display: flex;
  	justify-content: center; /* Centra horizontalmente. */
   	align-items: center; /* Centra verticalmente. */
