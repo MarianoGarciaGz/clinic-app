@@ -6,8 +6,9 @@
 :root {
 	--color-primary: #2ebbcd;
 	--color-secondary: #ff993c;
-	--color-white: #ffffff;
-	--color-black: #272727;
+	--color-terciary: #ffc28a;
+	--color-white: #f5f5f5;
+	--color-black: #333333;
 	--color-yellow: #ffcc00;
 	--color-red: #dd3030;
 	--color-blue: #2ebbcd;
@@ -58,10 +59,18 @@ body {
 	transition: 1s;
 }
 
+.btn-secondary {
+	border-width: 0;
+	color: var(--color-primary);
+	background-color: var(--color-white);
+	box-shadow: var(--shadow);
+	transition: 1s;
+}
+
 .btn:hover {
 	transition: 1s;
 	color: #fff;
-	background-color: var(--color-blue-hover);
+	background-color: var(--color-primary);
 	box-shadow: var(--shadow-hover);
 }
 
@@ -71,18 +80,22 @@ body {
 
 .Header {
 	transition: 0.5s;
-	background: var(--background);
+	background: var(--color-primary);
+	box-shadow: var(--shadow);
 }
 
 .Header--transparent {
 	background: var(--color-white);
-	background: linear-gradient(180deg, rgba(255, 255, 255) 0%, rgba(0, 0, 0, 0) 100%);
+	background: linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0) 100%);
+}
+
+.Nav-a {
+	color: var(--color-white);
 }
 
 /* nav-btn + animations */
 
 .Nav-btn {
-	background-color: var(--color-blue);
 	transition: all 0.5s;
 	cursor: pointer;
 	width: 10em;
@@ -114,6 +127,11 @@ body {
 	right: 10px;
 }
 
+.Header--transparent .Nav-btn {
+	background: var(--color-primary);
+	color: var(--color-white);
+}
+
 /* burger */
 
 .Nav-btntoggler {
@@ -135,6 +153,19 @@ body {
 	width: 2rem;
 }
 
+/* Carousel */
+
+.Carousel {
+	height: 10em;
+	width: '100%';
+}
+
+.Carousel-img {
+	height: inherit;
+	width: inherit;
+	object-fit: cover;
+}
+
 /* Footer */
 
 .Footer {
@@ -148,9 +179,8 @@ body {
 	color: var(--color-white);
 	background-color: var(--color-primary);
 	padding: 20px;
-	font-size: 1.2em;
-	margin-bottom: 30px;
-	margin-top: 30px;
+	font-size: 2em;
+	margin: 2em 0 3em 0;
 }
 
 /*----------------------------------PAGINA PRINCIPAL---------------------------------------*/
@@ -159,35 +189,35 @@ body {
 .carrusel-container {
 	max-width: 600px; /* Establece el ancho máximo del carrusel */
 	margin: 0 auto; /* Centra el carrusel horizontalmente en su contenedor */
+}
 
-	.slick-dots {
-		bottom: 20px; /* Ajusta la posición de los puntos de navegación */
-	}
+.slick-dots {
+	bottom: 20px; /* Ajusta la posición de los puntos de navegación */
+}
 
-	.slick-prev,
-	.slick-next {
-		background-color: #007bff; /* Cambia el color de fondo de los botones de navegación */
-		color: #fff; /* Cambia el color del texto de los botones de navegación */
-		border-radius: 50%; /* Hace que los botones de navegación sean circulares */
-		padding: 8px; /* Añade espacio interno a los botones de navegación */
-	}
+.slick-prev,
+.slick-next {
+	background-color: #007bff; /* Cambia el color de fondo de los botones de navegación */
+	color: #fff; /* Cambia el color del texto de los botones de navegación */
+	border-radius: 50%; /* Hace que los botones de navegación sean circulares */
+	padding: 8px; /* Añade espacio interno a los botones de navegación */
+}
 
-	.slick-prev {
-		left: 10px; /* Ajusta la posición del botón "anterior" */
-	}
+.slick-prev {
+	left: 10px; /* Ajusta la posición del botón "anterior" */
+}
 
-	.slick-next {
-		right: 10px; /* Ajusta la posición del botón "siguiente" */
-	}
+.slick-next {
+	right: 10px; /* Ajusta la posición del botón "siguiente" */
+}
 
-	.slick-slide {
-		padding: 10px; /* Añade espacio interno entre los elementos del carrusel */
-	}
+.slick-slide {
+	padding: 10px; /* Añade espacio interno entre los elementos del carrusel */
+}
 
-	.slick-slide img {
-		width: 100%; /* Ajusta el tamaño de las imágenes dentro del carrusel */
-		border: 1px solid #ddd; /* Agrega un borde a las imágenes si es necesario */
-	}
+.slick-slide img {
+	width: 100%; /* Ajusta el tamaño de las imágenes dentro del carrusel */
+	border: 1px solid #ddd; /* Agrega un borde a las imágenes si es necesario */
 }
 
 /*-------------------------------------------3 CUADROS-----------------------------------*/
@@ -222,15 +252,13 @@ body {
 .horizontal-layout {
 	margin-top: 5rem;
 	display: flex; /* Usa flexbox para organizar horizontalmente */
-	/* justify-content: space-between;  */
 	justify-content: center;
 	align-items: center; /* Centra verticalmente los elementos */
-	/* width: 80rem; */
 }
 
 /* Estilos para cada componente individual */
 .image-component {
-	max-width: 100px; /* Ajusta el ancho máximo de la imagen según tus necesidades */
+	max-width: 70px; /* Ajusta el ancho máximo de la imagen según tus necesidades */
 	margin-right: 1px; /* Ajusta el margen entre la imagen y la línea vertical */
 	text-align: center;
 	margin-left: 1rem;
@@ -273,13 +301,46 @@ body {
 	height: 250px;
 	border: 0.5px solid var(--color-white); /* Borde de los cuadros */
 	padding: 10px;
-	/* margin-bottom: 20px; */
 	background-color: var(--color-secondary);
 	text-align: center;
 	justify-content: center;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+}
+
+.cuadro-claro {
+	width: 250px; /* Ancho de cada cuadro */
+	height: 250px;
+	border: 0.5px solid var(--color-white); /* Borde de los cuadros */
+	padding: 10px;
+	background-color: var(--color-terciary);
+	text-align: center;
+	justify-content: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.cuadro-img {
+	width: 250px; /* Ancho de cada cuadro */
+	height: 250px;
+	border: 0.5px solid var(--color-white); /* Borde de los cuadros */
+	/* padding: 10px; */
+	background-color: var(--color-terciary);
+	text-align: center;
+	justify-content: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.imagen-cuadro {
+	width: 110%;
+	height: 110%;
+	object-fit: cover;
+	margin: 0;
+	padding: 0;
 }
 
 .linea-horizontal {
@@ -326,16 +387,18 @@ body {
 	.image-component-tipos {
 		display: flex;
 		align-items: center; /* Centra la imagen verticalmente */
-		img {
-			max-width: 100%;
-			height: auto;
-		}
+		width: 70%;
+	}
+
+	.tam-img {
+		height: 10rem;
 	}
 
 	.title-component-tipos,
 	.text-component-tipos {
 		font-size: 16px;
 		text-align: center; /* Centra el texto horizontalmente */
+		width: 20rem;
 	}
 
 	.title-component-tipos {
@@ -351,29 +414,36 @@ body {
 .app-container-elegir {
 	display: flex;
 	flex-direction: column;
-	align-items: center;
+	align-items: center; /* Centra horizontalmente */
 	justify-content: center;
-	/* height: 100vh; */
 }
 
 .container-elegir {
 	display: flex;
-	align-items: center;
-	/* justify-content: center; */
-	margin-bottom: 30px;
-	margin-top: 30px;
-	margin-right: 40px;
+	justify-content: center; /* Centra horizontalmente */
+	align-items: center; /* Centra verticalmente */
+	margin: 10px; /* Añade margen entre los contenedores */
 }
 
+/* Otros estilos según sea necesario */
+
 .image-elegir {
-	width: 5%;
+	width: 100%;
 	height: auto;
 	margin-right: 1px;
 	margin-left: 80px;
 }
 
+.image-elegir-img {
+	width: 3rem; /* Establece el ancho deseado */
+	height: 3rem; /* Establece la altura deseada */
+	object-fit: cover; /* Ajusta la imagen al tamaño sin distorsionar */
+}
+
+/* Ajusta el ancho y la altura según tus necesidades */
+
 .vertical-line-elegir {
-	border-left: 1px solid var(--color-secondary);
+	border-left: 2px solid var(--color-secondary);
 	height: 80px;
 	margin: 0 20px;
 }
@@ -391,7 +461,7 @@ body {
 }
 
 .horizontal-line-elegir {
-	border-top: 3px solid var(--color-primary);
+	border-top: 2px solid var(--color-primary);
 	width: 70%;
 	margin: 20px 0;
 	align-items: center;
@@ -400,34 +470,52 @@ body {
 }
 
 .rounded-box-elegir {
-	border: 1px solid var(--color-secondary);
-	border-radius: 10px;
+	border: 2px solid var(--color-secondary);
+	border-radius: 7px;
 	padding: 10px;
 	height: 2rem;
 	width: 10rem;
+	margin-right: 10px;
 }
 
-/* media query */
+.labelcitas {
+	color: var(--color-black);
+	text-align: left;
+}
 
-/* md - menor a este valor modifica estos valores */
-@media screen and (max-width: 767px) {
-	.Header {
-		background: var(--background);
-	}
+.input-container {
+	display: flex; /* Establece una disposición en línea horizontal. */
+	align-items: center; /* Centra verticalmente los elementos en el contenedor. */
+}
 
-	.Header--transparent {
-		background: var(--background);
-	}
+.input-container-2 {
+	display: flex;
+	flex-direction: column; /* Establece una disposición en columna para apilar elementos verticalmente. */
+	align-items: center; /* Centra horizontalmente. */
+}
 
-	.Nav-btn {
-		background-color: var(--color-blue);
-		transition: all 0.5s;
-		cursor: pointer;
-		width: 100%;
-		transition: width 0.5s ease-in-out;
-	}
+/*  */
 
-	.Nav-btn:hover {
-		width: auto;
-	}
+.select-container {
+	/* Estilos para el elemento select, si es necesario. */
+	border: 2px solid var(--color-secondary);
+	border-radius: 7px;
+	color: var(--color-black);
+}
+
+.submit-button {
+	border: 2px solid var(--color-secondary);
+	border-radius: 7px;
+	/* padding: 10px; */
+	height: 2rem;
+	width: 3rem;
+	align-items: end;
+	margin-bottom: -20px;
+	margin-left: -0.5rem;
+	color: var(--color-black);
+	display: flex;
+	justify-content: center; /* Centra horizontalmente. */
+	align-items: center; /* Centra verticalmente. */
+	text-align: center; /* Centra el texto horizontalmente si es necesario. */
+	font-size: 8px; /* Establece el tamaño de fuente. */
 }

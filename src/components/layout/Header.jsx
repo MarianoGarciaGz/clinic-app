@@ -46,7 +46,7 @@ const Header = () => {
 						<Navlink title="Servicio"></Navlink>
 						<Navlink title="Nosotros"></Navlink>
 						<Navlink title="Contacto"></Navlink>
-						<a className="Nav-btn btn px-3 ms-md-3 ms-xs-auto">Solicitar cita</a>
+						<a className="Nav-btn btn btn-secondary px-3 ms-md-3 ms-xs-auto">Solicitar cita</a>
 					</ul>
 				</div>
 			</nav>
