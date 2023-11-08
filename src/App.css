@@ -14,8 +14,8 @@
 	--color-blue: #2ebbcd;
 	--color-blue-hover: #209faf;
 	--color-shadow: rgba(0, 0, 0, 0.5);
-	--shadow: 0 2px 5px 0 var(--color-shadow);
-	--shadow-hover: 0 2px 7px 1px var(--color-shadow);
+	--shadow: 0 2px 3px 0 var(--color-shadow);
+	--shadow-hover: 0 2px 7px 0px var(--color-shadow);
 	--transition: 0.5s;
 	--background: var(--color-white);
 }
@@ -40,6 +40,7 @@
 		--background: var(--color-white);
 		--text-color: var(--color-black);
 		--background: #264249;
+		--smooth: 1s;
 	}
 } */
 
@@ -87,7 +88,7 @@ body {
 .Header--transparent {
 	transition: 1s;
 	background: var(--color-white);
-	background: linear-gradient(180deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0) 100%);
+	background: linear-gradient(180deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0) 100%);
 }
 
 .Nav-a {
@@ -97,7 +98,8 @@ body {
 /* nav-btn + animations */
 
 .Nav-btn {
-	transition: all 0.5s;
+	transition: 1s;
+	transition-delay: 150ms;
 	cursor: pointer;
 	width: 10em;
 	transition: width 0.5s ease-in-out;
@@ -107,7 +109,6 @@ body {
 	cursor: pointer;
 	display: inline-block;
 	position: relative;
-	transition: 0.5s;
 }
 
 .Nav-btn:after {
@@ -119,7 +120,7 @@ body {
 }
 
 .Nav-btn:hover {
-	width: 11rem;
+	width: 10rem;
 	transition: width 1s; /* Transición de 1 segundo para la propiedad width */
 }
 
@@ -129,6 +130,8 @@ body {
 }
 
 .Header--transparent .Nav-btn {
+	transition: 1s;
+	transition-delay: 150ms;
 	background: var(--color-primary);
 	color: var(--color-white);
 }
@@ -136,6 +139,7 @@ body {
 /* burger */
 
 .Nav-btntoggler {
+	width: 2rem;
 	box-shadow: none;
 	border: none;
 }
@@ -148,10 +152,6 @@ body {
 .Nav-btntoggler:hover {
 	border: none;
 	box-shadow: var(--color-shadow);
-}
-
-.Nav-toggler {
-	width: 2rem;
 }
 
 /* Carousel */
@@ -519,4 +519,38 @@ body {
 	align-items: center; /* Centra verticalmente. */
 	text-align: center; /* Centra el texto horizontalmente si es necesario. */
 	font-size: 8px; /* Establece el tamaño de fuente. */
+}
+
+/* media query */
+
+/* md - menor a este valor modifica estos valores */
+@media screen and (max-width: 767px) {
+	.Header {
+		background: var(--color-primary);
+	}
+
+	.Header--transparent {
+		background: var(--color-primary);
+	}
+
+	.navbar-expand-md {
+		padding: 0 0 1em 0;
+	}
+
+	.Nav-btn {
+		background-color: var(--color-white);
+		transition: all 0.5s;
+		cursor: pointer;
+		width: 100%;
+		transition: width 0.5s ease-in-out;
+	}
+
+	.Header--transparent .Nav-btn {
+		background: var(--color-white);
+		color: var(--color-primary);
+	}
+
+	.Nav-btn:hover {
+		width: auto;
+	}
 }
