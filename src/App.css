@@ -13,11 +13,17 @@
 	--color-red: #dd3030;
 	--color-blue: #2ebbcd;
 	--color-blue-hover: #209faf;
-	--color-shadow: rgba(0, 0, 0, 0.5);
+	--color-shadow: rgba(0, 0, 0, 0.3);
 	--shadow: 0 2px 3px 0 var(--color-shadow);
 	--shadow-hover: 0 2px 7px 0px var(--color-shadow);
 	--transition: 0.5s;
 	--background: var(--color-white);
+
+	/* button */
+	--border: 1em 1em 1em 1em;
+
+	/* transitions */
+	--smooth: 1s;
 }
 
 :root {
@@ -40,8 +46,9 @@
 		--background: var(--color-white);
 		--text-color: var(--color-black);
 		--background: #264249;
-		--smooth: 1s;
 	}
+
+	
 } */
 
 /* reset */
@@ -53,6 +60,7 @@ body {
 }
 
 .btn {
+	border-radius: var(--border);
 	border-width: 0;
 	color: #fff;
 	background-color: var(--color-primary);
