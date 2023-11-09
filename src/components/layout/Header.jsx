@@ -7,7 +7,7 @@ const Header = () => {
 	useEffect(() => {
 		const handleScroll = () => {
 			const position = window.scrollY
-			if (position > 5) {
+			if (position > 600) {
 				setIsScrolled(true) // Change state when scrolled
 			} else {
 				setIsScrolled(false) // Reset state when not scrolled

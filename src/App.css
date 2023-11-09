@@ -16,7 +16,8 @@
 	--color-shadow: rgba(0, 0, 0, 0.3);
 	--shadow: 0 2px 3px 0 var(--color-shadow);
 	--shadow-hover: 0 2px 7px 0px var(--color-shadow);
-	--transition: 0.5s;
+	--transition-smooth: 0.5s;
+	--transition-fast: 300ms;
 	--background: var(--color-white);
 
 	/* button */
@@ -55,6 +56,7 @@
 
 body {
 	font-family: var(--font-default);
+	color: var(--color-black);
 	overflow-x: hidden;
 	background: var(--background);
 }
@@ -68,14 +70,6 @@ body {
 	transition: 1s;
 }
 
-.btn-secondary {
-	border-width: 0;
-	color: var(--color-primary);
-	background-color: var(--color-white);
-	box-shadow: var(--shadow);
-	transition: 1s;
-}
-
 .btn:hover {
 	transition: 1s;
 	color: #fff;
@@ -83,18 +77,31 @@ body {
 	box-shadow: var(--shadow-hover);
 }
 
+.btn-secondary {
+	color: var(--color-primary);
+	background-color: var(--color-white);
+	box-shadow: var(--shadow);
+	transition: 1s;
+}
+.btn-secondary:hover {
+	color: var(--color-white);
+	background-color: var(--color-secondary);
+	box-shadow: var(--shadow-hover);
+	transition: 1s;
+}
+
 /* HEADER & NAV */
 
 /* header */
 
 .Header {
-	transition: 1s;
+	transition: var(--transition-fast);
 	background: var(--color-primary);
 	box-shadow: var(--shadow);
 }
 
 .Header--transparent {
-	transition: 1s;
+	transition: var(--transition-fast);
 	background: var(--color-white);
 	background: linear-gradient(180deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0) 100%);
 }
@@ -106,7 +113,7 @@ body {
 /* nav-btn + animations */
 
 .Nav-btn {
-	transition: 1s;
+	transition: var(--transition-fast);
 	transition-delay: 150ms;
 	cursor: pointer;
 	width: 10em;
@@ -173,6 +180,12 @@ body {
 	height: inherit;
 	width: inherit;
 	object-fit: cover;
+}
+
+/* about */
+
+.About-img {
+	width: 5em;
 }
 
 /* Footer */
@@ -532,6 +545,7 @@ body {
 /* media query */
 
 /* md - menor a este valor modifica estos valores */
+
 @media screen and (max-width: 767px) {
 	.Header {
 		background: var(--color-primary);

@@ -9,6 +9,7 @@ import TiposLayout from '../components/atoms/TiposLayout'
 import imagen1 from '../components/atoms/Images/carrusel1.jpg'
 import imagen2 from '../components/atoms/Images/carrusel2.jpg'
 import imagen3 from '../components/atoms/Images/carrusel3.jpg'
+import About from '../components/organism/About'
 
 const Home = () => {
 	return (
@@ -17,7 +18,7 @@ const Home = () => {
 
 			<Carrusel img1={imagen1} img2={imagen2} img3={imagen3}></Carrusel>
 
-			<ComponentsClinic></ComponentsClinic>
+			<About></About>
 
 			<Heading title="Reserva ahora mismo, es hora de sentirse bella"></Heading>
 
