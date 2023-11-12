@@ -4,12 +4,12 @@ import VerticalLineElegir from './VerticalLineElegir'
 import ContentElegir from './ContentElegir'
 import HorizontalLineElegir from './HorizontalLineElegir'
 import ContentSeleccionar from './ContentSeleccionar'
-import tratamiento from './Images/tratamiento.png'
-import fecha from './Images/fecha.png'
-import hora from './Images/hora.png'
-import usuario from './Images/usuario.png'
-import telefono from './Images/telefono.png'
-import comentarios from './Images/comentarios.png'
+import tratamiento from '../Images/tratamiento.png'
+import fecha from '../Images/fecha.png'
+import hora from '../Images/hora.png'
+import usuario from '../Images/usuario.png'
+import telefono from '../Images/telefono.png'
+import comentarios from '../Images/comentarios.png'
 
 function ElegirTratamiento() {
 	return (

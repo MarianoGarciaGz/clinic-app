@@ -1,8 +1,8 @@
 import React from 'react'
-import faciales from './Images/faciales.jpg';
-import masajes from './Images/masaje.jpg'
-import peinados from './Images/peinados.jpg'
-import uñas from './Images/uñas.jpg'
+import faciales from '../Images/faciales.jpg';
+import masajes from '../Images/masaje.jpg'
+import peinados from '../Images/peinados.jpg'
+import uñas from '../Images/uñas.jpg'
 
 
 const CuadroGrande = () => {

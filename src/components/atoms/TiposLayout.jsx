@@ -2,9 +2,9 @@ import React from 'react';
 import IconoTipos from './IconoTipos';
 import TitleTipos from './TitleTipos';
 import TextTipos from './TextTipos';
-import image1 from './Images/tratamientos_faciales.png';
-import image2 from './Images/tratamientos_corporales.png';
-import image3 from './Images/tratamientos_esteticos.png';
+import image1 from '../Images/tratamientos_faciales.png';
+import image2 from '../Images/tratamientos_corporales.png';
+import image3 from '../Images/tratamientos_esteticos.png';
 
 function TiposLayout() {
   return (

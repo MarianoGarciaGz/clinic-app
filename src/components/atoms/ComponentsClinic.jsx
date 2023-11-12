@@ -2,9 +2,9 @@ import React from 'react';
 import IconoComClinic from './IconoComClinic';
 import VerticalLineClinic from './VerticalLineClinic';
 import TextClinic from './TextClinic';
-import image1 from './Images/escudo.png';
-import image2 from './Images/bienestar.png';
-import image3 from './Images/producto.png';
+import image1 from '../Images/escudo.png';
+import image2 from '../Images/bienestar.png';
+import image3 from '../Images/producto.png';
 
 
 function ComponentsClinic() {

@@ -6,17 +6,12 @@ import CuadroGrande from '../components/atoms/CuadroGrande'
 import Carrusel from '../components/atoms/Carrusel'
 import ComponentsClinic from '../components/atoms/ComponentsClinic'
 import TiposLayout from '../components/atoms/TiposLayout'
-import imagen1 from '../components/atoms/Images/carrusel1.jpg'
-import imagen2 from '../components/atoms/Images/carrusel2.jpg'
-import imagen3 from '../components/atoms/Images/carrusel3.jpg'
 import About from '../components/organism/About'
 
 const Home = () => {
 	return (
 		<div>
 			<Header></Header>
-
-			<Carrusel img1={imagen1} img2={imagen2} img3={imagen3}></Carrusel>
 
 			<About></About>
 
