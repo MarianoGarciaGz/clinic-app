@@ -32,7 +32,7 @@
 }
 
 /* Dark mode */
-/* @media (prefers-color-scheme: dark) {
+ /* @media (prefers-color-scheme: dark) {
 	:root {
 		--text-color: var(--color-white);
 		--dark: #2e2e2e;
@@ -48,8 +48,6 @@
 		--text-color: var(--color-black);
 		--background: #264249;
 	}
-
-	
 } */
 
 /* reset */
@@ -90,6 +88,13 @@ body {
 	transition: 1s;
 }
 
+.Header--transparent .btn-secondary:hover {
+	color: var(--color-secondary);
+	background-color: var(--color-white);
+	box-shadow: var(--shadow-hover);
+	transition: 1s;
+}
+
 /* HEADER & NAV */
 
 /* header */
@@ -106,8 +111,20 @@ body {
 	background: linear-gradient(180deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0) 100%);
 }
 
+.Header--transparent .Nav-a {
+	color: var(--color-white);
+}
+
+.Header--transparent .Nav-a:hover {
+	color: var(--color-secondary);
+}
+
 .Nav-a {
 	color: var(--color-white);
+}
+
+.Nav-a:hover {
+	color: var(--color-black);
 }
 
 /* nav-btn + animations */
@@ -135,8 +152,6 @@ body {
 }
 
 .Nav-btn:hover {
-	width: 10rem;
-	transition: width 1s; /* Transición de 1 segundo para la propiedad width */
 }
 
 .Nav-btn:hover:after {

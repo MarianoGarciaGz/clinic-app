@@ -9,7 +9,7 @@ const About = () => {
 		<section className="About">
 			<Heading className="About-h2" title="¿Quiénes somos?"></Heading>
 			<div class="row g-4 px-5 row-cols-1 row-cols-lg-3">
-				<div class="col d-flex align-items-start my-5">
+				<div class="col d-flex align-items-start my-5 px-3">
 					<div class="text-body-emphasis d-inline-flex align-items-center justify-content-center flex-shrink-0 me-3">
 						<img className="About-img" src={image1} alt="" />
 					</div>
@@ -21,7 +21,7 @@ const About = () => {
 						</p>
 					</div>
 				</div>
-				<div class="col d-flex align-items-start my-5">
+				<div class="col d-flex align-items-start my-5 px-3">
 					<div class="text-body-emphasis d-inline-flex align-items-center justify-content-center flex-shrink-0 me-3">
 						<img className="About-img" src={image2} alt="" />
 					</div>
@@ -34,7 +34,7 @@ const About = () => {
 						</p>
 					</div>
 				</div>
-				<div class="col d-flex align-items-start my-5">
+				<div class="col d-flex align-items-start my-5 px-3">
 					<div class="text-body-emphasis d-inline-flex align-items-center justify-content-center flex-shrink-0 me-3">
 						<img className="About-img" src={image3} alt="" />
 					</div>

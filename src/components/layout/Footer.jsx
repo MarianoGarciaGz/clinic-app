@@ -90,7 +90,7 @@ const Footer = () => {
 							<a
 								href="https://goo.gl/maps/twiGS85aafvF8adc8"
 								target="_blank"
-								className="btn btn-primary px-4 me-md-2">
+								className="btn btn-secondary px-4 me-md-2">
 								Como llegar
 							</a>
 						</div>
