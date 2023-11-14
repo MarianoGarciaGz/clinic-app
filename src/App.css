@@ -5,40 +5,188 @@
 
 :root {
 	--color-primary: #2ebbcd;
-	--color-secondary: #FF993C;
-	--color-terciary:#FFC28A;
-	--color-white: #ffffff;
-	--color-black: #272727;
+	--color-secondary: #ff993c;
+	--color-terciary: #ffc28a;
+	--color-white: #f5f5f5;
+	--color-black: #333333;
 	--color-yellow: #ffcc00;
 	--color-red: #dd3030;
 	--color-blue: #2ebbcd;
-	--color-shadow: rgba(0, 0, 0, 0.5);
-	--shadow: 0 2px 5px 0 var(--color-shadow);
+	--color-blue-hover: #209faf;
+	--color-shadow: rgba(0, 0, 0, 0.3);
+	--shadow: 0 2px 3px 0 var(--color-shadow);
+	--shadow-hover: 0 2px 7px 0px var(--color-shadow);
+	--transition-smooth: 0.5s;
+	--transition-fast: 300ms;
+	--background: var(--color-white);
+
+	/* button */
+	--border: 1em 1em 1em 1em;
+
+	/* transitions */
+	--smooth: 1s;
 }
 
 :root {
 	--scroll-behavior: smooth;
 }
 
+/* Dark mode */
+ /* @media (prefers-color-scheme: dark) {
+	:root {
+		--text-color: var(--color-white);
+		--dark: #2e2e2e;
+		--color-primary: color-mix(in oklab, var(--dark) 00%, #2ebbcd);
+		--color-secondary: color-mix(in oklab, var(--dark) 00%, rgb(98, 0, 107));
+		--color-white: #ffffff;
+		--color-black: #e0e0e0;
+		--color-yellow: #ffcc00;
+		--color-red: #dd3030;
+		--color-blue: #2ebbcd;
+		--color-blue-hover: #209faf;
+		--background: var(--color-white);
+		--text-color: var(--color-black);
+		--background: #264249;
+	}
+} */
+
 /* reset */
 
 body {
 	font-family: var(--font-default);
-	color: var(--color-primary);
+	color: var(--color-black);
 	overflow-x: hidden;
-	background: var(--color-white);
-	color: var(--color-primary);
+	background: var(--background);
 }
 
 .btn {
+	border-radius: var(--border);
+	border-width: 0;
 	color: #fff;
 	background-color: var(--color-primary);
 	box-shadow: var(--shadow);
+	transition: 1s;
+}
+
+.btn:hover {
+	transition: 1s;
+	color: #fff;
+	background-color: var(--color-primary);
+	box-shadow: var(--shadow-hover);
+}
+
+.btn-secondary {
+	color: var(--color-primary);
+	background-color: var(--color-white);
+	box-shadow: var(--shadow);
+	transition: 1s;
+}
+.btn-secondary:hover {
+	color: var(--color-white);
+	background-color: var(--color-secondary);
+	box-shadow: var(--shadow-hover);
+	transition: 1s;
+}
+
+.Header--transparent .btn-secondary:hover {
+	color: var(--color-secondary);
+	background-color: var(--color-white);
+	box-shadow: var(--shadow-hover);
+	transition: 1s;
 }
 
 /* HEADER & NAV */
 
+/* header */
+
+.Header {
+	transition: var(--transition-fast);
+	background: var(--color-primary);
+	box-shadow: var(--shadow);
+}
+
+.Header--transparent {
+	transition: var(--transition-fast);
+	background: var(--color-white);
+	background: linear-gradient(180deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0) 100%);
+}
+
+.Header--transparent .Nav-a {
+	color: var(--color-white);
+}
+
+.Header--transparent .Nav-a:hover {
+	color: var(--color-secondary);
+}
+
+.Nav-a {
+	color: var(--color-white);
+}
+
+.Nav-ul .active {
+	border-width: 0px 0px 2px 0px;
+	border-radius: 0px;
+	border-style: solid;
+	border-color: var(--color-white);
+}
+
+.Header .active {
+	color: var(--color-white) !important;
+}
+
+.Header--transparent .active {
+	color: var(--color-secondary) !important;
+		border-color: var(--color-secondary);
+
+}
+
+.Nav-a:hover {
+	color: var(--color-black);
+}
+
+/* nav-btn + animations */
+
+.Nav-btn {
+	transition: var(--transition-fast);
+	transition-delay: 150ms;
+	cursor: pointer;
+	width: 10em;
+	transition: width 0.5s ease-in-out;
+}
+
+.Nav-btn {
+	cursor: pointer;
+	display: inline-block;
+	position: relative;
+}
+
+.Nav-btn:after {
+	content: '»';
+	position: absolute;
+	opacity: 0;
+	right: -10px;
+	transition: 0.5s;
+}
+
+.Nav-btn:hover {
+}
+
+.Nav-btn:hover:after {
+	opacity: 1;
+	right: 10px;
+}
+
+.Header--transparent .Nav-btn {
+	transition: 1s;
+	transition-delay: 150ms;
+	background: var(--color-primary);
+	color: var(--color-white);
+}
+
+/* burger */
+
 .Nav-btntoggler {
+	width: 2rem;
 	box-shadow: none;
 	border: none;
 }
@@ -53,8 +201,30 @@ body {
 	box-shadow: var(--color-shadow);
 }
 
-.Nav-toggler {
-	width: 2rem;
+/* Carousel */
+
+.Carousel {
+	height: 10em;
+	width: '100%';
+}
+
+.Carousel-img {
+	height: inherit;
+	width: inherit;
+	object-fit: cover;
+}
+
+/* about */
+
+.About-img {
+	width: 5em;
+}
+
+/* Footer */
+
+.Footer {
+	background-color: var(--color-primary);
+	color: var(--color-white);
 }
 
 /* headings */
@@ -63,9 +233,8 @@ body {
 	color: var(--color-white);
 	background-color: var(--color-primary);
 	padding: 20px;
-	font-size: 1.2em;
-	margin-bottom: 30px;
-	margin-top: 30px;
+	font-size: 2em;
+	margin: 2em 0 3em 0;
 }
 
 /*----------------------------------PAGINA PRINCIPAL---------------------------------------*/
@@ -74,121 +243,114 @@ body {
 .carrusel-container {
 	max-width: 600px; /* Establece el ancho máximo del carrusel */
 	margin: 0 auto; /* Centra el carrusel horizontalmente en su contenedor */
+}
 
-	.slick-dots {
-	  bottom: 20px; /* Ajusta la posición de los puntos de navegación */
-	}
+.slick-dots {
+	bottom: 20px; /* Ajusta la posición de los puntos de navegación */
+}
 
-	.slick-prev,
-	.slick-next {
-	  background-color: #007bff; /* Cambia el color de fondo de los botones de navegación */
-	  color: #fff; /* Cambia el color del texto de los botones de navegación */
-	  border-radius: 50%; /* Hace que los botones de navegación sean circulares */
-	  padding: 8px; /* Añade espacio interno a los botones de navegación */
-	}
+.slick-prev,
+.slick-next {
+	background-color: #007bff; /* Cambia el color de fondo de los botones de navegación */
+	color: #fff; /* Cambia el color del texto de los botones de navegación */
+	border-radius: 50%; /* Hace que los botones de navegación sean circulares */
+	padding: 8px; /* Añade espacio interno a los botones de navegación */
+}
 
-	.slick-prev {
-	  left: 10px; /* Ajusta la posición del botón "anterior" */
-	}
+.slick-prev {
+	left: 10px; /* Ajusta la posición del botón "anterior" */
+}
 
-	.slick-next {
-	  right: 10px; /* Ajusta la posición del botón "siguiente" */
-	}
+.slick-next {
+	right: 10px; /* Ajusta la posición del botón "siguiente" */
+}
 
-	.slick-slide {
-	  padding: 10px; /* Añade espacio interno entre los elementos del carrusel */
-	}
+.slick-slide {
+	padding: 10px; /* Añade espacio interno entre los elementos del carrusel */
+}
 
-	.slick-slide img {
-	  width: 100%; /* Ajusta el tamaño de las imágenes dentro del carrusel */
-	  border: 1px solid #ddd; /* Agrega un borde a las imágenes si es necesario */
-	}
-  }
-
+.slick-slide img {
+	width: 100%; /* Ajusta el tamaño de las imágenes dentro del carrusel */
+	border: 1px solid #ddd; /* Agrega un borde a las imágenes si es necesario */
+}
 
 /*-------------------------------------------3 CUADROS-----------------------------------*/
 
-.contenedorespagprin{
- display: flex;
-  align-items: center;
-  justify-content: flex-start;
-
+.contenedorespagprin {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
 }
 
 .icono {
 	max-width: 100px; /* Ajusta el ancho máximo de la imagen según tus necesidades */
 	margin-right: 1px; /* Ajusta el margen entre la imagen y la línea vertical */
 	text-align: center;
-  }
+}
 
-  .linea-vertical {
+.linea-vertical {
 	border-left: 2px solid #000; /* Ancho y color de la línea vertical */
 	height: 90px; /* Altura de la línea vertical */
 	margin: 0 20px; /* Ajusta el margen entre la línea vertical y el párrafo */
 	border-color: var(--color-secondary);
-  }
+}
 
-  .parrafo {
+.parrafo {
 	text-align: center;
 	color: var(--color-black);
 	width: 20em;
 	font-size: 16px; /* Tamaño de fuente para el párrafo */
-  }
+}
 
-  /*Estilos para el componente principal */
+/*Estilos para el componente principal */
 .horizontal-layout {
 	margin-top: 5rem;
 	display: flex; /* Usa flexbox para organizar horizontalmente */
 	justify-content: center;
 	align-items: center; /* Centra verticalmente los elementos */
-  }
+}
 
-  /* Estilos para cada componente individual */
-  .image-component {
+/* Estilos para cada componente individual */
+.image-component {
 	max-width: 70px; /* Ajusta el ancho máximo de la imagen según tus necesidades */
 	margin-right: 1px; /* Ajusta el margen entre la imagen y la línea vertical */
 	text-align: center;
 	margin-left: 1rem;
-  }
+}
 
-  
-  .vertical-line {
+.vertical-line {
 	border-left: 2px solid #000; /* Ancho y color de la línea vertical */
 	height: 90px; /* Altura de la línea vertical */
 	margin: 0 20px; /* Ajusta el margen entre la línea vertical y el párrafo */
 	border-color: var(--color-secondary);
-  }
+}
 
-  .text-component {
+.text-component {
 	text-align: center;
 	color: var(--color-black);
 	width: 20em;
 	font-size: 16px; /* Tamaño de fuente para el párrafo */
 	margin-right: 5rem;
-  }
+}
 
-
-
-
-  /* --------------------------------------------------CUADRO GRANDE-------------------------------- */
-  .parrafotit {
+/* --------------------------------------------------CUADRO GRANDE-------------------------------- */
+.parrafotit {
 	text-align: center;
 	color: var(--color-black);
 	width: 20em;
 	font-size: 22px; /* Tamaño de fuente para el párrafo */
-  }
+}
 
-  .contenedor-cuadros {
+.contenedor-cuadros {
 	display: flex;
 	flex-wrap: wrap;
 	/* justify-content: c; */
 	width: 1000px; /* Ancho del contenedor */
-	align-items: center ;
+	align-items: center;
 	margin: 0 auto; /* Centra el contenedor horizontalmente */
+}
 
-  }
-
-  .cuadro {
+.cuadro {
 	width: 250px; /* Ancho de cada cuadro */
 	height: 250px;
 	border: 0.5px solid var(--color-white); /* Borde de los cuadros */
@@ -197,11 +359,11 @@ body {
 	text-align: center;
 	justify-content: center;
 	display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+	flex-direction: column;
+	align-items: center;
+}
 
-  .cuadro-claro {
+.cuadro-claro {
 	width: 250px; /* Ancho de cada cuadro */
 	height: 250px;
 	border: 0.5px solid var(--color-white); /* Borde de los cuadros */
@@ -210,11 +372,11 @@ body {
 	text-align: center;
 	justify-content: center;
 	display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+	flex-direction: column;
+	align-items: center;
+}
 
-  .cuadro-img {
+.cuadro-img {
 	width: 250px; /* Ancho de cada cuadro */
 	height: 250px;
 	border: 0.5px solid var(--color-white); /* Borde de los cuadros */
@@ -223,47 +385,46 @@ body {
 	text-align: center;
 	justify-content: center;
 	display: flex;
-    flex-direction: column;
-    align-items: center;
+	flex-direction: column;
+	align-items: center;
+}
 
-  }
-
-  .imagen-cuadro {
+.imagen-cuadro {
 	width: 110%;
 	height: 110%;
 	object-fit: cover;
 	margin: 0;
 	padding: 0;
-  }
+}
 
-
-  .linea-horizontal {
+.linea-horizontal {
 	border-top: 2px solid var(--color-black); /* Línea horizontal */
 	margin-bottom: 25px;
 	margin-top: 50px;
 	width: 150px;
 	align-items: center;
 	justify-content: center;
-  }
+}
 
-  .imgcontenedor{
+.imgcontenedor {
 	width: 200px;
 	height: auto;
-  }
+}
 
+/* Targets Tipos */
 
-  /* --------------------------------------------CUADROS DE TIPOS DE TRATAMIENTOS---------------------- */
+/* --------------------------------------------CUADROS DE TIPOS DE TRATAMIENTOS---------------------- */
 
 /* Estilos para el componente principal */
 .tipos-layout {
 	display: flex; /* Usa flexbox para centrar los componentes */
-  justify-content: center; /* Centra horizontalmente los componentes */
-  align-items: center; /* Centra verticalmente los componentes */
-  gap: 20px; /* Espacio entre los componentes */
-  }
+	justify-content: center; /* Centra horizontalmente los componentes */
+	align-items: center; /* Centra verticalmente los componentes */
+	gap: 20px; /* Espacio entre los componentes */
+}
 
-  /* Estilos para los contenedores de contenido */
-  .tipos-container {
+/* Estilos para los contenedores de contenido */
+.tipos-container {
 	display: flex;
 	flex-direction: column; /* Acomoda los elementos en forma vertical */
 	padding: 40px; /* Agrega espacio interno en los contenedores */
@@ -271,37 +432,36 @@ body {
 
 	/* Ajusta el ancho de las imágenes y los títulos */
 	.image-component-tipos,
-  .title-component-tipos,
-  .text-component-tipos {
-    width: 100%;
-  }
+	.title-component-tipos,
+	.text-component-tipos {
+		width: 100%;
+	}
 
-  /* Estilos para cada componente individual */
-  .image-component-tipos {
-    display: flex;
-    align-items: center; /* Centra la imagen verticalmente */
-    width: 70%;
-  }
+	/* Estilos para cada componente individual */
+	.image-component-tipos {
+		display: flex;
+		align-items: center; /* Centra la imagen verticalmente */
+		width: 70%;
+	}
 
-  .tam-img{
-	height: 10rem;
-  }
+	.tam-img {
+		height: 10rem;
+	}
 
-  .title-component-tipos,
-  .text-component-tipos {
-    font-size: 16px;
-    text-align: center; /* Centra el texto horizontalmente */
-	width: 20rem;
-  }
+	.title-component-tipos,
+	.text-component-tipos {
+		font-size: 16px;
+		text-align: center; /* Centra el texto horizontalmente */
+		width: 20rem;
+	}
 
-  .title-component-tipos{
-	color: var(--color-secondary);
-  }
+	.title-component-tipos {
+		color: var(--color-secondary);
+	}
 
-  .text-component-tipos{
-	color: var(--color-black);
-  }
-
+	.text-component-tipos {
+		color: var(--color-black);
+	}
 }
 
 /* -------------------------------PAGINA DE AGENDAR CITA-------------------------------- */
@@ -310,100 +470,93 @@ body {
 	flex-direction: column;
 	align-items: center; /* Centra horizontalmente */
 	justify-content: center;
-  }
-  
-  .container-elegir {
+}
+
+.container-elegir {
 	display: flex;
 	justify-content: center; /* Centra horizontalmente */
 	align-items: center; /* Centra verticalmente */
 	margin: 10px; /* Añade margen entre los contenedores */
-  }
+}
 
-  
-  
-  /* Otros estilos según sea necesario */
-  
+/* Otros estilos según sea necesario */
 
-  .image-elegir {
+.image-elegir {
 	width: 100%;
 	height: auto;
 	margin-right: 1px;
 	margin-left: 80px;
-  }
+}
 
-  .image-elegir-img {
+.image-elegir-img {
 	width: 3rem; /* Establece el ancho deseado */
 	height: 3rem; /* Establece la altura deseada */
 	object-fit: cover; /* Ajusta la imagen al tamaño sin distorsionar */
-  }
-  
-  /* Ajusta el ancho y la altura según tus necesidades */
-  
+}
 
-  .vertical-line-elegir {
+/* Ajusta el ancho y la altura según tus necesidades */
+
+.vertical-line-elegir {
 	border-left: 2px solid var(--color-secondary);
 	height: 80px;
 	margin: 0 20px;
-  }
+}
 
-  .content-elegir {
+.content-elegir {
 	display: flex;
 	flex-direction: column;
 	/* align-items: center; */
-  }
+}
 
-  .text-elegir {
+.text-elegir {
 	color: var(--color-black);
 	text-align: left; /* Alinea el texto hacia la izquierda */
 	padding-left: 3px;
-  }
+}
 
-  .horizontal-line-elegir {
+.horizontal-line-elegir {
 	border-top: 2px solid var(--color-primary);
 	width: 70%;
 	margin: 20px 0;
 	align-items: center;
 	justify-content: center;
 	justify-items: center;
-  }
+}
 
-  .rounded-box-elegir {
+.rounded-box-elegir {
 	border: 2px solid var(--color-secondary);
 	border-radius: 7px;
 	padding: 10px;
 	height: 2rem;
 	width: 10rem;
 	margin-right: 10px;
-  }
+}
 
-  .labelcitas{
+.labelcitas {
 	color: var(--color-black);
 	text-align: left;
-  }
+}
 
-  .input-container {
+.input-container {
 	display: flex; /* Establece una disposición en línea horizontal. */
 	align-items: center; /* Centra verticalmente los elementos en el contenedor. */
-  }
+}
 
-  .input-container-2 {
+.input-container-2 {
 	display: flex;
 	flex-direction: column; /* Establece una disposición en columna para apilar elementos verticalmente. */
 	align-items: center; /* Centra horizontalmente. */
-  }
-  
-  /*  */
-  
-  .select-container {
+}
+
+/*  */
+
+.select-container {
 	/* Estilos para el elemento select, si es necesario. */
 	border: 2px solid var(--color-secondary);
 	border-radius: 7px;
 	color: var(--color-black);
-	
-  }
-  
+}
 
-  
 .submit-button {
 	border: 2px solid var(--color-secondary);
 	border-radius: 7px;
@@ -411,12 +564,50 @@ body {
 	height: 2rem;
 	width: 3rem;
 	align-items: end;
-    margin-bottom: -20px;
+	margin-bottom: -20px;
 	margin-left: -0.5rem;
 	color: var(--color-black);
 	display: flex;
- 	justify-content: center; /* Centra horizontalmente. */
-  	align-items: center; /* Centra verticalmente. */
-  	text-align: center; /* Centra el texto horizontalmente si es necesario. */
-  	font-size: 8px; /* Establece el tamaño de fuente. */
-  }
+	justify-content: center; /* Centra horizontalmente. */
+	align-items: center; /* Centra verticalmente. */
+	text-align: center; /* Centra el texto horizontalmente si es necesario. */
+	font-size: 8px; /* Establece el tamaño de fuente. */
+}
+
+/* media query */
+
+/* md - menor a este valor modifica estos valores */
+
+@media screen and (max-width: 767px) {
+	.Header {
+		background: var(--color-primary);
+	}
+
+	.Header--transparent {
+		background: var(--color-primary);
+	}
+
+	.navbar-expand-md {
+		padding: 0 0 1em 0;
+	}
+
+	.Nav-btn {
+		background-color: var(--color-white);
+		transition: all 0.5s;
+		cursor: pointer;
+		width: 100%;
+		transition: width 0.5s ease-in-out;
+	}
+
+	.Header--transparent .Nav-btn {
+		background: var(--color-white);
+		color: var(--color-primary);
+	}
+
+	.Nav-btn:hover {
+		width: auto;
+	}
+}
+
+
+
