@@ -123,6 +123,23 @@ body {
 	color: var(--color-white);
 }
 
+.Nav-ul .active {
+	border-width: 0px 0px 2px 0px;
+	border-radius: 0px;
+	border-style: solid;
+	border-color: var(--color-white);
+}
+
+.Header .active {
+	color: var(--color-white) !important;
+}
+
+.Header--transparent .active {
+	color: var(--color-secondary) !important;
+		border-color: var(--color-secondary);
+
+}
+
 .Nav-a:hover {
 	color: var(--color-black);
 }

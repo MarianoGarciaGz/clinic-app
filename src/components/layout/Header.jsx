@@ -7,7 +7,7 @@ const Header = () => {
 	useEffect(() => {
 		const handleScroll = () => {
 			const position = window.scrollY
-			if (position > 600) {
+			if (position > 10) {
 				setIsScrolled(true) // Change state when scrolled
 			} else {
 				setIsScrolled(false) // Reset state when not scrolled
@@ -26,7 +26,7 @@ const Header = () => {
 
 	return (
 		<React.Fragment>
-			<header className="Header sticky-top">
+			<header className={headerClasses}>
 				<nav className="Header-nav Nav navbar navbar-expand-md px-5">
 					<a className="Nav-logo navbar-brand" href="#">
 						logo
@@ -43,11 +43,29 @@ const Header = () => {
 					</button>
 					<div className="Nav-collapse collapse navbar-collapse" id="navbarNav">
 						<ul className="Nav-ul navbar-nav ms-auto center">
-							<li className="Nav-li nav-item"><NavLink to='/' relative='path' className="Nav-a nav-link text-center mx-2">Inicio</NavLink></li>
-							<li className="Nav-li nav-item"><NavLink to='/agendar' relative='path' className="Nav-a nav-link text-center mx-2">Servicio</NavLink></li>
-							<li className="Nav-li nav-item"><NavLink to='/agendar' relative='path' className="Nav-a nav-link text-center mx-2">Nosotros</NavLink></li>
-							<li className="Nav-li nav-item"><NavLink to='/agendar' relative='path' className="Nav-a nav-link text-center mx-2">Contacto</NavLink></li>
-							<Link to='/agendar' className="btn px-3 ms-md-3 ms-xs-auto">Solicitar cita</Link>
+							<li className="Nav-li nav-item">
+								<NavLink to="/" relative="path" className="Nav-a nav-link text-center mx-2">
+									Inicio
+								</NavLink>
+							</li>
+							<li className="Nav-li nav-item">
+								<NavLink to="/agendar" relative="path" className="Nav-a nav-link text-center mx-2">
+									Servicio
+								</NavLink>
+							</li>
+							<li className="Nav-li nav-item">
+								<NavLink to="/agendar" relative="path" className="Nav-a nav-link text-center mx-2">
+									Nosotros
+								</NavLink>
+							</li>
+							<li className="Nav-li nav-item">
+								<NavLink to="/agendar" relative="path" className="Nav-a nav-link text-center mx-2">
+									Contacto
+								</NavLink>
+							</li>
+							<Link to="/agendar" className="Nav-btn btn btn-secondary px-3 ms-md-3 ms-xs-auto">
+								Solicitar cita
+							</Link>
 						</ul>
 					</div>
 				</nav>
