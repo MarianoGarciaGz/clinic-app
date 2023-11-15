@@ -11,7 +11,6 @@ const Home = () => {
 		<div>
 			<Header></Header>
 
-
 			<Heading title="Reserva aqui mismo"></Heading>
 
 			<ElegirTratamiento></ElegirTratamiento>
