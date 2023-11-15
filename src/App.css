@@ -14,7 +14,7 @@
 	--color-blue: #2ebbcd;
 	--color-blue-hover: #209faf;
 	--color-shadow: rgba(0, 0, 0, 0.3);
-	--shadow: 0 2px 3px 0 var(--color-shadow);
+	--shadow: 0 0 5px 0 var(--color-shadow);
 	--shadow-hover: 0 2px 7px 0px var(--color-shadow);
 	--transition-smooth: 0.5s;
 	--transition-fast: 300ms;
@@ -580,6 +580,7 @@ body {
 .card {
 	background-color: var(--color-white);
 	transition: all 1s;
+	border-style: none;
 	border-radius: var(--border);
 	grid-column: span 2;
 	box-shadow: var(--shadow);
@@ -601,11 +602,6 @@ body {
 }
 
 .card-p {
-}
-
-.react-calendar {
-	background-color: var(--color-white) !important;
-	width: 100% !important;
 }
 
 /* media query */

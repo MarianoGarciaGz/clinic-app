@@ -1,5 +1,4 @@
 import React from 'react'
-import imgprofile from '../Images/profile.png'
 
 const CitasCard = () => {
 	return (
