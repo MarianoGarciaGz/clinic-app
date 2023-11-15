@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import {Link,  NavLink } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 
 const Header = () => {
 	const [isScrolled, setIsScrolled] = useState(false)
@@ -7,7 +7,7 @@ const Header = () => {
 	useEffect(() => {
 		const handleScroll = () => {
 			const position = window.scrollY
-			if (position > 10) {
+			if (position > 20) {
 				setIsScrolled(true) // Change state when scrolled
 			} else {
 				setIsScrolled(false) // Reset state when not scrolled
@@ -31,14 +31,7 @@ const Header = () => {
 					<a className="Nav-logo navbar-brand" href="#">
 						logo
 					</a>
-					<button
-						className="navbar-toggler"
-						type="button"
-						data-bs-toggle="collapse"
-						data-bs-target="#navbarNav"
-						aria-controls="navbarNav"
-						aria-expanded="false"
-						aria-label="Toggle navigation">
+					<button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 						{/* <img src={Toggler} className="Nav-toggler" alt="navbar icon" /> */}
 					</button>
 					<div className="Nav-collapse collapse navbar-collapse" id="navbarNav">
