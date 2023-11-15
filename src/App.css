@@ -5,7 +5,7 @@
 
 :root {
 	--color-primary: #2ebbcd;
-	--color-secondary: #ff8c20;
+	--color-secondary: #ff810c;
 	--color-terciary: #ffc28a;
 	--color-white: #f5f5f5;
 	--color-black: #333333;
@@ -102,7 +102,6 @@ body {
 .Header {
 	transition: var(--transition-fast);
 	background: var(--color-primary);
-	box-shadow: var(--shadow);
 }
 
 .Header--transparent {
@@ -123,24 +122,13 @@ body {
 	color: var(--color-white);
 }
 
-.Nav-ul .active::after {
-	content: ''; /* Agrega contenido al pseudo-elemento */
-	position: absolute; /* Para posicionar el pseudo-elemento */
-	bottom: 10px; /* Ajusta la posición del pseudo-elemento según tu diseño */
-	width: 3em; /* Ancho del pseudo-elemento */
-	height: 3px; /* Altura del pseudo-elemento */
-	background-color: var(--color-secondary); /* Color que desees para el pseudo-elemento */
-	translate: calc(-90%);
-	transition: var(--transition-fast);
-}
-
 .Header .active::after {
 	transition: var(--transition-fast);
 	background-color: var(--color-white);
 }
 
 .Header .active {
-	color: var(--color-white) !important;
+	color: var(--color-yellow) !important;
 }
 
 .Header--transparent .active {
@@ -580,6 +568,46 @@ body {
 	font-size: 8px; /* Establece el tamaño de fuente. */
 }
 
+/* cards */
+
+.cards {
+	display: grid;
+	gap: 2em;
+	grid-auto-rows: auto;
+	grid-template-columns: repeat(auto-fit, minmax(10em, 1fr));
+}
+
+.card {
+	background-color: var(--color-white);
+	transition: all 1s;
+	border-radius: var(--border);
+	grid-column: span 2;
+	box-shadow: var(--shadow);
+}
+
+.card:hover {
+}
+.card-img {
+	width: 10em;
+	height: auto;
+}
+
+.Card-div {
+	display: block;
+}
+
+.card-h5 {
+	text-align: center;
+}
+
+.card-p {
+}
+
+.react-calendar {
+	background-color: var(--color-white) !important;
+	width: 100% !important;
+}
+
 /* media query */
 
 /* md - menor a este valor modifica estos valores */
@@ -630,6 +658,3 @@ body {
 		border-color: var(--color-white);
 	}
 }
-
-
-

@@ -4,7 +4,6 @@ import Carousel from '../components/organism/Carousel'
 import Footer from '../components/layout/Footer'
 import Heading from '../components/atoms/Heading'
 import CuadroGrande from '../components/atoms/CuadroGrande'
-import ComponentsClinic from '../components/atoms/ComponentsClinic'
 import TiposLayout from '../components/atoms/TiposLayout'
 import About from '../components/organism/About'
 
