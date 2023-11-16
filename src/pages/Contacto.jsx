@@ -1,22 +1,21 @@
 import React from 'react'
 import Header from '../components/layout/Header'
 import Footer from '../components/layout/Footer'
+import Contact from '../components/organism/Contact'
 import Heading from '../components/atoms/Heading'
-import Carrusel from '../components/atoms/Carrusel'
-import FormReservar from '../components/organism/FormReservar'
 
-const Home = () => {
+const Contacto = () => {
 	return (
 		<div>
 			<Header></Header>
 
-			<Heading title="Reserva aqui mismo"></Heading>
+            <Heading></Heading>
 
-			<FormReservar></FormReservar>
+            <Contact></Contact>
 
 			<Footer></Footer>
 		</div>
 	)
 }
 
-export default Home
+export default Contacto
