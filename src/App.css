@@ -491,11 +491,7 @@ body {
 
 /* Ajusta el ancho y la altura según tus necesidades */
 
-.vertical-line-elegir {
-	border-left: 2px solid var(--color-secondary);
-	height: 80px;
-	margin: 0 20px;
-}
+
 
 .content-elegir {
 	display: flex;
@@ -664,6 +660,38 @@ body {
 }
 
 .custom-border-color-orange {
-	border: 2px solid orange; /* Cambia el color del borde a naranja */
+	border: 2px solid var(--color-secondary); /* Cambia el color del borde a naranja */
 	border-radius: 7px;
   }
+
+  /* CONTACTO */
+
+  .img-contacto{
+	width: 6em;
+	height: 6em; 
+	object-fit: cover
+  }
+
+  .custom-border-contacto
+  {
+	border: 2px solid var(--color-secondary); 
+	
+  }
+
+  .custom-border-us
+  {
+	border: 2px solid var(--color-secondary); 
+	
+  }
+
+  .selected-card {
+	transform: scale(1.1); /* Aumenta el tamaño de la tarjeta seleccionada */
+	z-index: 1; /* Asegura que la tarjeta seleccionada esté encima de las demás */
+	transition: transform 0.3s ease-in-out; /* Agrega una transición suave */
+  }
+
+  .vertical-line {
+	border-right: 1px solid var(--color-secondary); /* Cambia el color y grosor según tus preferencias */
+    height: 100%; /* Ajusta la altura según sea necesario */
+  }
+  
