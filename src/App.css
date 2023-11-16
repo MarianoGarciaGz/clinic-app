@@ -5,16 +5,16 @@
 
 :root {
 	--color-primary: #2ebbcd;
-	--color-secondary: #ff993c;
+	--color-secondary: #ff810c;
 	--color-terciary: #ffc28a;
 	--color-white: #f5f5f5;
 	--color-black: #333333;
-	--color-yellow: #ffcc00;
+	--color-yellow: #fff000;
 	--color-red: #dd3030;
 	--color-blue: #2ebbcd;
 	--color-blue-hover: #209faf;
-	--color-shadow: rgba(0, 0, 0, 0.3);
-	--shadow: 0 2px 3px 0 var(--color-shadow);
+	--color-shadow: rgba(33, 33, 33, 0.3);
+	--shadow: 2px 2px 5px 1px var(--color-shadow);
 	--shadow-hover: 0 2px 7px 0px var(--color-shadow);
 	--transition-smooth: 0.5s;
 	--transition-fast: 300ms;
@@ -32,7 +32,7 @@
 }
 
 /* Dark mode */
- /* @media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
 	:root {
 		--text-color: var(--color-white);
 		--dark: #2e2e2e;
@@ -102,13 +102,12 @@ body {
 .Header {
 	transition: var(--transition-fast);
 	background: var(--color-primary);
-	box-shadow: var(--shadow);
 }
 
 .Header--transparent {
 	transition: var(--transition-fast);
 	background: var(--color-white);
-	background: linear-gradient(180deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0) 100%);
+	background: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 100%);
 }
 
 .Header--transparent .Nav-a {
@@ -123,21 +122,18 @@ body {
 	color: var(--color-white);
 }
 
-.Nav-ul .active {
-	border-width: 0px 0px 2px 0px;
-	border-radius: 0px;
-	border-style: solid;
-	border-color: var(--color-white);
+.Header .active::after {
+	transition: var(--transition-fast);
+	background-color: var(--color-white);
 }
 
 .Header .active {
-	color: var(--color-white) !important;
+	color: var(--color-yellow) !important;
 }
 
 .Header--transparent .active {
 	color: var(--color-secondary) !important;
-		border-color: var(--color-secondary);
-
+	border-color: var(--color-secondary);
 }
 
 .Nav-a:hover {
@@ -147,11 +143,11 @@ body {
 /* nav-btn + animations */
 
 .Nav-btn {
+	box-shadow: none;
 	transition: var(--transition-fast);
-	transition-delay: 150ms;
 	cursor: pointer;
 	width: 10em;
-	transition: width 0.5s ease-in-out;
+	transition: width var(--transition-fast) ease-in-out;
 }
 
 .Nav-btn {
@@ -165,7 +161,7 @@ body {
 	position: absolute;
 	opacity: 0;
 	right: -10px;
-	transition: 0.5s;
+	transition: var(--transition-fast);
 }
 
 .Nav-btn:hover {
@@ -177,8 +173,7 @@ body {
 }
 
 .Header--transparent .Nav-btn {
-	transition: 1s;
-	transition-delay: 150ms;
+	transition: var(--transition-fast);
 	background: var(--color-primary);
 	color: var(--color-white);
 }
@@ -204,13 +199,14 @@ body {
 /* Carousel */
 
 .Carousel {
-	height: 10em;
-	width: '100%';
+}
+
+.Carousel-imgs {
+	height: 35em;
 }
 
 .Carousel-img {
-	height: inherit;
-	width: inherit;
+	filter: brightness(0.8);
 	object-fit: cover;
 }
 
@@ -234,7 +230,6 @@ body {
 	background-color: var(--color-primary);
 	padding: 20px;
 	font-size: 2em;
-	margin: 2em 0 3em 0;
 }
 
 /*----------------------------------PAGINA PRINCIPAL---------------------------------------*/
@@ -574,6 +569,42 @@ body {
 	font-size: 8px; /* Establece el tamaño de fuente. */
 }
 
+/* cards */
+
+.cards {
+	display: grid;
+	gap: 2em;
+	grid-auto-rows: auto;
+	grid-template-columns: repeat(auto-fit, minmax(10em, 1fr));
+}
+
+.card {
+	background-color: var(--color-white);
+	transition: all 1s;
+	border-style: none;
+	border-radius: var(--border);
+	grid-column: span 2;
+	box-shadow: var(--shadow);
+}
+
+.card:hover {
+}
+.card-img {
+	width: 10em;
+	height: auto;
+}
+
+.Card-div {
+	display: block;
+}
+
+.card-h5 {
+	text-align: center;
+}
+
+.card-p {
+}
+
 /* media query */
 
 /* md - menor a este valor modifica estos valores */
@@ -607,7 +638,20 @@ body {
 	.Nav-btn:hover {
 		width: auto;
 	}
+
+	.Nav-ul .active {
+		border-width: 0px 0px 2px 0px;
+		border-radius: 0px;
+		border-style: solid;
+		border-color: var(--color-white);
+	}
+
+	.Header .active {
+		color: var(--color-white) !important;
+	}
+
+	.Header--transparent .active {
+		color: var(--color-white) !important;
+		border-color: var(--color-white);
+	}
 }
-
-
-

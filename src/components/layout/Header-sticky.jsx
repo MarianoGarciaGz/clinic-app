@@ -22,7 +22,7 @@ const Header = () => {
 	}, [])
 
 	// Dynamically set the class based on scrolling
-	const headerClasses = `header ${isScrolled ? 'fixed-top Header' : 'fixed-top Header--transparent'}`
+	const headerClasses = `header ${isScrolled ? 'sticky-top Header' : 'sticky-top Header'}`
 
 	return (
 		<React.Fragment>
