@@ -12,6 +12,7 @@ function ContentElegir({ concepto }) {
         <input type="submit" value="AGREGAR" />
         </div> */}
         
+        
       </div>
     </div>
   );

@@ -4,14 +4,51 @@ import fecha from '../Images/fecha.png'
 import hora from '../Images/hora.png'
 import tratamiento from '../Images/tratamiento.png'
 import comentarios from '../Images/comentarios.png'
-
+import { useState } from 'react';
 
 const FormReservar = () => {
+  const [formData, setFormData] = useState({
+    nombres: '',
+    apellidos: '',
+    fecha: '',
+    hora: '',
+    tratamiento: '',
+    comentarios: '',
+  });
+
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.id]: e.target.value,
+    });
+  };
+
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    // Llama a tu función de MongoDB con los datos del formulario
+    // await tuFuncionMongoDB(formData);
+
+    // Aquí puedes realizar cualquier otra lógica que necesites después de enviar los datos
+
+    // Reinicia el formulario si es necesario
+    setFormData({
+      nombres: '',
+      apellidos: '',
+      fecha: '',
+      hora: '',
+      tratamiento: '',
+      comentarios: '',
+    });
+  };
+
   return (
     <div className="container mt-4 mb-4" > 
     <div className="row justify-content-center ">
       <div className="col-md-7 col-lg-8" >
-        <form className="needs-validation" noValidate>
+        <form className="needs-validation" noValidate onSubmit={handleSubmit}>
           <div class="row g-3">
            
             <div class="col-sm-6">

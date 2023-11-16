@@ -2,7 +2,7 @@ import React from 'react';
 import ImgElegir from './ImgElegir';
 import VerticalLineElegir from './VerticalLineElegir';
 import ContentConfirmacion from './ContentConfirmacion';
-import confirmacion from '../Images/confirmacion.png'
+import confirmacion from './Images/confirmacion.png'
 
 function ConfirmacionCita({}) {
   return (
@@ -13,6 +13,7 @@ function ConfirmacionCita({}) {
         <ContentConfirmacion concepto="Confirmacion"></ContentConfirmacion>
         <VerticalLineElegir></VerticalLineElegir>
     </div>
+    
 </div>
   );
 }
