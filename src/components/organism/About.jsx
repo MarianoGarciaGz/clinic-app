@@ -6,9 +6,9 @@ import image3 from '../Images/producto.png'
 
 const About = () => {
 	return (
-		<section className="About ">
+		<section className="About">
 			<Heading className="About-h2" title="¿Quiénes somos?"></Heading>
-			<div class="row g-4 px-5 row-cols-1 row-cols-lg-3 m-5">
+			<div class="row g-4 px-5 row-cols-1 row-cols-lg-3 my-5 mx-auto container">
 				<div class="col d-flex align-items-start px-5">
 					<div class="text-body-emphasis d-inline-flex align-items-center justify-content-center flex-shrink-0 me-3">
 						<img className="About-img" src={image1} alt="" />

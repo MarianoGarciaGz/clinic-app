@@ -8,7 +8,7 @@ import ConfirmacionCita from '../components/atoms/ConfirmacionCita'
 
 const Home = () => {
 	return (
-		<div>
+		<>
 			<Header></Header>
 
 			<Heading title="Reserva aqui mismo"></Heading>
@@ -20,7 +20,7 @@ const Home = () => {
 			<ConfirmacionCita></ConfirmacionCita>
 
 			<Footer></Footer>
-		</div>
+		</>
 	)
 }
 

@@ -6,15 +6,15 @@ import Heading from '../components/atoms/Heading'
 
 const Contacto = () => {
 	return (
-		<div>
+		<>
 			<Header></Header>
 
-            <Heading></Heading>
+			<Heading></Heading>
 
-            <Contact></Contact>
+			<Contact></Contact>
 
 			<Footer></Footer>
-		</div>
+		</>
 	)
 }
 

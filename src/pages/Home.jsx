@@ -9,7 +9,7 @@ import About from '../components/organism/About'
 
 const Home = () => {
 	return (
-		<div>
+		<>
 			<Header></Header>
 
 			<Carousel></Carousel>
@@ -25,7 +25,7 @@ const Home = () => {
 			<TiposLayout></TiposLayout>
 
 			<Footer></Footer>
-		</div>
+		</>
 	)
 }
 

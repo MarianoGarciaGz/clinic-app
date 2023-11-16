@@ -16,7 +16,7 @@ const Admin = () => {
 	}
 
 	return (
-		<div>
+		<>
 			<Header></Header>
 			<section className="d-flex justify-content-center container">
 				<Calendar onChange={onChange} value={date} className="card my-5" />
@@ -30,7 +30,7 @@ const Admin = () => {
 				<CitasCard></CitasCard>
 			</section>
 			<Footer></Footer>
-		</div>
+		</>
 	)
 }
 
