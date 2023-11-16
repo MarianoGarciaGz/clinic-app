@@ -18,7 +18,7 @@ const FormReservar = () => {
             <label for="username" class="form-label">Nombre(s)</label>
               <div class="input-group has-validation ">
                 <span class="input-group-text bg-white custom-border-color-orange"><img src={usuario} alt="nombre" className="img-form"/></span>
-                <input type="text" class="form-control custom-border-color-orange" id="username" placeholder="Nombre(s)" required=""/>
+                <input type="text" class="form-control custom-border-color-orange" id="nombres" placeholder="Nombre(s)" required=""/>
                <div class="invalid-feedback">
                   Ingresa un nombre válido.
                 </div>
@@ -29,7 +29,7 @@ const FormReservar = () => {
             <label for="username" class="form-label">Apellidos</label>
               <div class="input-group has-validation ">
                 <span class="input-group-text bg-white custom-border-color-orange"><img src={usuario} alt="apellidos" className="img-form"/></span>
-                <input type="text" class="form-control custom-border-color-orange" id="username" placeholder="Apellidos" required=""/>
+                <input type="text" class="form-control custom-border-color-orange" id="apellidos" placeholder="Apellidos" required=""/>
               <div class="invalid-feedback">
                   Ingresa un apellido válido.
                 </div>
@@ -40,8 +40,8 @@ const FormReservar = () => {
             <div className="col-sm-6">
             <label htmlFor="username" className="form-label">Fecha</label>
                 <div className="input-group has-validation">
-                 <span className="input-group-text"><img src={fecha} alt="fecha" className="img-form"/></span>
-                 <select className="form-select" id="username" required>
+                 <span className="input-group-text bg-white custom-border-color-orange"><img src={fecha} alt="fecha" className="img-form"/></span>
+                 <select className="form-select bg-white custom-border-color-orange" id="fecha" required>
                     <option value="">Seleccionar...</option>
                     <option>16/11/23</option>
                     <option>17/11/23</option>
@@ -53,25 +53,26 @@ const FormReservar = () => {
              </div>
 
              <div className="col-sm-6">
-                <label htmlFor="username" className="form-label">Hora</label>
+            <label htmlFor="username" className="form-label">Hora</label>
                 <div className="input-group has-validation">
-                 <span className="input-group-text"><img src={hora} alt="hora" className="img-form"/></span>
-                 <select className="form-select" id="username" required>
+                 <span className="input-group-text bg-white custom-border-color-orange"><img src={hora} alt="hora" className="img-form"/></span>
+                 <select className="form-select bg-white custom-border-color-orange" id="hora" required>
                     <option value="">Seleccionar...</option>
                     <option>14:00</option>
-                    <option>16:00</option>
+                    <option>15:00</option>
                  </select>
                  <div className="invalid-feedback">
-                    Selecciona una hora válida.
+                    Selecciona una fecha válida.
                  </div>
                 </div>
              </div>
+            
 
              <div className="col-12">
                 <label htmlFor="username" className="form-label">Tratamiento</label>
                 <div className="input-group has-validation">
-                 <span className="input-group-text"><img src={tratamiento} alt="tratamiento" className="img-form"/></span>
-                 <select className="form-select" id="username" required>
+                 <span className="input-group-text bg-white custom-border-color-orange"><img src={tratamiento} alt="tratamiento" className="img-form"/></span>
+                 <select className="form-select bg-white custom-border-color-orange" id="tratamiento" required>
                     <option value="">Seleccionar...</option>
                     <option>Masaje Corporal</option>
                     <option>Maquillaje</option>
@@ -88,8 +89,8 @@ const FormReservar = () => {
              <div className="col-sm-12">
                 <label htmlFor="username" className="form-label">Comentarios</label>
                 <div className="input-group has-validation">
-                    <span className="input-group-text"><img src={comentarios} alt="comentarios" className="img-form"/></span>
-                    <input type="text" className="form-control" id="username" placeholder="Comentarios..." />
+                    <span className="input-group-text bg-white custom-border-color-orange"><img src={comentarios} alt="comentarios" className="img-form"/></span>
+                    <input type="text" className="form-control bg-white custom-border-color-orange" id="comentarios" placeholder="Comentarios..." />
                         <div className="invalid-feedback">
                             Escribe aquí...
                         </div>
