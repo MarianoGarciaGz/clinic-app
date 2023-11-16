@@ -655,3 +655,15 @@ body {
 		border-color: var(--color-white);
 	}
 }
+
+/* FORM */
+
+.img-form{
+	width: 2em;
+	
+}
+
+.custom-border-color-orange {
+	border: 2px solid orange; /* Cambia el color del borde a naranja */
+	border-radius: 7px;
+  }

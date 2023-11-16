@@ -3,8 +3,7 @@ import Header from '../components/layout/Header'
 import Footer from '../components/layout/Footer'
 import Heading from '../components/atoms/Heading'
 import Carrusel from '../components/atoms/Carrusel'
-import ElegirTratamiento from '../components/atoms/ElegirTratamiento'
-import ConfirmacionCita from '../components/atoms/ConfirmacionCita'
+import FormReservar from '../components/organism/FormReservar'
 
 const Home = () => {
 	return (
@@ -13,11 +12,7 @@ const Home = () => {
 
 			<Heading title="Reserva aqui mismo"></Heading>
 
-			<ElegirTratamiento></ElegirTratamiento>
-
-			<Heading title="Confirmación de la Cita"></Heading>
-
-			<ConfirmacionCita></ConfirmacionCita>
+			<FormReservar></FormReservar>
 
 			<Footer></Footer>
 		</div>
