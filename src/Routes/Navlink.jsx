@@ -6,6 +6,7 @@ import Contacto from '../pages/Contacto'
 import Admin from '../pages/Admin'
 import Nosotros from '../pages/Nosotros'
 import Servicios from '../pages/Servicios'
+import Solicitudes from '../pages/Solicitudes'
 
 const Navlink = () => {
 	return (
@@ -18,6 +19,7 @@ const Navlink = () => {
 					<Route path="admin" element={<Admin />} />
 					<Route path="nosotros" element={<Nosotros />} />
 					<Route path="servicios" element={<Servicios />} />
+					<Route path="solicitudes" element={<Solicitudes />} />
 				</Route>
 			</Routes>
 		</BrowserRouter>

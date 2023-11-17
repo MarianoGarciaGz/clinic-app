@@ -63,7 +63,6 @@ body {
 	border-radius: var(--border);
 	border-width: 0;
 	color: #fff;
-	background-color: var(--color-primary);
 	box-shadow: var(--shadow);
 	transition: 1s;
 }
@@ -71,7 +70,6 @@ body {
 .btn:hover {
 	transition: 1s;
 	color: #fff;
-	background-color: var(--color-primary);
 	box-shadow: var(--shadow-hover);
 }
 
