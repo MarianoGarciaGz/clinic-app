@@ -4,10 +4,13 @@ const mongoose = require('mongoose');
 const reservaSchema = new mongoose.Schema({
   nombres: String,
   apellidos: String,
+  telefono: String,
   fecha: String,
   hora: String,
   tratamiento: String,
+
   comentarios: String,
+  
 });
 
 // Crea un modelo basado en el esquema

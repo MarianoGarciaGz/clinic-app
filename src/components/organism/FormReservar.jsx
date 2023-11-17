@@ -13,10 +13,12 @@ const FormReservar = () => {
   const [formData, setFormData] = useState({
     nombres: '',
     apellidos: '',
+    telefono: '',
     fecha: '',
     hora: '',
     tratamiento: '',
     comentarios: '',
+   
   });
 
 
@@ -52,36 +54,8 @@ const FormReservar = () => {
       console.error('Error en la solicitud:', error);
       // Maneja el error de acuerdo a tus necesidades
     }
-
-    // Reinicia el formulario si es necesario
-    // setFormData({
-    //   nombres: '',
-    //   apellidos: '',
-    //   fecha: '',
-    //   hora: '',
-    //   tratamiento: '',
-    //   comentarios: '',
-    // });
   };
   
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-
-  //   // Llama a tu función de MongoDB con los datos del formulario
-  //   // await tuFuncionMongoDB(formData);
-  //   // await insertarDatos(formData);
-  //   // Aquí puedes realizar cualquier otra lógica que necesites después de enviar los datos
-
-  //   // Reinicia el formulario si es necesario
-  //   setFormData({
-  //     nombres: '',
-  //     apellidos: '',
-  //     fecha: '',
-  //     hora: '',
-  //     tratamiento: '',
-  //     comentarios: '',
-  //   });
-  // };
 
   return (
     <div className="container mt-4 mb-4" > 
