@@ -19,7 +19,7 @@ const CardTratamiento = () => {
   };
 
   const transparentBackground = {
-    backgroundColor: 'rgba(255, 255, 255, 0.8)',
+    backgroundColor: 'rgba(255, 129, 12, 0.8)',
   };
 
   return (
@@ -40,16 +40,16 @@ const CardTratamiento = () => {
             >
               <h2 className="text-center">MASAJE</h2>
               <p className="text-center">Es un tipo de medicina integral en la que un masajista frota y presiona firmemente la piel, los músculos, los tendones y los ligamentos.</p>
-              <hr className='custom-border-us' style={{ width: '80%' }} />
+              <hr className='custom-border-tratamiento' style={{ width: '80%' }} />
               <div className="d-flex justify-content-around align-items-center w-100">
                 <div className="text-block text-center" style={{ margin: '0', padding: '0' }}>
                   <p>Precio</p>
-                  <hr className='custom-border-us' style={{ margin: '0', marginTop: '-5px' }} />
+                  <hr className='custom-border-tratamiento' style={{ margin: '0', marginTop: '-5px' }} />
                   <p>250.00</p>
                 </div>
                 <div className="text-block text-center" style={{ margin: '0', padding: '0' }}>
                   <p>Duración</p>
-                  <hr className='custom-border-us' style={{ margin: '0', marginTop: '-5px' }} />
+                  <hr className='custom-border-tratamiento' style={{ margin: '0', marginTop: '-5px' }} />
                   <p>1 Hora</p>
                 </div>
               </div>

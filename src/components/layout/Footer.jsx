@@ -22,7 +22,7 @@ const Footer = () => {
             </p>
           </div>
           <div className="col-md-4 col-lg-4 col-xl-4 mb-4 d-flex justify-content-center">
-            <img src={logo} alt="Centered Image" className="img-fluid" style={{ maxWidth: '170px' }} />
+            <img src={logo} alt="Centered Image" className="img-fluid" style={{ width:'100px', height:'100px'}} />
           </div>
           <div className="col-md-4 col-lg-2 col-xl-2 mb-4">
             <h6 className="text-uppercase fw-bold mb-4">Teléfono</h6>

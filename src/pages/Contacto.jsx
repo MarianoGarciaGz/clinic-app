@@ -13,7 +13,7 @@ const Contacto = () => {
 
 			<Carousel></Carousel>
 
-            <Heading title="AQUI TIENES NUESTRA INFORMACIÓN DE CONTACTO"></Heading>
+            <Heading title="AQUÍ TIENES NUESTRA INFORMACIÓN DE CONTACTO"></Heading>
 
             <Contact></Contact>
 

@@ -4,6 +4,7 @@ import fecha from '../Images/fecha.png'
 import hora from '../Images/hora.png'
 import tratamiento from '../Images/tratamiento.png'
 import comentarios from '../Images/comentarios.png'
+import telefono from '../Images/telefono.png'
 
 
 const FormReservar = () => {
@@ -14,7 +15,7 @@ const FormReservar = () => {
         <form className="needs-validation" noValidate>
           <div class="row g-3">
            
-            <div class="col-sm-6">
+            <div class="col-sm-4">
             <label for="username" class="form-label">Nombre(s)</label>
               <div class="input-group has-validation ">
                 <span class="input-group-text bg-white custom-border-color-orange"><img src={usuario} alt="nombre" className="img-form"/></span>
@@ -25,13 +26,24 @@ const FormReservar = () => {
               </div>
             </div>
 
-            <div class="col-sm-6">
+            <div class="col-sm-4">
             <label for="username" class="form-label">Apellidos</label>
               <div class="input-group has-validation ">
                 <span class="input-group-text bg-white custom-border-color-orange"><img src={usuario} alt="apellidos" className="img-form"/></span>
                 <input type="text" class="form-control custom-border-color-orange" id="apellidos" placeholder="Apellidos" required=""/>
               <div class="invalid-feedback">
                   Ingresa un apellido válido.
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm-4">
+            <label for="username" class="form-label">Télefono</label>
+              <div class="input-group has-validation ">
+                <span class="input-group-text bg-white custom-border-color-orange"><img src={telefono} alt="telefono" className="img-form"/></span>
+                <input type="text" class="form-control custom-border-color-orange" id="telefono" placeholder="Teléfono" required=""/>
+              <div class="invalid-feedback">
+                  Ingresa un teléfono válido.
                 </div>
               </div>
             </div>

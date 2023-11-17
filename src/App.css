@@ -684,6 +684,12 @@ body {
 	
   }
 
+  .custom-border-tratamiento
+  {
+	border: 2px solid var(--color-white); 
+	
+  }
+
   .selected-card {
 	transform: scale(1.1); /* Aumenta el tamaño de la tarjeta seleccionada */
 	z-index: 1; /* Asegura que la tarjeta seleccionada esté encima de las demás */
