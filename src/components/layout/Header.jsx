@@ -29,9 +29,9 @@ const Header = () => {
 		<React.Fragment>
 			<header className={headerClasses}>
 				<nav className="Header-nav Nav navbar navbar-expand-md px-5">
-					<a className="Nav-logo navbar-brand" href="#">
-					<img src={logo} className="Nav-toggler" alt="navbar icon" style={{width:'3em'}}/> 
-					</a>
+					<NavLink to="/" relative="path" className="Nav-a nav-link text-center mx-2">
+						<img src={logo} className="Nav-toggler" alt="navbar icon" style={{ width: '3em' }} />
+					</NavLink>
 					<button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 						{/* <img src={logo} className="Nav-toggler" alt="navbar icon" />  */}
 					</button>

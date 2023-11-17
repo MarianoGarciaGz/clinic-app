@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
+import logo from '../Images/logo.png'
 
 const Header = () => {
 	const [isScrolled, setIsScrolled] = useState(false)
@@ -29,7 +30,7 @@ const Header = () => {
 			<header className={headerClasses}>
 				<nav className="Header-nav Nav navbar navbar-expand-md px-5">
 					<a className="Nav-logo navbar-brand" href="#">
-						logo
+						<img src={logo} className="Nav-toggler" alt="navbar icon" style={{ width: '3em' }} />
 					</a>
 					<button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 						{/* <img src={Toggler} className="Nav-toggler" alt="navbar icon" /> */}

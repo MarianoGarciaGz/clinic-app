@@ -13,8 +13,8 @@
 	--color-red: #dd3030;
 	--color-blue: #2ebbcd;
 	--color-blue-hover: #209faf;
-	--color-shadow: rgba(33, 33, 33, 0.3);
-	--shadow: 2px 2px 5px 1px var(--color-shadow);
+	--color-shadow: #ff810c;
+	--shadow: 0px 0px 5px 1px var(--color-shadow);
 	--shadow-hover: 0 2px 7px 0px var(--color-shadow);
 	--transition-smooth: 0.5s;
 	--transition-fast: 300ms;
@@ -34,11 +34,11 @@
 /* Dark mode */
 /* @media (prefers-color-scheme: dark) {
 	:root {
-		--text-color: var(--color-white);
 		--dark: #2e2e2e;
-		--color-primary: color-mix(in oklab, var(--dark) 00%, #2ebbcd);
-		--color-secondary: color-mix(in oklab, var(--dark) 00%, rgb(98, 0, 107));
-		--color-white: #ffffff;
+		--color-primary: #1d7a86;
+		--color-secondary: #ff810c;
+		--color-terciary: #ffc28a;
+		--color-white: #f5f5f5;
 		--color-black: #e0e0e0;
 		--color-yellow: #ffcc00;
 		--color-red: #dd3030;
@@ -107,7 +107,7 @@ body {
 .Header--transparent {
 	transition: var(--transition-fast);
 	background: var(--color-white);
-	background: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 100%);
+	background: linear-gradient(180deg, color-mix(in oklab, var(--color-primary) 50%, #00000000) 0%, rgba(0, 0, 0, 0) 100%);
 }
 
 .Header--transparent .Nav-a {
@@ -128,7 +128,7 @@ body {
 }
 
 .Header .active {
-	color: var(--color-yellow) !important;
+	color: var(--color-secondary) !important;
 }
 
 .Header--transparent .active {
@@ -199,6 +199,7 @@ body {
 /* Carousel */
 
 .Carousel {
+	height: 35em;
 }
 
 .Carousel-imgs {
@@ -206,7 +207,7 @@ body {
 }
 
 .Carousel-img {
-	filter: brightness(0.8);
+	filter: brightness(0.9);
 	object-fit: cover;
 }
 
@@ -491,8 +492,6 @@ body {
 
 /* Ajusta el ancho y la altura según tus necesidades */
 
-
-
 .content-elegir {
 	display: flex;
 	flex-direction: column;
@@ -654,44 +653,38 @@ body {
 
 /* FORM */
 
-.img-form{
+.img-form {
 	width: 2em;
-	
 }
 
 .custom-border-color-orange {
 	border: 2px solid var(--color-secondary); /* Cambia el color del borde a naranja */
 	border-radius: 7px;
-  }
+}
 
-  /* CONTACTO */
+/* CONTACTO */
 
-  .img-contacto{
+.img-contacto {
 	width: 6em;
-	height: 6em; 
-	object-fit: cover
-  }
+	height: 6em;
+	object-fit: cover;
+}
 
-  .custom-border-contacto
-  {
-	border: 2px solid var(--color-secondary); 
-	
-  }
+.custom-border-contacto {
+	border: 2px solid var(--color-secondary);
+}
 
-  .custom-border-us
-  {
-	border: 2px solid var(--color-secondary); 
-	
-  }
+.custom-border-us {
+	border: 2px solid var(--color-secondary);
+}
 
-  .selected-card {
+.selected-card {
 	transform: scale(1.1); /* Aumenta el tamaño de la tarjeta seleccionada */
 	z-index: 1; /* Asegura que la tarjeta seleccionada esté encima de las demás */
 	transition: transform 0.3s ease-in-out; /* Agrega una transición suave */
-  }
+}
 
-  .vertical-line {
+.vertical-line {
 	border-right: 1px solid var(--color-secondary); /* Cambia el color y grosor según tus preferencias */
-    height: 100%; /* Ajusta la altura según sea necesario */
-  }
-  
+	height: 100%; /* Ajusta la altura según sea necesario */
+}
