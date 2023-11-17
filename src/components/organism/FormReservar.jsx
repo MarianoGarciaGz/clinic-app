@@ -4,6 +4,7 @@ import fecha from '../Images/fecha.png'
 import hora from '../Images/hora.png'
 import tratamiento from '../Images/tratamiento.png'
 import comentarios from '../Images/comentarios.png'
+import telefono from '../Images/telefono.png'
 
 const FormReservar = () => {
 	return (
