@@ -21,8 +21,6 @@ db.once('open', () => {
     console.log('Conexión exitosa a MongoDB');
 });
 
-
-
 // Define tus rutas y configuraciones adicionales aquí
 app.listen(PORT, () => {
     console.log(`Servidor Express en ejecución en http://localhost:${PORT}`);

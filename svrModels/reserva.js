@@ -7,7 +7,10 @@ const reservaSchema = new mongoose.Schema({
   hora: { type: String, required: true },
   tratamiento: { type: String, required: true },
   comentarios: String,
-});
+},{
+  timestamps:true
+}
+);
 
 const Reserva = mongoose.model('Reserva', reservaSchema, 'agendas');
 
