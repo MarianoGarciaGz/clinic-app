@@ -10,7 +10,7 @@ function TiposLayout() {
 	return (
 		<section className="">
 			<div className="row">
-				<div className="col-lg-4 col-md-6 tipos-layout">
+				<div className="col-lg-4 col-md-12">
 					<div className="tipos-container">
 						<IconoTipos imageUrl={image1} />
 						<TitleTipos title="TRATAMIENTOS FACIALES" />
@@ -18,7 +18,7 @@ function TiposLayout() {
 					</div>
 				</div>
 
-				<div className="col-lg-4 col-md-6 tipos-layout">
+				<div className="col-lg-4 col-md-12">
 					<div className="tipos-container">
 						<IconoTipos imageUrl={image2} />
 						<TitleTipos title="TRATAMIENTOS CORPORALES" />
@@ -26,7 +26,7 @@ function TiposLayout() {
 					</div>
 				</div>
 
-				<div className="col-lg-4 col-md-6 tipos-layout">
+				<div className="col-lg-4 col-md-12">
 					<div className="tipos-container">
 						<IconoTipos imageUrl={image3} />
 						<TitleTipos title="TRATAMIENTOS ESTÉTICOS" />

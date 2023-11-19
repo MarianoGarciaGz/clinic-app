@@ -394,7 +394,6 @@ body {
 	display: flex; /* Usa flexbox para centrar los componentes */
 	justify-content: center; /* Centra horizontalmente los componentes */
 	align-items: center; /* Centra verticalmente los componentes */
-	gap: 20px; /* Espacio entre los componentes */
 }
 
 /* Estilos para los contenedores de contenido */
@@ -425,9 +424,7 @@ body {
 
 .title-component-tipos,
 .text-component-tipos {
-	font-size: 16px;
 	text-align: center; /* Centra el texto horizontalmente */
-	width: 20rem;
 }
 
 .title-component-tipos {

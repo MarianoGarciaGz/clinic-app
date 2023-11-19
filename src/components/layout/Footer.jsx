@@ -3,7 +3,7 @@ import logo from '../Images/logo.png'
 
 const Footer = () => {
 	return (
-		<footer className="Footer py-3 pt-5 mt-5">
+		<footer className="Footer py-3 pt-5">
 			<div className="container">
 				<div className="row justify-content-center text-center">
 					<div className="col-md-4 col-lg-2 col-xl-2 mb-4">
