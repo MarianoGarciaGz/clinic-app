@@ -32,9 +32,7 @@ const Header = () => {
 					<NavLink to="/" relative="path" className="Nav-a nav-link text-center mx-2">
 						<img src={logo} className="Nav-toggler" alt="navbar icon" style={{ width: '3em' }} />
 					</NavLink>
-					<button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-						{/* <img src={logo} className="Nav-toggler" alt="navbar icon" />  */}
-					</button>
+					<button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"></button>
 					<div className="Nav-collapse collapse navbar-collapse" id="navbarNav">
 						<ul className="Nav-ul navbar-nav ms-auto center">
 							<li className="Nav-li nav-item">
