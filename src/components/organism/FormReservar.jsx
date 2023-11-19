@@ -18,10 +18,10 @@ const FormReservar = () => {
 									Nombre(s)
 								</label>
 								<div class="input-group has-validation ">
-									<span class="input-group-text bg-white custom-border-color-orange">
+									<span class="input-group-text">
 										<img src={usuario} alt="nombre" className="img-form" />
 									</span>
-									<input type="text" class="form-control custom-border-color-orange" id="nombres" placeholder="Nombre(s)" required="" />
+									<input type="text" class="form-control" id="nombres" placeholder="Nombre(s)" required="" />
 									<div class="invalid-feedback">Ingresa un nombre válido.</div>
 								</div>
 							</div>
@@ -31,10 +31,10 @@ const FormReservar = () => {
 									Apellidos
 								</label>
 								<div class="input-group has-validation ">
-									<span class="input-group-text bg-white custom-border-color-orange">
+									<span class="input-group-text">
 										<img src={usuario} alt="apellidos" className="img-form" />
 									</span>
-									<input type="text" class="form-control custom-border-color-orange" id="apellidos" placeholder="Apellidos" required="" />
+									<input type="text" class="form-control" id="apellidos" placeholder="Apellidos" required="" />
 									<div class="invalid-feedback">Ingresa un apellido válido.</div>
 								</div>
 							</div>
@@ -44,14 +44,10 @@ const FormReservar = () => {
 									Fecha
 								</label>
 								<div className="input-group has-validation">
-									<span className="input-group-text bg-white custom-border-color-orange">
+									<span className="input-group-text">
 										<img src={fecha} alt="fecha" className="img-form" />
 									</span>
-									<select className="form-select bg-white custom-border-color-orange" id="fecha" required>
-										<option value="">Seleccionar...</option>
-										<option>16/11/23</option>
-										<option>17/11/23</option>
-									</select>
+									<input className="form-select" id="fecha" type="date" required></input>
 									<div className="invalid-feedback">Selecciona una fecha válida.</div>
 								</div>
 							</div>
@@ -61,10 +57,10 @@ const FormReservar = () => {
 									Hora
 								</label>
 								<div className="input-group has-validation">
-									<span className="input-group-text bg-white custom-border-color-orange">
+									<span className="input-group-text">
 										<img src={hora} alt="hora" className="img-form" />
 									</span>
-									<select className="form-select bg-white custom-border-color-orange" id="hora" required>
+									<select className="form-select" id="hora" required>
 										<option value="">Seleccionar...</option>
 										<option>14:00</option>
 										<option>15:00</option>
@@ -78,10 +74,10 @@ const FormReservar = () => {
 									Tratamiento
 								</label>
 								<div className="input-group has-validation">
-									<span className="input-group-text bg-white custom-border-color-orange">
+									<span className="input-group-text">
 										<img src={tratamiento} alt="tratamiento" className="img-form" />
 									</span>
-									<select className="form-select bg-white custom-border-color-orange" id="tratamiento" required>
+									<select className="form-select" id="tratamiento" required>
 										<option value="">Seleccionar...</option>
 										<option>Masaje Corporal</option>
 										<option>Maquillaje</option>
@@ -97,17 +93,17 @@ const FormReservar = () => {
 									Comentarios
 								</label>
 								<div className="input-group has-validation">
-									<span className="input-group-text bg-white custom-border-color-orange">
+									<span className="input-group-text">
 										<img src={comentarios} alt="comentarios" className="img-form" />
 									</span>
-									<input type="text" className="form-control bg-white custom-border-color-orange" id="comentarios" placeholder="Comentarios..." />
+									<input type="text" className="form-control" id="comentarios" placeholder="Comentarios..." />
 									<div className="invalid-feedback">Escribe aquí...</div>
 								</div>
 							</div>
 						</div>
 
 						<div className="text-center">
-							<button className="btn btn-primary btn-lg-8 mt-4 w-50 text-uppercase" type="submit">
+							<button className="btn btn-primary mt-4 w-50" type="submit">
 								Reservar
 							</button>
 						</div>
