@@ -3,7 +3,7 @@ import logo from '../Images/logo.png'
 
 const Footer = () => {
 	return (
-		<footer className="Footer py-3">
+		<footer className="Footer py-3 pt-5 mt-5">
 			<div className="container">
 				<div className="row justify-content-center text-center">
 					<div className="col-md-4 col-lg-2 col-xl-2 mb-4">
@@ -42,7 +42,7 @@ const Footer = () => {
 					</div>
 				</div>
 			</div>
-			<div className="text-center p-4">
+			<div className="text-center p-2">
 				<p className="mb-0">© 2023 Clínica de Belleza Lily.</p>
 				<a className="text-reset fw-bold" href="/privacy.html">
 					Todos los derechos reservados. Consulta nuestro Aviso de Privacidad.

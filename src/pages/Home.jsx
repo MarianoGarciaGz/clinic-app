@@ -14,6 +14,8 @@ const Home = () => {
 
 			<Carousel></Carousel>
 
+			<Heading title="¿Quiénes somos?"></Heading>
+
 			<About></About>
 
 			<Heading title="Reserva ahora mismo, es hora de sentirse bella"></Heading>

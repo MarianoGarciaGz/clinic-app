@@ -206,11 +206,9 @@ body {
 /* Carousel */
 
 .Carousel {
-	height: 35em;
 }
 
 .Carousel-imgs {
-	height: 35em;
 }
 
 .Carousel-img {
@@ -238,43 +236,6 @@ body {
 	background-color: var(--color-primary);
 	padding: 20px;
 	font-size: 2em;
-}
-
-/*----------------------------------PAGINA PRINCIPAL---------------------------------------*/
-
-/* -------------------------------------CARRUSEL-------------------------------------------*/
-.carrusel-container {
-	max-width: 600px; /* Establece el ancho máximo del carrusel */
-	margin: 0 auto; /* Centra el carrusel horizontalmente en su contenedor */
-}
-
-.slick-dots {
-	bottom: 20px; /* Ajusta la posición de los puntos de navegación */
-}
-
-.slick-prev,
-.slick-next {
-	background-color: #007bff; /* Cambia el color de fondo de los botones de navegación */
-	color: #fff; /* Cambia el color del texto de los botones de navegación */
-	border-radius: 50%; /* Hace que los botones de navegación sean circulares */
-	padding: 8px; /* Añade espacio interno a los botones de navegación */
-}
-
-.slick-prev {
-	left: 10px; /* Ajusta la posición del botón "anterior" */
-}
-
-.slick-next {
-	right: 10px; /* Ajusta la posición del botón "siguiente" */
-}
-
-.slick-slide {
-	padding: 10px; /* Añade espacio interno entre los elementos del carrusel */
-}
-
-.slick-slide img {
-	width: 100%; /* Ajusta el tamaño de las imágenes dentro del carrusel */
-	border: 1px solid #ddd; /* Agrega un borde a las imágenes si es necesario */
 }
 
 /*-------------------------------------------3 CUADROS-----------------------------------*/
@@ -432,39 +393,39 @@ body {
 	flex-direction: column; /* Acomoda los elementos en forma vertical */
 	padding: 40px; /* Agrega espacio interno en los contenedores */
 	align-items: center;
+}
 
-	/* Ajusta el ancho de las imágenes y los títulos */
-	.image-component-tipos,
-	.title-component-tipos,
-	.text-component-tipos {
-		width: 100%;
-	}
+/* Ajusta el ancho de las imágenes y los títulos */
+.image-component-tipos,
+.title-component-tipos,
+.text-component-tipos {
+	width: 100%;
+}
 
-	/* Estilos para cada componente individual */
-	.image-component-tipos {
-		display: flex;
-		align-items: center; /* Centra la imagen verticalmente */
-		width: 70%;
-	}
+/* Estilos para cada componente individual */
+.image-component-tipos {
+	display: flex;
+	align-items: center; /* Centra la imagen verticalmente */
+	width: 70%;
+}
 
-	.tam-img {
-		height: 10rem;
-	}
+.tam-img {
+	height: 10rem;
+}
 
-	.title-component-tipos,
-	.text-component-tipos {
-		font-size: 16px;
-		text-align: center; /* Centra el texto horizontalmente */
-		width: 20rem;
-	}
+.title-component-tipos,
+.text-component-tipos {
+	font-size: 16px;
+	text-align: center; /* Centra el texto horizontalmente */
+	width: 20rem;
+}
 
-	.title-component-tipos {
-		color: var(--color-secondary);
-	}
+.title-component-tipos {
+	color: var(--color-secondary);
+}
 
-	.text-component-tipos {
-		color: var(--color-black);
-	}
+.text-component-tipos {
+	color: var(--color-black);
 }
 
 /* -------------------------------PAGINA DE AGENDAR CITA-------------------------------- */
