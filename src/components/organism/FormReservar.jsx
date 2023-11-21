@@ -13,7 +13,7 @@ const FormReservar = () => {
 				<div className="col-md-7 col-lg-8">
 					<form className="needs-validation" noValidate>
 						<div class="row g-3">
-							<div class="col-sm-6">
+							<div class="col-sm-4">
 								<label for="username" class="form-label">
 									Nombre(s)
 								</label>
@@ -26,7 +26,7 @@ const FormReservar = () => {
 								</div>
 							</div>
 
-							<div class="col-sm-6">
+							<div class="col-sm-4">
 								<label for="username" class="form-label">
 									Apellidos
 								</label>
@@ -36,6 +36,19 @@ const FormReservar = () => {
 									</span>
 									<input type="text" class="form-control" id="apellidos" placeholder="Apellidos" required="" />
 									<div class="invalid-feedback">Ingresa un apellido válido.</div>
+								</div>
+							</div>
+
+							<div class="col-sm-4">
+								<label for="username" class="form-label">
+									Télefono
+								</label>
+								<div class="input-group has-validation ">
+									<span class="input-group-text bg-white">
+										<img src={telefono} alt="telefono" className="img-form" />
+									</span>
+									<input type="text" class="form-control" id="telefono" placeholder="Teléfono" required="" />
+									<div class="invalid-feedback">Ingresa un teléfono válido.</div>
 								</div>
 							</div>
 
