@@ -28,7 +28,7 @@ const Header = () => {
 	return (
 		<React.Fragment>
 			<header className={headerClasses}>
-				<nav className="Header-nav Nav navbar navbar-expand-md px-5">
+				<nav className="Header-nav Nav navbar navbar-expand-sm px-5">
 					<NavLink to="/" relative="path" className="Nav-a nav-link text-center mx-2">
 						<img src={logo} className="Nav-toggler" alt="navbar icon" style={{ width: '3em' }} />
 					</NavLink>

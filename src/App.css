@@ -151,6 +151,31 @@ body {
 	border-color: var(--color-secondary);
 }
 
+.Nav-ul .active {
+	border-width: 0px 0px 2px 0px;
+	border-radius: 0px;
+	border-style: solid;
+	border-color: var(--color-secondary);
+}
+.Nav-ul .active::before {
+	content: ' ';
+	position: absolute;
+	top: 0;
+	left: 50%;
+	-ms-transform: translateX(-50%);
+	transform: translateX(-50%);
+	width: 100%;
+	background-color: var(--color-secondary);
+	transition: all 0.3s;
+	opacity: 0;
+	height: 3px;
+}
+
+.Header .active::before {
+	transition: var(--transition-fast);
+	background-color: var(--color-secondary);
+}
+
 .Nav-a:hover {
 	color: var(--color-black);
 }
@@ -224,6 +249,7 @@ body {
 	min-width: 100%;
 	max-height: 35em;
 	object-fit: scale-down;
+	object-position: bottom;
 }
 
 /* about */
