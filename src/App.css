@@ -32,7 +32,7 @@
 }
 
 /* Dark mode */
-/* @media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: dark) {
 	:root {
 		--dark: #2e2e2e;
 		--color-primary: #1d7a86;
@@ -48,7 +48,7 @@
 		--text-color: var(--color-black);
 		--background: #264249;
 	}
-} */
+}
 
 /* reset */
 
@@ -129,7 +129,7 @@ body {
 	color: var(--color-white);
 }
 
-.Header--transparent .Nav-a:hover {
+.Nav-a:hover {
 	color: var(--color-secondary);
 }
 
@@ -152,7 +152,7 @@ body {
 }
 
 .Nav-ul .active {
-	border-width: 0px 0px 2px 0px;
+	border-width: 0px 0px 5px 0px;
 	border-radius: 0px;
 	border-style: solid;
 	border-color: var(--color-secondary);
@@ -174,10 +174,6 @@ body {
 .Header .active::before {
 	transition: var(--transition-fast);
 	background-color: var(--color-secondary);
-}
-
-.Nav-a:hover {
-	color: var(--color-black);
 }
 
 /* nav-btn + animations */
@@ -221,9 +217,12 @@ body {
 /* burger */
 
 .Nav-btntoggler {
-	width: 2rem;
+	height: auto;
+	width: 4rem;
 	box-shadow: none;
 	border: none;
+}
+.Nav-btntoggler img {
 }
 
 .Nav-btntoggler:focus {
@@ -615,7 +614,6 @@ body {
 	}
 
 	.navbar-expand-md {
-		padding: 0 0 1em 0;
 	}
 
 	.Nav-btn {
