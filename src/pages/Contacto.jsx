@@ -8,21 +8,21 @@ import Ubicacion from '../components/organism/Ubicacion'
 
 const Contacto = () => {
 	return (
-		<div>
+		<>
 			<Header></Header>
 
 			<Carousel></Carousel>
 
-            <Heading title="AQUÍ TIENES NUESTRA INFORMACIÓN DE CONTACTO"></Heading>
+			<Heading title="AQUI TIENES NUESTRA INFORMACIÓN DE CONTACTO"></Heading>
 
-            <Contact></Contact>
+			<Contact></Contact>
 
 			<Heading title="UBICACIÓN DE NUESTRA CLÍNICA"></Heading>
 
 			<Ubicacion></Ubicacion>
 
 			<Footer></Footer>
-		</div>
+		</>
 	)
 }
 

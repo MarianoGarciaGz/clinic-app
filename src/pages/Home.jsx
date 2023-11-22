@@ -9,10 +9,12 @@ import About from '../components/organism/About'
 
 const Home = () => {
 	return (
-		<div>
+		<>
 			<Header></Header>
 
 			<Carousel></Carousel>
+
+			<Heading title="¿Quiénes somos?"></Heading>
 
 			<About></About>
 
@@ -25,7 +27,7 @@ const Home = () => {
 			<TiposLayout></TiposLayout>
 
 			<Footer></Footer>
-		</div>
+		</>
 	)
 }
 

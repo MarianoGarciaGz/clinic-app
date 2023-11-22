@@ -24,7 +24,7 @@ const Header = () => {
 	}, [])
 
 	// Dynamically set the class based on scrolling
-	const headerClasses = `header ${isScrolled ? 'fixed-top Header' : 'fixed-top Header--transparent'}`
+	const headerClasses = `header ${isScrolled ? 'sticky-top Header' : 'sticky-top Header'}`
 
 	return (
 		<React.Fragment>
@@ -39,28 +39,15 @@ const Header = () => {
 					<div className="Nav-collapse collapse navbar-collapse" id="navbarNav">
 						<ul className="Nav-ul navbar-nav ms-auto center">
 							<li className="Nav-li nav-item">
-								<NavLink to="/" relative="path" className="Nav-a nav-link text-center mx-2">
-									Inicio
+								<NavLink to="/admin" relative="path" className="Nav-a nav-link text-center mx-2">
+									Administrador
 								</NavLink>
 							</li>
 							<li className="Nav-li nav-item">
-								<NavLink to="/servicios" relative="path" className="Nav-a nav-link text-center mx-2">
-									Servicio
+								<NavLink to="/solicitudes" relative="path" className="Nav-a nav-link text-center mx-2">
+									Solicitudes
 								</NavLink>
 							</li>
-							<li className="Nav-li nav-item">
-								<NavLink to="/nosotros" relative="path" className="Nav-a nav-link text-center mx-2">
-									Nosotros
-								</NavLink>
-							</li>
-							<li className="Nav-li nav-item">
-								<NavLink to="/contacto" relative="path" className="Nav-a nav-link text-center mx-2">
-									Contacto
-								</NavLink>
-							</li>
-							<Link to="/agendar" className="Nav-btn btn btn-secondary px-3 h-100 ms-md-3 ms-xs-auto">
-								Solicitar cita
-							</Link>
 						</ul>
 					</div>
 				</nav>
