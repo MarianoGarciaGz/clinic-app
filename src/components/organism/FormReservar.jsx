@@ -4,18 +4,24 @@ import fecha from '../Images/fecha.png'
 import hora from '../Images/hora.png'
 import tratamiento from '../Images/tratamiento.png'
 import comentarios from '../Images/comentarios.png'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import TimePicker from 'react-time-picker';
 import 'react-time-picker/dist/TimePicker.css';
-import { getMonth, isToday } from 'date-fns';
 
 
 const FormReservar = () => {
 
+  // Obtén la fecha actual
+  const currentDate = new Date();
+  // Suma x días a la fecha actual (en este caso, x sería 7 días)
+  const maxDate = new Date(currentDate);
+  maxDate.setDate(currentDate.getDate() + 7);
+
+
   //Estados
   const [selectedDate, setSelectedDate] = useState(null);
+
   const [formData, setFormData] = useState({
     nombres: '',
     apellidos: '',
@@ -25,19 +31,20 @@ const FormReservar = () => {
     comentarios: '',
   });
 
-  //Manejadores de Estados
 
-  const handleChangeDate = (e) => {
-    setSelectedDate(e);
-    handleChangeDate2();
+  //Manejadores de Estados
+  const handleChangeDate = (date) => {
+    setSelectedDate(date);
   };
 
-  const handleChangeDate2 = () => {
+  useEffect(() => {
+    const fechaString = selectedDate ? selectedDate.toLocaleDateString('es-ES') : '';
+
     setFormData({
       ...formData,
-      "fecha": selectedDate,
+      "fecha": fechaString,
     });
-  };
+  }, [selectedDate]);
 
   const handleChange = (e) => {
     setFormData({
@@ -65,50 +72,14 @@ const FormReservar = () => {
       } else {
         console.error('Error al insertar datos');
         // Maneja el error de acuerdo a tus necesidades
-
       }
     } catch (error) {
       console.error('Error en la solicitud:', error);
       // Maneja el error de acuerdo a tus necesidades
     }
-
-    // Reinicia el formulario si es necesario
-    // setFormData({
-    //   nombres: '',
-    //   apellidos: '',
-    //   fecha: '',
-    //   hora: '',
-    //   tratamiento: '',
-    //   comentarios: '',
-    // });
   };
 
-  // Obtén la fecha actual
-  const currentDate = new Date();
-  // Suma x días a la fecha actual (en este caso, x sería 7 días)
-  const maxDate = new Date(currentDate);
-  maxDate.setDate(currentDate.getDate() + 7);
 
-
-
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-
-  //   // Llama a tu función de MongoDB con los datos del formulario
-  //   // await tuFuncionMongoDB(formData);
-  //   // await insertarDatos(formData);
-  //   // Aquí puedes realizar cualquier otra lógica que necesites después de enviar los datos
-
-  //   // Reinicia el formulario si es necesario
-  //   setFormData({
-  //     nombres: '',
-  //     apellidos: '',
-  //     fecha: '',
-  //     hora: '',
-  //     tratamiento: '',
-  //     comentarios: '',
-  //   });
-  // };
 
   return (
     <div className="container mt-4 mb-4" >
