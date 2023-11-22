@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Header from '../components/layout/Header-sticky'
+import Header from '../components/layout/Header-admin'
 import Footer from '../components/layout/Footer'
 import CitasCard from '../components/organism/CitasCard'
 import Calendar from 'react-calendar'
