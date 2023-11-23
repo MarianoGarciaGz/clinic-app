@@ -18,7 +18,7 @@ const FormReservar = () => {
     hora: '',
     tratamiento: '',
     comentarios: '',
-   
+    
   });
 
 
@@ -93,8 +93,6 @@ const FormReservar = () => {
       });
       setTratamientoSeleccionado(e.target.value !== ''); // Actualiza el estado si se selecciona un tratamiento
     }
-  
-
     if (
     formData.nombres !== '' &&
     formData.apellidos !== '' &&
@@ -118,13 +116,18 @@ const FormReservar = () => {
     e.preventDefault();
 
     try {
+      const updatedFormData = {
+        ...formData,
+        estado: 'pendiente',
+      };
+
       // Llama a la API insertaDatos
       const response = await fetch('http://localhost:5000/api/insertarDatos', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(updatedFormData),
       });
 
       if (response.ok) {
