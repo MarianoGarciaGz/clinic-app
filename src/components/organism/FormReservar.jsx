@@ -220,7 +220,9 @@ const FormReservar = () => {
                     <option>Peinado</option>
                     <option>Laser</option>
                  </select>
-                 
+                 <div className="invalid-feedback">
+                    Selecciona una hora válida.
+                 </div>
                 </div>
              </div>
 
