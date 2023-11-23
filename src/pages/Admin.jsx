@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Header from '../components/layout/Header-sticky'
+import Header from '../components/layout/Header-admin'
 import Footer from '../components/layout/Footer'
 import CitasCard from '../components/organism/CitasCard'
 import Calendar from 'react-calendar'
@@ -16,7 +16,7 @@ const Admin = () => {
 	}
 
 	return (
-		<div>
+		<>
 			<Header></Header>
 			<section className="d-flex justify-content-center container">
 				<Calendar onChange={onChange} value={date} className="card my-5" />
@@ -30,7 +30,7 @@ const Admin = () => {
 				<CitasCard></CitasCard>
 			</section>
 			<Footer></Footer>
-		</div>
+		</>
 	)
 }
 

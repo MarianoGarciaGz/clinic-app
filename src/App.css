@@ -7,18 +7,18 @@
 	--color-primary: #2ebbcd;
 	--color-secondary: #ff810c;
 	--color-terciary: #ffc28a;
-	--color-white: #f5f5f5;
-	--color-black: #333333;
+	--color-white: #fafafa;
+	--color-black: #373737;
 	--color-yellow: #fff000;
 	--color-red: #dd3030;
 	--color-blue: #2ebbcd;
-	--color-blue-hover: #209faf;
-	--color-shadow: rgba(33, 33, 33, 0.3);
-	--shadow: 2px 2px 5px 1px var(--color-shadow);
+	--color-primary-hover: #209faf;
+	--color-shadow: #3d3d3d6e;
+	--shadow: 0px 0px 5px 1px var(--color-shadow);
 	--shadow-hover: 0 2px 7px 0px var(--color-shadow);
 	--transition-smooth: 0.5s;
 	--transition-fast: 300ms;
-	--background: var(--color-white);
+	--background: color-mix(in srgb, #2ebbcd 8%, var(--color-white));
 
 	/* button */
 	--border: 1em 1em 1em 1em;
@@ -32,13 +32,13 @@
 }
 
 /* Dark mode */
-/* @media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: dark) {
 	:root {
-		--text-color: var(--color-white);
 		--dark: #2e2e2e;
-		--color-primary: color-mix(in oklab, var(--dark) 00%, #2ebbcd);
-		--color-secondary: color-mix(in oklab, var(--dark) 00%, rgb(98, 0, 107));
-		--color-white: #ffffff;
+		--color-primary: #1d7a86;
+		--color-secondary: #ff810c;
+		--color-terciary: #ffc28a;
+		--color-white: #f5f5f5;
 		--color-black: #e0e0e0;
 		--color-yellow: #ffcc00;
 		--color-red: #dd3030;
@@ -48,7 +48,7 @@
 		--text-color: var(--color-black);
 		--background: #264249;
 	}
-} */
+}
 
 /* reset */
 
@@ -63,7 +63,6 @@ body {
 	border-radius: var(--border);
 	border-width: 0;
 	color: #fff;
-	background-color: var(--color-primary);
 	box-shadow: var(--shadow);
 	transition: 1s;
 }
@@ -71,8 +70,15 @@ body {
 .btn:hover {
 	transition: 1s;
 	color: #fff;
-	background-color: var(--color-primary);
 	box-shadow: var(--shadow-hover);
+}
+
+.btn-primary {
+	background-color: var(--color-primary);
+}
+
+.btn-primary:hover {
+	background-color: var(--color-primary-hover);
 }
 
 .btn-secondary {
@@ -95,6 +101,14 @@ body {
 	transition: 1s;
 }
 
+.hyphens-none {
+	hyphens: none;
+}
+
+.hyphens-manual {
+	hyphens: manual;
+}
+
 /* HEADER & NAV */
 
 /* header */
@@ -102,19 +116,20 @@ body {
 .Header {
 	transition: var(--transition-fast);
 	background: var(--color-primary);
+	box-shadow: var(--shadow);
 }
 
 .Header--transparent {
 	transition: var(--transition-fast);
 	background: var(--color-white);
-	background: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 100%);
+	background: linear-gradient(180deg, color-mix(in oklab, var(--color-primary) 50%, #00000000) 0%, rgba(0, 0, 0, 0) 100%);
 }
 
 .Header--transparent .Nav-a {
 	color: var(--color-white);
 }
 
-.Header--transparent .Nav-a:hover {
+.Nav-a:hover {
 	color: var(--color-secondary);
 }
 
@@ -128,7 +143,7 @@ body {
 }
 
 .Header .active {
-	color: var(--color-yellow) !important;
+	color: var(--color-secondary) !important;
 }
 
 .Header--transparent .active {
@@ -136,8 +151,29 @@ body {
 	border-color: var(--color-secondary);
 }
 
-.Nav-a:hover {
-	color: var(--color-black);
+.Nav-ul .active {
+	border-width: 0px 0px 5px 0px;
+	border-radius: 0px;
+	border-style: solid;
+	border-color: var(--color-secondary);
+}
+.Nav-ul .active::before {
+	content: ' ';
+	position: absolute;
+	top: 0;
+	left: 50%;
+	-ms-transform: translateX(-50%);
+	transform: translateX(-50%);
+	width: 100%;
+	background-color: var(--color-secondary);
+	transition: all 0.3s;
+	opacity: 0;
+	height: 3px;
+}
+
+.Header .active::before {
+	transition: var(--transition-fast);
+	background-color: var(--color-secondary);
 }
 
 /* nav-btn + animations */
@@ -181,9 +217,12 @@ body {
 /* burger */
 
 .Nav-btntoggler {
-	width: 2rem;
+	height: auto;
+	width: 4rem;
 	box-shadow: none;
 	border: none;
+}
+.Nav-btntoggler img {
 }
 
 .Nav-btntoggler:focus {
@@ -202,12 +241,14 @@ body {
 }
 
 .Carousel-imgs {
-	height: 35em;
 }
 
 .Carousel-img {
-	filter: brightness(0.8);
-	object-fit: cover;
+	filter: brightness(0.9);
+	min-width: 100%;
+	max-height: 35em;
+	object-fit: scale-down;
+	object-position: bottom;
 }
 
 /* about */
@@ -230,43 +271,6 @@ body {
 	background-color: var(--color-primary);
 	padding: 20px;
 	font-size: 2em;
-}
-
-/*----------------------------------PAGINA PRINCIPAL---------------------------------------*/
-
-/* -------------------------------------CARRUSEL-------------------------------------------*/
-.carrusel-container {
-	max-width: 600px; /* Establece el ancho máximo del carrusel */
-	margin: 0 auto; /* Centra el carrusel horizontalmente en su contenedor */
-}
-
-.slick-dots {
-	bottom: 20px; /* Ajusta la posición de los puntos de navegación */
-}
-
-.slick-prev,
-.slick-next {
-	background-color: #007bff; /* Cambia el color de fondo de los botones de navegación */
-	color: #fff; /* Cambia el color del texto de los botones de navegación */
-	border-radius: 50%; /* Hace que los botones de navegación sean circulares */
-	padding: 8px; /* Añade espacio interno a los botones de navegación */
-}
-
-.slick-prev {
-	left: 10px; /* Ajusta la posición del botón "anterior" */
-}
-
-.slick-next {
-	right: 10px; /* Ajusta la posición del botón "siguiente" */
-}
-
-.slick-slide {
-	padding: 10px; /* Añade espacio interno entre los elementos del carrusel */
-}
-
-.slick-slide img {
-	width: 100%; /* Ajusta el tamaño de las imágenes dentro del carrusel */
-	border: 1px solid #ddd; /* Agrega un borde a las imágenes si es necesario */
 }
 
 /*-------------------------------------------3 CUADROS-----------------------------------*/
@@ -415,7 +419,6 @@ body {
 	display: flex; /* Usa flexbox para centrar los componentes */
 	justify-content: center; /* Centra horizontalmente los componentes */
 	align-items: center; /* Centra verticalmente los componentes */
-	gap: 20px; /* Espacio entre los componentes */
 }
 
 /* Estilos para los contenedores de contenido */
@@ -424,39 +427,37 @@ body {
 	flex-direction: column; /* Acomoda los elementos en forma vertical */
 	padding: 40px; /* Agrega espacio interno en los contenedores */
 	align-items: center;
+}
 
-	/* Ajusta el ancho de las imágenes y los títulos */
-	.image-component-tipos,
-	.title-component-tipos,
-	.text-component-tipos {
-		width: 100%;
-	}
+/* Ajusta el ancho de las imágenes y los títulos */
+.image-component-tipos,
+.title-component-tipos,
+.text-component-tipos {
+	width: 100%;
+}
 
-	/* Estilos para cada componente individual */
-	.image-component-tipos {
-		display: flex;
-		align-items: center; /* Centra la imagen verticalmente */
-		width: 70%;
-	}
+/* Estilos para cada componente individual */
+.image-component-tipos {
+	display: flex;
+	align-items: center; /* Centra la imagen verticalmente */
+	width: 70%;
+}
 
-	.tam-img {
-		height: 10rem;
-	}
+.tam-img {
+	height: 10rem;
+}
 
-	.title-component-tipos,
-	.text-component-tipos {
-		font-size: 16px;
-		text-align: center; /* Centra el texto horizontalmente */
-		width: 20rem;
-	}
+.title-component-tipos,
+.text-component-tipos {
+	text-align: center; /* Centra el texto horizontalmente */
+}
 
-	.title-component-tipos {
-		color: var(--color-secondary);
-	}
+.title-component-tipos {
+	color: var(--color-secondary);
+}
 
-	.text-component-tipos {
-		color: var(--color-black);
-	}
+.text-component-tipos {
+	color: var(--color-black);
 }
 
 /* -------------------------------PAGINA DE AGENDAR CITA-------------------------------- */
@@ -490,12 +491,6 @@ body {
 }
 
 /* Ajusta el ancho y la altura según tus necesidades */
-
-.vertical-line-elegir {
-	border-left: 2px solid var(--color-secondary);
-	height: 80px;
-	margin: 0 20px;
-}
 
 .content-elegir {
 	display: flex;
@@ -619,7 +614,6 @@ body {
 	}
 
 	.navbar-expand-md {
-		padding: 0 0 1em 0;
 	}
 
 	.Nav-btn {
@@ -658,12 +652,38 @@ body {
 
 /* FORM */
 
-.img-form{
+.img-form {
 	width: 2em;
-	
 }
 
 .custom-border-color-orange {
-	border: 2px solid orange; /* Cambia el color del borde a naranja */
+	border: 2px solid var(--color-secondary); /* Cambia el color del borde a naranja */
 	border-radius: 7px;
-  }
+}
+
+/* CONTACTO */
+
+.img-contacto {
+	width: 6em;
+	height: 6em;
+	object-fit: cover;
+}
+
+.custom-border-contacto {
+	border: 2px solid var(--color-secondary);
+}
+
+.custom-border-us {
+	border: 2px solid var(--color-secondary);
+}
+
+.selected-card {
+	transform: scale(1.1); /* Aumenta el tamaño de la tarjeta seleccionada */
+	z-index: 1; /* Asegura que la tarjeta seleccionada esté encima de las demás */
+	transition: transform 0.3s ease-in-out; /* Agrega una transición suave */
+}
+
+.vertical-line {
+	border-right: 1px solid var(--color-secondary); /* Cambia el color y grosor según tus preferencias */
+	height: 100%; /* Ajusta la altura según sea necesario */
+}

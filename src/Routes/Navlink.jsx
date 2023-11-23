@@ -4,6 +4,9 @@ import Home from '../pages/Home'
 import Agendar from '../pages/Agendar'
 import Contacto from '../pages/Contacto'
 import Admin from '../pages/Admin'
+import Nosotros from '../pages/Nosotros'
+import Servicios from '../pages/Servicios'
+import Solicitudes from '../pages/Solicitudes'
 
 const Navlink = () => {
 	return (
@@ -14,6 +17,9 @@ const Navlink = () => {
 					<Route path="agendar" element={<Agendar />} />
 					<Route path="contacto" element={<Contacto />} />
 					<Route path="admin" element={<Admin />} />
+					<Route path="nosotros" element={<Nosotros />} />
+					<Route path="servicios" element={<Servicios />} />
+					<Route path="solicitudes" element={<Solicitudes />} />
 				</Route>
 			</Routes>
 		</BrowserRouter>
