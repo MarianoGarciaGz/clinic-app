@@ -7,7 +7,6 @@ import comentarios from '../Images/comentarios.png'
 import { useState, useEffect } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import 'react-time-picker/dist/TimePicker.css';
 
 
 const FormReservar = () => {
@@ -132,23 +131,6 @@ const FormReservar = () => {
                   <div className="invalid-feedback">Selecciona una fecha válida.</div>
                 </div>
               </div>
-
-
-
-              {/* <div className="col-sm-6">
-                <label htmlFor="username" className="form-label">Fecha</label>
-                <div className="input-group has-validation">
-                  <span className="input-group-text bg-white custom-border-color-orange"><img src={fecha} alt="fecha" className="img-form" /></span>
-                  <select className="form-select bg-white custom-border-color-orange" id="fecha" required onChange={handleChange}>
-                    <option value="">Seleccionar...</option>
-                    <option>16/11/23</option>
-                    <option>17/11/23</option>
-                  </select>
-                  <div className="invalid-feedback">
-                    Selecciona una fecha válida.
-                  </div>
-                </div>
-              </div> */}
 
               <div className="col-sm-6">
                 <label htmlFor="username" className="form-label">Hora</label>
