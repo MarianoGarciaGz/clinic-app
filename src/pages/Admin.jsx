@@ -22,7 +22,7 @@ const Admin = () => {
 				<Calendar onChange={onChange} value={date} className="card my-5" />
 			</section>
 			<Heading title={'Citas del día'}></Heading>
-			<section class="container cards pt-5 mb-5" id="container">
+			<section className="container cards pt-5 mb-5" id="container">
 				<CitasCard></CitasCard>
 				<CitasCard></CitasCard>
 				<CitasCard></CitasCard>

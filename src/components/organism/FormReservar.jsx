@@ -33,11 +33,10 @@ const FormReservar = () => {
 		fecha: '',
 		hora: '',
 		tratamiento: '',
-		comentarios: '',
+		comentarios: ''
 	})
 
 	//Manejadores de Estados
-
 	const handleChangeDate = (date) => {
 		setSelectedDate(date);
 	};
@@ -159,8 +158,8 @@ const FormReservar = () => {
 			console.error('Error en la solicitud:', error);
 			// Maneja el error de acuerdo a tus necesidades
 		}
-	};
 
+	};
 
 
 	return (
@@ -168,7 +167,7 @@ const FormReservar = () => {
 			<div className="row justify-content-center ">
 				<div className="col-md-7 col-lg-8" >
 					<form className="needs-validation" noValidate onSubmit={handleSubmit}>
-						<div class="row g-3">
+						<div className="row g-3">
 
 							<div className="col-sm-4">
 								<label htmlFor="nombres" className="form-label">Nombre(s)</label>

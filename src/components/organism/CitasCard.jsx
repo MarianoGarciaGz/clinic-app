@@ -2,8 +2,8 @@ import React from 'react'
 
 const CitasCard = () => {
 	return (
-		<div class="card template-card">
-			<div class="card-body">
+		<div className="card template-card">
+			<div className="card-body">
 				<p>
 					<strong> Nombre:</strong>
 				</p>

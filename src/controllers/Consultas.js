@@ -8,7 +8,6 @@ const reservaSchema = new mongoose.Schema({
   fecha: String,
   hora: String,
   tratamiento: String,
-
   comentarios: String,
   
 });
