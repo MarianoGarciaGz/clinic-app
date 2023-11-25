@@ -7,7 +7,8 @@ const solicitudSchema = new mongoose.Schema({
     fecha: String,
     hora: String,
     tratamiento: String,
-    comentarios: String
+    comentarios: String,
+    estado: String,
 }
 );
 

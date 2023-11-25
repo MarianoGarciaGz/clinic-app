@@ -8,10 +8,8 @@ const reservaSchema = new mongoose.Schema({
   hora: { type: String, required: true },
   tratamiento: { type: String, required: true },
   comentarios: String,
-}, {
-  timestamps: true
-}
-);
+  estado: { type: String, default: 'pendiente' }, // Campo 'estado' con valor predeterminado
+});
 
 const Reserva = mongoose.model('Reserva', reservaSchema, 'agendas');
 

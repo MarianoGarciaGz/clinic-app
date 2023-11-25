@@ -1,24 +1,45 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
 
-const SolicitudCard = ({ id, nombres, fecha, hora, tratamiento, telefono, comentarios }) => {
+
+
+const SolicitudCard = ({ _id, nombres, fecha, hora, tratamiento, telefono, comentarios }) =>  {
 	const history = useNavigate();
-	const handleButtonClick = (action) => {
-		
-		// Aquí puedes redirigir a la ruta correspondiente basada en el valor de 'action'
+	console.log(_id);
+	const handleButtonClick = async (action) => {
+	  try {
 		if (action === 'aceptar') {
-		   // Redirigir a la ruta para aceptar
-		   history('/ruta-para-aceptar');
-		} else if (action === 'rechazar') {
-		   // Redirigir a la ruta para rechazar
-		   history('/ruta-para-rechazar');
+		  const endpoint = `/api/actualizarEstado/${_id}/aceptar`;
+		  const response = await fetch(`http://localhost:5000${endpoint}`, {
+			method: 'PUT',
+		  });
+  
+		  if (response.ok) {
+			const data = await response.json();
+			console.log('Estado actualizado:', data);
+			// Redirigir a la ruta correspondiente después de la actualización
+			history('/ruta-para-aceptar');
+		  } else {
+			console.error('Error al actualizar el estado', _id);
+			// Manejar el error de acuerdo a tus necesidades
+		  }
+		} else {
+		  console.error('Acción no válida');
+		  // Manejar el error de acción no válida
 		}
-	 };
+	  } catch (error) {
+		console.error('Error en la solicitud:', error);
+		// Manejar el error de acuerdo a tus necesidades
+	  }
+	};
 
 	return (
 		<div className="card template-card px-3">
-			<form className="card-body">
+			<form className="card-body" onSubmit={(e) => e.preventDefault()}>
 				<div className="row my-2">
+				<p>
+  <strong>ID:</strong> {_id}
+</p>
 					<p className="col-sm-4">
 						<strong>Cliente: </strong> {nombres}
 					</p>

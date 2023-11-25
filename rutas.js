@@ -17,13 +17,35 @@ router.post('/api/insertarDatos', async (req, res) => {
 
 router.get('/api/obtenerSolicitudes', async (req, res) => {
   try {
-     const solicitudes = await Reserva.find(); // Obtener todas las solicitudes de la base de datos
-     
-     res.send(solicitudes); // Devolver las solicitudes en formato JSON
-
+    const solicitudes = await Reserva.find({}, '_id nombres fecha hora tratamiento telefono comentarios');
+    res.send(solicitudes); // Asegúrate de que _id esté incluido en las solicitudes que envías al frontend
   } catch (error) {
-     console.error(error);
-     res.status(500).json({ message: 'Error al obtener las solicitudes en BackEnd de la Aplicación.' });
+    console.error(error);
+    res.status(500).json({ message: 'Error al obtener las solicitudes en BackEnd de la Aplicación.' });
+  }
+});
+
+router.put('/api/actualizarEstado/:id/:action', async (req, res) => {
+  try {
+    const { id, action } = req.params;
+
+    if (action === 'aceptar') {
+      const { id, accion } = req.params;
+    console.log('ID recibido:', id);
+    console.log('Acción recibida:', accion);
+      const updatedReserva = await Reserva.findByIdAndUpdate(id, { estado: 'aceptado' }, { new: true });
+
+      if (!updatedReserva) {
+        return res.status(404).json({ message: 'No se encontró la reserva' });
+      }
+
+      res.json({ message: 'Estado actualizado a "aceptado"', updatedReserva });
+    } else {
+      return res.status(400).json({ message: 'Acción no válida' });
+    }
+  } catch (error) {
+    console.error('Error al actualizar el estado:', error);
+    res.status(500).json({ error: 'Error interno del servidor al actualizar el estado' });
   }
 });
 

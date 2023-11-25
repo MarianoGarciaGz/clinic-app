@@ -9,7 +9,7 @@ const reservaSchema = new mongoose.Schema({
   hora: String,
   tratamiento: String,
   comentarios: String,
-  
+  estado: String,
 });
 
 // Crea un modelo basado en el esquema

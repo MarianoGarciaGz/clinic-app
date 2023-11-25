@@ -13,10 +13,10 @@ const FormReservar = () => {
 
 	// Obtén la fecha actual
 	const currentDate = new Date();
-	// Suma x días a la fecha actual (en este caso, x sería 7 días)
+// Suma x días a la fecha actual (en este caso, x sería 7 días)
 	const maxDate = new Date(currentDate);
 	maxDate.setDate(currentDate.getDate() + 7);
-
+  
 
 	//Estados
 	const [telefonoError, setTelefonoError] = useState(false);
@@ -27,13 +27,14 @@ const FormReservar = () => {
 	const [formValid, setFormValid] = useState(false);
 	const [selectedDate, setSelectedDate] = useState(null);
 	const [formData, setFormData] = useState({
-		nombres: '',
-		apellidos: '',
-		telefono: '',
-		fecha: '',
-		hora: '',
-		tratamiento: '',
-		comentarios: ''
+	  nombres: '',
+	  apellidos: '',
+	  telefono: '',
+	  fecha: '',
+	  hora: '',
+	  tratamiento: '',
+	  comentarios: '',
+	  estado: '',
 	})
 
 	//Manejadores de Estados
@@ -45,76 +46,74 @@ const FormReservar = () => {
 		const fechaString = selectedDate ? selectedDate.toLocaleDateString('es-ES') : '';
 
 		setFormData({
-			...formData,
-			"fecha": fechaString,
+		  ...formData,
+		  "fecha": fechaString,
 		});
-	}, [selectedDate]);
+	  }, [selectedDate]);
+	
 
 	const handleChange = (e) => {
 		if (e.target.id === 'telefono') {
-			const regex = /^[0-9]*$/;
-
-			if (regex.test(e.target.value) || e.target.value === '') {
-				if (e.target.value.length <= 10) {
-					setFormData({
-						...formData,
-						[e.target.id]: e.target.value,
-					});
-					setTelefonoError(false);
-				} else {
-					setTelefonoError(true);
-				}
+		  const regex = /^[0-9]*$/;
+		  if (regex.test(e.target.value) || e.target.value === '') {
+			if (e.target.value.length <= 10) {
+			  setFormData({
+				...formData,
+				[e.target.id]: e.target.value,
+			  });
+			  setTelefonoError(false);
 			} else {
-				setTelefonoError(true);
+			  setTelefonoError(true);
 			}
+		  } else {
+			setTelefonoError(true);
+		  }
 		} else if (e.target.id === 'apellidos' || e.target.id === 'nombres') {
-			const regex = /^[A-Za-z\s]+$/;
-
-			if (regex.test(e.target.value) || e.target.value === '') {
-				setFormData({
-					...formData,
-					[e.target.id]: e.target.value,
-				});
-				setTelefonoError(false);
-				setNombresError(false);
-				setApellidosError(false);
-			} else {
-				if (e.target.id === 'apellidos') {
-					setApellidosError(true);
-					setNombresError(false);
-					setTelefonoError(false);
-				} else if (e.target.id === 'nombres') {
-					setNombresError(true);
-					setApellidosError(false);
-					setTelefonoError(false);
-				}
+		  const regex = /^[A-Za-z\s]+$/;
+		  if (regex.test(e.target.value) || e.target.value === '') {
+			setFormData({
+			  ...formData,
+			  [e.target.id]: e.target.value,
+			});
+			setTelefonoError(false);
+			setNombresError(false);
+			setApellidosError(false);
+		  } else {
+			if (e.target.id === 'apellidos') {
+			  setApellidosError(true);
+			  setNombresError(false);
+			  setTelefonoError(false);
+			} else if (e.target.id === 'nombres') {
+			  setNombresError(true);
+			  setApellidosError(false);
+			  setTelefonoError(false);
 			}
+		  }
 		} else if (e.target.id === 'fecha') {
-			setFormData({
-				...formData,
-				[e.target.id]: e.target.value,
-			});
+		  setFormData({
+			...formData,
+			[e.target.id]: e.target.value,
+		  });
 		} else if (e.target.id === 'comentarios') {
-			setFormData({
-				...formData,
-				[e.target.id]: e.target.value,
-			});
-
+		  setFormData({
+			...formData,
+			[e.target.id]: e.target.value,
+		  });
 		} else if (e.target.id === 'hora') {
-			setFormData({
-				...formData,
-				[e.target.id]: e.target.value,
-			});
-			setHoraSeleccionada(e.target.value !== ''); // Actualiza el estado si se selecciona una hora
+		  setFormData({
+			...formData,
+			[e.target.id]: e.target.value,
+		  });
+		  setHoraSeleccionada(e.target.value !== ''); // Actualiza el estado si se selecciona una hora
 		} else if (e.target.id === 'tratamiento') {
-			setFormData({
-				...formData,
-				[e.target.id]: e.target.value,
-			});
-			setTratamientoSeleccionado(e.target.value !== ''); // Actualiza el estado si se selecciona un tratamiento
+		  setFormData({
+			...formData,
+			[e.target.id]: e.target.value,
+		  });
+		  setTratamientoSeleccionado(e.target.value !== ''); // Actualiza el estado si se selecciona un tratamiento
 		}
-
-
+	  
+		
 		if (
 			formData.nombres !== '' &&
 			formData.apellidos !== '' &&
@@ -132,34 +131,38 @@ const FormReservar = () => {
 		} else {
 			setFormValid(false); // Deshabilita el botón si algún campo está vacío o hay errores
 		}
-	};
+	  };
 
-	const handleSubmit = async (e) => {
-		e.preventDefault()
-
+	  const handleSubmit = async (e) => {
+		e.preventDefault();
+	  
 		try {
-			// Llama a la API insertaDatos
-			const response = await fetch('http://localhost:5000/api/insertarDatos', {
-				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json',
-				},
-				body: JSON.stringify(formData),
-			})
-
-			if (response.ok) {
-				console.log('Datos insertados exitosamente');
-				// Realiza cualquier otra lógica después de la inserción exitosa
-			} else {
-				console.error('Error al insertar datos');
-				// Maneja el error de acuerdo a tus necesidades
-			}
-		} catch (error) {
-			console.error('Error en la solicitud:', error);
+		  const updatedFormData = {
+			...formData,
+			estado: 'pendiente', // Establecer el estado predeterminado
+		  };
+	  
+		  // Llama a la API insertaDatos con los datos actualizados
+		  const response = await fetch('http://localhost:5000/api/insertarDatos', {
+			method: 'POST',
+			headers: {
+			  'Content-Type': 'application/json',
+			},
+			body: JSON.stringify(updatedFormData),
+		  });
+	  
+		  if (response.ok) {
+			console.log('Datos insertados exitosamente');
+			// Realiza cualquier otra lógica después de la inserción exitosa
+		  } else {
+			console.error('Error al insertar datos');
 			// Maneja el error de acuerdo a tus necesidades
+		  }
+		} catch (error) {
+		  console.error('Error en la solicitud:', error);
+		  // Maneja el error de acuerdo a tus necesidades
 		}
-
-	};
+	  };
 
 
 	return (
