@@ -7,6 +7,7 @@ import Admin from '../pages/Admin'
 import Nosotros from '../pages/Nosotros'
 import Servicios from '../pages/Servicios'
 import Solicitudes from '../pages/Solicitudes'
+import Verification from '../pages/Verification'
 
 const Navlink = () => {
 	return (
@@ -20,6 +21,7 @@ const Navlink = () => {
 					<Route path="nosotros" element={<Nosotros />} />
 					<Route path="servicios" element={<Servicios />} />
 					<Route path="solicitudes" element={<Solicitudes />} />
+					<Route path="verificacion" element={<Verification />} />
 				</Route>
 			</Routes>
 		</BrowserRouter>

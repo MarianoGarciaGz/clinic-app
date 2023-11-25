@@ -600,6 +600,49 @@ body {
 .card-p {
 }
 
+/* 💙 Verificación 💙 */
+
+.Verificacion {
+}
+.Verificacion-h1 {
+	color: var(--color-blue);
+	font-size: 2em;
+}
+.Verificacion-p {
+}
+.Verificacion-label {
+}
+.Verificacion-input {
+}
+
+.Modal {
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	margin: auto;
+	z-index: 5;
+	border-radius: var(--border);
+	background-color: var(--color-white);
+	box-shadow: 0 0 0 200vh var(--color-shadow);
+}
+
+.Modal {
+	text-align: center;
+	position: absolute !important;
+	height: fit-content;
+}
+
+.Modal-h2 {
+	font-size: 2em;
+}
+
+.Modal-p {
+}
+
+.Modal button {
+}
+
 /* media query */
 
 /* md - menor a este valor modifica estos valores */
