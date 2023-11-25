@@ -5,7 +5,7 @@ const Reserva = require('./svrModels/reserva.js');
 const rutas = require('./rutas.js');
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT =  5000;
 
 app.use(cors());
 app.use(express.json());
@@ -20,8 +20,6 @@ db.on('error', console.error.bind(console, 'Error de conexión a MongoDB:'));
 db.once('open', () => {
     console.log('Conexión exitosa a MongoDB');
 });
-
-
 
 // Define tus rutas y configuraciones adicionales aquí
 app.listen(PORT, () => {
