@@ -9,10 +9,17 @@ import '.././assets/css/Calendario.css'
 import Heading from '../components/atoms/Heading'
 
 const Admin = () => {
+
+	//Estados
 	const [selectedDate, setSelectedDate] = useState(new Date());
 
 	const [fechaString, setFechaString] = useState('');
-	
+
+	const [solicitudes, setSolicitudes] = useState([]);
+
+
+	//Controladores
+
 	const onChange = (date) => {
 		setSelectedDate(date);
 		// Puedes realizar otras acciones relacionadas con el cambio de fecha aquí
@@ -22,8 +29,6 @@ const Admin = () => {
 		const updatedFechaString = selectedDate ? selectedDate.toLocaleDateString('es-ES') : '';
 		setFechaString(updatedFechaString);
 	}, [selectedDate]);
-	const [solicitudes, setSolicitudes] = useState([]);
-
 
 	useEffect(() => {
 		const obtenerSolicitudes = async () => {
