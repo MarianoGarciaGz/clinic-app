@@ -47,7 +47,7 @@ const Solicitudes = () => {
 			<section className="container py-5">
 				{solicitudes.map(solicitud => (
 					<SolicitudCard
-						id={solicitud._id}
+						_id={solicitud._id}
 						nombres={solicitud.nombres}
 						apellidos={solicitud.apellidos}
 						telefono={solicitud.telefono}

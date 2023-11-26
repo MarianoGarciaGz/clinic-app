@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
 const solicitudSchema = new mongoose.Schema({
+    
     nombres: String,
     apellidos: String,
     telefono: String,

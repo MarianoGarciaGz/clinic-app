@@ -18,7 +18,7 @@ const SolicitudCard = ({ _id, nombres, fecha, hora, tratamiento, telefono, comen
 			const data = await response.json();
 			console.log('Estado actualizado:', data);
 			// Redirigir a la ruta correspondiente después de la actualización
-			history('/ruta-para-aceptar');
+			history('/Solicitudes');
 		  } else {
 			console.error('Error al actualizar el estado', _id);
 			// Manejar el error de acuerdo a tus necesidades
@@ -37,9 +37,7 @@ const SolicitudCard = ({ _id, nombres, fecha, hora, tratamiento, telefono, comen
 		<div className="card template-card px-3">
 			<form className="card-body" onSubmit={(e) => e.preventDefault()}>
 				<div className="row my-2">
-				<p>
-  <strong>ID:</strong> {_id}
-</p>
+				
 					<p className="col-sm-4">
 						<strong>Cliente: </strong> {nombres}
 					</p>

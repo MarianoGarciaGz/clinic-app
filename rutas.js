@@ -15,9 +15,10 @@ router.post('/api/insertarDatos', async (req, res) => {
   }
 });
 
+
 router.get('/api/obtenerSolicitudes', async (req, res) => {
   try {
-    const solicitudes = await Reserva.find({}, '_id nombres fecha hora tratamiento telefono comentarios');
+    const solicitudes = await Reserva.find({estado: 'pendiente'}, '_id nombres fecha hora tratamiento telefono comentarios');
     res.send(solicitudes); // Asegúrate de que _id esté incluido en las solicitudes que envías al frontend
   } catch (error) {
     console.error(error);
@@ -40,7 +41,7 @@ router.put('/api/actualizarEstado/:id/:action', async (req, res) => {
       }
 
       res.json({ message: 'Estado actualizado a "aceptado"', updatedReserva });
-    } else {
+    } else if (action === 'rechazar') {
       return res.status(400).json({ message: 'Acción no válida' });
     }
   } catch (error) {
