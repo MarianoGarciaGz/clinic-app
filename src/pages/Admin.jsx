@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Header from '../components/layout/Header-admin'
 import Footer from '../components/layout/Footer'
 import CitasCard from '../components/organism/CitasCard'
@@ -8,27 +8,29 @@ import '.././assets/css/Calendario.css'
 import Heading from '../components/atoms/Heading'
 
 const Admin = () => {
-	const [date, setDate] = useState(new Date())
+	const [selectedDate, setSelectedDate] = useState(new Date());
 
-	const onChange = (newDate) => {
-		setDate(newDate)
-		// Aquí puedes hacer lo que necesites con la nueva fecha seleccionada
-	}
+	const [fechaString, setFechaString] = useState('');
+	
+	const onChange = (date) => {
+		setSelectedDate(date);
+		// Puedes realizar otras acciones relacionadas con el cambio de fecha aquí
+	};
+
+	useEffect(() => {
+		const updatedFechaString = selectedDate ? selectedDate.toLocaleDateString('es-ES') : '';
+		setFechaString(updatedFechaString);
+	}, [selectedDate]);
+
 
 	return (
 		<>
 			<Header></Header>
 			<section className="d-flex justify-content-center container">
-				<Calendar onChange={onChange} value={date} className="card my-5" />
+				<Calendar onChange={onChange} value={selectedDate} className="card my-5" />
 			</section>
 			<Heading title={'Citas del día'}></Heading>
-			<section className="container cards pt-5 mb-5" id="container">
-				<CitasCard></CitasCard>
-				<CitasCard></CitasCard>
-				<CitasCard></CitasCard>
-				<CitasCard></CitasCard>
-				<CitasCard></CitasCard>
-			</section>
+			<Heading title={fechaString} />
 			<Footer></Footer>
 		</>
 	)
