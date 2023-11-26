@@ -31,9 +31,6 @@ router.put('/api/actualizarEstado/:id/:action', async (req, res) => {
     const { id, action } = req.params;
 
     if (action === 'aceptar') {
-      const { id, accion } = req.params;
-    console.log('ID recibido:', id);
-    console.log('Acción recibida:', accion);
       const updatedReserva = await Reserva.findByIdAndUpdate(id, { estado: 'aceptado' }, { new: true });
 
       if (!updatedReserva) {
@@ -42,6 +39,14 @@ router.put('/api/actualizarEstado/:id/:action', async (req, res) => {
 
       res.json({ message: 'Estado actualizado a "aceptado"', updatedReserva });
     } else if (action === 'rechazar') {
+      const deletedReserva = await Reserva.findByIdAndDelete(id);
+
+      if (!deletedReserva) {
+        return res.status(404).json({ message: 'No se encontró la reserva para eliminar' });
+      }
+
+      res.json({ message: 'Reserva eliminada', deletedReserva });
+    } else {
       return res.status(400).json({ message: 'Acción no válida' });
     }
   } catch (error) {
