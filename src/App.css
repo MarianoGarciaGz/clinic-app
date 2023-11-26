@@ -32,7 +32,7 @@
 }
 
 /* Dark mode */
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
 	:root {
 		--dark: #2e2e2e;
 		--color-primary: #1d7a86;
@@ -48,7 +48,7 @@
 		--text-color: var(--color-black);
 		--background: #264249;
 	}
-}
+} */
 
 /* reset */
 
@@ -79,6 +79,10 @@ body {
 
 .btn-primary:hover {
 	background-color: var(--color-primary-hover);
+}
+
+.btn-active {
+	background-color: var(--color-secondary);
 }
 
 .btn-secondary {
@@ -641,6 +645,27 @@ body {
 }
 
 .Modal button {
+}
+
+/* solicitud */
+
+.solicitud {
+}
+.solicitud-h2 {
+	background-color: var(--color-primary);
+	color: var(--color-white);
+	font-size: 2em;
+}
+
+.solicitud-p {
+}
+.solicitud-strong {
+}
+
+/* xxxxxxxxxxxxxxx */
+
+.img-fluid {
+	border-radius: 1em;
 }
 
 /* media query */

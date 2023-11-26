@@ -22,6 +22,8 @@ const Solicitudes = () => {
 
 			<section className="container py-5">
 				<SolicitudCard {...solicitudData} />
+				<SolicitudCard {...solicitudData} />
+				<SolicitudCard {...solicitudData} />
 			</section>
 
 			<Footer></Footer>
