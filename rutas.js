@@ -26,6 +26,17 @@ router.get('/api/obtenerSolicitudes', async (req, res) => {
   }
 });
 
+router.get('/api/obtenerSolicitudesAceptadas', async (req, res) => {
+  try {
+    const solicitudes = await Reserva.find({estado: 'aceptado'}, '_id nombres fecha hora tratamiento telefono comentarios');
+    res.send(solicitudes); // Asegúrate de que _id esté incluido en las solicitudes que envías al frontend
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Error al obtener las solicitudes en BackEnd de la Aplicación.' });
+  }
+});
+
+
 router.put('/api/actualizarEstado/:id/:action', async (req, res) => {
   try {
     const { id, action } = req.params;
