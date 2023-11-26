@@ -27,14 +27,15 @@ const Admin = () => {
 
 	useEffect(() => {
 		const updatedFechaString = selectedDate ? selectedDate.toLocaleDateString('es-ES') : '';
-		setFechaString(updatedFechaString);
-	}, [selectedDate]);
 
-	useEffect(() => {
+		setFechaString(updatedFechaString);
+		
+
 		const obtenerSolicitudes = async () => {
+			console.log('http://localhost:5000/api/obtenerSolicitudesAceptadas/'+updatedFechaString);
 			try {
 				// Llama a la API obtenerSolicitudes
-				const response = await fetch('http://localhost:5000/api/obtenerSolicitudesAceptadas', {
+				const response = await fetch('http://localhost:5000/api/obtenerSolicitudesAceptadas/'+updatedFechaString, {
 					method: 'GET',
 					headers: {
 						'Content-Type': 'application/json',
@@ -55,7 +56,7 @@ const Admin = () => {
 				// Maneja el error de acuerdo a tus necesidades
 			}
 		}; obtenerSolicitudes();
-	}, []);
+	}, [selectedDate]);
 
 	return (
 		<>
@@ -66,7 +67,7 @@ const Admin = () => {
 			<Heading title={'Citas del día'}></Heading>
 			<Heading title={fechaString} />
 			<section className="container cards pt-5 mb-5" id="container">
-			{solicitudes.map(solicitud => (
+				{solicitudes.map(solicitud => (
 					<CitasCard
 						_id={solicitud._id}
 						nombres={solicitud.nombres}
