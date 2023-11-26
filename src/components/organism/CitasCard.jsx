@@ -30,6 +30,7 @@ const CitasCard = ({ _id, nombres, fecha, hora, tratamiento, telefono, comentari
 	  };
 	return (
 		<div className="card template-card">
+			<form className="card-body">
 			<div className="card-body">
 				<p>
 					<strong> Nombre:</strong> {nombres}
@@ -49,6 +50,7 @@ const CitasCard = ({ _id, nombres, fecha, hora, tratamiento, telefono, comentari
 				
 				<button className="btn btn-danger w-25 mx-2" onClick={() => handleButtonClick('rechazar')}>Rechazar</button>
 			</div>
+			</form>
 		</div>
 	)
 }
