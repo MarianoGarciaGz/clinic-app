@@ -44,7 +44,7 @@ const FormReservar = () => {
 									Télefono
 								</label>
 								<div class="input-group has-validation ">
-									<span class="input-group-text bg-white">
+									<span class="input-group-text">
 										<img src={telefono} alt="telefono" className="img-form" />
 									</span>
 									<input type="text" class="form-control" id="telefono" placeholder="Teléfono" required="" />
