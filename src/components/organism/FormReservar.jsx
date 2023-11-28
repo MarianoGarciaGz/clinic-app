@@ -66,7 +66,7 @@ const FormReservar = () => {
 				setTelefonoError(true)
 			}
 		} else if (e.target.id === 'apellidos' || e.target.id === 'nombres') {
-			const regex = /^[A-Za-z\s]+$/
+			const regex = /^[A-Za-zÁÉÍÓÚÜáéíóúü\s]+$/
 			if (regex.test(e.target.value) || e.target.value === '') {
 				setFormData({
 					...formData,
