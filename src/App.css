@@ -21,7 +21,7 @@
 	--background: color-mix(in srgb, #2ebbcd 8%, var(--color-white));
 
 	/* button */
-	--border: 1em 1em 1em 1em;
+	--border: 2em 2em 2em 2em;
 
 	/* transitions */
 	--smooth: 1s;
@@ -650,14 +650,19 @@ body {
 .solicitud {
 }
 .solicitud-h2 {
-	background-color: var(--color-primary);
-	color: var(--color-white);
+	color: var(--color-primary);
 	font-size: 2em;
+	border-style: solid;
+	border-radius: 0;
+	border-color: var(--color-primary);
+	border-width: 0 0 2px 0;
 }
 
 .solicitud-p {
+	color: var(--color-black);
 }
 .solicitud-strong {
+	color: color-mix(in srgb, var(--color-black) 50%, var(--color-white));
 }
 
 /* xxxxxxxxxxxxxxx */
