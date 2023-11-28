@@ -15,11 +15,16 @@ const Admin = () => {
 		// Aquí puedes hacer lo que necesites con la nueva fecha seleccionada
 	}
 
+	const tileDisabled = ({ date, view }) => {
+		// Deshabilitar los fines de semana
+		return (view === 'month') && (date.getDay() === 0);
+	  };
+
 	return (
 		<>
 			<Header></Header>
 			<section className="d-flex justify-content-center container">
-				<Calendar onChange={onChange} value={date} className="card my-5" />
+				<Calendar onChange={onChange} value={date} className="card my-5" tileDisabled={tileDisabled} />
 			</section>
 			<Heading title={'Citas del día'}></Heading>
 			<section class="container cards pt-5 mb-5" id="container">
