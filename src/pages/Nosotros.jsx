@@ -21,9 +21,7 @@ const Nosotros = () => {
 
             <Gallery></Gallery>
 
-            <Heading title="ESTE ES NUESTRO EQUIPO DE TRABAJO"></Heading>
-
-            <Empleados></Empleados>
+            
 
 			<Footer></Footer>
 		</div>

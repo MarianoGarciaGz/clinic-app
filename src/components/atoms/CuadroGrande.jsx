@@ -3,95 +3,68 @@ import { Container, Row, Col } from 'react-bootstrap';
 import faciales from '../Images/faciales.jpg';
 import peinados from '../Images/peinados.jpg';
 import unas from '../Images/uñas.jpg';
-import masajes from '../Images/masaje.jpg'
+import masajes from '../Images/masaje.jpg';
 
 const CuadroGrande = () => {
-  const cuadroStyle = {
-    width: '15em', // Ancho del cuadro
-    height: '15em', // Alto del cuadro
-    backgroundColor: 'var(--color-secondary)', // Color de fondo del primer cuadro
-    padding: '10px', // Añadir un poco de espacio alrededor del contenido
+
+  const imgStyles = {
+    width: '100%', // Establece el ancho al 100%
+    height: 'auto', // Mantén la proporción
   };
 
-  const cuadroStyle2 = {
-    width: '15em', // Ancho del cuadro
-    height: '15em', // Alto del cuadro
-    backgroundColor: 'var(--color-terciary)', // Color de fondo del primer cuadro
-    padding: '10px', // Añadir un poco de espacio alrededor del contenido
-  };
-
-  const imgStyle = {
-    width: '100%', // Ancho de la imagen al 100% del cuadro
-    height: '100%', // Alto de la imagen al 100% del cuadro
-    objectFit: 'cover', // La imagen cubre todo el cuadro
+  const customButtonStyle = {
+    backgroundColor: '#ffc28a', // Cambia el color de fondo a un tono más claro de naranja
+    borderColor: '#ffc28a', // Cambia el color del borde si es necesario
+    color: 'white', // Cambia el color del texto del botón
   };
 
   return (
-    <Container className="justify-content-center align-items-center mt-4 mb-4">
-      <Row className="justify-content-center align-items-center">
-        <Col xs={3} className="border p-0 d-flex justify-content-center align-items-center" style={cuadroStyle}>
-          <div className="text-center position-relative">
-            <hr className="my-3 mx-auto" style={{marginTop: '-12px', width:'7em' ,borderTop: '4px solid black'}} />
-            <p className="my-4" style={{fontSize:'2em', color:'black'}}>Faciales</p>
+    <Container style={{ margintop: '200em' }} className="my-4" >
+      <Row>
+          <Col md={3} className="orange-bg d-flex align-items-stretch justify-content-center">
+
+          <div className="d-flex flex-column align-items-center justify-content-center text-center text-white">
+            <h2></h2>
+            <p>Experimenta el lujo del bienestar en nuestra clínica de masajes, donde la relajación y la salud se fusionan en una experiencia única. </p>
+            <p><a href="course-details.html" className="btn btn-primary btn-sm btn-pill" style={customButtonStyle}>Ver </a></p>
           </div>
         </Col>
-        <Col xs={3} className="border p-0 d-flex justify-content-center align-items-center" style={cuadroStyle}>
-          <img
-            src={faciales}
-            alt="Imagen"
-            style={imgStyle}
-          />
-        </Col>
-        <Col xs={3} className="border p-0 d-flex justify-content-center align-items-center" style={cuadroStyle2}>
-          <div className="text-center position-relative">
-            <hr className="my-3 mx-auto" style={{marginTop: '-12px', width:'7em' ,borderTop: '4px solid #333'}} />
-            <p className="my-4" style={{fontSize:'2em', color:'black'}}>Peinados</p>
+        <Col md={3} style={{ padding: 0 }}><img src={faciales} style={imgStyles} alt="Facial" /></Col>
+        <Col md={3} className="orange-bg d-flex align-items-stretch justify-content-center">
+
+          <div className="d-flex flex-column align-items-center justify-content-center text-center text-white">
+            <h2></h2>
+            <p>Nuestros terapeutas altamente capacitados te guiarán hacia un estado de tranquilidad total, aliviando la tensión acumulada y revitalizando tu cuerpo y mente.</p>
+            <p><a href="course-details.html" className="btn btn-primary btn-sm btn-pill" style={customButtonStyle}>Ver </a></p>
           </div>
         </Col>
-        <Col xs={3} className="border p-0 d-flex justify-content-center align-items-center" style={cuadroStyle}>
-          <img
-            src={peinados}
-            alt="Imagen"
-            style={imgStyle}
-          />
-        </Col>
-        {/* Agrega más columnas similares según sea necesario */}
+        <Col md={3} style={{ padding: 0 }}><img src={unas} style={imgStyles} alt="Facial" /></Col>
       </Row>
-      {/* Agrega más filas si necesitas más cuadros */}
-      <Row className="justify-content-center align-items-center">
+      {/* Second row */}
+      <Row>
         
-        <Col xs={3} className="border p-0 d-flex justify-content-center align-items-center" style={cuadroStyle}>
-          <img
-            src={masajes}
-            alt="Imagen"
-            style={imgStyle}
-          />
-        </Col>
-        <Col xs={3} className="border p-0 d-flex justify-content-center align-items-center" style={cuadroStyle2}>
-          <div className="text-center position-relative">
-            <hr className="my-3 mx-auto" style={{marginTop: '-12px', width:'7em' ,borderTop: '4px solid #333'}} />
-            <p className="my-4" style={{fontSize:'2em', color:'black'}}>Masajes</p>
+      <Col md={3} style={{ padding: 0 }}><img src={peinados} style={imgStyles} alt="Facial" /></Col>
+        <Col md={3} className="orange-bg d-flex align-items-stretch justify-content-center">
+
+          <div className="d-flex flex-column align-items-center justify-content-center text-center text-white">
+            <h2></h2>
+            <p>Descubre el placer de cuidarte a ti mismo y regálate el regalo de un masaje que no solo aliviará tus músculos, sino que también renovará tu energía.</p>
+            <p><a href="course-details.html" className="btn btn-primary btn-sm btn-pill" style={customButtonStyle}>Ver </a></p>
           </div>
         </Col>
-        <Col xs={3} className="border p-0 d-flex justify-content-center align-items-center" style={cuadroStyle}>
-          <img
-            src={unas}
-            alt="Imagen"
-            style={imgStyle}
-          />
-        </Col>
-        <Col xs={3} className="border p-0 d-flex justify-content-center align-items-center" style={cuadroStyle}>
-          <div className="text-center position-relative">
-            <hr className="my-3 mx-auto" style={{marginTop: '-12px', width:'7em' ,borderTop: '4px solid #333'}} />
-            <p className="my-4" style={{fontSize:'2em', color:'black'}}>Uñas</p>
+        <Col md={3} style={{ padding: 0 }}><img src={masajes} style={imgStyles} alt="Facial" /></Col>
+        <Col md={3} className="orange-bg d-flex align-items-stretch justify-content-center">
+
+          <div className="d-flex flex-column align-items-center justify-content-center text-center text-white">
+            <h2></h2>
+            <p>En nuestra clínica, la serenidad y el profesionalismo se encuentran para brindarte una experiencia transformadora.</p>
+            <p><a href="course-details.html" className="btn btn-primary btn-sm btn-pill" style={customButtonStyle}>Ver </a></p>
           </div>
         </Col>
-        {/* Agrega más columnas similares según sea necesario */}
+        
       </Row>
     </Container>
   );
 }
 
 export default CuadroGrande;
-
-
