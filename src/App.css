@@ -21,7 +21,7 @@
 	--background: color-mix(in srgb, #2ebbcd 8%, var(--color-white));
 
 	/* button */
-	--border: 1em 1em 1em 1em;
+	--border: 2em 2em 2em 2em;
 
 	/* transitions */
 	--smooth: 1s;
@@ -32,7 +32,7 @@
 }
 
 /* Dark mode */
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
 	:root {
 		--dark: #2e2e2e;
 		--color-primary: #1d7a86;
@@ -48,7 +48,7 @@
 		--text-color: var(--color-black);
 		--background: #264249;
 	}
-}
+} */
 
 /* reset */
 
@@ -79,6 +79,10 @@ body {
 
 .btn-primary:hover {
 	background-color: var(--color-primary-hover);
+}
+
+.btn-active {
+	background-color: var(--color-secondary);
 }
 
 .btn-secondary {
@@ -121,8 +125,6 @@ body {
 
 .Header--transparent {
 	transition: var(--transition-fast);
-	background: var(--color-white);
-	background: linear-gradient(180deg, color-mix(in oklab, var(--color-primary) 50%, #00000000) 0%, rgba(0, 0, 0, 0) 100%);
 }
 
 .Header--transparent .Nav-a {
@@ -244,7 +246,7 @@ body {
 }
 
 .Carousel-img {
-	filter: brightness(0.9);
+	filter: brightness(0.8);
 	min-width: 100%;
 	max-height: 35em;
 	object-fit: scale-down;
@@ -613,6 +615,7 @@ body {
 .Verificacion-label {
 }
 .Verificacion-input {
+	border-radius: var(--border);
 }
 
 .Modal {
@@ -641,6 +644,36 @@ body {
 }
 
 .Modal button {
+}
+
+/* solicitud */
+
+.solicitud {
+}
+.solicitud-h2 {
+	color: var(--color-primary);
+	font-size: 2em;
+	border-style: solid;
+	border-radius: 0;
+	border-color: var(--color-primary);
+	border-width: 0 0 2px 0;
+}
+
+.solicitud-p {
+	color: var(--color-black);
+}
+.solicitud-strong {
+	color: color-mix(in srgb, var(--color-black) 50%, var(--color-white));
+}
+
+/* xxxxxxxxxxxxxxx */
+
+.img-fluid {
+	border-radius: 1em;
+}
+
+.input-group-text {
+	border-radius: 0.5em 0 0 0.5em;
 }
 
 /* media query */
