@@ -167,6 +167,11 @@ const FormReservar = () => {
 		}
 	}
 
+	const filterWeekends = date => {
+		const day = date.getDay();
+		return day !== 0;
+	};
+
 	return (
 		<div className="container mt-4 mb-4">
 			<div className="row justify-content-center ">
@@ -226,6 +231,7 @@ const FormReservar = () => {
 										required
 										maxDate={maxDate}
 										minDate={new Date(Date.now())}
+										filterDate={filterWeekends}
 									/>
 									<div className="invalid-feedback">Selecciona una fecha válida.</div>
 								</div>
@@ -241,8 +247,18 @@ const FormReservar = () => {
 									</span>
 									<select className={`form-select bg-white custom-border-color-orange ${horaSeleccionada ? '' : 'is-invalid'}`} id="hora" required onChange={handleChange}>
 										<option value="">Seleccionar...</option>
+										<option>08:00</option>
+										<option>09:00</option>
+										<option>10:00</option>
+										<option>11:00</option>
+										<option>12:00</option>
+										<option>13:00</option>
 										<option>14:00</option>
 										<option>15:00</option>
+										<option>16:00</option>
+										<option>17:00</option>
+										<option>18:00</option>
+										<option>19:00</option>
 									</select>
 									<div className="invalid-feedback">Selecciona una hora válida.</div>
 								</div>
@@ -271,10 +287,39 @@ const FormReservar = () => {
 									</span>
 									<select className={`form-select bg-white custom-border-color-orange ${tratamientoSeleccionado ? '' : 'is-invalid'}`} id="tratamiento" required onChange={handleChange}>
 										<option value="">Seleccionar...</option>
-										<option>Masaje Corporal</option>
-										<option>Maquillaje</option>
-										<option>Peinado</option>
-										<option>Laser</option>
+										<option>Ácido Labios, nariz y nazogenianos</option>
+										<option>BB Glow</option>
+										<option>Bótox</option>
+										<option>Dermapen</option>
+										<option>Depilación Láser</option>
+										<option>Endermology</option>
+										<option>Facial Acné</option>
+										<option>Facial Rejuvenecimiento</option>
+										<option>Facial Limpieza Profunda</option>
+										<option>Hi-Fu</option>
+										<option>Hidrafacial</option>
+										<option>Hollywood Peel</option>
+										<option>Luz Pulsada</option>
+										<option>Oxígeno</option>
+										<option>RF Fraccionada con agujas</option>
+
+										<option>Carboxiterapia</option>
+										<option>Desintoxicación Iónica</option>
+										<option>Eliminación Tatuajes, Verrugas y Lunares</option>
+										<option>EMSzero Radiofrecuencia</option>
+										<option>Enzimas</option>
+										<option>Hi-Fu Corporal</option>
+										<option>Levant. de Glúteos</option>
+										<option>Maderoterapia</option>
+										<option>Masaje Descontracturante</option>
+										<option>Masaje Relajante</option>
+										<option>Masaje Piedras Calientes</option>
+										<option>Mesoterapia Inyectada</option>
+										<option>Mesoterapia Virtual</option>
+										<option>Moldeado Corporal</option>
+										<option>Ondas Rusas</option>
+										<option>Post Operatorio</option>
+										<option>Presoterapia</option>
 									</select>
 									<div className="invalid-feedback">Selecciona un tratamiento válido.</div>
 								</div>
