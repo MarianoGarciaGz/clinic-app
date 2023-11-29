@@ -2,6 +2,8 @@ import React from 'react'
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
+import Header from '../components/layout/Header-sticky'
+import Footer from '../components/layout/Footer'
 
 const LoginP = () => {
     const [email, setEmail] = useState([]);
@@ -47,6 +49,7 @@ const LoginP = () => {
 
     return (
         <div>
+            <Header></Header>
             <div className="Verificacion container d-flex justify-content-center align-items-center vh-100">
                 <div className="card text-center p-3">
                     <div className="card-body">
@@ -84,6 +87,7 @@ const LoginP = () => {
                     </div>
                 </div>
             </div>
+            <Footer></Footer>
         </div>
     );
 }

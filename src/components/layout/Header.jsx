@@ -58,6 +58,11 @@ const Header = () => {
 									Contacto
 								</NavLink>
 							</li>
+							<li className="Nav-li nav-item">
+								<NavLink to="/login" relative="path" className="Nav-a nav-link text-center mx-2">
+									Ingresar
+								</NavLink>
+							</li>
 							<Link to="/agendar" className="Nav-btn btn btn-secondary px-3 h-100 ms-md-3 ms-xs-auto">
 								Solicitar cita
 							</Link>
