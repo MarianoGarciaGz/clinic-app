@@ -15,7 +15,7 @@ const Verification = () => {
 					<div className="card text-center p-3">
 						<div className="card-body">
 							<h1 className="Verificacion-h1 mb-3">Verificación</h1>
-							<p className="Verificacion-p card-title">Introduce tu código de verificación para confirmar tu recervación.</p>
+							<p className="Verificacion-p card-title">Introduce tu código de verificación para confirmar tu reservación.</p>
 							<div className="form-group mt-3">
 								<label className="Verificacion-label" htmlFor="verificationCode">
 									Código de Verificación:

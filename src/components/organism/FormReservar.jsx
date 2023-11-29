@@ -1,5 +1,4 @@
 import React from 'react'
-import usuario from '../Images/usuario.png'
 import fecha from '../Images/fecha.png'
 import hora from '../Images/hora.png'
 import tratamiento from '../Images/tratamiento.png'

@@ -7,8 +7,12 @@ import Calendar from 'react-calendar'
 import 'react-calendar/dist/Calendar.css'
 import '.././assets/css/Calendario.css'
 import Heading from '../components/atoms/Heading'
+import Cookies from 'js-cookie';
+import { useNavigate } from 'react-router-dom';
 
 const Admin = () => {
+
+	const navigate = useNavigate();
 
 	//Estados
 	const [selectedDate, setSelectedDate] = useState(new Date());
@@ -17,6 +21,7 @@ const Admin = () => {
 
 	const [solicitudes, setSolicitudes] = useState([]);
 
+    const [user, setUser] = useState(null);
 
 	//Controladores
 
@@ -26,13 +31,52 @@ const Admin = () => {
 	};
 
 	useEffect(() => {
+        const fetchUserData = async () => {
+            try {
+                // Obtener el token almacenado
+                const token = Cookies.get('tokenSesion');
+                // Si no hay token, redirige al usuario al inicio de sesión u otra página
+                if (!token) {
+                    // Puedes redirigir o realizar otras acciones según tus necesidades
+                    console.error('Token no encontrado');
+					navigate('/login');
+                    return;
+                } else {
+                    // Hacer una solicitud al servidor con el token
+                    const response = await fetch('http://localhost:5000/api/verifyToken', {
+                        method: 'GET',
+                        headers: {
+                            Authorization: token,
+                        },
+                    });
+
+                    if (response.ok) {
+                        const data = await response.json();
+						console.log("Sesion Correctamente Iniciada")
+                        setUser(data.user);
+                    } else {
+						navigate('/login');
+                        console.error('Error al obtener datos de usuario');
+                        // Manejar el error según tus necesidades
+						
+                    }
+                }
+            } catch (error) {
+                console.error('Error en la solicitud:', error);
+				navigate('/login');
+            }
+        };
+
+        fetchUserData();
+    }, []); // El segundo argumento [] significa que este efecto se ejecuta solo una vez al montar el componente
+
+	useEffect(() => {
 		const updatedFechaString = selectedDate ? selectedDate.toLocaleDateString('es-ES') : '';
 
 		setFechaString(updatedFechaString);
 		
 
 		const obtenerSolicitudes = async () => {
-			console.log('http://localhost:5000/api/obtenerSolicitudesAceptadas/'+updatedFechaString);
 			try {
 				// Llama a la API obtenerSolicitudes
 				const response = await fetch('http://localhost:5000/api/obtenerSolicitudesAceptadas/'+updatedFechaString, {
@@ -44,7 +88,6 @@ const Admin = () => {
 
 				if (response.ok) {
 					const data = await response.json();
-					console.log('Solicitudes obtenidas exitosamente:'+updatedFechaString);
 					setSolicitudes(data);
 					// Realiza cualquier otra lógica después de obtener las solicitudes exitosamente
 				} else {
@@ -57,6 +100,8 @@ const Admin = () => {
 			}
 		}; obtenerSolicitudes();
 	}, [selectedDate]);
+
+	
 
 	return (
 		<>

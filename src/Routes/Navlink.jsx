@@ -9,6 +9,8 @@ import Servicios from '../pages/Servicios'
 import Solicitudes from '../pages/Solicitudes'
 import Verification from '../pages/Verification'
 import Aceptacion from '../pages/Aceptacion'
+import Login_prueba from '../pages/LoginP'
+
 
 const Navlink = () => {
 	return (
@@ -24,6 +26,7 @@ const Navlink = () => {
 					<Route path="solicitudes" element={<Solicitudes />} />
 					<Route path="verificacion" element={<Verification />} />
 					<Route path="aceptacion" element={<Aceptacion />} />
+					<Route path="login" element={<Login_prueba />} />
 				</Route>
 			</Routes>
 		</BrowserRouter>
