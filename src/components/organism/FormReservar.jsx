@@ -4,6 +4,7 @@ import fecha from '../Images/fecha.png'
 import hora from '../Images/hora.png'
 import tratamiento from '../Images/tratamiento.png'
 import comentarios from '../Images/comentarios.png'
+import correo from '../Images/correo.png'
 import { useState, useEffect } from 'react'
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
@@ -30,6 +31,7 @@ const FormReservar = () => {
 		telefono: '',
 		fecha: '',
 		hora: '',
+		email: '',
 		tratamiento: '',
 		comentarios: '',
 		estado: '',
@@ -87,6 +89,11 @@ const FormReservar = () => {
 				}
 			}
 		} else if (e.target.id === 'fecha') {
+			setFormData({
+				...formData,
+				[e.target.id]: e.target.value,
+			})
+		} else if (e.target.id === 'email') {
 			setFormData({
 				...formData,
 				[e.target.id]: e.target.value,
@@ -237,7 +244,20 @@ const FormReservar = () => {
 										<option>14:00</option>
 										<option>15:00</option>
 									</select>
-									<div className="invalid-feedback">Selecciona una fecha válida.</div>
+									<div className="invalid-feedback">Selecciona una hora válida.</div>
+								</div>
+							</div>
+
+							<div className="col-sm-12">
+								<label htmlFor="username" className="form-label">
+									Correo
+								</label>
+								<div className="input-group has-validation">
+									<span className="input-group-text bg-white custom-border-color-orange">
+										<img src={correo} alt="correo" className="img-form" />
+									</span>
+									<input type="email" className="form-control bg-white custom-border-color-orange" id="email" placeholder="Correo" onChange={handleChange} />
+									<div className="invalid-feedback">Escribe tu email aquí...</div>
 								</div>
 							</div>
 
@@ -256,7 +276,7 @@ const FormReservar = () => {
 										<option>Peinado</option>
 										<option>Laser</option>
 									</select>
-									<div className="invalid-feedback">Selecciona una hora válida.</div>
+									<div className="invalid-feedback">Selecciona un tratamiento válido.</div>
 								</div>
 							</div>
 

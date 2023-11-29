@@ -20,7 +20,7 @@ const Verification = () => {
 								<label className="Verificacion-label" htmlFor="verificationCode">
 									Código de Verificación:
 								</label>
-								<input type="text" className="Verificacion-input form-control" id="verificationCode" />
+								<input type="text" className="Verificacion-input form-control text-center" id="verificationCode" placeholder="1234" />
 							</div>
 							<button className="btn btn-primary w-100 mt-3">Aceptar</button>
 						</div>
