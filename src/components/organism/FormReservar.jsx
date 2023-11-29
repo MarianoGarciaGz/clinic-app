@@ -137,35 +137,83 @@ const FormReservar = () => {
 	}
 
 	const handleSubmit = async (e) => {
-		e.preventDefault()
+    e.preventDefault();
 
-		try {
-			const updatedFormData = {
-				...formData,
-				estado: 'pendiente', // Establecer el estado predeterminado
-			}
+    try {
+        const response = await fetch('http://localhost:5000/api/enviarCodigoVerificacion', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ email: formData.email }),
+        });
 
-			// Llama a la API insertaDatos con los datos actualizados
-			const response = await fetch('http://localhost:5000/api/insertarDatos', {
-				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json',
-				},
-				body: JSON.stringify(updatedFormData),
-			})
+        if (response.ok) {
+            const data = await response.json();
+            if (data.estado === 'NoVerificado' || !data) {
+                // Si el correo no existe o no está verificado, enviar código de verificación
+                enviarCodigoVerificacion(formData.email);
+            } else {
+                try {
+					const updatedFormData = {
+						...formData,
+						estado: 'pendiente', // Establecer el estado predeterminado
+					}
+		
+					// Llama a la API insertaDatos con los datos actualizados
+					const response = await fetch('http://localhost:5000/api/insertarDatos', {
+						method: 'POST',
+						headers: {
+							'Content-Type': 'application/json',
+						},
+						body: JSON.stringify(updatedFormData),
+					})
+		
+					if (response.ok) {
+						console.log('Datos insertados exitosamente')
+						// Realiza cualquier otra lógica después de la inserción exitosa
+					} else {
+						console.error('Error al insertar datos')
+						// Maneja el error de acuerdo a tus necesidades
+					}
+				} catch (error) {
+					console.error('Error en la solicitud:', error)
+					// Maneja el error de acuerdo a tus necesidades
+				}
+            }
+        } else {
+            console.error('Error al verificar el correo');
+            // Manejar el error según sea necesario
+        }
+    } catch (error) {
+        console.error('Error en la solicitud:', error);
+        // Manejar el error según sea necesario
+    }
+};
 
-			if (response.ok) {
-				console.log('Datos insertados exitosamente')
-				// Realiza cualquier otra lógica después de la inserción exitosa
-			} else {
-				console.error('Error al insertar datos')
-				// Maneja el error de acuerdo a tus necesidades
-			}
-		} catch (error) {
-			console.error('Error en la solicitud:', error)
-			// Maneja el error de acuerdo a tus necesidades
-		}
-	}
+const enviarCodigoVerificacion = async (email) => {
+    try {
+        const response = await fetch('http://localhost:5000/api/enviarCodigoVerificacion', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ email }),
+        });
+
+        if (response.ok) {
+            console.log('Código de verificación enviado correctamente');
+            // Mostrar modal, redirigir o realizar alguna acción adicional
+        } else {
+            console.error('Error al enviar el código de verificación');
+            // Manejar el error según sea necesario
+        }
+    } catch (error) {
+        console.error('Error en la solicitud:', error);
+        // Manejar el error según sea necesario
+    }
+};
+
 
 	return (
 		<div className="container mt-4 mb-4">
