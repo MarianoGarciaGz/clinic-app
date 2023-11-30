@@ -38,7 +38,7 @@ const Verification = () => {
 		  if (responseInsert.ok) {
 			console.log('Datos insertados exitosamente');
 			
-			navigate('/agendar'); 
+			navigate('/aceptacion'); 
 		  } else {
 			console.error('Error al insertar datos');
 		  }
