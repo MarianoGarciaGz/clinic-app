@@ -615,6 +615,7 @@ body {
 .Verificacion-label {
 }
 .Verificacion-input {
+	border-radius: var(--border);
 }
 
 .Modal {
@@ -675,9 +676,6 @@ body {
 	border-radius: 0.5em 0 0 0.5em;
 }
 
-.form-control {
-	border-radius: 0 1em 1em 0;
-}
 /* media query */
 
 /* md - menor a este valor modifica estos valores */

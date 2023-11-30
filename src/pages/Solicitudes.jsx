@@ -125,58 +125,6 @@ const Solicitudes = () => {
 				{solicitudes.map((solicitud) => (
 					<SolicitudCard _id={solicitud._id} nombres={solicitud.nombres} apellidos={solicitud.apellidos} telefono={solicitud.telefono} fecha={solicitud.fecha} hora={solicitud.hora} tratamiento={solicitud.tratamiento} comentarios={solicitud.comentarios} />
 				))}
-
-				{/* ejemplo */}
-				<div className="solicitud card template-card my-3 px-3">
-					<form className="card-body">
-						<div className="row my-2">
-							<h2 className="solicitud-h2 py-2 text-center mb-3">Mariano Ismael García Guzmán</h2>
-							<p className="solicitud-p col-sm-12 col-md-6 col-lg-4 ">
-								<strong className="solicitud-strong">
-									Cliente: <br />{' '}
-								</strong>{' '}
-								Mariano Ismael García Guzmán{/* {nombres} */}
-							</p>
-							<p className="solicitud-p col-sm-12 col-md-6 col-lg-4 ">
-								<strong className="solicitud-strong">
-									Fecha: <br />{' '}
-								</strong>{' '}
-								14/21/23 {/* {fecha} */}
-							</p>
-							<p className="solicitud-p col-sm-12 col-md-6 col-lg-4 ">
-								<strong className="solicitud-strong">
-									Hora: <br />{' '}
-								</strong>{' '}
-								12:00{/* {hora} */}
-							</p>
-							<p className="solicitud-p col-sm-12 col-md-6 col-lg-4 ">
-								<strong className="solicitud-strong">
-									Tratamiento:
-									<br />{' '}
-								</strong>{' '}
-								Masaje corporal{/* {tratamiento} */}
-							</p>
-							<p className="solicitud-p col-sm-12 col-md-6 col-lg-4 ">
-								<strong className="solicitud-strong">
-									Teléfono:
-									<br />{' '}
-								</strong>{' '}
-								443412945{/* {telefono} */}
-							</p>
-							<p className="solicitud-p col-sm-12 col-md-12">
-								<strong className="solicitud-strong">
-									Comentarios:
-									<br />{' '}
-								</strong>{' '}
-								{/* {comentarios} */}
-							</p>
-						</div>
-						<div className="text-center">
-							<button className="btn btn-success w-25 mx-2">Aceptar</button>
-							<button className="btn btn-danger w-25 mx-2">Rechazar</button>
-						</div>
-					</form>
-				</div>
 			</section>
 		</>
 	)

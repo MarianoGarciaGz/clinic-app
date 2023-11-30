@@ -52,24 +52,45 @@ const SolicitudCard = ({ _id, nombres, fecha, hora, tratamiento, telefono, comen
 		<div className="solicitud card template-card my-3 px-3">
 			<form className="card-body">
 				<div className="row my-2">
-					<h2 className="solicitud-h2 py-2 text-center mb-3">Información de la solicitud</h2>
-					<p className="solicitud-p col-sm-4">
-						<strong className="solicitud-strong">Cliente: </strong> {nombres}
+					<h2 className="solicitud-h2 py-2 text-center mb-3">{nombres}</h2>
+					<p className="solicitud-p col-sm-12 col-md-6 col-lg-4">
+						<strong className="solicitud-strong">
+							Cliente: <br />
+						</strong>{' '}
+						{nombres}
 					</p>
-					<p className="solicitud-p col-sm-4">
-						<strong className="solicitud-strong">Fecha: </strong> {fecha}
+					<p className="solicitud-p col-sm-12 col-md-6 col-lg-4">
+						<strong className="solicitud-strong">
+							Fecha: <br />
+						</strong>{' '}
+						{fecha}
 					</p>
-					<p className="solicitud-p col-sm-4">
-						<strong className="solicitud-strong">Hora: </strong> {hora}
+					<p className="solicitud-p col-sm-12 col-md-6 col-lg-4">
+						<strong className="solicitud-strong">
+							Hora: <br />
+						</strong>{' '}
+						{hora}
 					</p>
-					<p className="solicitud-p col-sm-4">
-						<strong className="solicitud-strong">Tratamiento:</strong> {tratamiento}
+					<p className="solicitud-p col-sm-12 col-md-6 col-lg-4">
+						<strong className="solicitud-strong">
+							Tratamiento:
+							<br />
+						</strong>{' '}
+						{tratamiento}
 					</p>
-					<p className="solicitud-p col-sm-4">
-						<strong className="solicitud-strong">Teléfono:</strong> {telefono}
+					<p className="solicitud-p col-sm-12 col-md-6 col-lg-4">
+						<strong className="solicitud-strong">
+							Teléfono:
+							<br />
+						</strong>{' '}
+						{telefono}
 					</p>
-					<p className="solicitud-p col-sm-4">
-						<strong className="solicitud-strong">Comentarios:</strong> {comentarios}
+					<p className="solicitud-p col-sm-12">
+						<strong className="solicitud-strong">
+							Comentarios:
+							<br />
+						</strong>{' '}
+						{comentarios}
 					</p>
 				</div>
 				<div className="text-center">

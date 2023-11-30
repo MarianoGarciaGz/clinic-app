@@ -1,8 +1,11 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
+import usuario from '../Images/usuario.png'
 import fecha from '../Images/fecha.png'
 import hora from '../Images/hora.png'
 import tratamiento from '../Images/tratamiento.png'
 import comentarios from '../Images/comentarios.png'
+import correo from '../Images/correo.png'
 import { useState, useEffect } from 'react'
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
@@ -29,6 +32,7 @@ const FormReservar = () => {
 		telefono: '',
 		fecha: '',
 		hora: '',
+		email: '',
 		tratamiento: '',
 		comentarios: '',
 		estado: '',
@@ -38,6 +42,8 @@ const FormReservar = () => {
 	const handleChangeDate = (date) => {
 		setSelectedDate(date)
 	}
+
+	const navigate = useNavigate();
 
 	useEffect(() => {
 		const fechaString = selectedDate ? selectedDate.toLocaleDateString('es-ES') : ''
@@ -90,6 +96,11 @@ const FormReservar = () => {
 				...formData,
 				[e.target.id]: e.target.value,
 			})
+		} else if (e.target.id === 'email') {
+			setFormData({
+				...formData,
+				[e.target.id]: e.target.value,
+			})
 		} else if (e.target.id === 'comentarios') {
 			setFormData({
 				...formData,
@@ -129,35 +140,42 @@ const FormReservar = () => {
 	}
 
 	const handleSubmit = async (e) => {
-		e.preventDefault()
-
+		e.preventDefault();
+		
 		try {
+		  // Enviar el correo con el código de verificación
+		  const responseCorreo = await fetch('http://localhost:5000/api/enviarCodigo', {
+			method: 'POST',
+			headers: {
+			  'Content-Type': 'application/json',
+			},
+			body: JSON.stringify({ email: formData.email }), // Envía el correo del formulario al backend
+		  });
+	  
+		  if (responseCorreo.ok) {
+			console.log('Correo enviado con el código de verificación');
+	  
+			// Almacena temporalmente los datos en sessionStorage
 			const updatedFormData = {
-				...formData,
-				estado: 'pendiente', // Establecer el estado predeterminado
-			}
-
-			// Llama a la API insertaDatos con los datos actualizados
-			const response = await fetch('http://localhost:5000/api/insertarDatos', {
-				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json',
-				},
-				body: JSON.stringify(updatedFormData),
-			})
-
-			if (response.ok) {
-				console.log('Datos insertados exitosamente')
-				// Realiza cualquier otra lógica después de la inserción exitosa
-			} else {
-				console.error('Error al insertar datos')
-				// Maneja el error de acuerdo a tus necesidades
-			}
+			  ...formData,
+			  estado: 'pendiente', // Establecer el estado predeterminado
+			};
+			sessionStorage.setItem('formData', JSON.stringify(updatedFormData)); // Almacena los datos en sessionStorage
+	  
+			navigate('/verificacion'); // Redireccionar a la página de verificación
+		  } else {
+			console.error('Error al enviar el correo');
+			// Manejar el error del envío del correo según tus necesidades
+		  }
 		} catch (error) {
-			console.error('Error en la solicitud:', error)
-			// Maneja el error de acuerdo a tus necesidades
+		  console.error('Error en la solicitud:', error);
+		  // Manejar el error general según tus necesidades
 		}
-	}
+	  };
+    
+
+
+
 
 	return (
 		<div className="container mt-4 mb-4">
@@ -236,7 +254,20 @@ const FormReservar = () => {
 										<option>14:00</option>
 										<option>15:00</option>
 									</select>
-									<div className="invalid-feedback">Selecciona una fecha válida.</div>
+									<div className="invalid-feedback">Selecciona una hora válida.</div>
+								</div>
+							</div>
+
+							<div className="col-sm-12">
+								<label htmlFor="username" className="form-label">
+									Correo
+								</label>
+								<div className="input-group has-validation">
+									<span className="input-group-text bg-white custom-border-color-orange">
+										<img src={correo} alt="correo" className="img-form" />
+									</span>
+									<input type="email" className="form-control bg-white custom-border-color-orange" id="email" placeholder="Correo" onChange={handleChange} />
+									<div className="invalid-feedback">Escribe tu email aquí...</div>
 								</div>
 							</div>
 
@@ -255,7 +286,7 @@ const FormReservar = () => {
 										<option>Peinado</option>
 										<option>Laser</option>
 									</select>
-									<div className="invalid-feedback">Selecciona una hora válida.</div>
+									<div className="invalid-feedback">Selecciona un tratamiento válido.</div>
 								</div>
 							</div>
 
