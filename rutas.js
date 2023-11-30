@@ -3,94 +3,80 @@ const router = express.Router();
 const Reserva = require('./svrModels/reserva.js');
 const Users = require('./svrModels/users.js'); // Ajusta la ruta según tu estructura de archivos
 const nodemailer = require('nodemailer');
+const bodyParser = require('body-parser');
+const cors = require('cors');
 const app = express();
 
-const generateVerificationCode = () => {
-  return Math.floor(1000 + Math.random() * 9000).toString();
-};
+// Middleware////////////////////////////////////
+app.use((req, res, next) => {
+  res.status(404).send('Ruta no encontrada');
+});
 
-router.post('api/verificarCorreo', async (req, res) => {
-  const { email } = req.body;
+app.use(cors()); // Configura cors como middleware
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
+
+
+const randomize = require('randomatic')
+/////////////////////////////////////////////////////
+
+
+
+let codigoGenerado = '';
+
+router.post('/api/verificarCodigo', async (req, res) => {
   try {
-    const user = await Users.findOne({ email });
+    // Obtener el código de verificación del cuerpo de la solicitud
+    const { verificationCode } = req.body;
 
-    if (user) {
-      res.json({ estado: user.estado });
+    if (verificationCode === codigoGenerado) {
+      return res.status(200).json({ message: 'Código de verificación válido' });
     } else {
-      user = new Users({
-        email,
-        codigo: verificationCode,
-        estado: 'NoVerificado'
-      });
-      await user.save();
-      res.json({ estado: 'NoEncontrado' });
+      return res.status(400).json({ message: 'Código de verificación inválido' });
     }
   } catch (error) {
-    console.error('Error al verificar el correo:', error);
-    res.status(500).json({ error: 'Error al verificar el correo.' });
+    console.error('Error al verificar el código:', error);
+    return res.status(500).json({ message: 'Error al verificar el código' });
   }
 });
 
-router.post('api/enviarCodigoVerificacion', async (req, res) => {
+router.post('/api/enviarCodigo', async (req, res) => {
   const { email } = req.body;
 
+  // Generar código aleatorio de 4 dígitos
+  const verificationCode = randomize('0', 4);
+
+  codigoGenerado = verificationCode;
+
+  // Configuración de nodemailer (aquí debes configurar tu propio servicio de correo)
+  const transporter = nodemailer.createTransport({
+    service: 'Gmail', // Ejemplo usando Gmail
+    auth: {
+      user: 'pruebanmmsxd@gmail.com', // Correo desde donde se enviará
+      pass: 'fvxukfupxapxtppu', // Contraseña del correo
+    },
+  });
+
+  const mailOptions = {
+    from: 'p2914499@gmail.com',
+    to: email,
+    subject: 'Código de Verificación',
+    text: `Tu código de verificación es: ${verificationCode}`,
+  };
+
   try {
-    let user = await Users.findOne({ email });
-
-    if (!user || user.estado === 'NoVerificado') {
-      const verificationCode = generateVerificationCode();
-
-      if (!user) {
-        user = new Users({
-          email,
-          codigo: verificationCode,
-          estado: 'NoVerificado'
-        });
-      } else {
-        user.codigo = verificationCode;
-        user.estado = 'NoVerificado';
-      }
-
-      await user.save();
-
-      sendVerificationCode(email, verificationCode);
-
-      res.json({ message: 'Código de verificación enviado correctamente.' });
-    } else {
-      res.json({ message: 'Correo ya verificado.' });
-    }
+    // Enviar el correo con el código
+    await transporter.sendMail(mailOptions);
+    res.status(200).json({ message: 'Correo enviado con el código de verificación.' });
   } catch (error) {
-    console.error('Error al enviar el código de verificación:', error);
-    res.status(500).json({ error: 'Error al enviar el código de verificación.' });
+    console.error('Error al enviar el correo:', error);
+    res.status(500).json({ error: 'Error al enviar el correo.' });
   }
 });
 
 
-const sendVerificationCode = async (email, code) => {
-  try {
-      const transporter = nodemailer.createTransport({
-          service: 'Gmail',
-          auth: {
-              user: 'drackelive@gmail.com', // Cambia por tu dirección de correo
-              pass: 'azulindigo27', // Cambia por tu contraseña de correo
-          },
-      });
 
-      const mailOptions = {
-          from: 'drackelive@gmail.com', // Cambia por tu dirección de correo
-          to: email,
-          subject: 'Código de verificación',
-          text: `Tu código de verificación es: ${code}`,
-      };
-
-      await transporter.sendMail(mailOptions);
-      console.log('Correo electrónico enviado con el código de verificación.');
-  } catch (error) {
-      console.error('Error al enviar el correo electrónico:', error);
-      throw new Error('Error al enviar el correo electrónico.');
-  }
-};
 
 
 ///////////////////////////////////////////////////////////////////////////

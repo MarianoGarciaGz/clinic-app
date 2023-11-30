@@ -1,6 +1,63 @@
 import React from 'react'
+import  { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Verification = () => {
+
+	const navigate = useNavigate();
+	const [verificationCode, setVerificationCode] = useState('');
+
+  const handleVerification = async () => {
+    try {
+      // Enviar el código de verificación al backend
+      const response = await fetch('http://localhost:5000/api/verificarCodigo', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ verificationCode }), // Envía el código de verificación al backend
+      });
+
+	  if (response.ok) {
+		console.log('Código de verificación válido');
+  
+		// Recuperar los datos almacenados en sessionStorage
+		const storedFormData = sessionStorage.getItem('formData');
+		const formData = storedFormData ? JSON.parse(storedFormData) : null;
+  
+		
+		if (formData) {
+		  const responseInsert = await fetch('http://localhost:5000/api/insertarDatos', {
+			method: 'POST',
+			headers: {
+			  'Content-Type': 'application/json',
+			},
+			body: JSON.stringify({ ...formData, verificationCode }), 
+		  });
+  
+		  if (responseInsert.ok) {
+			console.log('Datos insertados exitosamente');
+			
+			navigate('/agendar'); 
+		  } else {
+			console.error('Error al insertar datos');
+		  }
+		} else {
+		  console.error('No se encontraron datos para insertar');
+		}
+	  } else {
+		console.error('Código de verificación inválido');
+	  }
+	} catch (error) {
+	  console.error('Error en la solicitud:', error);
+	}
+  };
+
+  const handleChange = (e) => {
+    setVerificationCode(e.target.value);
+  };
+
+
 	return (
 		<>
 			<div>
@@ -17,12 +74,21 @@ const Verification = () => {
 							<h1 className="Verificacion-h1 mb-3">Verificación</h1>
 							<p className="Verificacion-p card-title">Introduce tu código de verificación para confirmar tu recervación.</p>
 							<div className="form-group mt-3">
-								<label className="Verificacion-label" htmlFor="verificationCode">
-									Código de Verificación:
-								</label>
-								<input type="text" className="Verificacion-input form-control text-center" id="verificationCode" placeholder="1234" />
-							</div>
-							<button className="btn btn-primary w-100 mt-3">Aceptar</button>
+        <label className="Verificacion-label" htmlFor="verificationCode">
+          Código de Verificación:
+        </label>
+        <input
+          type="text"
+          className="Verificacion-input form-control text-center"
+          id="verificationCode"
+          placeholder="1234"
+          value={verificationCode}
+          onChange={handleChange}
+        />
+      </div>
+      <button className="btn btn-primary w-100 mt-3" onClick={handleVerification}>
+        Aceptar
+      </button>
 						</div>
 					</div>
 				</div>
