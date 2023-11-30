@@ -27,17 +27,24 @@ const SolicitudCard = ({ _id, nombres, fecha, hora, tratamiento, telefono, comen
 
 	const handleButtonClickRechazar = async () => {
 		try {
-			const endpoint = `/api/actualizarEstado/rechazar/${_id}`;
-			const response = await fetch(`http://localhost:5000${endpoint}`, {
-				method: 'PUT',
-			});
-
-			if (response.ok) {
-				const data = await response.json();
-				console.log('Estado actualizado a rechazado:', data);
+			const confirmation = window.confirm("¿Seguro que desea rechazar esta solicitud?");
+	
+			if (confirmation) {
+				const endpoint = `/api/actualizarEstado/rechazar/${_id}`;
+				const response = await fetch(`http://localhost:5000${endpoint}`, {
+					method: 'PUT',
+				});
+	
+				if (response.ok) {
+					const data = await response.json();
+					console.log('Estado actualizado a rechazado:', data);
+				} else {
+					console.error('Error al rechazar la solicitud', _id);
+					// Manejar el error de acuerdo a tus necesidades
+				}
 			} else {
-				console.error('Error al rechazar la solicitud', _id);
-				// Manejar el error de acuerdo a tus necesidades
+				console.log('Rechazo cancelado');
+				// Puedes hacer algo si el rechazo es cancelado
 			}
 		} catch (error) {
 			console.error('Error en la solicitud Rechazar:', error);

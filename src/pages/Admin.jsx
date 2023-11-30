@@ -44,7 +44,7 @@ const Admin = () => {
 
 				if (response.ok) {
 					const data = await response.json();
-					console.log('Solicitudes obtenidas exitosamente:');
+					console.log('Solicitudes obtenidas exitosamente:'+updatedFechaString);
 					setSolicitudes(data);
 					// Realiza cualquier otra lógica después de obtener las solicitudes exitosamente
 				} else {
