@@ -13,9 +13,11 @@ const Servicios = () => {
 
 			<Carousel></Carousel>
 
-            <Heading title="LOS MEJORES TRATAMIENTOS PARA SENTIRTE CÓMODA Y BELLA"></Heading>
+			<Heading title="Tratamientos faciales" id="faciales"></Heading>
 
-            <Card></Card>
+			<Card></Card>
+
+			
 
 			<Footer></Footer>
 		</div>
