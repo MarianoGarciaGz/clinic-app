@@ -2,7 +2,7 @@ import React from 'react'
 import img1 from '../Images/carrusel1.jpg'
 import img2 from '../Images/carrusel2.jpg'
 import img3 from '../Images/carrusel3.jpg'
-// import logo from '../Images/logo.jpg'
+import logo from '../Images/logo.png'
 
 const Carousel = () => {
 	return (
@@ -17,8 +17,8 @@ const Carousel = () => {
 				<div className="Carousel-img carousel-item">
 					<img src={img3} className="d-block w-100" alt="..." />
 				</div>
+				<img src={logo} alt="logo" className="Carousel-logo" />
 			</div>
-			<div>{/* <img src={logo} alt="" /> */}</div>
 		</div>
 	)
 }
