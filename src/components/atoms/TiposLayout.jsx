@@ -59,7 +59,7 @@ function TiposLayout() {
 				<img src={image1} alt="Image 1" style={{ maxWidth: '50%', maxHeight: '50%' }} />
 				</div>
                   <TitleTipos title="Tenemos más de " />
-                  <strong className="number" data-number="1000" style={{ fontSize: '2em', color:'black' }}>0</strong>
+                  <strong className="number" data-number="3000" style={{ fontSize: '2em', color:'black' }}>0</strong>
 				  <TitleTipos title="Clientes Satisfechos " />
                 </div>
               </div>

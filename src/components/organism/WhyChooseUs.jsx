@@ -36,7 +36,8 @@ function WhyChooseUs() {
     const whyListContentStyle = {
       marginLeft: '-2px',
     };
-  
+
+    
     return (
       <div className="my-4">
         <div className="row m-0">
@@ -49,9 +50,9 @@ function WhyChooseUs() {
           <div className="col-lg-6 order-lg-2 order-1" style={rightContentStyle}>
             <div className="why_content">
               <div className="section_title_container">
-                <div className="section_title text-white">
-                  <h1>¿POR QUÉ DEBERÍAS VISITARNOS?</h1>
-                </div>
+              <div className="section_title text-white" >
+      <h1>¿POR QUÉ DEBERÍAS VISITARNOS?</h1>
+    </div>
               </div>
               <div className="why_text text-white">
                 <p>

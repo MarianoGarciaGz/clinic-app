@@ -16,21 +16,20 @@ const Home = () => {
 
 			<Carousel></Carousel>
 
-			<Heading title="Clínica de Belleza Lily"></Heading>
+			<Heading title="El camino hacia tu mejor versión comienza aquí. Únete a nosotros para un viaje de transformación"></Heading>
 
 			<TiposLayout></TiposLayout>
 
-			<Heading title="El camino hacia tu mejor versión comienza aquí. Únete a nosotros para un viaje de transformación."></Heading>
+			<Heading title="Enamórate, de cuidarte"></Heading>
 
 			<Slogan></Slogan>
 
 			<WhyChooseUs></WhyChooseUs>
 
-			<Heading title="Haz que tu belleza brille. Visita nuestra clínica y descubre cómo podemos realzar tu encanto natural."></Heading>
 
 			<About></About>
 
-			<Heading title="La elegancia se encuentra en los detalles. Descubre la diferencia en nuestra clínica, donde cada detalle cuenta."></Heading>
+			<Heading title="No te detengas hasta que te sientas orgullosa"></Heading>
 
 			<CuadroGrande></CuadroGrande>
 

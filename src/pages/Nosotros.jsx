@@ -6,6 +6,7 @@ import Carousel from '../components/organism/Carousel'
 import Gallery from '../components/organism/GalleryClinic'
 import Text from '../components/organism/DescriptionUs'
 import Empleados from '../components/organism/CardSlider'
+import Cabinas from '../components/organism/Cabinas'
 
 
 const Nosotros = () => {
@@ -17,11 +18,11 @@ const Nosotros = () => {
 
             <Heading title="CONOCE NUESTRAS INSTALACIONES"></Heading>
 
+			<Cabinas></Cabinas>
+
             <Text></Text>
 
             <Gallery></Gallery>
-
-            
 
 			<Footer></Footer>
 		</div>
