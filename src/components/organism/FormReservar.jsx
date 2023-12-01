@@ -1,6 +1,5 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom';
-import usuario from '../Images/usuario.png'
+import { useNavigate } from 'react-router-dom'
 import fecha from '../Images/fecha.png'
 import hora from '../Images/hora.png'
 import tratamiento from '../Images/tratamiento.png'
@@ -22,10 +21,13 @@ const FormReservar = () => {
 	const [telefonoError, setTelefonoError] = useState(false)
 	const [nombresError, setNombresError] = useState(false)
 	const [apellidosError, setApellidosError] = useState(false)
+	const [emailError, setEmailError] = useState('')
+
+	const [selectedDate, setSelectedDate] = useState(null)
 	const [horaSeleccionada, setHoraSeleccionada] = useState(false)
 	const [tratamientoSeleccionado, setTratamientoSeleccionado] = useState(false)
+
 	const [formValid, setFormValid] = useState(false)
-	const [selectedDate, setSelectedDate] = useState(null)
 	const [formData, setFormData] = useState({
 		nombres: '',
 		apellidos: '',
@@ -38,11 +40,6 @@ const FormReservar = () => {
 		estado: '',
 	})
 
-	//Manejadores de Estados
-	const handleChangeDate = (date) => {
-		setSelectedDate(date)
-	}
-
 	const navigate = useNavigate();
 
 	useEffect(() => {
@@ -52,81 +49,16 @@ const FormReservar = () => {
 			...formData,
 			fecha: fechaString,
 		})
-	}, [selectedDate])
-
-	const handleChange = (e) => {
-		if (e.target.id === 'telefono') {
-			const regex = /^[0-9]*$/
-			if (regex.test(e.target.value) || e.target.value === '') {
-				if (e.target.value.length <= 10) {
-					setFormData({
-						...formData,
-						[e.target.id]: e.target.value,
-					})
-					setTelefonoError(false)
-				} else {
-					setTelefonoError(true)
-				}
-			} else {
-				setTelefonoError(true)
-			}
-		} else if (e.target.id === 'apellidos' || e.target.id === 'nombres') {
-			const regex = /^[A-Za-zÁÉÍÓÚÜáéíóúü\s]+$/
-			if (regex.test(e.target.value) || e.target.value === '') {
-				setFormData({
-					...formData,
-					[e.target.id]: e.target.value,
-				})
-				setTelefonoError(false)
-				setNombresError(false)
-				setApellidosError(false)
-			} else {
-				if (e.target.id === 'apellidos') {
-					setApellidosError(true)
-					setNombresError(false)
-					setTelefonoError(false)
-				} else if (e.target.id === 'nombres') {
-					setNombresError(true)
-					setApellidosError(false)
-					setTelefonoError(false)
-				}
-			}
-		} else if (e.target.id === 'fecha') {
-			setFormData({
-				...formData,
-				[e.target.id]: e.target.value,
-			})
-		} else if (e.target.id === 'email') {
-			setFormData({
-				...formData,
-				[e.target.id]: e.target.value,
-			})
-		} else if (e.target.id === 'comentarios') {
-			setFormData({
-				...formData,
-				[e.target.id]: e.target.value,
-			})
-		} else if (e.target.id === 'hora') {
-			setFormData({
-				...formData,
-				[e.target.id]: e.target.value,
-			})
-			setHoraSeleccionada(e.target.value !== '') // Actualiza el estado si se selecciona una hora
-		} else if (e.target.id === 'tratamiento') {
-			setFormData({
-				...formData,
-				[e.target.id]: e.target.value,
-			})
-			setTratamientoSeleccionado(e.target.value !== '') // Actualiza el estado si se selecciona un tratamiento
-		}
 
 		if (
 			formData.nombres !== '' &&
 			formData.apellidos !== '' &&
 			formData.telefono !== '' &&
+			emailError == '' &&
 			!telefonoError &&
 			!nombresError &&
-			!apellidosError
+			!apellidosError &&
+			selectedDate !== ''
 			// Agrega otras validaciones necesarias aquí
 		) {
 			if (horaSeleccionada && tratamientoSeleccionado) {
@@ -137,42 +69,122 @@ const FormReservar = () => {
 		} else {
 			setFormValid(false) // Deshabilita el botón si algún campo está vacío o hay errores
 		}
+	})
+
+	//Manejadores de Estados
+	const handleChangeDate = (date) => {
+		setSelectedDate(date)
+	}
+
+	const handleChange = (e) => {
+		switch (e.target.id) {
+			case "telefono":
+				const regexTel = /^[0-9]*$/
+				if (regexTel.test(e.target.value) || e.target.value === '') {
+					if (e.target.value.length == 10) {
+						handleChangeGeneral(e)
+						setTelefonoError(false)
+					} else {
+						setTelefonoError(true)
+					}
+				} else {
+					setTelefonoError(true)
+				}
+				break;
+			case 'apellidos':
+			case 'nombres':
+				const regexNomApe = /^[A-Za-zÁÉÍÓÚÜáéíóúü\s]+$/
+				if (regexNomApe.test(e.target.value) || e.target.value === '') {
+					handleChangeGeneral(e)
+					setTelefonoError(false)
+					setNombresError(false)
+					setApellidosError(false)
+				} else {
+					if (e.target.id === 'apellidos') {
+						setApellidosError(true)
+						setNombresError(false)
+						setTelefonoError(false)
+					} else if (e.target.id === 'nombres') {
+						setNombresError(true)
+						setApellidosError(false)
+						setTelefonoError(false)
+					}
+				}
+				break;
+			case 'email':
+				handleChangeGeneral(e)
+
+				// Validar el formato del correo electrónico usando una expresión regular
+				const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/;
+				const isValidEmail = emailRegex.test(e.target.value);
+
+				setEmailError(isValidEmail ? '' : 'Ingresa un correo electrónico válido');
+
+				break;
+			case 'fecha':
+			case 'comentarios':
+				handleChangeGeneral(e)
+				break;
+			case 'hora':
+				handleChangeGeneral(e)
+				setHoraSeleccionada(e.target.value !== '') // Actualiza el estado si se selecciona una hora
+				break;
+			case 'tratamiento':
+				handleChangeGeneral(e)
+				setTratamientoSeleccionado(e.target.value !== '') // Actualiza el estado si se selecciona un tratamiento
+				break;
+		}
+
+
+	}
+
+	const handleChangeGeneral = (e) => {
+		setFormData({
+			...formData,
+			[e.target.id]: e.target.value,
+		})
 	}
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-		
+
 		try {
-		  // Enviar el correo con el código de verificación
-		  const responseCorreo = await fetch('http://localhost:5000/api/enviarCodigo', {
-			method: 'POST',
-			headers: {
-			  'Content-Type': 'application/json',
-			},
-			body: JSON.stringify({ email: formData.email }), // Envía el correo del formulario al backend
-		  });
-	  
-		  if (responseCorreo.ok) {
-			console.log('Correo enviado con el código de verificación');
-	  
-			// Almacena temporalmente los datos en sessionStorage
-			const updatedFormData = {
-			  ...formData,
-			  estado: 'pendiente', // Establecer el estado predeterminado
-			};
-			sessionStorage.setItem('formData', JSON.stringify(updatedFormData)); // Almacena los datos en sessionStorage
-	  
-			navigate('/verificacion'); // Redireccionar a la página de verificación
-		  } else {
-			console.error('Error al enviar el correo');
-			// Manejar el error del envío del correo según tus necesidades
-		  }
+			// Enviar el correo con el código de verificación
+			const responseCorreo = await fetch('http://localhost:5000/api/enviarCodigo', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify({ 
+					email: formData.email,
+					fecha: formData.fecha,
+					hora: formData.hora,
+					tratamiento: formData.tratamiento,
+				 }), 
+			});
+
+			if (responseCorreo.ok) {
+				console.log('Correo enviado con el código de verificación');
+
+				// Almacena temporalmente los datos en sessionStorage
+				const updatedFormData = {
+					...formData,
+					estado: 'pendiente', // Establecer el estado predeterminado
+				};
+				sessionStorage.setItem('formData', JSON.stringify(updatedFormData)); // Almacena los datos en sessionStorage
+
+				navigate('/verificacion'); // Redireccionar a la página de verificación
+			} else {
+				console.error('Error al enviar el correo');
+				navigate('/rechazo')
+				// Manejar el error del envío del correo según tus necesidades
+			}
 		} catch (error) {
-		  console.error('Error en la solicitud:', error);
-		  // Manejar el error general según tus necesidades
+			console.error('Error en la solicitud:', error);
+			// Manejar el error general según tus necesidades
 		}
-	  };
-    
+	};
+
 
 
 
@@ -260,14 +272,19 @@ const FormReservar = () => {
 
 							<div className="col-sm-12">
 								<label htmlFor="username" className="form-label">
-									Correo
+									Correo (Te Enviaremos un Codigo para poder confirmar tu Solicitud)
 								</label>
 								<div className="input-group has-validation">
 									<span className="input-group-text bg-white custom-border-color-orange">
 										<img src={correo} alt="correo" className="img-form" />
 									</span>
-									<input type="email" className="form-control bg-white custom-border-color-orange" id="email" placeholder="Correo" onChange={handleChange} />
-									<div className="invalid-feedback">Escribe tu email aquí...</div>
+									<input
+										type="email"
+										className={`form-select bg-white custom-border-color-orange ${emailError ? 'is-invalid' : ''}`}
+										id="email"
+										placeholder="Correo"
+										onChange={handleChange} />
+									{emailError && <div className="invalid-feedback">{emailError}</div>}
 								</div>
 							</div>
 
@@ -292,7 +309,7 @@ const FormReservar = () => {
 
 							<div className="col-sm-12">
 								<label htmlFor="username" className="form-label">
-									Comentarios
+									Comentarios (opcional)
 								</label>
 								<div className="input-group has-validation">
 									<span className="input-group-text bg-white custom-border-color-orange">

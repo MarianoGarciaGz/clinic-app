@@ -1,14 +1,13 @@
 const express = require('express');
 const router = express.Router();
-const Reserva = require('./svrModels/reserva.js'); // Ajusta la ruta según tu estructura de archivos
-const Admin = require('./svrModels/admin.js')
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
-const Users = require('./svrModels/users.js'); // Ajusta la ruta según tu estructura de archivos
 const nodemailer = require('nodemailer');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const app = express();
+const Reserva = require('./svrModels/reserva.js');
+const Admin = require('./svrModels/admin.js')
 
 // Middleware////////////////////////////////////
 app.use((req, res, next) => {
@@ -19,14 +18,51 @@ app.use(cors()); // Configura cors como middleware
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+const validarCantidadEnBD = async (req, res, next) => {
+  try {
+    const validar = req.body;
 
+    // Utiliza await para esperar a que la promesa de countDocuments se resuelva
+    const cantidad = await Reserva.countDocuments({ fecha: validar.fecha, hora: validar.hora });
+
+    console.log('Cantidad de documentos encontrados:', cantidad);
+
+    if (cantidad < 3) {
+      // Si la cantidad es menor que 3, continúa con el siguiente middleware o controlador
+      next();
+    } else {
+      res.status(400).json({ error: 'Ya hay 3 citas el mismo día y hora' });
+    }
+  } catch (error) {
+    console.error('Error al validar cantidad en la base de datos:', error);
+    res.status(500).json({ error: 'Error al validar cantidad en la base de datos.' });
+  }
+};
+
+const validarDatosEnBD = async (req, res, next) => {
+  try {
+    const validar = req.body;
+    const existe = await Reserva.find({ fecha: validar.fecha, hora: validar.hora, tratamiento: validar.tratamiento }).exec();
+
+    if (existe == "") {
+      next();
+    } else {
+      console.error('Ya hay una reserva existente para esa misma hora, dia y tratamiento.', error);
+      res.status(400).json({ error: 'Ya hay una reserva existente para esa misma hora, dia y tratamiento.' })
+    }
+
+  } catch (error) {
+    console.error('Error al validar Fecha, Hora y Dia en base de datos:', error);
+    res.status(500).json({ error: 'Error al validar Fecha, Hora y Dia en base de datos.' });
+  }
+};
 
 const randomize = require('randomatic')
 /////////////////////////////////////////////////////
-
-
-
 let codigoGenerado = '';
+
+
+
 
 router.post('/api/verificarCodigo', async (req, res) => {
   try {
@@ -44,7 +80,7 @@ router.post('/api/verificarCodigo', async (req, res) => {
   }
 });
 
-router.post('/api/enviarCodigo', async (req, res) => {
+router.post('/api/enviarCodigo', validarCantidadEnBD, validarDatosEnBD, async (req, res) => {
   const { email } = req.body;
 
   // Generar código aleatorio de 4 dígitos
