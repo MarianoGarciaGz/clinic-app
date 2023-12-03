@@ -18,7 +18,7 @@
 	--shadow-hover: 0 2px 7px 0px var(--color-shadow);
 	--transition-smooth: 0.5s;
 	--transition-fast: 300ms;
-	--background: color-mix(in srgb, #2ebbcd 8%, var(--color-white));
+	--background: #ffff;
 
 	/* button */
 	--border: 2em 2em 2em 2em;
@@ -31,26 +31,7 @@
 	--scroll-behavior: smooth;
 }
 
-/* Dark mode */
-/* @media (prefers-color-scheme: dark) {
-	:root {
-		--dark: #2e2e2e;
-		--color-primary: #1d7a86;
-		--color-secondary: #ff810c;
-		--color-terciary: #ffc28a;
-		--color-white: #f5f5f5;
-		--color-black: #e0e0e0;
-		--color-yellow: #ffcc00;
-		--color-red: #dd3030;
-		--color-blue: #2ebbcd;
-		--color-blue-hover: #209faf;
-		--background: var(--color-white);
-		--text-color: var(--color-black);
-		--background: #264249;
-	}
-} */
 
-/* reset */
 
 body {
 	font-family: var(--font-default);
@@ -273,6 +254,9 @@ body {
 	width: 5em;
 }
 
+.text-orange{
+	color: var(--color-secondary);
+}
 /* Footer */
 
 .Footer {
@@ -282,11 +266,11 @@ body {
 
 /* headings */
 
-.h2 {
+.h4 {
 	color: var(--color-white);
 	background-color: var(--color-primary);
 	padding: 20px;
-	font-size: 2em;
+	font-size: 1.3em;
 }
 
 /*-------------------------------------------3 CUADROS-----------------------------------*/
@@ -425,6 +409,15 @@ body {
 	width: 200px;
 	height: auto;
 }
+
+.orange-bg {
+	background-color: var(--color-secondary); /* Reemplaza con tu color naranja */
+  }
+
+  .custom-orange {
+	color: #FFA500; /* Cambia el color al tono de naranja más claro que desees */
+	/* Otros estilos si son necesarios */
+  }
 
 /* Targets Tipos */
 
