@@ -54,8 +54,8 @@ function TiposLayout() {
 				<Col Col md={3} className="d-flex align-items-stretch justify-content-center">
 					<div className="block-18 text-center" style={counterStyles}>
 						<div className="text" style={centerContentStyles}>
-							<div className="circle" style={{ backgroundColor: '#ffa04d', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '50%', width: '120px', height: '120px', marginBottom: '5px' }}>
-								<img src={image1} alt="Image 1" style={{ maxWidth: '50%', maxHeight: '50%' }} />
+							<div className="circle" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '50%', width: '120px', height: '120px', marginBottom: '5px' }}>
+								<img className="" src={image1} alt="Image 1" style={{ maxWidth: '50%', maxHeight: '50%' }} />
 							</div>
 							<TitleTipos title="Tenemos más de " />
 							<strong className="number" data-number="3000" style={{ fontSize: '2em', color: 'black' }}>

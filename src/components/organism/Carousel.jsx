@@ -7,7 +7,7 @@ import logo from '../Images/logo-letters.png'
 const Carousel = () => {
 	return (
 		<div id="Carousel carouselExampleControls" className="carousel slide" data-bs-ride="carousel">
-			<div className="Carousel-imgs carousel-inner">
+			<div className="Carousel-imgs carousel-inner shadow-2">
 				<div className="Carousel-img carousel-item active">
 					<img src={img1} className="d-block w-100" alt="..." />
 				</div>

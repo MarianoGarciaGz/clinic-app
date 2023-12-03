@@ -9,7 +9,7 @@ const Tratamientos = () => {
 		padding: '20px',
 		height: '40vh',
 		margin: '0',
-		color: 'black',
+		color: 'var(--color-white)',
 	}
 
 	const leftContentStyle = {
@@ -17,7 +17,7 @@ const Tratamientos = () => {
 		padding: '20px',
 		height: '40vh',
 		margin: '0',
-		color: 'black',
+		color: 'var(--color-white)',
 	}
 
 	const leftImageStyle = {
@@ -43,14 +43,14 @@ const Tratamientos = () => {
 	}
 
 	return (
-		<div className="my-5" style={mainContainerStyle}>
-			<div className="row m-0 mb-4">
+		<div className="mt-5" style={mainContainerStyle}>
+			<div className="row m-0">
 				{/* Why Choose Us Content */}
-				<div className="tratamiendo-bg col-lg-6 order-lg-2 order-1 mb-4" style={rightContentStyle}>
+				<div className="tratamiendo-bg shadow-2 col-lg-6 order-lg-2 order-1 mb-4" style={rightContentStyle}>
 					<div className="why_content">
 						<div className="section_title_container">
 							<div className="section_title">
-								<h1>TRATAMIENTOS FACIALES</h1>
+								<h1 className="display-5">TRATAMIENTOS FACIALES</h1>
 							</div>
 						</div>
 						<div className="why_text">
@@ -60,8 +60,10 @@ const Tratamientos = () => {
 							</p>
 						</div>
 						{/* Agregado el botón */}
-						<div className="text-center mt-3">
-							<button className="btn btn-primary">Ver tratamientos</button>
+						<div className="text-center mt-5">
+							<a href="#tf" className="servicios-btn btn btn-primary btn-lg mt-auto">
+								Ver tratamientos
+							</a>
 						</div>
 					</div>
 				</div>
@@ -72,12 +74,12 @@ const Tratamientos = () => {
 				</div>
 			</div>
 
-			<div className="row m-0 mb-4">
+			<div className="row m-0">
 				{/* Why Choose Us Content */}
-				<div className="tratamiendo-bg col-lg-6 order-lg-1 order-2 mb-4" style={leftContentStyle}>
+				<div className="tratamiendo-bg shadow-2 col-lg-6 order-lg-1 order-2 mb-4" style={leftContentStyle}>
 					<div className="why_content">
 						<div className="section_title">
-							<h1>TRATAMIENTOS CORPORALES</h1>
+							<h1 className="display-5">TRATAMIENTOS CORPORALES</h1>
 						</div>
 						<div className="why_text">
 							<p>
@@ -87,8 +89,10 @@ const Tratamientos = () => {
 							<p>Generalmente se opta por esta opción para mejorar la silueta o tratar los problemas de celulitis, adiposidad localizada y flacidez, aunque también son la mejor manera de liberar al cuerpo del estrés.</p>
 						</div>
 						{/* Agregado el botón */}
-						<div className="text-center mt-3">
-							<button className="btn btn-primary">Ver tratamientos</button>
+						<div className="text-center mt-5">
+							<a href="#tc" className="servicios-btn btn btn-primary btn-lg mt-auto">
+								Ver tratamientos
+							</a>
 						</div>
 					</div>
 				</div>
@@ -97,13 +101,13 @@ const Tratamientos = () => {
 					<div className="why_image_container" style={{ ...leftImageStyle, backgroundImage: `url(${Corporal})` }}></div>
 				</div>
 			</div>
-			<div className="row m-0 mb-4">
+			<div className="row m-0">
 				{/* Why Choose Us Content */}
-				<div className="tratamiendo-bg col-lg-6 order-lg-2 order-1 mb-4" style={rightContentStyle}>
+				<div className="tratamiendo-bg shadow-2 col-lg-6 order-lg-2 order-1 mb-4" style={rightContentStyle}>
 					<div className="why_content">
 						<div className="section_title_container">
 							<div className="section_title">
-								<h1>TRATAMIENTOS ESTÉTICOS</h1>
+								<h1 className="display-5">TRATAMIENTOS ESTÉTICOS</h1>
 							</div>
 						</div>
 						<div className="why_text">
@@ -113,8 +117,10 @@ const Tratamientos = () => {
 							</p>
 						</div>
 						{/* Agregado el botón */}
-						<div className="text-center mt-3">
-							<button className="btn btn-primary">Ver tratamientos</button>
+						<div className="text-center mt-5">
+							<a href="#te" className="servicios-btn btn btn-primary btn-lg mt-auto">
+								Ver tratamientos
+							</a>
 						</div>
 					</div>
 				</div>

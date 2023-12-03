@@ -15,22 +15,27 @@ const Servicios = () => {
 
 			<Carousel></Carousel>
 
+			<Heading title="Visita nuestros tipos de tratamientos" id="corporales"></Heading>
+
 			<Tratamientos></Tratamientos>
 
-			<section className="my-5">
+			<section id="tf" className="py-5">
 				<Heading title="Tratamientos faciales" id="faciales"></Heading>
-
-				<CardTratamiento></CardTratamiento>
+				<div className=" px-5">
+					<CardTratamiento></CardTratamiento>
+				</div>
 			</section>
-			<section className="my-5">
+			<section id="tc" className="pt-5 pb-1">
 				<Heading title="Tratamientos Corporales" id="corporales"></Heading>
-
-				<CardTratamientoCorporales></CardTratamientoCorporales>
+				<div className=" px-5">
+					<CardTratamientoCorporales></CardTratamientoCorporales>
+				</div>
 			</section>
-			<section className="my-5">
+			<section id="te" className="py-5">
 				<Heading title="Tratamientos Estéticos" id="corporales"></Heading>
-
-				<CardTratamientoEstetico></CardTratamientoEstetico>
+				<div className=" px-5">
+					<CardTratamientoEstetico></CardTratamientoEstetico>
+				</div>
 			</section>
 
 			<Footer></Footer>
