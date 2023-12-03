@@ -22,7 +22,7 @@ const FormReservar = () => {
 	const [nombresError, setNombresError] = useState(false)
 	const [apellidosError, setApellidosError] = useState(false)
 	const [emailError, setEmailError] = useState('')
-
+ 
 	const [selectedDate, setSelectedDate] = useState(null)
 	const [horaSeleccionada, setHoraSeleccionada] = useState(false)
 	const [tratamientoSeleccionado, setTratamientoSeleccionado] = useState(false)
@@ -134,8 +134,6 @@ const FormReservar = () => {
 				setTratamientoSeleccionado(e.target.value !== '') // Actualiza el estado si se selecciona un tratamiento
 				break;
 		}
-
-
 	}
 
 	const handleChangeGeneral = (e) => {
@@ -184,7 +182,6 @@ const FormReservar = () => {
 			// Manejar el error general según tus necesidades
 		}
 	};
-
 
 
 
