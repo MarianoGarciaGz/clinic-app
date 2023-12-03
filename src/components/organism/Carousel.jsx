@@ -2,7 +2,7 @@ import React from 'react'
 import img1 from '../Images/carrusel1.jpg'
 import img2 from '../Images/carrusel2.jpg'
 import img3 from '../Images/carrusel3.jpg'
-import logo from '../Images/logo.png'
+import logo from '../Images/logo-letters.png'
 
 const Carousel = () => {
 	return (
