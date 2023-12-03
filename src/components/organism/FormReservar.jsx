@@ -145,7 +145,6 @@ const FormReservar = () => {
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-
 		try {
 			// Enviar el correo con el código de verificación
 			const responseCorreo = await fetch('http://localhost:5000/api/enviarCodigo', {
