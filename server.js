@@ -25,4 +25,3 @@ db.once('open', () => {
 app.listen(PORT, () => {
     console.log(`Servidor Express en ejecución en http://localhost:${PORT}`);
 });
-
