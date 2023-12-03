@@ -1,3 +1,4 @@
+import { cardsData, cardsData2, cardsData3 } from '../atoms/data';
 import React from 'react'
 import usuario from '../Images/usuario.png'
 import fecha from '../Images/fecha.png'
@@ -287,39 +288,11 @@ const FormReservar = () => {
 									</span>
 									<select className={`form-select bg-white custom-border-color-orange ${tratamientoSeleccionado ? '' : 'is-invalid'}`} id="tratamiento" required onChange={handleChange}>
 										<option value="">Seleccionar...</option>
-										<option>Ácido Labios, nariz y nazogenianos</option>
-										<option>BB Glow</option>
-										<option>Bótox</option>
-										<option>Dermapen</option>
-										<option>Depilación Láser</option>
-										<option>Endermology</option>
-										<option>Facial Acné</option>
-										<option>Facial Rejuvenecimiento</option>
-										<option>Facial Limpieza Profunda</option>
-										<option>Hi-Fu</option>
-										<option>Hidrafacial</option>
-										<option>Hollywood Peel</option>
-										<option>Luz Pulsada</option>
-										<option>Oxígeno</option>
-										<option>RF Fraccionada con agujas</option>
-
-										<option>Carboxiterapia</option>
-										<option>Desintoxicación Iónica</option>
-										<option>Eliminación Tatuajes, Verrugas y Lunares</option>
-										<option>EMSzero Radiofrecuencia</option>
-										<option>Enzimas</option>
-										<option>Hi-Fu Corporal</option>
-										<option>Levant. de Glúteos</option>
-										<option>Maderoterapia</option>
-										<option>Masaje Descontracturante</option>
-										<option>Masaje Relajante</option>
-										<option>Masaje Piedras Calientes</option>
-										<option>Mesoterapia Inyectada</option>
-										<option>Mesoterapia Virtual</option>
-										<option>Moldeado Corporal</option>
-										<option>Ondas Rusas</option>
-										<option>Post Operatorio</option>
-										<option>Presoterapia</option>
+										{[...cardsData, ...cardsData2, ...cardsData3].map((option, index) => (
+											<option key={index} value={option.name}>
+												{option.name}
+											</option>
+										))}
 									</select>
 									<div className="invalid-feedback">Selecciona un tratamiento válido.</div>
 								</div>

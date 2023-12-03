@@ -5,13 +5,17 @@ import Heading from '../components/atoms/Heading'
 import Carousel from '../components/organism/Carousel'
 import { CardTratamiento } from '../components/organism/CardTratamiento'; // Importa el componente
 import { CardTratamientoCorporales } from '../components/organism/CardTratamiento'; // Importa el componente
+import { CardTratamientoEstetico } from '../components/organism/CardTratamiento'; // Importa el componente
+import Tratamientos from '../components/organism/Tratamientos'
 
 const Servicios = () => {
 	return (
 		<div>
-			<Header></Header>
+			<Header></Header>			
 
 			<Carousel></Carousel>
+
+			<Tratamientos></Tratamientos>
 
 			<Heading title="Tratamientos faciales" id="faciales"></Heading>
 
@@ -20,6 +24,10 @@ const Servicios = () => {
 			<Heading title="Tratamientos Corporales" id="corporales"></Heading>
 
 			<CardTratamientoCorporales></CardTratamientoCorporales>
+
+			<Heading title="Tratamientos Estéticos" id="corporales"></Heading>
+
+			<CardTratamientoEstetico></CardTratamientoEstetico>
 
 			<Footer></Footer>
 		</div>
