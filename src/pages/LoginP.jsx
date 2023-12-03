@@ -38,7 +38,6 @@ const LoginP = () => {
                 // Redirige a la página deseada
                 navigate('/admin');
             } else {
-                // Si el inicio de sesión falla, puedes manejarlo aquí
                 console.error('Error en el inicio de sesión front');
             }
         } catch (error) {
@@ -80,7 +79,7 @@ const LoginP = () => {
                                 />
 
                                 <button className="btn btn-primary w-100 mt-3" type="submit">
-                                    Aceptar
+                                    Ingresar
                                 </button>
                             </form>
                         </div>

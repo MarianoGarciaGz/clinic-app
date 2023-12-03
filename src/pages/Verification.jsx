@@ -34,11 +34,11 @@ const Verification = () => {
 			},
 			body: JSON.stringify({ ...formData, verificationCode }), 
 		  });
-  
+
 		  if (responseInsert.ok) {
 			console.log('Datos insertados exitosamente');
 			
-			navigate('/aceptacion'); 
+			navigate('/aceptacion');
 		  } else {
 			console.error('Error al insertar datos');
 		  }

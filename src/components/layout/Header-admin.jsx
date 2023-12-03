@@ -61,6 +61,11 @@ const Header = () => {
 								</NavLink>
 							</li>
 							<li className="Nav-li nav-item">
+								<NavLink to="/agendarAdmin" relative="path" className="Nav-a nav-link text-center mx-2">
+									Agendar
+								</NavLink>
+							</li>
+							<li className="Nav-li nav-item">
 								<button className="Nav-btn btn btn-secondary px-3 h-100 ms-md-3 ms-xs-auto" onClick={handleLogout}>
 									Cerrar sesión
 								</button>

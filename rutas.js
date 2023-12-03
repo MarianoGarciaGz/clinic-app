@@ -120,6 +120,18 @@ router.post('/api/enviarCodigo', validarCantidadEnBD, validarDatosEnBD, async (r
 
 ///////////////////////////////////////////////////////////////////////////
 
+router.post('/api/insertarDatosAdmin', validarCantidadEnBD, validarDatosEnBD, async (req, res) => {
+  try {
+    const nuevoDato = new Reserva(req.body);
+    await nuevoDato.save();
+    res.json({ mensaje: 'Dato insertado exitosamente' });
+    console.log('Dato insertado correctamente Desde Admin');
+  } catch (error) {
+    console.error('Error al insertar datos:', error);
+    res.status(500).json({ error: 'Error interno del servidor' });
+  }
+});
+
 router.post('/api/insertarDatos', async (req, res) => {
   try {
     const nuevoDato = new Reserva(req.body);
