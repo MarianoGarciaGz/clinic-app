@@ -8,6 +8,7 @@ const cors = require('cors');
 const app = express();
 const Reserva = require('./svrModels/reserva.js');
 const Admin = require('./svrModels/admin.js')
+const randomize = require('randomatic')
 
 // Middleware////////////////////////////////////
 app.use((req, res, next) => {
@@ -17,6 +18,34 @@ app.use((req, res, next) => {
 app.use(cors()); // Configura cors como middleware
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+
+const enviarEmail = async ({ destinatario, asunto, texto }) => {
+
+  const transporter = nodemailer.createTransport({
+    service: 'Gmail', // Usando Gmail
+    auth: {
+      user: 'pruebanmmsxd@gmail.com', // Correo desde donde se enviará
+      pass: 'fvxukfupxapxtppu', // Contraseña del correo
+    },
+  });
+
+  const mailOptions = {
+    from: 'p2914499@gmail.com',
+    to: destinatario,
+    subject: asunto,
+    text: texto,
+  };
+
+  try {
+    // Enviar el correo con el código
+    await transporter.sendMail(mailOptions);
+    //res.status(200).json({ message: '¡Correo Enviado!' });
+  } catch (error) {
+    console.error('Error al enviar correo.', error);
+    //res.status(500).json({ error: 'Error al enviar correo.' });
+  }
+}
+
 
 const confirmar = async (req, res, next) => {
 
@@ -55,6 +84,7 @@ const validarCantidadEnBD = async (req, res, next) => {
   }
 };
 
+
 const validarDatosEnBD = async (req, res, next) => {
   try {
     const validar = req.body;
@@ -73,7 +103,7 @@ const validarDatosEnBD = async (req, res, next) => {
   }
 };
 
-const randomize = require('randomatic')
+
 /////////////////////////////////////////////////////
 let codigoGenerado = '';
 
@@ -104,30 +134,12 @@ router.post('/api/enviarCodigo', validarCantidadEnBD, validarDatosEnBD, async (r
 
   codigoGenerado = verificationCode;
 
-  // Configuración de nodemailer (aquí debes configurar tu propio servicio de correo)
-  const transporter = nodemailer.createTransport({
-    service: 'Gmail', // Ejemplo usando Gmail
-    auth: {
-      user: 'pruebanmmsxd@gmail.com', // Correo desde donde se enviará
-      pass: 'fvxukfupxapxtppu', // Contraseña del correo
-    },
+  enviarEmail({
+    destinatario: email,
+    asunto: 'Código de Verificación',
+    texto: `Tu código de verificación es: ${verificationCode}`
   });
-
-  const mailOptions = {
-    from: 'p2914499@gmail.com',
-    to: email,
-    subject: 'Código de Verificación',
-    text: `Tu código de verificación es: ${verificationCode}`,
-  };
-
-  try {
-    // Enviar el correo con el código
-    await transporter.sendMail(mailOptions);
-    res.status(200).json({ message: 'Correo enviado con el código de verificación.' });
-  } catch (error) {
-    console.error('Error al enviar el correo:', error);
-    res.status(500).json({ error: 'Error al enviar el correo.' });
-  }
+  res.status(200).json({ message: '¡Correo Enviado!' });
 });
 
 
@@ -202,31 +214,13 @@ router.put('/api/actualizarEstado/rechazar/:id', async (req, res) => {
       return res.status(404).json({ message: 'No se encontró la reserva para eliminar' });
     }
     if (emailReserva.email !== 'indefinido') {
-      const email = emailReserva.email;
-      // Configuración de nodemailer (aquí debes configurar tu propio servicio de correo)
-      const transporter = nodemailer.createTransport({
-        service: 'Gmail', // Ejemplo usando Gmail
-        auth: {
-          user: 'pruebanmmsxd@gmail.com', // Correo desde donde se enviará
-          pass: 'fvxukfupxapxtppu', // Contraseña del correo
-        },
+
+      enviarEmail({
+        destinatario: emailReserva.email,
+        asunto: 'Tu Reservacion ha sido Rechazada',
+        texto: `Tu Reservacion para ${emailReserva.tratamiento}, el día ${emailReserva.fecha}, para las ${emailReserva.hora} horas ha sido Rechazada. Favor de contactarnos en caso de Aclaraciones.`
       });
-
-      const mailOptions = {
-        from: 'p2914499@gmail.com',
-        to: email,
-        subject: 'Tu Reservacion ha sido Rechazada',
-        text: `Tu Reservacion para ${emailReserva.tratamiento}, el día ${emailReserva.fecha}, para las ${emailReserva.hora} horas ha sido Rechazada. Favor de contactarnos en caso de Aclaraciones.`,
-      };
-
-      try {
-        // Enviar el correo con el código
-        await transporter.sendMail(mailOptions);
-        //res.status(200).json({ message: '¡Correo de Rechazo Enviado!' });
-      } catch (error) {
-        console.error('Error al enviar el correo de Rechazo:', error);
-        res.status(500).json({ error: 'Error al enviar el correo de Rechazo.' });
-      }
+      
     }
     res.json({ message: 'Reserva eliminada', deletedReserva });
     //next();
@@ -240,32 +234,15 @@ router.put('/api/actualizarEstado/rechazar/:id', async (req, res) => {
 router.put('/api/actualizarEstado/aceptar/:id', confirmar, async (req, res) => {
   const { id } = req.params;
   const emailReserva = await Reserva.findById(id);
-  const email = emailReserva.email;
+  //const email = emailReserva.email;
 
-  // Configuración de nodemailer (aquí debes configurar tu propio servicio de correo)
-  const transporter = nodemailer.createTransport({
-    service: 'Gmail', // Ejemplo usando Gmail
-    auth: {
-      user: 'pruebanmmsxd@gmail.com', // Correo desde donde se enviará
-      pass: 'fvxukfupxapxtppu', // Contraseña del correo
-    },
+  
+  enviarEmail({
+    destinatario: emailReserva.email,
+    asunto: '¡Tu Reservacion ha sido Aceptada!',
+    texto: `Tu Reservacion para ${emailReserva.tratamiento}, el día ${emailReserva.fecha}, para la las ${emailReserva.hora} horas ha sido Aceptada! Agradecemos tu preferencia, para dudas consulta nuestra pagina de contacto donde encontraras todas nuestras redes sociales.`
   });
-
-  const mailOptions = {
-    from: 'p2914499@gmail.com',
-    to: email,
-    subject: '¡Tu Reservacion ha sido Aceptada!',
-    text: `Tu Reservacion para ${emailReserva.tratamiento}, el día ${emailReserva.fecha}, para la las ${emailReserva.hora} horas ha sido Aceptada! Agradecemos tu preferencia, para dudas consulta nuestra pagina de contacto donde encontraras todas nuestras redes sociales.`,
-  };
-
-  try {
-    // Enviar el correo con el código
-    await transporter.sendMail(mailOptions);
-    res.status(200).json({ message: '¡Correo de Aceptacion Enviado!' });
-  } catch (error) {
-    console.error('Error al enviar el correo de Aceptacion:', error);
-    res.status(500).json({ error: 'Error al enviar el correo de Aceptacion.' });
-  }
+  res.status(200).json({ message: '¡Correo Enviado!' });
 });
 
 router.post('/api/login', async (req, res) => {
@@ -329,7 +306,7 @@ const verifyToken = async (req, res, next) => {
   }
 };
 
-// Usa el middleware en las rutas protegidas
+
 router.get('/api/verifyToken', verifyToken, (req, res) => {
   // Acciones que deseas realizar si el token es válido
   res.json({ message: 'Acceso autorizado a otra-pagina', user: req.user });
