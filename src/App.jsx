@@ -1,16 +1,23 @@
 import React from 'react'
-import logo from './logo.svg'
 import './App.css'
 import Navlink from './Routes/Navlink';
-import { BrowserRouter } from 'react-router-dom'
-import Contacto from './pages/Contacto'
+import { Helmet } from "react-helmet";
 
 
 function App() {
+
     return (
-        
-        <Navlink />
-        
+        <>
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>Clínica de Belleza Lily</title>
+                <link rel="canonical" href="http://mysite.com/example" />
+                <meta name="description" content="Clínica de Belleza Lily" />
+            </Helmet>
+            <Navlink />
+        </>
+
+
     )
 }
 

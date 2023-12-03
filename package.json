@@ -18,12 +18,13 @@
     "react-calendar": "^4.6.1",
     "react-datepicker": "^4.23.0",
     "react-dom": "^18.2.0",
+    "react-helmet": "^6.1.0",
     "react-router-dom": "^6.16.0",
     "react-scripts": "5.0.1",
     "react-slick": "^0.29.0",
     "react-time-picker": "^6.5.2",
     "slick-carousel": "^1.8.1",
-    "swiper": "^11.0.4",
+    "swiper": "^11.0.5",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
