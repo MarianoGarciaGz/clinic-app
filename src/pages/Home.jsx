@@ -26,13 +26,11 @@ const Home = () => {
 
 			<WhyChooseUs></WhyChooseUs>
 
-
 			<About></About>
 
 			<Heading title="No te detengas hasta que te sientas orgullosa"></Heading>
 
 			<CuadroGrande></CuadroGrande>
-
 
 			<Footer></Footer>
 		</>

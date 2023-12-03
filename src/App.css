@@ -4,8 +4,8 @@
 }
 
 :root {
-	--color-primary: #2ebbcd;
-	--color-secondary: #ff810c;
+	--color-primary: #ff6bd3;
+	--color-secondary: #ffd61d;
 	--color-terciary: #ffc28a;
 	--color-white: #fafafa;
 	--color-black: #373737;
@@ -30,8 +30,6 @@
 :root {
 	--scroll-behavior: smooth;
 }
-
-
 
 body {
 	font-family: var(--font-default);
@@ -254,7 +252,7 @@ body {
 	width: 5em;
 }
 
-.text-orange{
+.text-orange {
 	color: var(--color-secondary);
 }
 /* Footer */
@@ -412,12 +410,12 @@ body {
 
 .orange-bg {
 	background-color: var(--color-secondary); /* Reemplaza con tu color naranja */
-  }
+}
 
-  .custom-orange {
-	color: #FFA500; /* Cambia el color al tono de naranja más claro que desees */
+.custom-orange {
+	color: #ffa500; /* Cambia el color al tono de naranja más claro que desees */
 	/* Otros estilos si son necesarios */
-  }
+}
 
 /* Targets Tipos */
 
@@ -771,4 +769,8 @@ body {
 .vertical-line {
 	border-right: 1px solid var(--color-secondary); /* Cambia el color y grosor según tus preferencias */
 	height: 100%; /* Ajusta la altura según sea necesario */
+}
+
+.tratamiendo-bg {
+	background-color: var(--color-secondary) !important;
 }
