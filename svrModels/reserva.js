@@ -14,4 +14,4 @@ const reservaSchema = new mongoose.Schema({
 
 const Reserva = mongoose.model('Reserva', reservaSchema, 'agendas');
 
-module.exports = Reserva;
+module.exports = Reserva; 

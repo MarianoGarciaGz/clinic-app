@@ -3,51 +3,139 @@ import { useState, useEffect } from 'react'
 import Header from '../components/layout/Header-admin'
 import Heading from '../components/atoms/Heading'
 import SolicitudCard from '../components/organism/SolicitudCard'
+import Cookies from 'js-cookie';
+import { useNavigate } from 'react-router-dom';
 
 const Solicitudes = () => {
-	const [solicitudes, setSolicitudes] = useState([])
+    const navigate = useNavigate();
 
-	useEffect(() => {
-		const obtenerSolicitudes = async () => {
-			try {
-				// Llama a la API obtenerSolicitudes
-				const response = await fetch('http://localhost:5000/api/obtenerSolicitudes', {
-					method: 'GET',
-					headers: {
-						'Content-Type': 'application/json',
-					},
-				})
+    const [solicitudes, setSolicitudes] = useState([]);
 
-				if (response.ok) {
-					const data = await response.json()
-					console.log('Solicitudes obtenidas exitosamente:')
-					setSolicitudes(data)
-					// Realiza cualquier otra lógica después de obtener las solicitudes exitosamente
-				} else {
-					console.error('Error al obtener solicitudes')
-					// Maneja el error de acuerdo a tus necesidades
-				}
-			} catch (error) {
-				console.error('Error en la solicitud:', error)
-				// Maneja el error de acuerdo a tus necesidades
-			}
-		}
-		obtenerSolicitudes()
-	}, []) // El segundo argumento [] significa que este efecto se ejecuta solo una vez al montar el componente
+    const [user, setUser] = useState(null);
 
-	return (
-		<>
-			<Header></Header>
+    useEffect(() => {
+        const fetchUserData = async () => {
+            try {
+                const token = Cookies.get('tokenSesion');
+                if (!token) {
+                    console.error('Token no encontrado');
+                    navigate('/login');
+                    return;
+                } else {
+                    const response = await fetch('http://localhost:5000/api/verifyToken', {
+                        method: 'GET',
+                        headers: {
+                            Authorization: token,
+                        },
+                    });
 
-			<Heading title="Solicitudes de cita"></Heading>
+                    if (response.ok) {
+                        const data = await response.json();
+                        console.log("Sesion Correctamente Iniciada")
+                        setUser(data.user);
+                    } else {
+                        navigate('/login');
+                        console.error('Error al obtener datos de usuario');
 
-			<section className="container py-5">
-				{solicitudes.map((solicitud) => (
-					<SolicitudCard _id={solicitud._id} nombres={solicitud.nombres} apellidos={solicitud.apellidos} telefono={solicitud.telefono} fecha={solicitud.fecha} hora={solicitud.hora} tratamiento={solicitud.tratamiento} comentarios={solicitud.comentarios} />
-				))}
-			</section>
-		</>
-	)
+                    }
+                }
+            } catch (error) {
+                console.error('Error en la solicitud:', error);
+                navigate('/login');
+            }
+        };
+
+        fetchUserData();
+    }, []);
+
+    useEffect(() => {
+
+        const obtenerSolicitudes = async () => {
+            try {
+                const response = await fetch('http://localhost:5000/api/obtenerSolicitudes', {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                })
+
+                if (response.ok) {
+                    const data = await response.json()
+                    console.log('Solicitudes obtenidas exitosamente:')
+                    setSolicitudes(data)
+                    // Realiza cualquier otra lógica después de obtener las solicitudes exitosamente
+                } else {
+                    console.error('Error al obtener solicitudes')
+                    // Maneja el error de acuerdo a tus necesidades
+                }
+            } catch (error) {
+                console.error('Error en la solicitud:', error)
+                // Maneja el error de acuerdo a tus necesidades
+            }
+        }
+        obtenerSolicitudes()
+    }, [])
+
+    useEffect(() => {
+        const fetchUserData = async () => {
+            try {
+                // Obtener el token almacenado
+                const token = Cookies.get('tokenSesion');
+                // Si no hay token, redirige al usuario al inicio de sesión u otra página
+                if (!token) {
+                    // Puedes redirigir o realizar otras acciones según tus necesidades
+                    console.error('Token no encontrado');
+                    return;
+                } else {
+                    // Hacer una solicitud al servidor con el token
+                    const response = await fetch('http://localhost:5000/api/verifyToken', {
+                        method: 'GET',
+                        headers: {
+                            Authorization: token,
+                        },
+                    });
+
+                    if (response.ok) {
+                        const data = await response.json();
+                        console.log("Sesion Correctamente Iniciada")
+                        setUser(data.user);
+                    } else {
+                        console.error('Error al obtener datos de usuario');
+                        // Manejar el error según tus necesidades
+                        navigate('/login');
+                    }
+                }
+            } catch (error) {
+                console.error('Error en la solicitud:', error);
+                navigate('/login');
+            }
+        };
+
+        fetchUserData();
+    }, []); // El segundo argumento [] significa que este efecto se ejecuta solo una vez al montar el componente
+
+
+    return (
+        <>
+            <Header></Header>
+
+            <Heading title="Solicitudes de cita"></Heading>
+
+            <section className="container py-5">
+                {solicitudes.map((solicitud) => (
+                    <SolicitudCard 
+                    _id={solicitud._id} 
+                    nombres={solicitud.nombres} 
+                    apellidos={solicitud.apellidos} 
+                    telefono={solicitud.telefono} 
+                    fecha={solicitud.fecha} 
+                    hora={solicitud.hora} 
+                    tratamiento={solicitud.tratamiento} 
+                    comentarios={solicitud.comentarios} />
+                ))}
+            </section>
+        </>
+    )
 }
 
 export default Solicitudes

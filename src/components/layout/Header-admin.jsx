@@ -2,8 +2,13 @@ import React, { useEffect, useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import logo from '../Images/logo.png'
 import Toggler from '../../assets/img/burger.svg'
+import Cookies from 'js-cookie';
+import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
+
+	const navigate = useNavigate();
+
 	const [isScrolled, setIsScrolled] = useState(false)
 
 	useEffect(() => {
@@ -26,6 +31,13 @@ const Header = () => {
 	// Dynamically set the class based on scrolling
 	const headerClasses = `header ${isScrolled ? 'sticky-top Header' : 'sticky-top Header'}`
 
+	const handleLogout = () => {
+		// Elimina la cookie y limpia el estado local
+		Cookies.remove('tokenSesion');
+		navigate('/login');
+	  };
+
+
 	return (
 		<React.Fragment>
 			<header className={headerClasses}>
@@ -47,6 +59,12 @@ const Header = () => {
 								<NavLink to="/solicitudes" relative="path" className="Nav-a nav-link text-center mx-2">
 									Solicitudes
 								</NavLink>
+							</li>
+							<li className="Nav-li nav-item">
+								<button className="Nav-btn btn btn-secondary px-3 h-100 ms-md-3 ms-xs-auto" onClick={handleLogout}>
+									Cerrar sesión
+								</button>
+
 							</li>
 						</ul>
 					</div>
