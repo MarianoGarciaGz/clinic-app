@@ -16,7 +16,7 @@ const About = () => {
 					</div>
 					<div className="services ftco-animate fadeInUp ftco-animated">
 						<div className="text mt-2">
-							<h3 className="display-6" style={{ fontFamily: 'var(--font-default)', color: 'var(--color-primary)', marginBottom: '5px' }}>
+							<h3 className="display-6" style={{ fontFamily: 'var(--font-default)', color: 'var(--color-secondary)', marginBottom: '5px' }}>
 								Garantía
 							</h3>
 							<p className=" hyphens-none" style={{ fontFamily: 'var(--font-default)', color: 'var(--color-black)', marginTop: '0', textAlign: 'justify' }}>
@@ -34,7 +34,7 @@ const About = () => {
 					</div>
 					<div className="services ftco-animate fadeInUp ftco-animated">
 						<div className="text mt-2">
-							<h3 className="display-6" style={{ fontFamily: 'var(--font-default)', color: 'var(--color-primary)', marginBottom: '5px' }}>
+							<h3 className="display-6" style={{ fontFamily: 'var(--font-default)', color: 'var(--color-secondary)', marginBottom: '5px' }}>
 								Misión
 							</h3>
 							<p className=" hyphens-none" style={{ fontFamily: 'var(--font-default)', color: 'var(--color-black)', marginTop: '0', textAlign: 'justify' }}>
@@ -52,7 +52,7 @@ const About = () => {
 					</div>
 					<div className="services ftco-animate fadeInUp ftco-animated">
 						<div className="text mt-2">
-							<h3 className="display-6" style={{ fontFamily: 'var(--font-default)', color: 'var(--color-primary)', marginBottom: '5px' }}>
+							<h3 className="display-6" style={{ fontFamily: 'var(--font-default)', color: 'var(--color-secondary)', marginBottom: '5px' }}>
 								Nosotros
 							</h3>
 							<p className=" hyphens-none" style={{ fontFamily: 'var(--font-default)', color: 'var(--color-black)', marginTop: '0', textAlign: 'justify' }}>
