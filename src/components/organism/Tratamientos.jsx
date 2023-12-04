@@ -83,10 +83,10 @@ const Tratamientos = () => {
 						</div>
 						<div className="why_text">
 							<p>
-								Los tratamientos corporales son diferentes métodos de tratamiento mediante los cuales ya sea de forma individual o combinada podemos mejorar el estado general de la apariencia de nuestro cuerpo, dándole un mejor aspecto y ganando de esta forma
+								Son diferentes métodos de tratamiento mediante los cuales ya sea de forma individual o combinada podemos mejorar el estado general de la apariencia de nuestro cuerpo, dándole un mejor aspecto y ganando de esta forma
 								autoestima y calidad de vida.
+								Generalmente se opta por esta opción para mejorar la silueta o tratar los problemas de celulitis, adiposidad localizada y flacidez, aunque también son la mejor manera de liberar al cuerpo del estrés.
 							</p>
-							<p>Generalmente se opta por esta opción para mejorar la silueta o tratar los problemas de celulitis, adiposidad localizada y flacidez, aunque también son la mejor manera de liberar al cuerpo del estrés.</p>
 						</div>
 						{/* Agregado el botón */}
 						<div className="text-center mt-5">
@@ -112,8 +112,10 @@ const Tratamientos = () => {
 						</div>
 						<div className="why_text">
 							<p>
-								La piel es el órgano más grande del cuerpo humano. En el caso de la piel del rostro, se encuentra expuesta continuamente a factores ambientales que causan su deterioro: la contaminación de la ciudad, la luz solar, los cambios de temperatura. A
-								esto se suman otras causas como el tabaco, una mala alimentación, el estrés o la falta de sueño. Para combatirlos se usan los denominados tratamientos faciales que ayudan a mejorar tanto la salud como la apariencia.
+								En primer lugar, estos procedimientos permiten realzar la apariencia personal, brindando una sensación de cuidado y pulcritud. 
+								Las uñas bien cuidadas y las pestañas resaltadas contribuyen a una imagen general más elegante y armoniosa.
+
+								Además de los aspectos estéticos, estos tratamientos también pueden tener un impacto positivo en la autoestima y la confianza. 								
 							</p>
 						</div>
 						{/* Agregado el botón */}

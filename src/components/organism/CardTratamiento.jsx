@@ -10,6 +10,7 @@ import { cardsData } from '../atoms/data' // Importa la lista de tarjetas
 import { cardsData2 } from '../atoms/data' // Importa la lista de tarjetas
 import { cardsData3 } from '../atoms/data' // Importa la lista de tarjetas
 import '../../assets/css/style.css'
+import { NavLink } from 'react-router-dom'
 
 export const CardTratamiento = () => {
 	return (
@@ -53,7 +54,7 @@ export const CardTratamiento = () => {
 									<p className="description" style={{ whiteSpace: 'pre-line' }}>
 										{card.description}
 									</p>
-									<button className="btn btn-primary w-100">Reservar</button>
+									<NavLink to="/agendar" className="btn btn-primary w-100">Reservar</NavLink>
 								</div>
 							</div>
 						</SwiperSlide>
@@ -95,7 +96,7 @@ export const CardTratamientoCorporales = () => {
 									<p className="description" style={{ whiteSpace: 'pre-line' }}>
 										{card.description}
 									</p>
-									<button className="btn btn-primary w-100">Reservar</button>
+									<NavLink to="/agendar" className="btn btn-primary w-100">Reservar</NavLink>
 								</div>
 							</div>
 						</SwiperSlide>
@@ -148,7 +149,7 @@ export const CardTratamientoEstetico = () => {
 									<p className="description" style={{ whiteSpace: 'pre-line' }}>
 										{card.description}
 									</p>
-									<button className="btn btn-primary w-100">Reservar</button>
+									<NavLink to="/agendar" className="btn btn-primary w-100">Reservar</NavLink>
 								</div>
 							</div>
 						</SwiperSlide>

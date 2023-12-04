@@ -18,15 +18,20 @@ const FormReservar = () => {
 	const maxDate = new Date(currentDate)
 	maxDate.setDate(currentDate.getDate() + 7)
 
+	const [formSubmitted, setFormSubmitted] = useState(false);
+
 	//Estados
 	const [telefonoError, setTelefonoError] = useState(false)
 	const [nombresError, setNombresError] = useState(false)
 	const [apellidosError, setApellidosError] = useState(false)
 	const [emailError, setEmailError] = useState('')
- 
+
 	const [selectedDate, setSelectedDate] = useState(null)
 	const [horaSeleccionada, setHoraSeleccionada] = useState(false)
+	const [horaTouched, setHoraTouched] = useState(false);
 	const [tratamientoSeleccionado, setTratamientoSeleccionado] = useState(false)
+	const [tratamientoTouched, setTratamientoTouched] = useState(false);
+
 
 	const [formValid, setFormValid] = useState(false)
 	const [formData, setFormData] = useState({
@@ -127,12 +132,14 @@ const FormReservar = () => {
 				handleChangeGeneral(e)
 				break;
 			case 'hora':
-				handleChangeGeneral(e)
-				setHoraSeleccionada(e.target.value !== '') // Actualiza el estado si se selecciona una hora
+				handleChangeGeneral(e);
+				setHoraSeleccionada(e.target.value !== '' && e.target.value !== 'Seleccionar...'); // Actualiza el estado si se selecciona una hora
+				setHoraTouched(true);
 				break;
 			case 'tratamiento':
 				handleChangeGeneral(e)
-				setTratamientoSeleccionado(e.target.value !== '') // Actualiza el estado si se selecciona un tratamiento
+				setTratamientoSeleccionado(e.target.value !== '' && e.target.value !== 'Seleccionar...') // Actualiza el estado si se selecciona un tratamiento
+				setTratamientoTouched(true);
 				break;
 		}
 	}
@@ -146,6 +153,8 @@ const FormReservar = () => {
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
+		// Deshabilita el formulario al momento de hacer clic en "Reservar"
+		setFormSubmitted(true);
 
 		try {
 			// Enviar el correo con el código de verificación
@@ -154,12 +163,12 @@ const FormReservar = () => {
 				headers: {
 					'Content-Type': 'application/json',
 				},
-				body: JSON.stringify({ 
+				body: JSON.stringify({
 					email: formData.email,
 					fecha: formData.fecha,
 					hora: formData.hora,
 					tratamiento: formData.tratamiento,
-				 }), 
+				}),
 			});
 
 			if (responseCorreo.ok) {
@@ -171,7 +180,6 @@ const FormReservar = () => {
 					estado: 'pendiente', // Establecer el estado predeterminado
 				};
 				sessionStorage.setItem('formData', JSON.stringify(updatedFormData)); // Almacena los datos en sessionStorage
-
 				navigate('/verificacion'); // Redireccionar a la página de verificación
 			} else {
 				console.error('Error al enviar el correo');
@@ -265,8 +273,12 @@ const FormReservar = () => {
 									<span className="input-group-text bg-white custom-border-color-orange">
 										<img src={hora} alt="hora" className="img-form" />
 									</span>
-									<select className={`form-select bg-white custom-border-color-orange ${horaSeleccionada ? '' : 'is-invalid'}`} id="hora" required onChange={handleChange}>
-										<option value="">Seleccionar...</option>
+									<select
+										className={`form-select bg-white custom-border-color-orange ${horaSeleccionada ? '' : (horaTouched ? 'is-invalid' : '')}`} id="hora"
+										required
+										onChange={handleChange}
+										value={formData.hora}>
+										<option value="" disabled={!horaTouched}>Seleccionar...</option>
 										<option>08:00</option>
 										<option>09:00</option>
 										<option>10:00</option>
@@ -280,7 +292,9 @@ const FormReservar = () => {
 										<option>18:00</option>
 										<option>19:00</option>
 									</select>
-									<div className="invalid-feedback">Selecciona una hora válida.</div>
+									{horaTouched && formData.hora === '' && (
+										<div className="invalid-feedback">Selecciona una hora válida.</div>
+									)}
 								</div>
 							</div>
 
@@ -310,7 +324,12 @@ const FormReservar = () => {
 									<span className="input-group-text bg-white custom-border-color-orange">
 										<img src={tratamiento} alt="tratamiento" className="img-form" />
 									</span>
-									<select className={`form-select bg-white custom-border-color-orange ${tratamientoSeleccionado ? '' : 'is-invalid'}`} id="tratamiento" required onChange={handleChange}>
+									<select
+										className={`form-select bg-white custom-border-color-orange ${tratamientoSeleccionado ? '' : (tratamientoTouched ? 'is-invalid' : '')}`}
+										id="tratamiento"
+										required onChange={handleChange}
+										value={formData.tratamiento}
+									>
 										<option value="">Seleccionar...</option>
 										{[...cardsData, ...cardsData2, ...cardsData3].map((option, index) => (
 											<option key={index} value={option.name}>
@@ -318,8 +337,9 @@ const FormReservar = () => {
 											</option>
 										))}
 									</select>
-									<div className="invalid-feedback">Selecciona un tratamiento válido.</div>
-								</div>
+									{tratamientoTouched && formData.tratamiento === '' && (
+										<div className="invalid-feedback">Selecciona un tratamiento válido..</div>
+									)}								</div>
 							</div>
 
 							<div className="col-sm-12">
@@ -337,8 +357,12 @@ const FormReservar = () => {
 						</div>
 
 						<div className="text-center">
-							<button className={`btn btn-primary btn-lg-8 mt-4 w-50 ${formValid ? '' : 'disabled'}`} type="submit" style={{ backgroundColor: formValid ? '' : '#CCCCCC' }} disabled={!formValid}>
-								RESERVAR
+							<button
+								className={`btn btn-primary btn-lg-8 mt-4 w-50 ${formValid ? '' : 'disabled'}`}
+								type="submit"
+								style={{ backgroundColor: formValid ? '' : '#CCCCCC' }}
+								disabled={formSubmitted}>
+								{formSubmitted ? '¡Enviado!' : 'RESERVAR'}
 							</button>
 						</div>
 					</form>

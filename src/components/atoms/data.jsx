@@ -183,8 +183,7 @@ export const cardsData2 = [
 	{
 		name: 'Auriculoterapia',
 		precio: '250',
-		description: `Se colocan agujas delgadas en puntos específicos de la oreja con
-        el fin de controlar el dolor y otros síntomas.`,
+		description: `Se colocan agujas delgadas en puntos específicos de la oreja con el fin de controlar el dolor y otros síntomas.`,
 		image: img1C,
 	},
 	//2
@@ -219,7 +218,7 @@ export const cardsData2 = [
 	{
 		name: 'Drenaje Linfatico',
 		precio: '600',
-		description: 'Aplicar masajes suaves sobre diferentes zonas del cuerpo con el objetivo de mejorar la circulación de la linfa y el sistema linfático.',
+		description: 'Aplicar masajes suaves sobre diferentes zonas del cuerpo y mejora la circulación de la linfa y el sistema linfático.',
 		image2: img6C,
 	},
 	//7
@@ -233,7 +232,7 @@ export const cardsData2 = [
 	{
 		name: 'Eliminación de Verrugas',
 		precio: 'Depende de la cantidad',
-		description: '',
+		description: 'Se eliminan las verrugas sin dañar el tejido circundante, con una eliminación rápida que evita el contagio.',
 		image: img8C,
 	},
 	//9??
@@ -432,8 +431,7 @@ export const cardsData3 = [
 	{
 		name: 'Keratina',
 		precio: '499 - (Depende cuánto se aplique)',
-		description: `La keratina es una proteína que genera nuestro cuerpo. Repara las fibras del cabello y nutrirlo desde la raíz dándole un aspecto 
-        regenerado.`,
+		description: `La keratina es una proteína que genera nuestro cuerpo. Repara las fibras del cabello y nutrirlo desde la raíz dándole un aspecto regenerado.`,
 		image: img1E,
 	},
 	//2
@@ -447,8 +445,7 @@ export const cardsData3 = [
 	{
 		name: 'Tratamientos capilares',
 		precio: '699 - (Depende cuánto se aplique)',
-		description: 'El tratamiento capilar son cuidados que se aplican al cabello y mantiene la salud y buena apariencia del mismo. Antes de iniciar un tratamiento se analiza el cabello y el cuero cabelludo.',
-		image: img3E,
+		description: 'Son cuidados que se aplican al cabello y mantiene la salud y buena apariencia del mismo.\n\n'
 	},
 	//4
 	{
