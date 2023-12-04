@@ -24,8 +24,8 @@ const enviarEmail = async ({ destinatario, asunto, texto }) => {
   const transporter = nodemailer.createTransport({
     service: 'Gmail', // Usando Gmail
     auth: {
-      user: 'pruebanmmsxd@gmail.com', // Correo desde donde se enviará
-      pass: 'fvxukfupxapxtppu', // Contraseña del correo
+      user: 'chavezlopezabigail28@gmail.com', // Correo desde donde se enviará
+      pass: 'wwrm jatl ofgb nyqm', // Contraseña del correo
     },
   });
 
