@@ -445,7 +445,8 @@ export const cardsData3 = [
 	{
 		name: 'Tratamientos capilares',
 		precio: '699 - (Depende cuánto se aplique)',
-		description: 'Son cuidados que se aplican al cabello y mantiene la salud y buena apariencia del mismo.\n\n'
+		description: 'Son cuidados que se aplican al cabello y mantiene la salud y buena apariencia del mismo.\n\n',
+		image: img3E,
 	},
 	//4
 	{
