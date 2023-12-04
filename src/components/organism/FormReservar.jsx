@@ -1,3 +1,4 @@
+import { cardsData, cardsData2, cardsData3 } from '../atoms/data';
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import fecha from '../Images/fecha.png'
@@ -17,15 +18,20 @@ const FormReservar = () => {
 	const maxDate = new Date(currentDate)
 	maxDate.setDate(currentDate.getDate() + 7)
 
+	const [formSubmitted, setFormSubmitted] = useState(false);
+
 	//Estados
 	const [telefonoError, setTelefonoError] = useState(false)
 	const [nombresError, setNombresError] = useState(false)
 	const [apellidosError, setApellidosError] = useState(false)
 	const [emailError, setEmailError] = useState('')
- 
+
 	const [selectedDate, setSelectedDate] = useState(null)
 	const [horaSeleccionada, setHoraSeleccionada] = useState(false)
+	const [horaTouched, setHoraTouched] = useState(false);
 	const [tratamientoSeleccionado, setTratamientoSeleccionado] = useState(false)
+	const [tratamientoTouched, setTratamientoTouched] = useState(false);
+
 
 	const [formValid, setFormValid] = useState(false)
 	const [formData, setFormData] = useState({
@@ -126,12 +132,14 @@ const FormReservar = () => {
 				handleChangeGeneral(e)
 				break;
 			case 'hora':
-				handleChangeGeneral(e)
-				setHoraSeleccionada(e.target.value !== '') // Actualiza el estado si se selecciona una hora
+				handleChangeGeneral(e);
+				setHoraSeleccionada(e.target.value !== '' && e.target.value !== 'Seleccionar...'); // Actualiza el estado si se selecciona una hora
+				setHoraTouched(true);
 				break;
 			case 'tratamiento':
 				handleChangeGeneral(e)
-				setTratamientoSeleccionado(e.target.value !== '') // Actualiza el estado si se selecciona un tratamiento
+				setTratamientoSeleccionado(e.target.value !== '' && e.target.value !== 'Seleccionar...') // Actualiza el estado si se selecciona un tratamiento
+				setTratamientoTouched(true);
 				break;
 		}
 	}
@@ -145,6 +153,8 @@ const FormReservar = () => {
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
+		// Deshabilita el formulario al momento de hacer clic en "Reservar"
+		setFormSubmitted(true);
 		try {
 			// Enviar el correo con el código de verificación
 			const responseCorreo = await fetch('http://localhost:5000/api/enviarCodigo', {
@@ -152,12 +162,12 @@ const FormReservar = () => {
 				headers: {
 					'Content-Type': 'application/json',
 				},
-				body: JSON.stringify({ 
+				body: JSON.stringify({
 					email: formData.email,
 					fecha: formData.fecha,
 					hora: formData.hora,
 					tratamiento: formData.tratamiento,
-				 }), 
+				}),
 			});
 
 			if (responseCorreo.ok) {
@@ -169,7 +179,6 @@ const FormReservar = () => {
 					estado: 'pendiente', // Establecer el estado predeterminado
 				};
 				sessionStorage.setItem('formData', JSON.stringify(updatedFormData)); // Almacena los datos en sessionStorage
-
 				navigate('/verificacion'); // Redireccionar a la página de verificación
 			} else {
 				console.error('Error al enviar el correo');
@@ -263,8 +272,12 @@ const FormReservar = () => {
 									<span className="input-group-text bg-white custom-border-color-orange">
 										<img src={hora} alt="hora" className="img-form" />
 									</span>
-									<select className={`form-select bg-white custom-border-color-orange ${horaSeleccionada ? '' : 'is-invalid'}`} id="hora" required onChange={handleChange}>
-										<option value="">Seleccionar...</option>
+									<select
+										className={`form-select bg-white custom-border-color-orange ${horaSeleccionada ? '' : (horaTouched ? 'is-invalid' : '')}`} id="hora"
+										required
+										onChange={handleChange}
+										value={formData.hora}>
+										<option value="" disabled={!horaTouched}>Seleccionar...</option>
 										<option>08:00</option>
 										<option>09:00</option>
 										<option>10:00</option>
@@ -278,7 +291,9 @@ const FormReservar = () => {
 										<option>18:00</option>
 										<option>19:00</option>
 									</select>
-									<div className="invalid-feedback">Selecciona una hora válida.</div>
+									{horaTouched && formData.hora === '' && (
+										<div className="invalid-feedback">Selecciona una hora válida.</div>
+									)}
 								</div>
 							</div>
 
@@ -308,44 +323,22 @@ const FormReservar = () => {
 									<span className="input-group-text bg-white custom-border-color-orange">
 										<img src={tratamiento} alt="tratamiento" className="img-form" />
 									</span>
-									<select className={`form-select bg-white custom-border-color-orange ${tratamientoSeleccionado ? '' : 'is-invalid'}`} id="tratamiento" required onChange={handleChange}>
+									<select
+										className={`form-select bg-white custom-border-color-orange ${tratamientoSeleccionado ? '' : (tratamientoTouched ? 'is-invalid' : '')}`}
+										id="tratamiento"
+										required onChange={handleChange}
+										value={formData.tratamiento}
+									>
 										<option value="">Seleccionar...</option>
-										<option>Ácido Labios, nariz y nazogenianos</option>
-										<option>BB Glow</option>
-										<option>Bótox</option>
-										<option>Dermapen</option>
-										<option>Depilación Láser</option>
-										<option>Endermology</option>
-										<option>Facial Acné</option>
-										<option>Facial Rejuvenecimiento</option>
-										<option>Facial Limpieza Profunda</option>
-										<option>Hi-Fu</option>
-										<option>Hidrafacial</option>
-										<option>Hollywood Peel</option>
-										<option>Luz Pulsada</option>
-										<option>Oxígeno</option>
-										<option>RF Fraccionada con agujas</option>
-
-										<option>Carboxiterapia</option>
-										<option>Desintoxicación Iónica</option>
-										<option>Eliminación Tatuajes, Verrugas y Lunares</option>
-										<option>EMSzero Radiofrecuencia</option>
-										<option>Enzimas</option>
-										<option>Hi-Fu Corporal</option>
-										<option>Levant. de Glúteos</option>
-										<option>Maderoterapia</option>
-										<option>Masaje Descontracturante</option>
-										<option>Masaje Relajante</option>
-										<option>Masaje Piedras Calientes</option>
-										<option>Mesoterapia Inyectada</option>
-										<option>Mesoterapia Virtual</option>
-										<option>Moldeado Corporal</option>
-										<option>Ondas Rusas</option>
-										<option>Post Operatorio</option>
-										<option>Presoterapia</option>
+										{[...cardsData, ...cardsData2, ...cardsData3].map((option, index) => (
+											<option key={index} value={option.name}>
+												{option.name}
+											</option>
+										))}
 									</select>
-									<div className="invalid-feedback">Selecciona un tratamiento válido.</div>
-								</div>
+									{tratamientoTouched && formData.tratamiento === '' && (
+										<div className="invalid-feedback">Selecciona un tratamiento válido..</div>
+									)}								</div>
 							</div>
 
 							<div className="col-sm-12">
@@ -363,8 +356,12 @@ const FormReservar = () => {
 						</div>
 
 						<div className="text-center">
-							<button className={`btn btn-primary btn-lg-8 mt-4 w-50 ${formValid ? '' : 'disabled'}`} type="submit" style={{ backgroundColor: formValid ? '' : '#CCCCCC' }} disabled={!formValid}>
-								RESERVAR
+							<button
+								className={`btn btn-primary btn-lg-8 mt-4 w-50 ${formValid ? '' : 'disabled'}`}
+								type="submit"
+								style={{ backgroundColor: formValid ? '' : '#CCCCCC' }}
+								disabled={formSubmitted}>
+								{formSubmitted ? '¡Enviado!' : 'RESERVAR'}
 							</button>
 						</div>
 					</form>

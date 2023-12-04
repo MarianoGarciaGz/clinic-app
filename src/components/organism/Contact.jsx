@@ -5,49 +5,107 @@ import dias from '../Images/calendario.png'
 import hora from '../Images/horario.png'
 
 const Contact = () => {
+	const circleStyle = {
+		display: 'inline-flex',
+		alignItems: 'center',
+		justifyContent: 'center',
+		width: '80px',
+		height: '80px',
+		borderRadius: '50%',
+		backgroundColor: 'var(--color-secondary)',
+
+		marginTop: '20px',
+		marginBottom: '20px',
+	}
+
+	const iconStyle = {
+		width: '50%',
+		height: 'auto',
+	}
+
+	const textStyle = {
+		display: 'flex',
+		flexDirection: 'column',
+		justifyContent: 'center',
+	}
+
+	const textContentStyle = {
+		marginLeft: '10px', // Ajusta el espacio entre el círculo y el texto
+	}
+
+	const orangeTextStyle = {
+		color: 'var(--color-secondary)', // Establece el color naranja para el texto
+	}
+
 	return (
-		<div className="container mt-5">
-			<div className="row justify-content-center my-4">
-				{' '}
-				{/* Agrega la clase my-4 para espaciado vertical */}
-				<div className="col-md-3 mb-4">
-					<div className="card text-center p-3">
-						{/* Contenido de la primera tarjeta */}
-						<img src={telefono} className="card-img-top mx-auto mt-3 img-contacto" alt="Imagen 3" />
-						<hr className="my-3" />
-						<div className="card-body">
-							<p className="card-text">443 3873 3234</p>
+		<div className="container my-5">
+			<div className="block-quick-info-2-inner">
+				<div className="row">
+					<div className="col-sm-6 col-md-6 col-lg-3 mb-3 mb-lg-0">
+						<div className="d-flex quick-info-2">
+							<div style={circleStyle}>
+								<img src={telefono} alt="Location Icon" style={iconStyle} />
+							</div>
+							<div className="text" style={textStyle}>
+								<div style={textContentStyle}>
+									<strong className="d-block heading" style={orangeTextStyle}>
+										Teléfono
+									</strong>
+									<span className="excerpt">443 3873 2934</span>
+								</div>
+							</div>
 						</div>
 					</div>
-				</div>
-				<div className="col-md-3 mb-4">
-					<div className="card text-center p-3">
-						{/* Contenido de la segunda tarjeta */}
-						<img src={dias} className="card-img-top mx-auto mt-3 img-contacto" alt="Imagen 3" />
-						<hr className="my-3" />
-						<div className="card-body">
-							<p className="card-text">Lunes a Sábado</p>
+					{/* Resto de las columnas con imágenes */}
+					<div className="col-sm-6 col-md-6 col-lg-3 mb-3 mb-lg-0">
+						<div className="d-flex quick-info-2">
+							<div style={circleStyle}>
+								<img src={dias} alt="Location Icon" style={iconStyle} />
+							</div>
+							<div className="text" style={textStyle}>
+								<div style={textContentStyle}>
+									<strong className="d-block heading" style={orangeTextStyle}>
+										Días
+									</strong>
+									<span className="excerpt">Lunes a Sábado</span>
+								</div>
+							</div>
 						</div>
 					</div>
-				</div>
-				<div className="col-md-3 mb-4">
-					<div className="card text-center p-3">
-						{/* Contenido de la segunda tarjeta */}
-						<img src={hora} className="card-img-top mx-auto mt-3 img-contacto" alt="Imagen 3" />
-						<hr className="my-3" />
-						<div className="card-body">
-							<p className="card-text">8:00 a 20:00</p>
+					{/* Resto de las columnas con imágenes */}
+					<div className="col-sm-6 col-md-6 col-lg-3 mb-3 mb-lg-0">
+						<div className="d-flex quick-info-2">
+							<div style={circleStyle}>
+								<img src={hora} alt="Location Icon" style={iconStyle} />
+							</div>
+							<div className="text" style={textStyle}>
+								<div style={textContentStyle}>
+									<strong className="d-block heading" style={orangeTextStyle}>
+										Horario
+									</strong>
+									<span className="excerpt">8:00 a 19:00 hrs</span>
+								</div>
+							</div>
 						</div>
 					</div>
-				</div>
-				<div className="col-md-3 mb-4">
-					<div className="card text-center p-3">
-						<img src={correo} className="card-img-top mx-auto mt-3 img-contacto " alt="Imagen 3" />
-						<hr className="my-3" />
-						<div className="card-body">
-							<p className="card-text">clinicabelleza@gmail.com</p>
+					{/* Resto de las columnas con imágenes */}
+					<div className="col-sm-6 col-md-6 col-lg-3 mb-3 mb-lg-0">
+						<div className="d-flex quick-info-2">
+							<div style={circleStyle}>
+								<img src={correo} alt="Location Icon" style={iconStyle} />
+							</div>
+							<div className="text" style={textStyle}>
+								<div style={textContentStyle}>
+									<strong className="d-block heading" style={orangeTextStyle}>
+										Correo
+									</strong>
+									<span className="excerpt">clinicabelleza@gmail.com</span>
+								</div>
+							</div>
 						</div>
 					</div>
+					{/* Resto de las columnas con imágenes */}
+					{/* Resto de las columnas con imágenes */}
 				</div>
 			</div>
 		</div>

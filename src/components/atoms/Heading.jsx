@@ -2,9 +2,9 @@ import React from 'react'
 
 const Heading = ({ title }) => {
 	return (
-		<h2 className="h2 text-uppercase text-center" href="#contact">
+		<h4 className="h4 text-uppercase text-center" href="#contact">
 			{title}
-		</h2>
+		</h4>
 	)
 }
 
