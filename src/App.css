@@ -5,7 +5,7 @@
 
 :root {
 	--color-primary: #2ebbcd;
-	--color-secondary: #eb9ac0;
+	--color-secondary: #f3db00;
 	--color-terciary: #ffc28a;
 	--color-white: #fafafa;
 	--color-black: #373737;
@@ -270,8 +270,8 @@ body {
 	left: 50%; /* position the left edge of the element at the middle of the parent */
 
 	transform: translate(-50%, -50%);
-	-webkit-filter: drop-shadow(0px 0px 5px var(--color-shadow));
-	filter: drop-shadow(0px 0px 5px var(--color-shadow));
+	-webkit-filter: drop-shadow(0px 0px 5px #000000);
+	filter: drop-shadow(0px 0px 5px #000000);
 }
 
 /* about */

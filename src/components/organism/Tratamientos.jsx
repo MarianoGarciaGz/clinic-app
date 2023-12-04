@@ -7,7 +7,7 @@ const Tratamientos = () => {
 	const rightContentStyle = {
 		backgroundColor: 'rgb(230, 218, 248)',
 		padding: '20px',
-		height: '40vh',
+		height: 'unset',
 		margin: '0',
 		color: 'var(--color-white)',
 	}
@@ -15,7 +15,7 @@ const Tratamientos = () => {
 	const leftContentStyle = {
 		backgroundColor: 'rgb(230, 218, 248)',
 		padding: '20px',
-		height: '40vh',
+		height: 'unset',
 		margin: '0',
 		color: 'var(--color-white)',
 	}
@@ -24,12 +24,11 @@ const Tratamientos = () => {
 		backgroundSize: 'cover',
 		backgroundRepeat: 'no-repeat',
 		backgroundPosition: 'center',
-		height: '40vh',
+		height: '100%',
 		paddingRight: '0',
 	}
 
 	const rightImageStyle = {
-		backgroundImage: `url(${Facial})`,
 		backgroundSize: 'cover',
 		backgroundRepeat: 'no-repeat',
 		backgroundPosition: 'center',
@@ -83,9 +82,8 @@ const Tratamientos = () => {
 						</div>
 						<div className="why_text">
 							<p>
-								Son diferentes métodos de tratamiento mediante los cuales ya sea de forma individual o combinada podemos mejorar el estado general de la apariencia de nuestro cuerpo, dándole un mejor aspecto y ganando de esta forma
-								autoestima y calidad de vida.
-								Generalmente se opta por esta opción para mejorar la silueta o tratar los problemas de celulitis, adiposidad localizada y flacidez, aunque también son la mejor manera de liberar al cuerpo del estrés.
+								Son diferentes métodos de tratamiento mediante los cuales ya sea de forma individual o combinada podemos mejorar el estado general de la apariencia de nuestro cuerpo, dándole un mejor aspecto y ganando de esta forma autoestima y calidad de
+								vida. Generalmente se opta por esta opción para mejorar la silueta o tratar los problemas de celulitis, adiposidad localizada y flacidez, aunque también son la mejor manera de liberar al cuerpo del estrés.
 							</p>
 						</div>
 						{/* Agregado el botón */}
@@ -98,7 +96,7 @@ const Tratamientos = () => {
 				</div>
 				{/* Why Choose Us Image */}
 				<div className="col-lg-6 order-lg-1 order-2 p-0">
-					<div className="why_image_container" style={{ ...leftImageStyle, backgroundImage: `url(${Corporal})` }}></div>
+					<div className="why_image_container" style={{ ...rightImageStyle, backgroundImage: `url(${Corporal})` }}></div>
 				</div>
 			</div>
 			<div className="row m-0">
@@ -112,10 +110,8 @@ const Tratamientos = () => {
 						</div>
 						<div className="why_text">
 							<p>
-								En primer lugar, estos procedimientos permiten realzar la apariencia personal, brindando una sensación de cuidado y pulcritud. 
-								Las uñas bien cuidadas y las pestañas resaltadas contribuyen a una imagen general más elegante y armoniosa.
-
-								Además de los aspectos estéticos, estos tratamientos también pueden tener un impacto positivo en la autoestima y la confianza. 								
+								En primer lugar, estos procedimientos permiten realzar la apariencia personal, brindando una sensación de cuidado y pulcritud. Las uñas bien cuidadas y las pestañas resaltadas contribuyen a una imagen general más elegante y armoniosa. Además de
+								los aspectos estéticos, estos tratamientos también pueden tener un impacto positivo en la autoestima y la confianza.
 							</p>
 						</div>
 						{/* Agregado el botón */}

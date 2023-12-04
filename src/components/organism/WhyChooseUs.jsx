@@ -13,15 +13,14 @@ function WhyChooseUs() {
 	const rightContentStyle = {
 		backgroundColor: 'var(--color-secondary)',
 		padding: '20px',
-		height: '100%',
+		height: 'unset',
 		margin: '0',
-		height: '60vh',
 	}
 
 	const leftImageStyle = {
 		backgroundImage: `url(${whyImage1})`,
 		backgroundSize: 'cover',
-		height: '60vh',
+		height: '100%',
 		paddingRight: '0',
 	}
 
