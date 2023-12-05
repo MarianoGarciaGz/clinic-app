@@ -26,18 +26,15 @@ const Contacto = () => {
     justifyContent: 'center',
   };
 
-  const textContentStyle = {
-    marginLeft: '10px',
-  };
-
-  const orangeTextStyle = {
-    color: 'var(--color-secondary)',
-  };
 
   const circleContainerStyle = {
     display: 'flex',
     justifyContent: 'center',
     marginBottom: '40px',
+  };
+
+  const textContentStyle = {
+    marginLeft: '10px',
   };
 
   const iframeContainerStyle = {
@@ -60,8 +57,8 @@ const Contacto = () => {
         </div>
         <div className="text" style={textStyle}>
           <div style={textContentStyle}>
-            <strong className="d-block heading" style={orangeTextStyle}>Ubicación</strong>
-            <span className="excerpt">clinicabelleza@gmail.com</span>
+            <strong className="d-block heading" style={{color:'var(--color-secondary)', fontSize:'22px'}}>Ubicación</strong>
+            <span className="excerpt" style={{fontSize:'20px'}}>Thomas Alva Edison #335, Col. Electrisistas</span>
           </div>
         </div>
       </div>

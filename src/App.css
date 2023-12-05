@@ -5,7 +5,7 @@
 
 :root {
 	--color-primary: #2ebbcd;
-	--color-secondary: #f3db00;
+	--color-secondary: #ff1b82;
 	--color-terciary: #ffc28a;
 	--color-white: #fafafa;
 	--color-black: #373737;
@@ -27,6 +27,18 @@
 	/* transitions */
 	--smooth: 1s;
 }
+
+.react-datepicker-wrapper {
+	display: inline-block; /* Asegura que ocupe solo el espacio necesario */
+	height: auto; /* Ajusta la altura automáticamente */
+	vertical-align: middle; /* Alinea verticalmente con el span de la imagen */
+  }
+
+  .input-group-text {
+	display: flex; /* Permite alinear verticalmente los elementos dentro del span */
+	align-items: center; /* Alinea verticalmente la imagen */
+	height: auto; /* Ajusta la altura automáticamente */
+  }
 
 /* Dark mode */
 /* @media (prefers-color-scheme: dark) {
@@ -788,7 +800,26 @@ body {
 .custom-border-color-orange {
 	border: 2px solid var(--color-secondary); /* Cambia el color del borde a naranja */
 	border-radius: 7px;
+	border-top-right-radius: 0; /* Elimina el borde redondeado en la esquina superior derecha */
+    border-bottom-right-radius: 0;
 }
+
+.custom-border-color-orange .form-control {
+    border-top-left-radius: 0; /* Mantén el borde redondeado en la esquina superior izquierda */
+    border-bottom-left-radius: 0; /* Mantén el borde redondeado en la esquina inferior izquierda */
+    border-top-right-radius: 5px; /* Establece el radio en la esquina superior derecha */
+    border-bottom-right-radius: 5px; /* Establece el radio en la esquina inferior derecha */
+    border-left: none; /* Elimina el borde izquierdo si es necesario */
+    /* Puedes ajustar el valor de border-width, border-style y border-color según sea necesario */
+    border-right: 1px solid orange; /* Añade el borde derecho */
+}
+
+.custom-border-color-orange .input-group-text {
+    border-right: none; /* Elimina el borde derecho */
+    border-top-right-radius: 0; /* Elimina el borde redondeado en la esquina superior derecha */
+    border-bottom-right-radius: 0; /* Elimina el borde redondeado en la esquina inferior derecha */
+}
+
 
 /* CONTACTO */
 

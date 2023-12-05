@@ -1,13 +1,11 @@
 import React from 'react'
-import whyImage1 from '../Images/why.jpg'
-import icon1 from '../Images/logon.png'
-import icon2 from '../Images/feliz.png'
-import icon3 from '../Images/feliz.png'
+import whyImage1 from '../Images/O1.jpg'
+import icon1 from '../Images/logob.png'
 
 function WhyChooseUs() {
 	const iconStyle = {
-		width: '30px',
-		height: '30px',
+		width: '55px',
+		height: '55px',
 	}
 
 	const rightContentStyle = {
@@ -48,11 +46,11 @@ function WhyChooseUs() {
 					<div className="why_content">
 						<div className="section_title_container">
 							<div className="section_title text-white">
-								<h4 className="display-5 mb-3">¿POR QUÉ DEBERÍAS VISITARNOS?</h4>
+								<h4 className="display-7 mb-3" style={{fontSize: '22px'}}>¿POR QUÉ DEBERÍAS VISITARNOS?</h4>
 							</div>
 						</div>
-						<div className="why_text text-white mb-5">
-							<p>Ofrecemos servicios de belleza de alta calidad respaldados por profesionales capacitados, un enfoque personalizado para cada cliente y el uso de productos de primera categoría para garantizar resultados excepcionales.</p>
+						<div className="why_text text-white mb-5 ">
+							<p style={{fontSize: '20px'}}>Ofrecemos servicios de belleza de alta calidad respaldados por profesionales capacitados, un enfoque personalizado para cada cliente y el uso de productos de primera categoría para garantizar resultados excepcionales.</p>
 						</div>
 						<div className="why_list">
 							<ul>
@@ -64,8 +62,8 @@ function WhyChooseUs() {
 										</div>
 									</div>
 									<div className="why_list_content text-white">
-										<div className="why_list_title">EXPERIENCIA REJUVENECEDORA</div>
-										<div className="why_list_text">Te ofrecemos la oportunidad de experimentar un ambiente relajante y rejuvenecedor. Cada visita es una experiencia que no solo mejora tu apariencia.</div>
+										<div className="why_list_title" style={{fontSize: '22px'}}>EXPERIENCIA REJUVENECEDORA</div>
+										<div className="why_list_text" style={{fontSize: '20px'}}>Te ofrecemos la oportunidad de experimentar un ambiente relajante y rejuvenecedor. Cada visita es una experiencia que no solo mejora tu apariencia.</div>
 									</div>
 								</li>
 								{/* Why List Item */}
@@ -76,8 +74,8 @@ function WhyChooseUs() {
 										</div>
 									</div>
 									<div className="why_list_content text-white">
-										<div className="why_list_title">ATENCIÓN PERZONALIZADA</div>
-										<div className="why_list_text">Nos enorgullece ofrecer un servicio personalizado a cada cliente. Escuchamos tus necesidades y deseos específicos para adaptar nuestros servicios a tus objetivos individuales.</div>
+										<div className="why_list_title" style={{fontSize: '22px'}}>ATENCIÓN PERZONALIZADA</div>
+										<div className="why_list_text" style={{fontSize: '20px'}}>Nos enorgullece ofrecer un servicio personalizado a cada cliente. Escuchamos tus necesidades y deseos específicos para adaptar nuestros servicios a tus objetivos individuales.</div>
 									</div>
 								</li>
 								{/* Why List Item */}
@@ -88,8 +86,8 @@ function WhyChooseUs() {
 										</div>
 									</div>
 									<div className="why_list_content text-white">
-										<div className="why_list_title">AMBIENTE ACOGEDOR</div>
-										<div className="why_list_text">Ofrecemos un ambiente acogedor y confortable. Nos esforzamos por crear un espacio que te haga sentir relajado y en paz desde el momento en que entras.</div>
+										<div className="why_list_title" style={{fontSize: '22px'}}>AMBIENTE ACOGEDOR</div>
+										<div className="why_list_text" style={{fontSize: '20px'}}>Ofrecemos un ambiente acogedor y confortable. Nos esforzamos por crear un espacio que te haga sentir relajado y en paz desde el momento en que entras.</div>
 									</div>
 								</li>
 							</ul>

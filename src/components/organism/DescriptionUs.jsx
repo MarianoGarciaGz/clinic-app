@@ -16,7 +16,7 @@ const DescriptionUs = () => {
 	}
 
 	const overlayStyle = {
-		backgroundColor: '#ffc400aa',
+		backgroundColor: 'rgb(255, 27, 130, 0.6)',
 		position: 'absolute',
 		top: 0,
 		left: 0,
@@ -38,6 +38,7 @@ const DescriptionUs = () => {
 		display: 'flex',
 		flexDirection: 'column',
 		justifyContent: 'center',
+		fontSize: '20px'
 	}
 
 	return (

@@ -16,10 +16,10 @@ const About = () => {
 					</div>
 					<div className="services ftco-animate fadeInUp ftco-animated">
 						<div className="text mt-2">
-							<h3 className="display-6" style={{ fontFamily: 'var(--font-default)', color: 'var(--color-secondary)', marginBottom: '5px' }}>
+							<h3 className="display-6" style={{ fontFamily: 'var(--font-default)', color: 'var(--color-secondary)', marginBottom: '5px', fontSize: '24px' }}>
 								Garantía
 							</h3>
-							<p className=" hyphens-none" style={{ fontFamily: 'var(--font-default)', color: 'var(--color-black)', marginTop: '0', textAlign: 'justify' }}>
+							<p className=" hyphens-none" style={{ fontFamily: 'var(--font-default)', color: 'var(--color-black)', marginTop: '0', textAlign: 'justify', fontSize: '20px'  }}>
 								Es una de las mejores opciones, te ofrecemos la mejor garantía. Nuestro compromiso se centra en brindarte una experiencia integral, usando las últimas tecnologías para un resultado excepcional.
 							</p>
 						</div>
@@ -34,10 +34,10 @@ const About = () => {
 					</div>
 					<div className="services ftco-animate fadeInUp ftco-animated">
 						<div className="text mt-2">
-							<h3 className="display-6" style={{ fontFamily: 'var(--font-default)', color: 'var(--color-secondary)', marginBottom: '5px' }}>
+							<h3 className="display-6" style={{ fontFamily: 'var(--font-default)', color: 'var(--color-secondary)', marginBottom: '5px', fontSize: '24px'  }}>
 								Misión
 							</h3>
-							<p className=" hyphens-none" style={{ fontFamily: 'var(--font-default)', color: 'var(--color-black)', marginTop: '0', textAlign: 'justify' }}>
+							<p className=" hyphens-none" style={{ fontFamily: 'var(--font-default)', color: 'var(--color-black)', marginTop: '0', textAlign: 'justify', fontSize: '20px'  }}>
 								Nuestra misión es mejorar el bienestar de nuestros clientes con servicios de la más alta calidad. Nuestros especialistas están altamente calificados en cada uno de los tratamientos que ofrecemos.
 							</p>
 						</div>
@@ -52,10 +52,10 @@ const About = () => {
 					</div>
 					<div className="services ftco-animate fadeInUp ftco-animated">
 						<div className="text mt-2">
-							<h3 className="display-6" style={{ fontFamily: 'var(--font-default)', color: 'var(--color-secondary)', marginBottom: '5px' }}>
+							<h3 className="display-6" style={{ fontFamily: 'var(--font-default)', color: 'var(--color-secondary)', marginBottom: '5px',  fontSize: '24px'  }}>
 								Nosotros
 							</h3>
-							<p className=" hyphens-none" style={{ fontFamily: 'var(--font-default)', color: 'var(--color-black)', marginTop: '0', textAlign: 'justify' }}>
+							<p className=" hyphens-none" style={{ fontFamily: 'var(--font-default)', color: 'var(--color-black)', marginTop: '0', textAlign: 'justify' , fontSize: '20px' }}>
 								Somos una de las mejores compañías en ofrecer tratamientos faciales y corporales, de la más alta calidad, servicio y resultados además te ofrecemos productos para mejorar la calidad del cuidado de tu piel.
 							</p>
 						</div>

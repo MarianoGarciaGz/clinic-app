@@ -49,11 +49,11 @@ const Tratamientos = () => {
 					<div className="why_content">
 						<div className="section_title_container">
 							<div className="section_title">
-								<h1 className="display-5">TRATAMIENTOS FACIALES</h1>
+								<h1 className="display-5" style={{fontSize:'28px'}}>TRATAMIENTOS FACIALES</h1>
 							</div>
 						</div>
 						<div className="why_text">
-							<p>
+							<p style={{fontSize:'20px'}}>
 								La piel es el órgano más grande del cuerpo humano. En el caso de la piel del rostro, se encuentra expuesta continuamente a factores ambientales que causan su deterioro: la contaminación de la ciudad, la luz solar, los cambios de temperatura. A
 								esto se suman otras causas como el tabaco, una mala alimentación, el estrés o la falta de sueño. Para combatirlos se usan los denominados tratamientos faciales que ayudan a mejorar tanto la salud como la apariencia.
 							</p>
@@ -78,10 +78,10 @@ const Tratamientos = () => {
 				<div className="tratamiendo-bg shadow-2 col-lg-6 order-lg-1 order-2 mb-4" style={leftContentStyle}>
 					<div className="why_content">
 						<div className="section_title">
-							<h1 className="display-5">TRATAMIENTOS CORPORALES</h1>
+							<h1 className="display-5" style={{fontSize:'28px'}}>TRATAMIENTOS CORPORALES</h1>
 						</div>
 						<div className="why_text">
-							<p>
+							<p style={{fontSize:'20px'}}>
 								Son diferentes métodos de tratamiento mediante los cuales ya sea de forma individual o combinada podemos mejorar el estado general de la apariencia de nuestro cuerpo, dándole un mejor aspecto y ganando de esta forma autoestima y calidad de
 								vida. Generalmente se opta por esta opción para mejorar la silueta o tratar los problemas de celulitis, adiposidad localizada y flacidez, aunque también son la mejor manera de liberar al cuerpo del estrés.
 							</p>
@@ -95,7 +95,7 @@ const Tratamientos = () => {
 					</div>
 				</div>
 				{/* Why Choose Us Image */}
-				<div className="col-lg-6 order-lg-1 order-2 p-0">
+				<div className="col-lg-6 order-lg-1 order-2 p-0 mb-4">
 					<div className="why_image_container" style={{ ...rightImageStyle, backgroundImage: `url(${Corporal})` }}></div>
 				</div>
 			</div>
@@ -105,11 +105,11 @@ const Tratamientos = () => {
 					<div className="why_content">
 						<div className="section_title_container">
 							<div className="section_title">
-								<h1 className="display-5">TRATAMIENTOS ESTÉTICOS</h1>
+								<h1 className="display-5" style={{fontSize:'28px'}}>TRATAMIENTOS ESTÉTICOS</h1>
 							</div>
 						</div>
 						<div className="why_text">
-							<p>
+							<p  style={{fontSize:'20px'}}>
 								En primer lugar, estos procedimientos permiten realzar la apariencia personal, brindando una sensación de cuidado y pulcritud. Las uñas bien cuidadas y las pestañas resaltadas contribuyen a una imagen general más elegante y armoniosa. Además de
 								los aspectos estéticos, estos tratamientos también pueden tener un impacto positivo en la autoestima y la confianza.
 							</p>

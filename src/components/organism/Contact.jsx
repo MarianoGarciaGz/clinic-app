@@ -33,9 +33,7 @@ const Contact = () => {
 		marginLeft: '10px', // Ajusta el espacio entre el círculo y el texto
 	}
 
-	const orangeTextStyle = {
-		color: 'var(--color-secondary)', // Establece el color naranja para el texto
-	}
+	
 
 	return (
 		<div className="container my-5">
@@ -48,10 +46,10 @@ const Contact = () => {
 							</div>
 							<div className="text" style={textStyle}>
 								<div style={textContentStyle}>
-									<strong className="d-block heading" style={orangeTextStyle}>
+									<strong className="d-block heading" style={{color:'var(--color-secondary)', fontSize:'22px'}}>
 										Teléfono
 									</strong>
-									<span className="excerpt">443 3873 2934</span>
+									<span className="excerpt" style={{fontSize:'20px'}}>443 3873 2934</span>
 								</div>
 							</div>
 						</div>
@@ -64,10 +62,10 @@ const Contact = () => {
 							</div>
 							<div className="text" style={textStyle}>
 								<div style={textContentStyle}>
-									<strong className="d-block heading" style={orangeTextStyle}>
+									<strong className="d-block heading" style={{color:'var(--color-secondary)', fontSize:'22px'}}>
 										Días
 									</strong>
-									<span className="excerpt">Lunes a Sábado</span>
+									<span className="excerpt" style={{fontSize:'20px'}}>Lunes a Sábado</span>
 								</div>
 							</div>
 						</div>
@@ -80,10 +78,10 @@ const Contact = () => {
 							</div>
 							<div className="text" style={textStyle}>
 								<div style={textContentStyle}>
-									<strong className="d-block heading" style={orangeTextStyle}>
+									<strong className="d-block heading" style={{color:'var(--color-secondary)', fontSize:'22px'}}>
 										Horario
 									</strong>
-									<span className="excerpt">8:00 a 19:00 hrs</span>
+									<span className="excerpt" style={{fontSize:'20px'}}>8:00 a 19:00 hrs</span>
 								</div>
 							</div>
 						</div>
@@ -96,10 +94,10 @@ const Contact = () => {
 							</div>
 							<div className="text" style={textStyle}>
 								<div style={textContentStyle}>
-									<strong className="d-block heading" style={orangeTextStyle}>
+									<strong className="d-block heading" style={{color:'var(--color-secondary)', fontSize:'22px'}}>
 										Correo
 									</strong>
-									<span className="excerpt">clinicabelleza@gmail.com</span>
+									<span className="excerpt" style={{fontSize:'20px'}}>clinicabelleza@gmail.com</span>
 								</div>
 							</div>
 						</div>
