@@ -106,7 +106,6 @@ const Admin = () => {
 				<Calendar onChange={onChange} value={selectedDate} className="card my-5" />
 			</section>
 			<Heading title={'Citas del día'}></Heading>
-			<Heading title={fechaString} />
 			<section className="container cards pt-5 mb-5" id="container">
 				{solicitudes.map((solicitud) => (
 					<div className="row">

@@ -220,7 +220,7 @@ const FormReservar = () => {
 										<img src={usuario} alt="correo" className="img-form" />
 									</span>
 									<input type="text" className={`form-control custom-border-color-orange ${nombresError ? 'is-invalid' : ''}`} id="nombres" placeholder="Nombre(s)" required="" onChange={handleChange} style={{ border:'2px solid'}}/>
-									{nombresError && <div className="invalid-feedback">Ingresa un nombre válido.</div>}
+									{nombresError && <div className="invalid-feedback" style={{color:'white '}}>Ingresa un nombre válido.</div>}
 								</div>
 							</div>
 
@@ -233,7 +233,7 @@ const FormReservar = () => {
 										<img src={usuario} alt="correo" className="img-form" />
 									</span>
 									<input type="text" style={{border:'2px solid '}} className={`form-control custom-border-color-orange ${apellidosError ? 'is-invalid' : ''}`} id="apellidos" placeholder="Apellidos" required="" onChange={handleChange} />
-									{apellidosError && <div className="invalid-feedback">Ingresa un apellido válido.</div>}
+									{apellidosError && <div className="invalid-feedback" style={{color:'white '}}>Ingresa un apellido válido.</div>}
 								</div>
 							</div>
 
@@ -246,7 +246,7 @@ const FormReservar = () => {
 										<img src={telefono} alt="correo" className="img-form" />
 									</span>
 									<input type="text" style={{border:'2px solid '}}  className={`form-control bg-orange custom-border-color-orange ${telefonoError ? 'is-invalid' : ''}`} id="telefono" placeholder="Teléfono" required="" onChange={handleChange} />
-									{telefonoError && <div className="invalid-feedback">Ingresa un teléfono válido.</div>}
+									{telefonoError && <div className="invalid-feedback" style={{color:'white '}}>Ingresa un teléfono válido.</div>}
 								</div>
 							</div>
 
@@ -273,7 +273,7 @@ const FormReservar = () => {
 								/>
 								</div>
 								{!selectedDate && (
-								<div className="invalid-feedback">Selecciona una fecha válida.</div>
+								<div className="invalid-feedback" style={{color:'white '}}>Selecciona una fecha válida.</div>
 								)}
 							</div>
 							</div>
@@ -308,7 +308,7 @@ const FormReservar = () => {
 										<option>19:00</option>
 									</select>
 									{horaTouched && formData.hora === '' && (
-										<div className="invalid-feedback">Selecciona una hora válida.</div>
+										<div className="invalid-feedback" style={{color:'white '}}>Selecciona una hora válida.</div>
 									)}
 								</div>
 							</div>
@@ -328,7 +328,7 @@ const FormReservar = () => {
 										id="email"
 										placeholder="Correo"
 										onChange={handleChange} />
-									{emailError && <div className="invalid-feedback">{emailError}</div>}
+									{emailError && <div className="invalid-feedback" style={{color:'white '}}>{emailError}</div>}
 								</div>
 							</div>
 
@@ -355,7 +355,7 @@ const FormReservar = () => {
 										))}
 									</select>
 									{tratamientoTouched && formData.tratamiento === '' && (
-										<div className="invalid-feedback" style={{border:'2px solid '}}> Selecciona un tratamiento válido..</div>
+										<div className="invalid-feedback" style={{border:'2px solid ', color:'white'}}> Selecciona un tratamiento válido..</div>
 									)}								</div>
 							</div>
 

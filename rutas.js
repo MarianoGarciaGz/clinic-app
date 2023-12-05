@@ -213,7 +213,7 @@ router.put('/api/actualizarEstado/rechazar/:id', async (req, res) => {
     if (!deletedReserva) {
       return res.status(404).json({ message: 'No se encontró la reserva para eliminar' });
     }
-    if (emailReserva.email !== 'indefinido') {
+    else if (emailReserva.email !== 'Indefinido') {
 
       enviarEmail({
         destinatario: emailReserva.email,
