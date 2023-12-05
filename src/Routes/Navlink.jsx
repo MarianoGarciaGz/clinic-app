@@ -9,6 +9,12 @@ import Servicios from '../pages/Servicios'
 import Solicitudes from '../pages/Solicitudes'
 import Verification from '../pages/Verification'
 import Aceptacion from '../pages/Aceptacion'
+import Login_prueba from '../pages/LoginP'
+import Rechazo from '../pages/Rechazo'
+import AgendarAdmin from '../pages/AgendarAdmin'
+import AceptarAdmin from '../pages/AceptacionAdmin'
+import RechazarAdmin from '../pages/RechazoAdmin'
+
 
 const Navlink = () => {
 	return (
@@ -24,6 +30,11 @@ const Navlink = () => {
 					<Route path="solicitudes" element={<Solicitudes />} />
 					<Route path="verificacion" element={<Verification />} />
 					<Route path="aceptacion" element={<Aceptacion />} />
+					<Route path="login" element={<Login_prueba />} />
+					<Route path="rechazo" element={<Rechazo />} />
+					<Route path="agendarAdmin" element={<AgendarAdmin />} />
+					<Route path="aceptarAdmin" element={<AceptarAdmin />} />
+					<Route path="rechazoAdmin" element={<RechazarAdmin />} />
 				</Route>
 			</Routes>
 		</BrowserRouter>

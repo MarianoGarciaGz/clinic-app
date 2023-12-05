@@ -50,12 +50,17 @@ const Header = () => {
 							</li>
 							<li className="Nav-li nav-item">
 								<NavLink to="/nosotros" relative="path" className="Nav-a nav-link text-center mx-2">
-									Nosotros
+									Instalaciones
 								</NavLink>
 							</li>
 							<li className="Nav-li nav-item">
 								<NavLink to="/contacto" relative="path" className="Nav-a nav-link text-center mx-2">
 									Contacto
+								</NavLink>
+							</li>
+							<li className="Nav-li nav-item">
+								<NavLink to="/login" relative="path" className="Nav-a nav-link text-center mx-2">
+									Ingresar
 								</NavLink>
 							</li>
 							<Link to="/agendar" className="Nav-btn btn btn-secondary px-3 h-100 ms-md-3 ms-xs-auto">

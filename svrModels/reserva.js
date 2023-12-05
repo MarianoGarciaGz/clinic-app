@@ -6,6 +6,7 @@ const reservaSchema = new mongoose.Schema({
   telefono: { type: String, required: true },
   fecha: { type: String, required: true },
   hora: { type: String, required: true },
+  email: { type: String, required: true },
   tratamiento: { type: String, required: true },
   comentarios: String,
   estado: { type: String, default: 'pendiente' }, // Campo 'estado' con valor predeterminado
@@ -13,4 +14,4 @@ const reservaSchema = new mongoose.Schema({
 
 const Reserva = mongoose.model('Reserva', reservaSchema, 'agendas');
 
-module.exports = Reserva;
+module.exports = Reserva; 

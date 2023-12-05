@@ -5,7 +5,11 @@
 
 :root {
 	--color-primary: #2ebbcd;
+<<<<<<< HEAD
 	--color-secondary: #f5e1ce;
+=======
+	--color-secondary: #f3db00;
+>>>>>>> c160d1edcf1cec86894eabe0a91cd35e8be58f2e
 	--color-terciary: #ffc28a;
 	--color-white: #fafafa;
 	--color-black: #373737;
@@ -13,25 +17,43 @@
 	--color-red: #dd3030;
 	--color-blue: #2ebbcd;
 	--color-primary-hover: #209faf;
-	--color-shadow: #3d3d3d6e;
-	--shadow: 0px 0px 5px 1px var(--color-shadow);
+	--color-shadow: #22222277;
+	--shadow: 0px 2px 10px 0px var(--color-shadow);
+	--shadow-secondary: 0px 0px 20px 0px var(--color-shadow);
 	--shadow-hover: 0 2px 7px 0px var(--color-shadow);
 	--transition-smooth: 0.5s;
 	--transition-fast: 300ms;
-	--background: #ffff;
+	--background: color-mix(in srgb, #2ebbcd 5%, var(--color-white));
 
 	/* button */
-	--border: 1em 1em 1em 1em;
+	--border: 2em 2em 2em 2em;
 
 	/* transitions */
 	--smooth: 1s;
 }
 
+/* Dark mode */
+/* @media (prefers-color-scheme: dark) {
+	:root {
+		--dark: #2e2e2e;
+		--color-primary: #1d7a86;
+		--color-secondary: #ff810c;
+		--color-terciary: #ffc28a;
+		--color-white: #f5f5f5;
+		--color-black: #e0e0e0;
+		--color-yellow: #ffcc00;
+		--color-red: #dd3030;
+		--color-blue: #2ebbcd;
+		--color-blue-hover: #209faf;
+		--background: var(--color-white);
+		--text-color: var(--color-black);
+		--background: #264249;
+	}
+} */
+
 :root {
 	--scroll-behavior: smooth;
 }
-
-
 
 body {
 	font-family: var(--font-default);
@@ -94,6 +116,13 @@ body {
 	hyphens: manual;
 }
 
+.shadow-2 {
+	box-shadow: var(--shadow-secondary) !important;
+}
+
+.h3 {
+	color: var(--color-primary) !important;
+}
 /* HEADER & NAV */
 
 /* header */
@@ -221,17 +250,32 @@ body {
 /* Carousel */
 
 .Carousel {
+	box-shadow: var var(--shadow);
 }
 
 .Carousel-imgs {
 }
 
 .Carousel-img {
-	filter: brightness(0.8);
-	min-width: 100%;
-	max-height: 35em;
+	filter: brightness(0.5);
+	width: 100%;
+	max-height: 60vh;
 	object-fit: scale-down;
-	object-position: bottom;
+}
+
+.Carousel-logo {
+	width: 20em;
+	height: 70%;
+	position: absolute;
+	object-fit: scale-down;
+	object-position: center;
+	z-index: 100;
+	top: 50%; /* position the top  edge of the element at the middle of the parent */
+	left: 50%; /* position the left edge of the element at the middle of the parent */
+
+	transform: translate(-50%, -50%);
+	-webkit-filter: drop-shadow(0px 0px 5px #000000);
+	filter: drop-shadow(0px 0px 5px #000000);
 }
 
 /* about */
@@ -240,7 +284,7 @@ body {
 	width: 5em;
 }
 
-.text-orange{
+.text-orange {
 	color: var(--color-secondary);
 }
 /* Footer */
@@ -253,10 +297,17 @@ body {
 /* headings */
 
 .h4 {
+	margin-top: 1em;
 	color: var(--color-white);
-	background-color: var(--color-primary);
 	padding: 20px;
-	font-size: 1.3em;
+	font-size: 1.75em;
+	background-color: var(--color-primary);
+	box-shadow: var(--shadow);
+}
+
+.circle {
+	background-color: var(--color-secondary) !important;
+	box-shadow: var(--shadow);
 }
 
 /*-------------------------------------------3 CUADROS-----------------------------------*/
@@ -382,6 +433,13 @@ body {
 	padding: 0;
 }
 
+.servicios-btn {
+}
+
+.swiper-pagination {
+	display: none !important;
+}
+
 .linea-horizontal {
 	border-top: 2px solid var(--color-black); /* Línea horizontal */
 	margin-bottom: 25px;
@@ -398,12 +456,12 @@ body {
 
 .orange-bg {
 	background-color: var(--color-secondary); /* Reemplaza con tu color naranja */
-  }
+}
 
-  .custom-orange {
-	color: #FFA500; /* Cambia el color al tono de naranja más claro que desees */
+.custom-orange {
+	color: #ffa500; /* Cambia el color al tono de naranja más claro que desees */
 	/* Otros estilos si son necesarios */
-  }
+}
 
 /* Targets Tipos */
 
@@ -453,6 +511,10 @@ body {
 
 .text-component-tipos {
 	color: var(--color-black);
+}
+
+.card .swiper-slide {
+	height: auto !important;
 }
 
 /* -------------------------------PAGINA DE AGENDAR CITA-------------------------------- */
@@ -608,6 +670,7 @@ body {
 .Verificacion-label {
 }
 .Verificacion-input {
+	border-radius: var(--border);
 }
 
 .Modal {
@@ -643,14 +706,19 @@ body {
 .solicitud {
 }
 .solicitud-h2 {
-	background-color: var(--color-primary);
-	color: var(--color-white);
+	color: var(--color-primary);
 	font-size: 2em;
+	border-style: solid;
+	border-radius: 0;
+	border-color: var(--color-primary);
+	border-width: 0 0 2px 0;
 }
 
 .solicitud-p {
+	color: var(--color-black);
 }
 .solicitud-strong {
+	color: color-mix(in srgb, var(--color-black) 50%, var(--color-white));
 }
 
 /* xxxxxxxxxxxxxxx */
@@ -663,9 +731,6 @@ body {
 	border-radius: 0.5em 0 0 0.5em;
 }
 
-.form-control {
-	border-radius: 0 1em 1em 0;
-}
 /* media query */
 
 /* md - menor a este valor modifica estos valores */
@@ -673,10 +738,12 @@ body {
 @media screen and (max-width: 767px) {
 	.Header {
 		background: var(--color-primary);
+		position: sticky;
 	}
 
 	.Header--transparent {
 		background: var(--color-primary);
+		position: sticky;
 	}
 
 	.navbar-expand-md {
@@ -771,4 +838,8 @@ body {
 .vertical-line {
 	border-right: 1px solid var(--color-secondary); /* Cambia el color y grosor según tus preferencias */
 	height: 100%; /* Ajusta la altura según sea necesario */
+}
+
+.tratamiendo-bg {
+	background-color: var(--color-secondary) !important;
 }

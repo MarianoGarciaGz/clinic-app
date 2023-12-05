@@ -1,9 +1,11 @@
+import { cardsData, cardsData2, cardsData3 } from '../atoms/data';
 import React from 'react'
-import usuario from '../Images/usuario.png'
+import { useNavigate } from 'react-router-dom'
 import fecha from '../Images/fecha.png'
 import hora from '../Images/hora.png'
 import tratamiento from '../Images/tratamiento.png'
 import comentarios from '../Images/comentarios.png'
+import correo from '../Images/correo.png'
 import { useState, useEffect } from 'react'
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
@@ -16,29 +18,35 @@ const FormReservar = () => {
 	const maxDate = new Date(currentDate)
 	maxDate.setDate(currentDate.getDate() + 7)
 
+	const [formSubmitted, setFormSubmitted] = useState(false);
+
 	//Estados
 	const [telefonoError, setTelefonoError] = useState(false)
 	const [nombresError, setNombresError] = useState(false)
 	const [apellidosError, setApellidosError] = useState(false)
-	const [horaSeleccionada, setHoraSeleccionada] = useState(false)
-	const [tratamientoSeleccionado, setTratamientoSeleccionado] = useState(false)
-	const [formValid, setFormValid] = useState(false)
+	const [emailError, setEmailError] = useState('')
+
 	const [selectedDate, setSelectedDate] = useState(null)
+	const [horaSeleccionada, setHoraSeleccionada] = useState(false)
+	const [horaTouched, setHoraTouched] = useState(false);
+	const [tratamientoSeleccionado, setTratamientoSeleccionado] = useState(false)
+	const [tratamientoTouched, setTratamientoTouched] = useState(false);
+
+
+	const [formValid, setFormValid] = useState(false)
 	const [formData, setFormData] = useState({
 		nombres: '',
 		apellidos: '',
 		telefono: '',
 		fecha: '',
 		hora: '',
+		email: '',
 		tratamiento: '',
 		comentarios: '',
 		estado: '',
 	})
 
-	//Manejadores de Estados
-	const handleChangeDate = (date) => {
-		setSelectedDate(date)
-	}
+	const navigate = useNavigate();
 
 	useEffect(() => {
 		const fechaString = selectedDate ? selectedDate.toLocaleDateString('es-ES') : ''
@@ -47,76 +55,16 @@ const FormReservar = () => {
 			...formData,
 			fecha: fechaString,
 		})
-	}, [selectedDate])
-
-	const handleChange = (e) => {
-		if (e.target.id === 'telefono') {
-			const regex = /^[0-9]*$/
-			if (regex.test(e.target.value) || e.target.value === '') {
-				if (e.target.value.length <= 10) {
-					setFormData({
-						...formData,
-						[e.target.id]: e.target.value,
-					})
-					setTelefonoError(false)
-				} else {
-					setTelefonoError(true)
-				}
-			} else {
-				setTelefonoError(true)
-			}
-		} else if (e.target.id === 'apellidos' || e.target.id === 'nombres') {
-			const regex = /^[A-Za-zÁÉÍÓÚÜáéíóúü\s]+$/
-			if (regex.test(e.target.value) || e.target.value === '') {
-				setFormData({
-					...formData,
-					[e.target.id]: e.target.value,
-				})
-				setTelefonoError(false)
-				setNombresError(false)
-				setApellidosError(false)
-			} else {
-				if (e.target.id === 'apellidos') {
-					setApellidosError(true)
-					setNombresError(false)
-					setTelefonoError(false)
-				} else if (e.target.id === 'nombres') {
-					setNombresError(true)
-					setApellidosError(false)
-					setTelefonoError(false)
-				}
-			}
-		} else if (e.target.id === 'fecha') {
-			setFormData({
-				...formData,
-				[e.target.id]: e.target.value,
-			})
-		} else if (e.target.id === 'comentarios') {
-			setFormData({
-				...formData,
-				[e.target.id]: e.target.value,
-			})
-		} else if (e.target.id === 'hora') {
-			setFormData({
-				...formData,
-				[e.target.id]: e.target.value,
-			})
-			setHoraSeleccionada(e.target.value !== '') // Actualiza el estado si se selecciona una hora
-		} else if (e.target.id === 'tratamiento') {
-			setFormData({
-				...formData,
-				[e.target.id]: e.target.value,
-			})
-			setTratamientoSeleccionado(e.target.value !== '') // Actualiza el estado si se selecciona un tratamiento
-		}
 
 		if (
 			formData.nombres !== '' &&
 			formData.apellidos !== '' &&
 			formData.telefono !== '' &&
+			emailError == '' &&
 			!telefonoError &&
 			!nombresError &&
-			!apellidosError
+			!apellidosError &&
+			selectedDate !== ''
 			// Agrega otras validaciones necesarias aquí
 		) {
 			if (horaSeleccionada && tratamientoSeleccionado) {
@@ -127,38 +75,129 @@ const FormReservar = () => {
 		} else {
 			setFormValid(false) // Deshabilita el botón si algún campo está vacío o hay errores
 		}
+	})
+
+	//Manejadores de Estados
+	const handleChangeDate = (date) => {
+		setSelectedDate(date)
+	}
+
+	const handleChange = (e) => {
+		switch (e.target.id) {
+			case "telefono":
+				const regexTel = /^[0-9]*$/
+				if (regexTel.test(e.target.value) || e.target.value === '') {
+					if (e.target.value.length == 10) {
+						handleChangeGeneral(e)
+						setTelefonoError(false)
+					} else {
+						setTelefonoError(true)
+					}
+				} else {
+					setTelefonoError(true)
+				}
+				break;
+			case 'apellidos':
+			case 'nombres':
+				const regexNomApe = /^[A-Za-zÁÉÍÓÚÜáéíóúü\s]+$/
+				if (regexNomApe.test(e.target.value) || e.target.value === '') {
+					handleChangeGeneral(e)
+					setTelefonoError(false)
+					setNombresError(false)
+					setApellidosError(false)
+				} else {
+					if (e.target.id === 'apellidos') {
+						setApellidosError(true)
+						setNombresError(false)
+						setTelefonoError(false)
+					} else if (e.target.id === 'nombres') {
+						setNombresError(true)
+						setApellidosError(false)
+						setTelefonoError(false)
+					}
+				}
+				break;
+			case 'email':
+				handleChangeGeneral(e)
+
+				// Validar el formato del correo electrónico usando una expresión regular
+				const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/;
+				const isValidEmail = emailRegex.test(e.target.value);
+
+				setEmailError(isValidEmail ? '' : 'Ingresa un correo electrónico válido');
+
+				break;
+			case 'fecha':
+			case 'comentarios':
+				handleChangeGeneral(e)
+				break;
+			case 'hora':
+				handleChangeGeneral(e);
+				setHoraSeleccionada(e.target.value !== '' && e.target.value !== 'Seleccionar...'); // Actualiza el estado si se selecciona una hora
+				setHoraTouched(true);
+				break;
+			case 'tratamiento':
+				handleChangeGeneral(e)
+				setTratamientoSeleccionado(e.target.value !== '' && e.target.value !== 'Seleccionar...') // Actualiza el estado si se selecciona un tratamiento
+				setTratamientoTouched(true);
+				break;
+		}
+	}
+
+	const handleChangeGeneral = (e) => {
+		setFormData({
+			...formData,
+			[e.target.id]: e.target.value,
+		})
 	}
 
 	const handleSubmit = async (e) => {
-		e.preventDefault()
-
+		e.preventDefault();
+		// Deshabilita el formulario al momento de hacer clic en "Reservar"
+		setFormSubmitted(true);
 		try {
-			const updatedFormData = {
-				...formData,
-				estado: 'pendiente', // Establecer el estado predeterminado
-			}
-
-			// Llama a la API insertaDatos con los datos actualizados
-			const response = await fetch('http://localhost:5000/api/insertarDatos', {
+			// Enviar el correo con el código de verificación
+			const responseCorreo = await fetch('http://localhost:5000/api/enviarCodigo', {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json',
 				},
-				body: JSON.stringify(updatedFormData),
-			})
+				body: JSON.stringify({
+					email: formData.email,
+					fecha: formData.fecha,
+					hora: formData.hora,
+					tratamiento: formData.tratamiento,
+				}),
+			});
 
-			if (response.ok) {
-				console.log('Datos insertados exitosamente')
-				// Realiza cualquier otra lógica después de la inserción exitosa
+			if (responseCorreo.ok) {
+				console.log('Correo enviado con el código de verificación');
+
+				// Almacena temporalmente los datos en sessionStorage
+				const updatedFormData = {
+					...formData,
+					estado: 'pendiente', // Establecer el estado predeterminado
+				};
+				sessionStorage.setItem('formData', JSON.stringify(updatedFormData)); // Almacena los datos en sessionStorage
+				navigate('/verificacion'); // Redireccionar a la página de verificación
 			} else {
-				console.error('Error al insertar datos')
-				// Maneja el error de acuerdo a tus necesidades
+				console.error('Error al enviar el correo');
+				navigate('/rechazo')
+				// Manejar el error del envío del correo según tus necesidades
 			}
 		} catch (error) {
-			console.error('Error en la solicitud:', error)
-			// Maneja el error de acuerdo a tus necesidades
+			console.error('Error en la solicitud:', error);
+			// Manejar el error general según tus necesidades
 		}
-	}
+	};
+
+
+
+
+	const filterWeekends = date => {
+		const day = date.getDay();
+		return day !== 0;
+	};
 
 	return (
 		<div className="container mt-4 mb-4">
@@ -196,8 +235,24 @@ const FormReservar = () => {
 									<span className="input-group-text bg-white custom-border-color-orange">
 										<img src={telefono} alt="comentarios" className="img-form" />
 									</span>
+<<<<<<< HEAD
 									<input type="text" className="form-control bg-white custom-border-color-orange" id="comentarios" placeholder="Comentarios..." onChange={handleChange} />
 									<div className="invalid-feedback">Escribe aquí...</div>
+=======
+									<DatePicker
+										selected={selectedDate}
+										onChange={handleChangeDate}
+										className="form-select bg-white custom-border-color-orange"
+										id="fecha"
+										placeholderText="Seleccionar..."
+										dateFormat="dd/MM/yy"
+										required
+										maxDate={maxDate}
+										minDate={new Date(Date.now())}
+										filterDate={filterWeekends}
+									/>
+									<div className="invalid-feedback">Selecciona una fecha válida.</div>
+>>>>>>> c160d1edcf1cec86894eabe0a91cd35e8be58f2e
 								</div>
 							</div>
 							
@@ -210,12 +265,46 @@ const FormReservar = () => {
 									<span className="input-group-text bg-white custom-border-color-orange">
 										<img src={hora} alt="hora" className="img-form" />
 									</span>
-									<select className={`form-select bg-white custom-border-color-orange ${horaSeleccionada ? '' : 'is-invalid'}`} id="hora" required onChange={handleChange}>
-										<option value="">Seleccionar...</option>
+									<select
+										className={`form-select bg-white custom-border-color-orange ${horaSeleccionada ? '' : (horaTouched ? 'is-invalid' : '')}`} id="hora"
+										required
+										onChange={handleChange}
+										value={formData.hora}>
+										<option value="" disabled={!horaTouched}>Seleccionar...</option>
+										<option>08:00</option>
+										<option>09:00</option>
+										<option>10:00</option>
+										<option>11:00</option>
+										<option>12:00</option>
+										<option>13:00</option>
 										<option>14:00</option>
 										<option>15:00</option>
+										<option>16:00</option>
+										<option>17:00</option>
+										<option>18:00</option>
+										<option>19:00</option>
 									</select>
-									<div className="invalid-feedback">Selecciona una fecha válida.</div>
+									{horaTouched && formData.hora === '' && (
+										<div className="invalid-feedback">Selecciona una hora válida.</div>
+									)}
+								</div>
+							</div>
+
+							<div className="col-sm-12">
+								<label htmlFor="username" className="form-label">
+									Correo (Te Enviaremos un Codigo para poder confirmar tu Solicitud)
+								</label>
+								<div className="input-group has-validation">
+									<span className="input-group-text bg-white custom-border-color-orange">
+										<img src={correo} alt="correo" className="img-form" />
+									</span>
+									<input
+										type="email"
+										className={`form-select bg-white custom-border-color-orange ${emailError ? 'is-invalid' : ''}`}
+										id="email"
+										placeholder="Correo"
+										onChange={handleChange} />
+									{emailError && <div className="invalid-feedback">{emailError}</div>}
 								</div>
 							</div>
 
@@ -227,20 +316,27 @@ const FormReservar = () => {
 									<span className="input-group-text bg-white custom-border-color-orange">
 										<img src={tratamiento} alt="tratamiento" className="img-form" />
 									</span>
-									<select className={`form-select bg-white custom-border-color-orange ${tratamientoSeleccionado ? '' : 'is-invalid'}`} id="tratamiento" required onChange={handleChange}>
+									<select
+										className={`form-select bg-white custom-border-color-orange ${tratamientoSeleccionado ? '' : (tratamientoTouched ? 'is-invalid' : '')}`}
+										id="tratamiento"
+										required onChange={handleChange}
+										value={formData.tratamiento}
+									>
 										<option value="">Seleccionar...</option>
-										<option>Masaje Corporal</option>
-										<option>Maquillaje</option>
-										<option>Peinado</option>
-										<option>Laser</option>
+										{[...cardsData, ...cardsData2, ...cardsData3].map((option, index) => (
+											<option key={index} value={option.name}>
+												{option.name}
+											</option>
+										))}
 									</select>
-									<div className="invalid-feedback">Selecciona una hora válida.</div>
-								</div>
+									{tratamientoTouched && formData.tratamiento === '' && (
+										<div className="invalid-feedback">Selecciona un tratamiento válido..</div>
+									)}								</div>
 							</div>
 
 							<div className="col-sm-12">
 								<label htmlFor="username" className="form-label">
-									Comentarios
+									Comentarios (opcional)
 								</label>
 								<div className="input-group has-validation">
 									<span className="input-group-text bg-white custom-border-color-orange">
@@ -257,8 +353,12 @@ const FormReservar = () => {
 						
 
 						<div className="text-center">
-							<button className={`btn btn-primary btn-lg-8 mt-4 w-50 ${formValid ? '' : 'disabled'}`} type="submit" style={{ backgroundColor: formValid ? '' : '#CCCCCC' }} disabled={!formValid}>
-								RESERVAR
+							<button
+								className={`btn btn-primary btn-lg-8 mt-4 w-50 ${formValid ? '' : 'disabled'}`}
+								type="submit"
+								style={{ backgroundColor: formValid ? '' : '#CCCCCC' }}
+								disabled={formSubmitted}>
+								{formSubmitted ? '¡Enviado!' : 'RESERVAR'}
 							</button>
 						</div>
 					</form>

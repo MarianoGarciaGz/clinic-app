@@ -1,84 +1,161 @@
-import React from 'react';
-import fondo from '../Images/fondo.jpg';
-import servicio from '../Images/servicio.jpg';
+// CardTratamiento.jsx
+import React from 'react'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import 'swiper/css'
+import 'swiper/css/pagination'
+import 'swiper/css/navigation'
+import { Pagination, Navigation } from 'swiper/modules'
+import 'swiper/swiper-bundle.css'
+import { cardsData } from '../atoms/data' // Importa la lista de tarjetas
+import { cardsData2 } from '../atoms/data' // Importa la lista de tarjetas
+import { cardsData3 } from '../atoms/data' // Importa la lista de tarjetas
+import '../../assets/css/style.css'
+import { NavLink } from 'react-router-dom'
 
-const CardTratamiento = () => {
-  const containerStyle = {
-    backgroundImage: `url(${fondo})`,
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-    minHeight: '25em',
-    maxWidth: '60em',
-    marginTop: '20px',
-    marginBottom: '20px',
-    borderRadius: '15px'
-  };
+export const CardTratamiento = () => {
+	return (
+		<div className="">
+			<Swiper
+				slidesPerView={3}
+				spaceBetween={40}
+				loop={true}
+				grabCursor={true}
+				pagination={{
+					clickable: true,
+					dynamicBullets: true,
+				}}
+				navigation={true}
+				breakpoints={{
+					0: {
+						slidesPerView: 1,
+					},
+					520: {
+						slidesPerView: 2,
+					},
+					950: {
+						slidesPerView: 3,
+					},
+				}}
+				modules={[Pagination, Navigation]}
+				className="mySwiper">
+				{cardsData.map((card, index) => (
+					<div className="h-100">
+						<SwiperSlide key={index}>
+							<div className="card swiper-slide h-100">
+								<div className="image-content">
+									<span className="overlay"></span>
+									<div className="card-image">
+										<img src={card.image} alt="" className="card-img" />
+									</div>
+								</div>
+								<div className="card-content">
+									<h2 className="name">{card.name}</h2>
+									<h3 className="precio">${card.precio}</h3>
+									<p className="description" style={{ whiteSpace: 'pre-line' }}>
+										{card.description}
+									</p>
+									<NavLink to="/agendar" className="btn btn-primary w-100">Reservar</NavLink>
+								</div>
+							</div>
+						</SwiperSlide>
+					</div>
+				))}
+			</Swiper>
+		</div>
+	)
+}
 
-  const containerSize = {
-    maxWidth: '80em',
-  };
+export const CardTratamientoCorporales = () => {
+	return (
+		<div className="">
+			<Swiper
+				slidesPerView={3}
+				spaceBetween={40}
+				loop={true}
+				grabCursor={true}
+				pagination={{
+					clickable: true,
+					dynamicBullets: true,
+				}}
+				navigation={true}
+				modules={[Pagination, Navigation]}
+				className="mySwiper">
+				{cardsData2.map((card, index) => (
+					<div className="h-100">
+						<SwiperSlide key={index}>
+							<div className="card swiper-slide h-100">
+								<div className="image-content">
+									<span className="overlay"></span>
+									<div className="card-image">
+										<img src={card.image} alt="" className="card-img" />
+									</div>
+								</div>
+								<div className="card-content">
+									<h2 className="name">{card.name}</h2>
+									<h3 className="precio">${card.precio}</h3>
+									<p className="description" style={{ whiteSpace: 'pre-line' }}>
+										{card.description}
+									</p>
+									<NavLink to="/agendar" className="btn btn-primary w-100">Reservar</NavLink>
+								</div>
+							</div>
+						</SwiperSlide>
+					</div>
+				))}
+			</Swiper>
+		</div>
+	)
+}
 
-  const transparentBackground = {
-    backgroundColor: 'rgba(255, 129, 12, 0.8)',
-  };
-
-  return (
-    <div className="container-fluid bg-cover d-flex justify-content-center align-items-center" style={containerStyle}>
-      <div className="container d-flex justify-content-center align-items-center" style={containerSize}>
-        <div className="row align-items-stretch">
-          <div className="col-md-6 d-flex justify-content-center">
-            <div
-              className="rectangulo-con-imagen d-flex align-items-center flex-column"
-              style={{
-                ...transparentBackground,
-                padding: '20px',
-                border: '10px solid var(--color-secondary)',
-                borderRadius: '15px',
-                height: '100%',
-                width: '25em',
-              }}
-            >
-              <h2 className="text-center">MASAJE</h2>
-              <p className="text-center">Es un tipo de medicina integral en la que un masajista frota y presiona firmemente la piel, los músculos, los tendones y los ligamentos.</p>
-              <hr className='custom-border-tratamiento' style={{ width: '80%' }} />
-              <div className="d-flex justify-content-around align-items-center w-100">
-                <div className="text-block text-center" style={{ margin: '0', padding: '0' }}>
-                  <p>Precio</p>
-                  <hr className='custom-border-tratamiento' style={{ margin: '0', marginTop: '-5px' }} />
-                  <p>250.00</p>
-                </div>
-                <div className="text-block text-center" style={{ margin: '0', padding: '0' }}>
-                  <p>Duración</p>
-                  <hr className='custom-border-tratamiento' style={{ margin: '0', marginTop: '-5px' }} />
-                  <p>1 Hora</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="col-md-6 d-flex justify-content-center">
-            <div
-              className="imagen-con-marco d-flex justify-content-center align-items-center"
-              style={{
-                border: '10px solid var(--color-secondary)',
-                borderRadius: '15px',
-                padding: '0',
-                width: '20em',
-                height: '100%',
-                overflow: 'hidden',
-              }}
-            >
-              <img
-                src={servicio}
-                alt="Imagen con marco"
-                className="img-fluid"
-                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-export default CardTratamiento;
+export const CardTratamientoEstetico = () => {
+	return (
+		<div className="">
+			<Swiper
+				slidesPerView={3}
+				spaceBetween={40}
+				loop={true}
+				grabCursor={true}
+				pagination={{
+					clickable: true,
+					dynamicBullets: true,
+				}}
+				navigation={true}
+				breakpoints={{
+					0: {
+						slidesPerView: 1,
+					},
+					520: {
+						slidesPerView: 2,
+					},
+					950: {
+						slidesPerView: 3,
+					},
+				}}
+				modules={[Pagination, Navigation]}
+				className="mySwiper">
+				{cardsData3.map((card, index) => (
+					<div className="h-100">
+						<SwiperSlide key={index}>
+							<div className="card swiper-slide h-100">
+								<div className="image-content">
+									<span className="overlay"></span>
+									<div className="card-image">
+										<img src={card.image} alt="" className="card-img" />
+									</div>
+								</div>
+								<div className="card-content">
+									<h2 className="name">{card.name}</h2>
+									<h3 className="precio">${card.precio}</h3>
+									<p className="description" style={{ whiteSpace: 'pre-line' }}>
+										{card.description}
+									</p>
+									<NavLink to="/agendar" className="btn btn-primary w-100">Reservar</NavLink>
+								</div>
+							</div>
+						</SwiperSlide>
+					</div>
+				))}
+			</Swiper>
+		</div>
+	)
+}
