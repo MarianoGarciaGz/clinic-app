@@ -64,8 +64,8 @@ const FormReservar = () => {
 			!telefonoError &&
 			!nombresError &&
 			!apellidosError &&
-			selectedDate !== ''
-			// Agrega otras validaciones necesarias aquí
+			selectedDate !== '' &&
+			formData.email !== ''
 		) {
 			if (horaSeleccionada && tratamientoSeleccionado) {
 				setFormValid(true) // Habilita el botón si los campos están completos y no hay errores
@@ -75,7 +75,7 @@ const FormReservar = () => {
 		} else {
 			setFormValid(false) // Deshabilita el botón si algún campo está vacío o hay errores
 		}
-	})
+	},[formData, telefonoError, nombresError, apellidosError, selectedDate, horaSeleccionada, tratamientoSeleccionado, emailError]);
 
 	//Manejadores de Estados
 	const handleChangeDate = (date) => {
