@@ -5,11 +5,7 @@
 
 :root {
 	--color-primary: #2ebbcd;
-<<<<<<< HEAD
-	--color-secondary: #f5e1ce;
-=======
-	--color-secondary: #f3db00;
->>>>>>> c160d1edcf1cec86894eabe0a91cd35e8be58f2e
+	--color-secondary: #ff1b82;
 	--color-terciary: #ffc28a;
 	--color-white: #fafafa;
 	--color-black: #373737;
@@ -31,6 +27,18 @@
 	/* transitions */
 	--smooth: 1s;
 }
+
+.react-datepicker-wrapper {
+	display: inline-block; /* Asegura que ocupe solo el espacio necesario */
+	height: auto; /* Ajusta la altura automáticamente */
+	vertical-align: middle; /* Alinea verticalmente con el span de la imagen */
+  }
+
+  .input-group-text {
+	display: flex; /* Permite alinear verticalmente los elementos dentro del span */
+	align-items: center; /* Alinea verticalmente la imagen */
+	height: auto; /* Ajusta la altura automáticamente */
+  }
 
 /* Dark mode */
 /* @media (prefers-color-scheme: dark) {

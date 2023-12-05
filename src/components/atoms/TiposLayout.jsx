@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef, useState } from 'react';
+
 import { Container, Row, Col } from 'react-bootstrap'
 import image1 from '../Images/feliz.png'
 import image2 from '../Images/tratamientos.png'
@@ -7,6 +8,10 @@ import image4 from '../Images/experiencia.png'
 import TitleTipos from './TitleTipos'
 
 function TiposLayout() {
+
+	const [isVisible, setIsVisible] = useState(false);
+	const componentRef = useRef(null);
+
 	const counterStyles = {
 		textAlign: 'center',
 		color: 'var(--color-black)',
@@ -26,30 +31,53 @@ function TiposLayout() {
 	}
 
 	const animateNumbers = () => {
-		const numbers = document.querySelectorAll('.number')
+		const numbers = document.querySelectorAll('.number');
 		numbers.forEach((number) => {
-			const target = +number.getAttribute('data-number')
-			let count = 0
-			const updateCount = () => {
-				const increment = target / 100
-				count += increment
-				if (count < target) {
-					number.innerText = Math.ceil(count)
-					setTimeout(updateCount, 15)
-				} else {
-					number.innerText = target.toLocaleString() // Formatea el número con separadores de miles
-				}
+		  const target = +number.getAttribute('data-number');
+		  let count = 0;
+		  const updateCount = () => {
+			const increment = target / 100;
+			count += increment;
+			if (count < target) {
+			  number.innerText = Math.ceil(count);
+			  setTimeout(updateCount, 15);
+			} else {
+			  number.innerText = target.toLocaleString();
 			}
-			updateCount()
-		})
-	}
+		  };
+		  updateCount();
+		});
+	  };
 
-	useEffect(() => {
-		animateNumbers()
-	}, [])
+	  const handleIntersection = (entries) => {
+		const [entry] = entries;
+		if (entry.isIntersecting) {
+		  setIsVisible(true);
+		}
+	  };
+	
+	  useEffect(() => {
+		const observer = new IntersectionObserver(handleIntersection, {
+		  threshold: 0.5, // Puedes ajustar el valor según la visibilidad deseada
+		});
+	
+		if (componentRef.current) {
+		  observer.observe(componentRef.current);
+		}
+	
+		return () => {
+		  observer.disconnect();
+		};
+	  }, []);
+	
+	  useEffect(() => {
+		if (isVisible) {
+		  animateNumbers();
+		}
+	  }, [isVisible]);
 
 	return (
-		<Container className="my-5 py-5">
+		<Container className="my-5 py-5" ref={componentRef}>
 			<Row>
 				<Col Col md={3} className="d-flex align-items-stretch justify-content-center">
 					<div className="block-18 text-center" style={counterStyles}>
@@ -57,7 +85,7 @@ function TiposLayout() {
 							<div className="circle" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '50%', width: '120px', height: '120px', marginBottom: '5px' }}>
 								<img className="" src={image1} alt="Image 1" style={{ maxWidth: '50%', maxHeight: '50%' }} />
 							</div>
-							<TitleTipos title="Tenemos más de " />
+							<TitleTipos title="Tenemos más de "/>
 							<strong className="number" data-number="3000" style={{ fontSize: '2em', color: 'black' }}>
 								0
 							</strong>
@@ -73,7 +101,7 @@ function TiposLayout() {
 								<img src={image2} alt="Image 1" style={{ maxWidth: '50%', maxHeight: '50%' }} />
 							</div>
 							<TitleTipos title="Contamos con más de" />
-							<strong className="number" data-number="1000" style={{ fontSize: '2em', color: 'black' }}>
+							<strong className="number" data-number="500" style={{ fontSize: '2em', color: 'black' }}>
 								0
 							</strong>
 							<TitleTipos title="Productos de calidad" />
@@ -87,7 +115,7 @@ function TiposLayout() {
 								<img src={image3} alt="Image 1" style={{ maxWidth: '50%', maxHeight: '50%' }} />
 							</div>
 							<TitleTipos title="Contamos con más de" />
-							<strong className="number" data-number="200" style={{ fontSize: '2em', color: 'black' }}>
+							<strong className="number" data-number="50" style={{ fontSize: '2em', color: 'black' }}>
 								0
 							</strong>
 							<TitleTipos title="Equipos especializados" />

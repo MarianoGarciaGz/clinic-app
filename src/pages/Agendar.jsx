@@ -10,6 +10,8 @@ const Home = () => {
 		<>
 			<Header></Header>
 
+			<Carrusel></Carrusel>
+
 			<Heading title="Reserva aqui mismo"></Heading>
 
 			<FormReservar></FormReservar>

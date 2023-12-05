@@ -18,7 +18,7 @@ function Slogan() {
         setWriting(true);
         setWordIndex((prevIndex) => (prevIndex + 1) % words.length);
         setPreviousWords((prev) => [...prev, currentWord]);
-      }, 900); // La palabra completa se mantiene por 4 segundos antes de borrar
+      }, 800); // La palabra completa se mantiene por 4 segundos antes de borrar
     }, 3000); // Después de 6 segundos, inicia la escritura
 
     return () => clearInterval(interval);
@@ -37,7 +37,7 @@ function Slogan() {
           if (sliced === word) {
             setTimeout(() => {
               setWriting(false);
-            }, 900); // La palabra completa se mantiene por 4 segundos antes de borrar
+            }, 800); // La palabra completa se mantiene por 4 segundos antes de borrar
           }
           return sliced;
         } else {
@@ -54,7 +54,7 @@ function Slogan() {
       } else if (!writing) {
         letterIndex = 0;
       }
-    }, 200); // Ritmo más lento de escritura (ajusta este valor según desees)
+    }, 300); // Ritmo más lento de escritura (ajusta este valor según desees)
 
     return () => clearInterval(interval);
   }, [wordIndex, words, writing]);

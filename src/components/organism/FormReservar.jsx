@@ -10,6 +10,8 @@ import { useState, useEffect } from 'react'
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 import telefono from '../Images/telefono.png'
+import usuario from '../Images/usuario.png'
+import fondo from '../Images/O6.jpg'
 
 const FormReservar = () => {
 	// Obtén la fecha actual
@@ -64,8 +66,8 @@ const FormReservar = () => {
 			!telefonoError &&
 			!nombresError &&
 			!apellidosError &&
-			selectedDate !== ''
-			// Agrega otras validaciones necesarias aquí
+			selectedDate !== '' &&
+			formData.email !== ''
 		) {
 			if (horaSeleccionada && tratamientoSeleccionado) {
 				setFormValid(true) // Habilita el botón si los campos están completos y no hay errores
@@ -75,7 +77,7 @@ const FormReservar = () => {
 		} else {
 			setFormValid(false) // Deshabilita el botón si algún campo está vacío o hay errores
 		}
-	})
+	},[formData, telefonoError, nombresError, apellidosError, selectedDate, horaSeleccionada, tratamientoSeleccionado, emailError]);
 
 	//Manejadores de Estados
 	const handleChangeDate = (date) => {
@@ -199,74 +201,95 @@ const FormReservar = () => {
 		return day !== 0;
 	};
 
+	
+
 	return (
-		<div className="container mt-4 mb-4">
-			<div className="row justify-content-center ">
-				<div className="col-md-7 col-lg-8">
-					<form className="needs-validation" noValidate onSubmit={handleSubmit}>
-						<div className="row g-3">
-							<div className="col-sm-4">
-								<label htmlFor="nombres" className="form-label">
+		
+        <div className="row justify-content-center" style={{ }}>
+			<div className="col-md-6 mt-4 mb-4 position-relative" style={{ backgroundImage: `url(${fondo})`, backgroundSize: 'cover', backgroundPosition: 'center', width:'70%', borderColor:'var(--color-secondary)', border:'5px solid var(--color-secondary)' }}>
+			<div className="col-md-12 " style={{ backgroundColor: 'rgba(255, 27, 130, 0.8)'}}>
+            <form className="needs-validation " noValidate onSubmit={handleSubmit} 
+        >
+						<div className="row g-3 mt-4" style={{marginRight:'5px', marginLeft:'5px'}}>
+							<div className="col-sm-4" >
+								<label htmlFor="nombres" className="form-label" style={{color:'white', borderColor:'black', fontSize:'20px'}}>
 									Nombre(s)
 								</label>
 								<div className="input-group has-validation">
-									{/* ... */}
-									<input type="text" className={`form-control custom-border-color-orange ${nombresError ? 'is-invalid' : ''}`} id="nombres" placeholder="Nombre(s)" required="" onChange={handleChange} />
+									<span className="input-group-text bg-white custom-border-color-orange" style={{border:'2px solid '}}>
+										<img src={usuario} alt="correo" className="img-form" />
+									</span>
+									<input type="text" className={`form-control custom-border-color-orange ${nombresError ? 'is-invalid' : ''}`} id="nombres" placeholder="Nombre(s)" required="" onChange={handleChange} style={{ border:'2px solid'}}/>
 									{nombresError && <div className="invalid-feedback">Ingresa un nombre válido.</div>}
 								</div>
 							</div>
 
 							<div className="col-sm-4">
-								<label htmlFor="apellidos" className="form-label">
+								<label htmlFor="apellidos" className="form-label" style={{color:'white', borderColor:'black', fontSize:'20px'}}>
 									Apellidos
 								</label>
 								<div className="input-group has-validation">
-									{/* ... */}
-									<input type="text" className={`form-control custom-border-color-orange ${apellidosError ? 'is-invalid' : ''}`} id="apellidos" placeholder="Apellidos" required="" onChange={handleChange} />
+								<span className="input-group-text bg-white custom-border-color-orange" style={{border:'2px solid '}}>
+										<img src={usuario} alt="correo" className="img-form" />
+									</span>
+									<input type="text" style={{border:'2px solid '}} className={`form-control custom-border-color-orange ${apellidosError ? 'is-invalid' : ''}`} id="apellidos" placeholder="Apellidos" required="" onChange={handleChange} />
 									{apellidosError && <div className="invalid-feedback">Ingresa un apellido válido.</div>}
 								</div>
 							</div>
 
 							<div className="col-sm-4">
-								<label htmlFor="username" className="form-label">
-									Comentarios
+								<label htmlFor="telefono" className="form-label" style={{color:'white', borderColor:'black', fontSize:'20px'}}>
+									Teléfono
 								</label>
 								<div className="input-group has-validation">
-									<span className="input-group-text bg-white custom-border-color-orange">
-										<img src={telefono} alt="comentarios" className="img-form" />
+								<span className="input-group-text bg-white custom-border-color-orange" style={{border:'2px solid '}}>
+										<img src={telefono} alt="correo" className="img-form" />
 									</span>
-<<<<<<< HEAD
-									<input type="text" className="form-control bg-white custom-border-color-orange" id="comentarios" placeholder="Comentarios..." onChange={handleChange} />
-									<div className="invalid-feedback">Escribe aquí...</div>
-=======
-									<DatePicker
-										selected={selectedDate}
-										onChange={handleChangeDate}
-										className="form-select bg-white custom-border-color-orange"
-										id="fecha"
-										placeholderText="Seleccionar..."
-										dateFormat="dd/MM/yy"
-										required
-										maxDate={maxDate}
-										minDate={new Date(Date.now())}
-										filterDate={filterWeekends}
-									/>
-									<div className="invalid-feedback">Selecciona una fecha válida.</div>
->>>>>>> c160d1edcf1cec86894eabe0a91cd35e8be58f2e
+									<input type="text" style={{border:'2px solid '}}  className={`form-control bg-orange custom-border-color-orange ${telefonoError ? 'is-invalid' : ''}`} id="telefono" placeholder="Teléfono" required="" onChange={handleChange} />
+									{telefonoError && <div className="invalid-feedback">Ingresa un teléfono válido.</div>}
 								</div>
 							</div>
-							
 
 							<div className="col-sm-6">
-								<label htmlFor="username" className="form-label">
+							<label htmlFor="username" className="form-label" style={{color:'white', borderColor:'black', fontSize:'20px'}}>
+								Fecha
+							</label>
+							<div className="input-group has-validation">
+								<span className="input-group-text bg-white custom-border-color-orange" style={{border:'2px solid '}}>
+								<img src={fecha} alt="fecha" className="img-form" />
+								</span>
+								<div className='form-select bg-white custom-border-color-orange style' style={{ height: '47px', borderLeftright:'0',border:'2px solid '}}>
+								<DatePicker
+								selected={selectedDate}
+								onChange={handleChangeDate}
+								className={`${selectedDate ? '' : 'is-invalid'}`}
+								id="fecha"
+								placeholderText="Seleccionar..."
+								dateFormat="dd/MM/yy"
+								required
+								maxDate={maxDate}
+								minDate={new Date(Date.now())}
+								filterDate={filterWeekends}
+								/>
+								</div>
+								{!selectedDate && (
+								<div className="invalid-feedback">Selecciona una fecha válida.</div>
+								)}
+							</div>
+							</div>
+
+
+							<div className="col-sm-6">
+								<label htmlFor="username" className="form-label" style={{color:'white', borderColor:'black', fontSize:'20px'}}>
 									Hora
 								</label>
 								<div className="input-group has-validation">
-									<span className="input-group-text bg-white custom-border-color-orange">
+									<span className="input-group-text bg-white custom-border-color-orange" style={{border:'2px solid '}}>
 										<img src={hora} alt="hora" className="img-form" />
 									</span>
 									<select
-										className={`form-select bg-white custom-border-color-orange ${horaSeleccionada ? '' : (horaTouched ? 'is-invalid' : '')}`} id="hora"
+										className={`form-select bg-white custom-border-color-orange  ${horaSeleccionada ? '' : (horaTouched ? 'is-invalid' : '')}`} id="hora"
+										style={{color:'GrayText', border:'2px solid #000000'}}
 										required
 										onChange={handleChange}
 										value={formData.hora}>
@@ -291,15 +314,16 @@ const FormReservar = () => {
 							</div>
 
 							<div className="col-sm-12">
-								<label htmlFor="username" className="form-label">
-									Correo (Te Enviaremos un Codigo para poder confirmar tu Solicitud)
+								<label htmlFor="username" className="form-label" style={{color:'white', borderColor:'black', fontSize:'20px'}}>
+									Correo (Te enviaremos un código para poder confirmar tu solicitud)
 								</label>
 								<div className="input-group has-validation">
-									<span className="input-group-text bg-white custom-border-color-orange">
+									<span className="input-group-text bg-white custom-border-color-orange" style={{border:'2px solid '}}>
 										<img src={correo} alt="correo" className="img-form" />
 									</span>
 									<input
 										type="email"
+										style={{border:'2px solid '}}
 										className={`form-select bg-white custom-border-color-orange ${emailError ? 'is-invalid' : ''}`}
 										id="email"
 										placeholder="Correo"
@@ -309,20 +333,21 @@ const FormReservar = () => {
 							</div>
 
 							<div className="col-12">
-								<label htmlFor="username" className="form-label">
+								<label htmlFor="username" className="form-label" style={{color:'white', borderColor:'black', fontSize:'20px'}}>
 									Tratamiento
 								</label>
 								<div className="input-group has-validation">
-									<span className="input-group-text bg-white custom-border-color-orange">
+									<span className="input-group-text bg-white custom-border-color-orange" style={{border:'2px solid '}}>
 										<img src={tratamiento} alt="tratamiento" className="img-form" />
 									</span>
 									<select
 										className={`form-select bg-white custom-border-color-orange ${tratamientoSeleccionado ? '' : (tratamientoTouched ? 'is-invalid' : '')}`}
 										id="tratamiento"
+										style={{color:'GrayText', border:'2px solid #000000'}}
 										required onChange={handleChange}
 										value={formData.tratamiento}
 									>
-										<option value="">Seleccionar...</option>
+										<option value="" >Seleccionar...</option>
 										{[...cardsData, ...cardsData2, ...cardsData3].map((option, index) => (
 											<option key={index} value={option.name}>
 												{option.name}
@@ -330,29 +355,25 @@ const FormReservar = () => {
 										))}
 									</select>
 									{tratamientoTouched && formData.tratamiento === '' && (
-										<div className="invalid-feedback">Selecciona un tratamiento válido..</div>
+										<div className="invalid-feedback" style={{border:'2px solid '}}> Selecciona un tratamiento válido..</div>
 									)}								</div>
 							</div>
 
 							<div className="col-sm-12">
-								<label htmlFor="username" className="form-label">
+								<label htmlFor="username" className="form-label" style={{color:'white', borderColor:'black', fontSize:'20px'}}>
 									Comentarios (opcional)
 								</label>
 								<div className="input-group has-validation">
-									<span className="input-group-text bg-white custom-border-color-orange">
+									<span className="input-group-text bg-white custom-border-color-orange" style={{border:'2px solid '}}>
 										<img src={comentarios} alt="comentarios" className="img-form" />
 									</span>
-									<input type="text" className="form-control bg-white custom-border-color-orange" id="comentarios" placeholder="Comentarios..." onChange={handleChange} />
+									<input type="text" style={{border:'2px solid '}} className="form-control bg-white custom-border-color-orange" id="comentarios" placeholder="Comentarios..." onChange={handleChange} />
 									<div className="invalid-feedback">Escribe aquí...</div>
 								</div>
 							</div>
 						</div>
 
-						
-
-						
-
-						<div className="text-center">
+						<div className="text-center p-3 mb-4">
 							<button
 								className={`btn btn-primary btn-lg-8 mt-4 w-50 ${formValid ? '' : 'disabled'}`}
 								type="submit"
@@ -364,7 +385,8 @@ const FormReservar = () => {
 					</form>
 				</div>
 			</div>
-		</div>
+		
+			</div>
 	)
 }
 

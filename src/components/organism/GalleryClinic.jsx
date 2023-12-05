@@ -185,6 +185,7 @@ const Gallery = () => {
 		maxWidth: '90%',
 		margin: '0',
 		textAlign: 'center', // Centrar el texto
+		fontSize: '20px'
 	}
 
 	return (
