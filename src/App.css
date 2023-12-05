@@ -151,11 +151,11 @@ body {
 }
 
 .Header .active {
-	color: var(--color-secondary) !important;
+	color: var(--color-white) !important;
 }
 
 .Header--transparent .active {
-	color: var(--color-secondary) !important;
+	color: var(--color-white) !important;
 	border-color: var(--color-secondary);
 }
 

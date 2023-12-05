@@ -46,9 +46,6 @@ const Footer = () => {
 			</div>
 			<div className="text-center p-2">
 				<p className="mb-0">© 2023 Clínica de Belleza Lily.</p>
-				<a className="text-reset fw-bold" href="/privacy.html">
-					Todos los derechos reservados. Consulta nuestro Aviso de Privacidad.
-				</a>
 			</div>
 		</footer>
 	)
