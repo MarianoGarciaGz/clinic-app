@@ -5,7 +5,7 @@
 
 :root {
 	--color-primary: #2ebbcd;
-	--color-secondary: #ff810c;
+	--color-secondary: #f5e1ce;
 	--color-terciary: #ffc28a;
 	--color-white: #fafafa;
 	--color-black: #373737;
@@ -725,7 +725,26 @@ body {
 .custom-border-color-orange {
 	border: 2px solid var(--color-secondary); /* Cambia el color del borde a naranja */
 	border-radius: 7px;
+	border-top-right-radius: 0; /* Elimina el borde redondeado en la esquina superior derecha */
+    border-bottom-right-radius: 0;
 }
+
+.custom-border-color-orange .form-control {
+    border-top-left-radius: 0; /* Mantén el borde redondeado en la esquina superior izquierda */
+    border-bottom-left-radius: 0; /* Mantén el borde redondeado en la esquina inferior izquierda */
+    border-top-right-radius: 5px; /* Establece el radio en la esquina superior derecha */
+    border-bottom-right-radius: 5px; /* Establece el radio en la esquina inferior derecha */
+    border-left: none; /* Elimina el borde izquierdo si es necesario */
+    /* Puedes ajustar el valor de border-width, border-style y border-color según sea necesario */
+    border-right: 1px solid orange; /* Añade el borde derecho */
+}
+
+.custom-border-color-orange .input-group-text {
+    border-right: none; /* Elimina el borde derecho */
+    border-top-right-radius: 0; /* Elimina el borde redondeado en la esquina superior derecha */
+    border-bottom-right-radius: 0; /* Elimina el borde redondeado en la esquina inferior derecha */
+}
+
 
 /* CONTACTO */
 

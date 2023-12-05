@@ -189,40 +189,18 @@ const FormReservar = () => {
 							</div>
 
 							<div className="col-sm-4">
-								<label htmlFor="telefono" className="form-label">
-									Teléfono
-								</label>
-								<div className="input-group has-validation">
-									<span className="input-group-text custom-border-color-orange">
-										<img src={telefono} alt="telefono" className="img-form" />
-									</span>
-									<input type="text" className={`form-control custom-border-color-orange ${telefonoError ? 'is-invalid' : ''}`} id="telefono" placeholder="Teléfono" required="" onChange={handleChange} />
-									{telefonoError && <div className="invalid-feedback">Ingresa un teléfono válido.</div>}
-								</div>
-							</div>
-
-							<div className="col-sm-6">
 								<label htmlFor="username" className="form-label">
-									Fecha
+									Comentarios
 								</label>
 								<div className="input-group has-validation">
 									<span className="input-group-text bg-white custom-border-color-orange">
-										<img src={fecha} alt="fecha" className="img-form" />
+										<img src={telefono} alt="comentarios" className="img-form" />
 									</span>
-									<DatePicker
-										selected={selectedDate}
-										onChange={handleChangeDate}
-										className="form-select bg-white custom-border-color-orange"
-										id="fecha"
-										placeholderText="Seleccionar..."
-										dateFormat="dd/MM/yy"
-										required
-										maxDate={maxDate}
-										minDate={new Date(Date.now())}
-									/>
-									<div className="invalid-feedback">Selecciona una fecha válida.</div>
+									<input type="text" className="form-control bg-white custom-border-color-orange" id="comentarios" placeholder="Comentarios..." onChange={handleChange} />
+									<div className="invalid-feedback">Escribe aquí...</div>
 								</div>
 							</div>
+							
 
 							<div className="col-sm-6">
 								<label htmlFor="username" className="form-label">
@@ -273,6 +251,10 @@ const FormReservar = () => {
 								</div>
 							</div>
 						</div>
+
+						
+
+						
 
 						<div className="text-center">
 							<button className={`btn btn-primary btn-lg-8 mt-4 w-50 ${formValid ? '' : 'disabled'}`} type="submit" style={{ backgroundColor: formValid ? '' : '#CCCCCC' }} disabled={!formValid}>
