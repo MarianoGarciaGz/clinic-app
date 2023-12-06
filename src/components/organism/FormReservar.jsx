@@ -246,7 +246,7 @@ const FormReservar = () => {
 										<img src={telefono} alt="correo" className="img-form" />
 									</span>
 									<input type="text" style={{border:'2px solid '}}  className={`form-control bg-orange custom-border-color-orange ${telefonoError ? 'is-invalid' : ''}`} id="telefono" placeholder="Teléfono" required="" onChange={handleChange} />
-									{telefonoError && <div className="invalid-feedback">Ingresa un teléfono válido.</div>}
+									{telefonoError && <div className="invalid-feedback" style={{color:'white '}}>Ingresa un teléfono válido.</div>}
 								</div>
 							</div>
 
@@ -368,7 +368,7 @@ const FormReservar = () => {
 										<img src={comentarios} alt="comentarios" className="img-form" />
 									</span>
 									<input type="text" style={{border:'2px solid '}} className="form-control bg-white custom-border-color-orange" id="comentarios" placeholder="Comentarios..." onChange={handleChange} />
-									<div className="invalid-feedback">Escribe aquí...</div>
+									<div className="invalid-feedback" >Escribe aquí...</div>
 								</div>
 							</div>
 						</div>
