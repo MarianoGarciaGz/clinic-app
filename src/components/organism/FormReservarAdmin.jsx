@@ -200,6 +200,8 @@ const FormReservar = () => {
 								<span className="input-group-text bg-white custom-border-color-orange" style={{border:'2px solid var(--color-secondary)'}}>
 										<img src={usuario} alt="correo" className="img-form" />
 									</span>
+
+
 									<input type="text" className={`form-control custom-border-color-orange ${nombresError ? 'is-invalid' : ''}`} id="nombres" placeholder="Nombre(s)" required="" onChange={handleChange} />
 									{nombresError && <div className="invalid-feedback">Ingresa un nombre válido.</div>}
 								</div>
@@ -213,6 +215,9 @@ const FormReservar = () => {
 								<span className="input-group-text bg-white custom-border-color-orange" style={{border:'2px solid var(--color-secondary)'}}>
 										<img src={usuario} alt="correo" className="img-form" />
 									</span>
+
+
+
 									<input type="text" className={`form-control custom-border-color-orange ${apellidosError ? 'is-invalid' : ''}`} id="apellidos" placeholder="Apellidos" required="" onChange={handleChange} />
 									{apellidosError && <div className="invalid-feedback">Ingresa un apellido válido.</div>}
 								</div>
@@ -240,6 +245,12 @@ const FormReservar = () => {
 								<img src={fecha} alt="fecha" className="img-form" />
 								</span>
 								<div className='form-select bg-white custom-border-color-orange style' style={{ height: '47px', borderLeftright:'0',border:'2px solid var(--color-secondary)'}}>
+
+									<span className="input-group-text bg-white custom-border-color-orange">
+										<img src={fecha} alt="fecha" className="img-form" />
+									</span>
+									
+
 									<DatePicker
 										selected={selectedDate}
 										onChange={handleChangeDate}

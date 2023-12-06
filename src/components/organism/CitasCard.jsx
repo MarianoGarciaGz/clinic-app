@@ -44,7 +44,7 @@ const CitasCard = ({ _id, nombres, fecha, hora, tratamiento, telefono, comentari
 	const isFechaFutura = fechaReserva >= currentDate
 
 	return (
-		<div className="card template-card p-3 col-sm-12 col-md-6 col-lg-4 mb-3">
+		<div className="card template-card p-3 col-sm-12 col-md-6 col-lg-4 mb-3 w-100">
 			<form className="card-body">
 				<h2 className="solicitud-h2 py-2 text-center mb-3">{nombres}</h2>
 				<p className="solicitud-p">
