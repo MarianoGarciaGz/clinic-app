@@ -246,11 +246,7 @@ const FormReservar = () => {
 								</span>
 								<div className='form-select bg-white custom-border-color-orange style' style={{ height: '47px', borderLeftright:'0',border:'2px solid var(--color-secondary)'}}>
 
-									<span className="input-group-text bg-white custom-border-color-orange">
-										<img src={fecha} alt="fecha" className="img-form" />
-									</span>
 									
-
 									<DatePicker
 										selected={selectedDate}
 										onChange={handleChangeDate}
